@@ -9,13 +9,22 @@ import hatb from './hat2b.png';
 
 import t from './t.png';
 import tb from './t-back.png';
-import cigarette from './image/accessoires/cigarette.png';
-import smoke from './image/accessoires/smoke.png';
-import smoke2 from './image/accessoires/smoke2.png';
+import cigarette from './image/accessories/cigarette.png';
+import smoke from './image/accessories/smoke.png';
+import smoke2 from './image/accessories/smoke2.png';
+
+import waveOgv from './image/accessories/glass/wave.ogv';
+
+
+//Accessoires
+//Glass
+import glass01a from './image/accessories/glass/glass_01_a.png';
+import glass01b from './image/accessories/glass/glass_01_b.png';
+
 
 
 import TWEEN from '@tweenjs/tween.js';
-
+let scene, camera, renderer ;
 
 const base64ToArrayBuffer = function(base64) {
   var binary_string = window.atob(base64);
@@ -38,14 +47,16 @@ const getBuffer = function(img){
 }
 
 const initScene = () =>{
+
   scene = new THREE.Scene();
   scene.name = "punk";
   camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
   
-  renderer = new THREE.WebGLRenderer({antialias: true});
-  renderer.setClearColor( 0xffffff, 50);
+  renderer = new THREE.WebGLRenderer();
+  renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
-
+  renderer.setClearColor( 0xffffff, 50);
+  // renderer.domElement.addEventListener('click', play, false);
 
   camera.position.x = 12;
   camera.position.y = -12;
@@ -122,9 +133,7 @@ const addWideFrame = (object) =>{
   object.add(wireframe);
 }
 
-
-
-
+//todo utiliser methode addpixel et y passer une texture ?
 const addSmoke = (name, png, scene, {r, g, b, a}, {x, y, z}) => {
 
   const group = new THREE.Group();
@@ -228,12 +237,12 @@ const popping = (materialColor, color1, color2) =>{
 
   },2000)
 
-  
+
 
 
 }
 
-var scene, camera, renderer;
+
 class App extends Component {
 
   componentDidMount() {
@@ -248,6 +257,12 @@ class App extends Component {
     const cigaretteBuffer = getBuffer(cigarette);
     const smokeBuffer = getBuffer(smoke);
     const smoke2Buffer = getBuffer(smoke2);
+
+    const glass01aBuffer = getBuffer(glass01a);
+    const glass01bBuffer = getBuffer(glass01b);
+
+
+    addPixelBlockToScene("glassA", glass01aBuffer, scene, 1, 2);
 
     addPixelBlockToScene("face", tBuffer, scene,1,1);
     addPixelBlockToScene("faceback", tbBuffer, scene, 1, 0);
