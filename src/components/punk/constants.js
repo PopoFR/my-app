@@ -10,14 +10,46 @@ export const glass01_a =  {name: 'glass01_a', src: require('./img/eye/glass01_a.
 export const glass01_b =  {name: 'glass01_b', src: require('./img/eye/glass01_b.png'), thikness: 2, z: 1} 
 
 
+
 export const alien_male =  {
     name: 'alienMale', 
-    elem: [
+    elems: [
         {name: "alienMaleFace", src: require('./img/body/alien_male_face.png'), thikness: 1, z: 1},
-        {name: "alienMaleFace", src: require('./img/body/alien_male_face.png'), thikness: 1, z: 0}
+        {name: "alienMaleFace", src: require('./img/body/alien_male_back.png'), thikness: 1, z: 0}
     ]
 } 
 
+export const glass01 =  {
+    name: 'glass01', 
+    elems: [
+        {name: "glass01_a", src: require('./img/eye/glass01_a.png'), thikness: 1, z: 2}, 
+        {name: "glass01_b", src: require('./img/eye/glass01_b.png'), thikness: 1, z: 2} 
+    ]
+} 
+
+export const hat01 =  {
+    name: 'hat01', 
+    elems: [
+        {name: "hat_cop", src: require('./img/hat/hat_cop.png'), thikness: 3, z: 2}, 
+        {name: "hat_cop_back", src: require('./img/hat/hat_cop_back.png'), thikness: 2, z: 0} 
+    ]
+} 
+
+export const beard01 =  {
+    name: 'beard01', 
+    elems: [
+        {name: "beard01", src: require('./img/mouth/beard01.png'), thikness: 1, z: 2}, 
+    ]
+} 
+
+export const smoke =  {
+    name: 'smoke', 
+    elems: [
+        {name: "smoke", src: require('./img/sfx/smoke/smoke.png'), thikness: 1, z: 2}, 
+        {name: "smoke2", src: require('./img/sfx/smoke/smoke2.png'), thikness: 1, z: 2}
+
+    ]
+} 
 
 
 // import alien_male_back from '../img/body/alien_male_back.png';

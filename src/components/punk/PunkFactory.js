@@ -8,12 +8,14 @@ import * as Constants from './constants.js'
 export function generatePunk(scene){
     console.log("PunkFactory: addPunk");
 
-    Face.generateBody(scene, Constants.alien_male_face, Constants.alien_male_back);
-
+    // Face.generateBody(scene, Constants.alien_male_face, Constants.alien_male_back);
+    Face.generateBody(scene, Constants.alien_male);
     // Face.generateEye(scene, Constants.eyes01);
 
-    Face.generateGlass(scene, Constants.glass01_a, Constants.glass01_b);
-    
+    Face.generateGlass(scene, Constants.glass01);
+    Face.generateHat(scene, Constants.hat01);
+    Face.generateMouth(scene, Constants.beard01);
+
 
     // Face.generateHat(scene);
 

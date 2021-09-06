@@ -3,31 +3,35 @@
 
 import * as Pixel from '../../Pixel.js';
 
-export function generateBody(scene, face, back){
+export function generateBody(scene, obj){
     console.log("Face: generateFace");
-    generateElem(scene, face);
-    generateElem(scene, back);
+    generateElem(scene, obj);
 }
 
-export function generateHat(scene, face, back){
+export function generateHat(scene, obj){
     console.log("Face: generateHat");
-    generateElem(scene, face);
-    generateElem(scene, back);
+    generateElem(scene, obj);
 }
 
-export function generateGlass(scene, elemA, elemB){
+export function generateGlass(scene, obj){
     console.log("Face: generateGlass");
-    generateElem(scene, elemA);
-    generateElem(scene, elemB);
+    generateElem(scene, obj);
 }
 
-export function generateEye(scene, elem){
+export function generateEye(scene, obj){
     console.log("Face: generateEye");
-    generateElem(scene, elem);
+    generateElem(scene, obj);
 }
 
-function generateElem(scene, elem){
-    let elemImg = Pixel.getBuffer(elem.src);
-    Pixel.addPixelBlockToScene(elem.name, elemImg, scene, elem.thikness, elem.z);
+export function generateMouth(scene, obj){
+    console.log("Face: generateMouth");
+    generateElem(scene, obj);
 }
 
+
+function generateElem(scene, obj){
+    obj.elems.forEach(element => {
+        let elemImg = Pixel.getBuffer(element.src);
+        Pixel.addPixelBlockToScene(element.name, elemImg, scene, element.thikness, element.z);
+    });
+}
