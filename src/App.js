@@ -16,6 +16,7 @@ import smoke2 from './image/accessories/smoke2.png';
 import waveOgv from './image/accessories/glass/wave.ogv';
 
 
+
 //Accessoires
 //Glass
 import glass01a from './image/accessories/glass/glass_01_a.png';
