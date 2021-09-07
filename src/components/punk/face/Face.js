@@ -28,10 +28,19 @@ export function generateMouth(scene, obj){
     generateElem(scene, obj);
 }
 
+export function generateMouthAccessories(scene, obj){
+    console.log("Face: generateMouthAccessories");
+    generateElem(scene, obj);
+}
 
-function generateElem(scene, obj){
+export function generateSfx(scene, obj){
+    console.log("Face: generateSfx");
+    generateElem(scene, obj);
+}
+
+export function generateElem(scene, obj){
     obj.elems.forEach(element => {
         let elemImg = Pixel.getBuffer(element.src);
-        Pixel.addPixelBlockToScene(element.name, elemImg, scene, element.thikness, element.z);
+        Pixel.addPixelBlockToScene(element.name, elemImg, scene, element.thikness, element.z, element.rotation);
     });
 }

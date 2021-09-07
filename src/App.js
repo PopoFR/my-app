@@ -124,7 +124,7 @@ const addWideFrame = (object) =>{
     color: 0x000000, 
     linewidth: 4,
     transparent: true,
-    opacity: 0,
+    opacity: 1,
     name: "smoka"
   } );
 

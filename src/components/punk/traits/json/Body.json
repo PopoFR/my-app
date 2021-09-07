@@ -1,0 +1,12 @@
+[
+    {
+        "name": "male01",
+        "elems": 
+        [{
+            "name": "male01", 
+            "src": "./img/body/male01.png", 
+            "thikness": 1, 
+            "z": 1
+        }]
+    }
+]

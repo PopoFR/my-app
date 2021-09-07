@@ -1,0 +1,12 @@
+[
+    {
+        "name": "beard01",
+        "elems": 
+        [{
+            "name": "beard01", 
+            "src": "./img/mouth/beard01.png", 
+            "thikness": 1, 
+            "z": 2
+        }]
+    }
+]

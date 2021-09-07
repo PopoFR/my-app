@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Black",
+        "hex": "#713f1d"
+    },
+    {
+        "name": "Tanned",
+        "hex": "#ae8b61"
+    },
+    {
+        "name": "White",
+        "hex": "#dbb180"
+    },
+    {
+        "name": "Alien",
+        "hex": "#c8fbfb"
+    },
+    {
+        "name": "Ape",
+        "hex": "#352410"
+    },
+    {
+        "name": "Orc",
+        "hex": "#7da269"
+    },
+    {
+        "name": "Vampire",
+        "hex": "#ead9d9"
+    }
+]
