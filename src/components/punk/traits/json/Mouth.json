@@ -1,12 +1,37 @@
 [
     {
         "name": "beard01",
+        "id": "0",
         "elems": 
         [{
             "name": "beard01", 
-            "src": "./img/mouth/beard01.png", 
+            "src": "./traits/img/male/mouth/beard01.png", 
             "thikness": 1, 
             "z": 2
         }]
+    },
+    {
+        "name": "mouth01",
+        "id": "1",
+        "elems": 
+        [{
+            "name": "mouth01", 
+            "src": "./traits/img/male/mouth/mouth01.png", 
+            "thikness": 1, 
+            "z": 1
+        }]
+    },
+    {
+        "name": "muttonchops01",
+        "id": "2",
+        "elems": 
+        [{
+            "name": "muttonchops", 
+            "src": "./traits/img/male/mouth/muttonchops.png", 
+            "thikness": 1.5 , 
+            "z": 1
+        }]
     }
+    
+    
 ]
