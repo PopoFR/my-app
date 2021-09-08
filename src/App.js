@@ -9,7 +9,7 @@ import hatb from './hat2b.png';
 
 import t from './t.png';
 import tb from './t-back.png';
-import cigarette from './image/accessories/cigarette.png';
+import cigarette from './components/punk/traits/img/male/accessories/cigarette.png';
 import smoke from './image/accessories/smoke.png';
 import smoke2 from './image/accessories/smoke2.png';
 

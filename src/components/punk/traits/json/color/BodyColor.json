@@ -1,30 +1,65 @@
 [
     {
         "name": "Black",
-        "hex": "#713f1d"
+        "hexs": {
+            "body": "#713f1d",
+            "eyebrow": "#562600",
+            "eye": "#723709",
+            "reflect": "#e7cba9"
+        }
     },
     {
         "name": "Tanned",
-        "hex": "#ae8b61"
+        "hexs": {
+            "body": "#ae8b61",
+            "eyebrow": "#86581e",
+            "eye": "#a77c47",
+            "reflect": "#b69f82"
+        }
     },
     {
         "name": "White",
-        "hex": "#dbb180"
+        "hexs": {
+            "body": "#dbb180",
+            "eyebrow": "#a66e2c",
+            "eye": "#d29d60",
+            "reflect": "#e7cba9"
+        }
     },
     {
         "name": "Alien",
-        "hex": "#c8fbfb"
+        "hexs": {
+            "body": "#c8fbfb",
+            "eyebrow": "",
+            "eye": "",
+            "reflect": ""
+        }
     },
     {
         "name": "Ape",
-        "hex": "#352410"
+        "hexs": {
+            "body": "#352410",
+            "eyebrow": "#6a563f",
+            "eye": "#a98c6b",
+            "reflect": ""
+        }
     },
     {
         "name": "Orc",
-        "hex": "#7da269"
+        "hexs": {
+            "body": "#7da269",
+            "eyebrow": "#5e7253",
+            "eye": "#5e7253",
+            "reflect": "#9bbc88"
+        }
     },
     {
         "name": "Vampire",
-        "hex": "#ead9d9"
+        "hexs": {
+            "body": "#ead9d9",
+            "eyebrow": "#a58d8d",
+            "eye": "#c9b2b2",
+            "reflect": "#ffffff"
+        }
     }
 ]

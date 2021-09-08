@@ -1,7 +1,7 @@
 [
     {
         "name": "Black",
-        "hex": "#000000"
+        "hex": "#100C07"
     },
     {
         "name": "Blond",
@@ -9,6 +9,14 @@
     },
     {
         "name": "Brown",
-        "hex": "#a66e2c"
+        "hex": "#2c1608"
+    },
+    {
+        "name": "Ginger",
+        "hex": "#b06500"
+    },
+    {
+        "name": "Grey",
+        "hex": "#e9e4dc"
     }
 ]

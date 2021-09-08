@@ -1,29 +1,52 @@
 [
     {
         "name": "eyes01",
+        "id": "0",
         "elems": 
         [{
             "name": "eyes01", 
-            "src": "./img/eye/eye01.png", 
+            "src": "./traits/img/male/eye/eye01.png", 
             "thikness": 1, 
             "z": 1
         }]
     },
-
+    {
+        "name": "eyes02",
+        "id": "1",
+        "elems": 
+        [{
+            "name": "eye02", 
+            "src": "./traits/img/male/eye/eye02.png", 
+            "thikness": 1, 
+            "z": 1
+        }]
+    },
+    {
+        "name": "eyes03",
+        "id": "2",
+        "elems": 
+        [{
+            "name": "eyes03", 
+            "src": "./traits/img/male/eye/eye03.png", 
+            "thikness": 1, 
+            "z": 1
+        }]
+    },
     {
         "name": "glass01",
+        "id": "3",
         "elems": 
         [{
             "name": "glass01_a", 
-            "src": "./img/eye/glass01_a.png", 
+            "src": "./traits/img/male/glass/glass01_a.png", 
             "thikness": 1, 
-            "z": 2
+            "z": 1.5
         },
         {
             "name": "glass01_b", 
-            "src": "./img/eye/glass01_b.png", 
+            "src": "./traits/img/male/glass/glass01_b.png", 
             "thikness": 1, 
-            "z": 2
-        }]
-    }
+            "z": 1.5
+        }
+    ]}
 ]
