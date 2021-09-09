@@ -3,7 +3,7 @@ import * as UPNG from 'upng-js';
 import TWEEN from '@tweenjs/tween.js';
 
 
-export function addPixelBlockToScene(name, png, scene, customColor, thikness = 1, z = 0, orientation = null, wideFrame = true){
+export function addPixelBlockToScene(pixels, name, png, scene, customColor, thikness = 1, z = 0, orientation = null, wideFrame = true){
   console.log(`Pixel: addPixelBlockToScene(${customColor})`);
 
   const group = new THREE.Group();
@@ -33,8 +33,15 @@ export function addPixelBlockToScene(name, png, scene, customColor, thikness = 1
           if (wideFrame)
               addWideFrame(cube);
 
-          group.add(cube);
-      }
+          // console.log(`x: ${x}   y: ${y}`)
+
+          //on s'assure qu'aucun pixel ne se chevauche.
+          //Si 2 pixel on un x&&y identique ou un xz ou un yz
+          if (!pixels.some(elem => elem.x  == x && elem.y == y && elem.z == z)){
+            pixels.push({x, y, z});
+            group.add(cube);
+          }
+      } 
     }
   }
   
@@ -49,6 +56,8 @@ export function addPixelBlockToScene(name, png, scene, customColor, thikness = 1
   model.name = name;
   model.add(group);   
   scene.add(model);
+
+  return pixels;
 }   
 
 

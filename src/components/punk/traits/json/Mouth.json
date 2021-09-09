@@ -28,8 +28,8 @@
         [{
             "name": "muttonchops", 
             "src": "./traits/img/male/mouth/muttonchops.png", 
-            "thikness": 1.5 , 
-            "z": 1
+            "thikness": 0.5, 
+            "z": 1.5
         }]
     }
     

@@ -5,9 +5,15 @@
         "hex" : "#846f6a"
     },
     {
-        "id": "0",
+        "id": "1",
         "name": "casque_audio_ecouteur",
         "hex" : "#808080"
+    },
+    {
+        "id": "2",
+        "name": "hearing",
+        "hex" : "#ffd700"
     }
+    
     
 ]

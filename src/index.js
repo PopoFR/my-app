@@ -10,6 +10,7 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
+    <div id="scene-container"></div>
     <Scene />
     {/* <Test/> */}
   </React.StrictMode>,

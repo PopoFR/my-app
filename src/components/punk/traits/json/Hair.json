@@ -1,5 +1,6 @@
 [
     {
+        "id": "0",
         "name": "hair_default",
         "elems": 
         [{
@@ -10,83 +11,94 @@
         }]
     },
     {
+        "id": "1",
         "name": "hair01",
         "elems": 
         [{
             "name": "hair01_face", 
             "src": "./traits/img/male/hair/hair01_face.png", 
             "thikness": 2, 
-            "z": 1.5
+            "z": 1
         },
         {
             "name": "hair01_back", 
             "src": "./traits/img/male/hair/hair01_back.png", 
-            "thikness": 1, 
+            "thikness": 2, 
             "z": 0
         }]
     },
-
     {
+        "id": "2",
         "name": "hair02",
         "elems": 
         [{
             "name": "hair02_face", 
             "src": "./traits/img/male/hair/hair02_face.png", 
             "thikness": 2, 
-            "z": 1.5
+            "z": 1
         },
         {
             "name": "hair02_back", 
             "src": "./traits/img/male/hair/hair02_back.png", 
-            "thikness": 1, 
+            "thikness": 2, 
             "z": 0
         }]
     },
     {
+        "id": "3",
         "name": "hair03",
         "elems": 
         [{
             "name": "hair03_face", 
             "src": "./traits/img/male/hair/hair03_face.png", 
             "thikness": 2, 
-            "z": 1.5
+            "z": 1
         },
         {
             "name": "hair03_back", 
             "src": "./traits/img/male/hair/hair03_back.png", 
-            "thikness": 1, 
+            "thikness": 2, 
             "z": 0
         }]
     },
     {
+        "id": "4",
         "name": "hair04",
         "elems": 
         [{
             "name": "hair04_face", 
             "src": "./traits/img/male/hair/hair04_face.png", 
             "thikness": 2, 
-            "z": 1.5
+            "z": 1
         },
         {
             "name": "hair04_back", 
             "src": "./traits/img/male/hair/hair04_back.png", 
-            "thikness": 1, 
+            "thikness": 2, 
             "z": 0
         }]
     },
 
 
     {
+        "id": "5",
         "name": "hat_beeny",
         "elems": 
         [{
             "name": "hat_beeny_full", 
             "src": "./traits/img/male/hat/hat_beeny.png", 
-            "thikness": 3, 
+            "thikness": 2, 
             "z": 1
+        },
+        {
+            "name": "hat_beeny_full2", 
+            "src": "./traits/img/male/hat/hat_beeny.png", 
+            "thikness": 2, 
+            "z": 0
         }]
     },
     {
+        "id": "6",
         "name": "hat_cop",
         "elems": 
         [{
@@ -103,18 +115,19 @@
         }]
     },
     {
+        "id": "7",
         "name": "hat_biker",
         "elems": 
         [{
             "name": "hat_biker_face", 
             "src": "./traits/img/male/hat/hat_biker_face.png", 
             "thikness": 2, 
-            "z": 1.5
+            "z": 1
         },
         {
             "name": "hat_biker_back", 
             "src": "./traits/img/male/hat/hat_biker_back.png", 
-            "thikness": 1, 
+            "thikness": 2, 
             "z": 0
         }]
     }

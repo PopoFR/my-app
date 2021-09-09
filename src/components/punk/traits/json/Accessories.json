@@ -76,5 +76,16 @@
             "thikness": 3, 
             "z": 0.5
         }
+    ]},
+    {
+        "name": "hearing",
+        "id": "5",
+        "elems": 
+        [{
+            "name": "hearing", 
+            "src": "./traits/img/male/accessories/hearing.png", 
+            "thikness": 0.5, 
+            "z": 1.5
+        }
     ]}
 ]
