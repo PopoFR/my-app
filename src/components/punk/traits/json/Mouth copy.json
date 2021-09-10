@@ -1,0 +1,72 @@
+{
+    "mouth":
+    [{
+        "basic":
+        [
+            {
+                "id": "0",
+                "name": "neutral",
+                "src": "./traits/img/male/mouth/neutral.png", 
+                "thikness": 1, 
+                "z": 2
+            },
+            {
+                "id": "0",
+                "name": "happy",
+                "src": "./traits/img/male/mouth/happy.png", 
+                "thikness": 1, 
+                "z": 2
+            },
+            {
+                "id": "0",
+                "name": "sad",
+                "src": "./traits/img/male/mouth/sad.png", 
+                "thikness": 1, 
+                "z": 2
+            }
+        ],
+        "beared":
+        [
+            {
+                "id": "0",
+                "name": "neutral",
+                "src": "./traits/img/male/mouth/neutral.png", 
+                "thikness": 1, 
+                "z": 2
+            },
+            {
+                "id": "0",
+                "name": "happy",
+                "src": "./traits/img/male/mouth/happy.png", 
+                "thikness": 1, 
+                "z": 2
+            },
+            {
+                "id": "0",
+                "name": "sad",
+                "src": "./traits/img/male/mouth/sad.png", 
+                "thikness": 1, 
+                "z": 2
+            }
+        ]
+    }],
+
+    "bear":
+    [
+        {
+            "id": "0",
+            "name": "happy",
+            "src": "./traits/img/male/mouth/beard01.png", 
+            "thikness": 1, 
+            "z": 2
+        },
+        {
+            "id": "0",
+            "name": "happy",
+            "src": "./traits/img/male/mouth/beard01.png", 
+            "thikness": 1, 
+            "z": 2
+        }
+    ]
+}
+

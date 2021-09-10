@@ -1,0 +1,22 @@
+[
+    {
+        "name": "glass01",
+        "id": "3",
+        "elems": 
+        [
+            {
+                "name": "glass01_a", 
+                "src": "./traits/img/male/glass/glass01_a.png", 
+                "thikness": 1, 
+                "z": 1.5
+            },
+            {
+                "name": "glass01_b", 
+                "src": "./traits/img/male/glass/glass01_b.png", 
+                "thikness": 1, 
+                "z": 1.5
+            }
+        ]
+    }
+]
+   

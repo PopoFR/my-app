@@ -78,23 +78,15 @@
             "z": 0
         }]
     },
-
-
     {
         "id": "5",
-        "name": "hat_beeny",
+        "name": "hat_baenie",
         "elems": 
         [{
-            "name": "hat_beeny_full", 
-            "src": "./traits/img/male/hat/hat_beeny.png", 
-            "thikness": 2, 
-            "z": 1
-        },
-        {
-            "name": "hat_beeny_full2", 
-            "src": "./traits/img/male/hat/hat_beeny.png", 
-            "thikness": 2, 
-            "z": 0
+            "name": "hat_baenie", 
+            "src": "./traits/img/male/hat/hat_beanie.png", 
+            "thikness": 3, 
+            "z": 0.5
         }]
     },
     {
@@ -104,14 +96,14 @@
         [{
             "name": "hat_cop_face", 
             "src": "./traits/img/male/hat/hat_cop_face.png", 
-            "thikness": 2, 
-            "z": 1.5
+            "thikness": 2.5, 
+            "z": 1
         },
         {
             "name": "hat_cop_back", 
             "src": "./traits/img/male/hat/hat_cop_back.png", 
             "thikness": 1, 
-            "z": 0
+            "z": -0.5
         }]
     },
     {
@@ -121,14 +113,14 @@
         [{
             "name": "hat_biker_face", 
             "src": "./traits/img/male/hat/hat_biker_face.png", 
-            "thikness": 2, 
+            "thikness": 2.5, 
             "z": 1
         },
         {
             "name": "hat_biker_back", 
             "src": "./traits/img/male/hat/hat_biker_back.png", 
-            "thikness": 2, 
-            "z": 0
+            "thikness": 1, 
+            "z": -0.5
         }]
     }
 ]

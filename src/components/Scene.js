@@ -1,20 +1,17 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect} from "react";
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import TWEEN, { update } from '@tweenjs/tween.js';
-
-
-
+import * as fs from 'fs';
 import * as PunkFactory from "./punk/PunkFactory.js";
-
 function Scene() {
     
     let 
+    container,
     scene, 
     camera, 
-    renderer, 
-    controls,
-    container;
+    lights,
+    controls, 
+    renderer;
 
     useEffect(()=>{
         console.log("Scene: useEffect");
@@ -26,7 +23,6 @@ function Scene() {
         }
     },[]);
 
-
     function init(){
         container = document.querySelector("#scene-container");
         scene = new THREE.Scene();
@@ -37,6 +33,7 @@ function Scene() {
         createPunk();
         createControls();
         createRenderer();
+        takeScreenshot();
 
         renderer.setAnimationLoop(() => {
             update();
@@ -44,6 +41,48 @@ function Scene() {
         });
 
     }
+
+    function decodeBase64Image(dataString) 
+    {
+      var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+      var response = {};
+
+      if (matches.length !== 3) 
+      {
+        return new Error('Invalid input string');
+      }
+
+      response.type = matches[1];
+      response.data = new Buffer.from(matches[2], 'base64');
+
+      return response;
+    }
+
+    function takeScreenshot(){
+
+
+
+        var strMime = "image/jpeg";
+        var base64Image = renderer.domElement.toDataURL(strMime);
+        var base64Code = base64Image.replace("data:image/jpeg;base64,", "");
+
+        console.log(base64Code)
+        // var imageBuffer = decodeBase64Image(base64Image);
+
+        // fs.writeFile("out.png", imageBuffer.data,  
+        //     function() 
+        //     {
+        //       console.log('DEBUG - feed:message: Saved to disk image attached by user:');
+        //     });
+
+         //base64Image is my image base64 string
+
+        // const path = './';
+        // const filename = 'test.jpeg';
+
+        // const filepath = path+filename;
+    }
+
 
     function createCamera(){
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
@@ -67,7 +106,7 @@ function Scene() {
     }
 
     function createRenderer(){
-        renderer = new THREE.WebGLRenderer();
+        renderer = new THREE.WebGLRenderer({preserveDrawingBuffer: true});
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
         renderer.setClearColor( 0xffffff, 50);
@@ -76,17 +115,10 @@ function Scene() {
     }
 
     function update(){
-
     }
 
     function render(){
          renderer.render(scene, camera);
-        // renderer.domElement.addEventListener('click', play, false);
-    }
-    function animate(){
-        requestAnimationFrame(animate);
-        TWEEN.update();
-        renderer.render(scene, camera);
     }
 
     return (

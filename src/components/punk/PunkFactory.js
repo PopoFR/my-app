@@ -1,41 +1,80 @@
-import * as Constants from './constants.js'
 import * as Pixel from '../Pixel.js';
 
 const bodys = require('../punk/traits/json/Body.json');
 const eyes = require('../punk/traits/json/Eye.json');
 const noses = require('../punk/traits/json/Nose.json');
 const mouths = require('../punk/traits/json/Mouth.json');
+const beards = require('../punk/traits/json/Beard.json');
 const hairs = require('../punk/traits/json/Hair.json');
+const eyeBrows = require('../punk/traits/json/EyeBrow.json');
 const accessories = require('../punk/traits/json/Accessories.json');
 
-const hairColors = require('../punk/traits/json/color/HairColor.json');
-const bodyColors = require('../punk/traits/json/color/BodyColor.json');
 const accessorieColors = require('../punk/traits/json/color/AccessoriesColor.json');
-
+const colors = require('../punk/traits/json/Colors.json');
 
 let pixels = [{}];
-
 
 //TODO : LE REFLECT !
 //ACCESSORIES CASQUE POUR CHAQUE COUPE DE CHEVEUX.
 //VOIR POUR LE BODY A 0.5 de thikness
+//TO AJOUTER LES PATES (poil/cheveux)
+
 export function generatePunk(scene){
     console.log("generatePunk")
 
+    let bodyColor = colors['body'][2];
+    let hairColor = colors['hair'][1];
+    let hairColor2 = colors['hair'][2];
+
+    //ACCESSORIES
+    // generateElem(scene, accessories[0]);
+    // generateElem(scene, accessories[1]);
+    // generateElem(scene, accessories[2]);
+    // generateElem(scene, accessories[3]); //SI HOODIE mettre cheveux pour hoodie ou pas de cheveux...
+    // generateElem(scene, accessories[4]);
+    // generateElem(scene, accessories[5]);
+    // generateElem(scene, accessories[6]);
+
+    //HAIR
+    generateElem(scene, hairs[7]);
+
+    //REFLECT (if no hair)
+    // generateElem(scene, hairs[0], bodyColor.hexs['reflect']);
+
+    //EYES/GLASS
+    generateElem(scene, eyes[0], bodyColor.hexs['eye']);
+
+    //EYEBROW
+    generateElem(scene, eyeBrows[0], hairColor['eyebrow']);
+
+    //NOSE
+    generateElem(scene, noses[0], bodyColor.hexs["nose"]);
+
+    //MOUTH (lié a beard...)
+    generateElem(scene, mouths[0]);//Neutre
+
+    //BEARD
+    generateElem(scene, beards[1], hairColor['beard']);
+
     //BODY
-    generateElem(scene, hairs[5]);
-    generateElem(scene, eyes[1]); //Normaux
-    generateElem(scene, mouths[1]);//Sourire
-    generateElem(scene, noses[0], bodyColors[2].hexs['nose']); //Nez
+    generateElem(scene, bodys[0], bodyColor.hexs['body']);
+
+
+
+    //BODY
+    // generateElem(scene, hairs[5]);
+    // generateElem(scene, eyes[1]); //Normaux
+    // generateElem(scene, mouths[1]);//Sourire
+    // generateElem(scene, noses[0], bodyColors[2].hexs['nose']); //Nez
     // generateElem(scene, accessories[4]); //Boucle oreille
 
 
-    generateElem(scene, bodys[0], bodyColors[2].hexs['body']);
+    // generateElem(scene, bodys[0], bodyColors[2].hexs['body']);
 
     //BEARD  = MOUTH
     // generateElem(scene, mouths[0], hairColors[2].hex); //Barbe
     // generateElem(scene, mouths[1]);//Sourire
-    generateElem(scene, mouths[2], hairColors[2].hex)//Pate
+    // generateElem(scene, mouths[2], hairColors[2].hex)//Pate
 
     //HAIR = HAT
     // generateElem(scene, hairs[0], hairColors[2].hex);

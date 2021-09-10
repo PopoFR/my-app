@@ -66,7 +66,7 @@
         "elems": 
         [{
             "name": "casque_audio_arceau", 
-            "src": "./traits/img/male/accessories/casque_audio_arceau.png", 
+            "src": "./traits/img/male/accessories/casque_audio_arceau2.png", 
             "thikness": 1, 
             "z": 0.5
         },
