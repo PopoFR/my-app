@@ -1,8 +1,11 @@
 import React, { useEffect} from "react";
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import * as fs from 'fs';
 import * as PunkFactory from "./punk/PunkFactory.js";
+
+import { saveAs } from 'file-saver';
+
+
 function Scene() {
     
     let 
@@ -33,7 +36,6 @@ function Scene() {
         createPunk();
         createControls();
         createRenderer();
-        takeScreenshot();
 
         renderer.setAnimationLoop(() => {
             update();
@@ -41,6 +43,15 @@ function Scene() {
         });
 
     }
+
+    function setOpacity(obj, opacity) {
+        obj.traverse(child => {
+          if (child instanceof THREE.Mesh) {
+            child.material.opacity = opacity;
+          }
+        });
+      }
+
 
     function decodeBase64Image(dataString) 
     {
@@ -59,14 +70,30 @@ function Scene() {
     }
 
     function takeScreenshot(){
+        console.log("pouf")
+
+        var glass = scene.getObjectByName("glass01");
+        console.log(glass)
+        setOpacity(glass, 0.5);
+
+        // glass.material = glass.material.clone();
+        // glass.material.opacity = 0.5;
+        // glass.material.transparent = true;
 
 
 
-        var strMime = "image/jpeg";
-        var base64Image = renderer.domElement.toDataURL(strMime);
-        var base64Code = base64Image.replace("data:image/jpeg;base64,", "");
+        //WORK
+        // var canvas = document.getElementById("p3nkd-canvas");
+        // canvas.toBlob(function(blob) {
+        //     saveAs(blob, "pretty image.jpeg");
+        // });
+        // console.log(canvas);
+        //FIN WORK
 
-        console.log(base64Code)
+        // var strMime = "image/jpeg";
+        // var base64Image = renderer.domElement.toDataURL(strMime);
+
+  
         // var imageBuffer = decodeBase64Image(base64Image);
 
         // fs.writeFile("out.png", imageBuffer.data,  
@@ -107,6 +134,7 @@ function Scene() {
 
     function createRenderer(){
         renderer = new THREE.WebGLRenderer({preserveDrawingBuffer: true});
+        renderer.domElement.id = 'p3nkd-canvas';
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
         renderer.setClearColor( 0xffffff, 50);
@@ -122,7 +150,7 @@ function Scene() {
     }
 
     return (
-        <div/>
+        <button onClick={takeScreenshot}>press</button>
     )
 }
 

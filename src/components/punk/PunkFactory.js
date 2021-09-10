@@ -1,3 +1,4 @@
+import { BufferGeometry } from 'three';
 import * as Pixel from '../Pixel.js';
 
 const bodys = require('../punk/traits/json/Body.json');
@@ -6,8 +7,10 @@ const noses = require('../punk/traits/json/Nose.json');
 const mouths = require('../punk/traits/json/Mouth.json');
 const beards = require('../punk/traits/json/Beard.json');
 const hairs = require('../punk/traits/json/Hair.json');
+const hats = require('../punk/traits/json/Hat.json');
 const eyeBrows = require('../punk/traits/json/EyeBrow.json');
 const accessories = require('../punk/traits/json/Accessories.json');
+const glasses = require('../punk/traits/json/Glass.json');
 
 const accessorieColors = require('../punk/traits/json/color/AccessoriesColor.json');
 const colors = require('../punk/traits/json/Colors.json');
@@ -18,11 +21,11 @@ let pixels = [{}];
 //ACCESSORIES CASQUE POUR CHAQUE COUPE DE CHEVEUX.
 //VOIR POUR LE BODY A 0.5 de thikness
 //TO AJOUTER LES PATES (poil/cheveux)
-
+//TODO LES VERRES DES LUNETTES.
 export function generatePunk(scene){
     console.log("generatePunk")
 
-    let bodyColor = colors['body'][2];
+    let bodyColor = colors['body'][1];
     let hairColor = colors['hair'][1];
     let hairColor2 = colors['hair'][2];
 
@@ -36,16 +39,42 @@ export function generatePunk(scene){
     // generateElem(scene, accessories[6]);
 
     //HAIR
-    generateElem(scene, hairs[7]);
+    // generateElem(scene, hairs[0], hairColor['hair']);
+    // generateElem(scene, hairs[1], hairColor['hair']);
+    // generateElem(scene, hairs[2], hairColor['hair']);
+    // generateElem(scene, hairs[3], hairColor['hair']);
+    // generateElem(scene, hairs[4], hairColor['hair']);
+    // generateElem(scene, hairs[5], hairColor['hair']);
+    // generateElem(scene, hairs[6], hairColor['hair']);
+    // generateElem(scene, hairs[7], hairColor['hair']);
+    // generateElem(scene, hairs[8], hairColor['hair']);
+    // generateElem(scene, hairs[9], hairColor['hair']);
+    // generateElem(scene, hairs[10], hairColor['hair']); //BOF !!!!
 
-    //REFLECT (if no hair)
-    // generateElem(scene, hairs[0], bodyColor.hexs['reflect']);
+    //HAT
+    // generateElem(scene, hats[0]);
+    // generateElem(scene, hats[1]);
+    // generateElem(scene, hats[2]);
+    // generateElem(scene, hats[3]);
+    // generateElem(scene, hats[4]);
+    // generateElem(scene, hats[5]);
+    // generateElem(scene, hats[6]);
+    // generateElem(scene, hats[7]);
+    // generateElem(scene, hats[8]);
 
-    //EYES/GLASS
+
+    //REFLECT (if no hair &&  no hat)
+    generateElem(scene, hairs[0], bodyColor.hexs['reflect']);
+
+    //EYES
     generateElem(scene, eyes[0], bodyColor.hexs['eye']);
 
-    //EYEBROW
-    generateElem(scene, eyeBrows[0], hairColor['eyebrow']);
+    //GLASS
+    generateElem(scene, glasses[10]);
+
+    //IF LUNETTE PAS D'EYEBROW
+    //EYEBROWS
+    // generateElem(scene, eyeBrows[0], hairColor['eyebrow']);
 
     //NOSE
     generateElem(scene, noses[0], bodyColor.hexs["nose"]);
@@ -58,6 +87,8 @@ export function generatePunk(scene){
 
     //BODY
     generateElem(scene, bodys[0], bodyColor.hexs['body']);
+
+
 
 
 
@@ -109,6 +140,7 @@ export function generatePunk(scene){
 }
 
 function generateElem(scene, obj, color){
+    console.log(obj.name)
     obj.elems.forEach(element => {
         //ne fonctionne pas sans le string vide.
         let img = require(''+ element.src);
