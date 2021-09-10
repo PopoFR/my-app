@@ -1,5 +1,4 @@
-import { BufferGeometry } from 'three';
-import * as Pixel from '../Pixel.js';
+import * as Pixel from '../PixelFactory.js';
 
 const bodys = require('../punk/traits/json/Body.json');
 const eyes = require('../punk/traits/json/Eye.json');
