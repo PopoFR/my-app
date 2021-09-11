@@ -7,8 +7,8 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <div id="scene-container"></div>
     <Scene />
+    <div id="scene-container"></div>
   </React.StrictMode>,
   document.getElementById('root')
 );

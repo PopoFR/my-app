@@ -1,3 +1,4 @@
+import { remove } from '@tweenjs/tween.js';
 import * as Pixel from '../PixelFactory.js';
 
 const bodys = require('../punk/traits/json/Body.json');
@@ -16,6 +17,9 @@ const colors = require('../punk/traits/json/Colors.json');
 
 let pixels = [{}];
 
+
+let punkParts = [];
+
 //TODO : LE REFLECT !
 //ACCESSORIES CASQUE POUR CHAQUE COUPE DE CHEVEUX.
 //VOIR POUR LE BODY A 0.5 de thikness
@@ -29,38 +33,9 @@ export function generatePunk(scene){
     let hairColor2 = colors['hair'][2];
 
     //ACCESSORIES
-    // generateElem(scene, accessories[0]);
-    // generateElem(scene, accessories[1]);
-    // generateElem(scene, accessories[2]);
+
     // generateElem(scene, accessories[3]); //SI HOODIE mettre cheveux pour hoodie ou pas de cheveux...
-    // generateElem(scene, accessories[4]);
-    // generateElem(scene, accessories[5]);
-    // generateElem(scene, accessories[6]);
-
-    //HAIR
-    // generateElem(scene, hairs[0], hairColor['hair']);
-    // generateElem(scene, hairs[1], hairColor['hair']);
-    // generateElem(scene, hairs[2], hairColor['hair']);
-    // generateElem(scene, hairs[3], hairColor['hair']);
-    // generateElem(scene, hairs[4], hairColor['hair']);
-    // generateElem(scene, hairs[5], hairColor['hair']);
-    // generateElem(scene, hairs[6], hairColor['hair']);
-    // generateElem(scene, hairs[7], hairColor['hair']);
-    // generateElem(scene, hairs[8], hairColor['hair']);
-    // generateElem(scene, hairs[9], hairColor['hair']);
     // generateElem(scene, hairs[10], hairColor['hair']); //BOF !!!!
-
-    //HAT
-    // generateElem(scene, hats[0]);
-    // generateElem(scene, hats[1]);
-    // generateElem(scene, hats[2]);
-    // generateElem(scene, hats[3]);
-    // generateElem(scene, hats[4]);
-    // generateElem(scene, hats[5]);
-    // generateElem(scene, hats[6]);
-    // generateElem(scene, hats[7]);
-    // generateElem(scene, hats[8]);
-
 
     //REFLECT (if no hair &&  no hat)
     generateElem(scene, hairs[0], bodyColor.hexs['reflect']);
@@ -69,7 +44,7 @@ export function generatePunk(scene){
     generateElem(scene, eyes[0], bodyColor.hexs['eye']);
 
     //GLASS
-    generateElem(scene, glasses[10]);
+    generateElem(scene, glasses[0]);
 
     //IF LUNETTE PAS D'EYEBROW
     //EYEBROWS
@@ -87,64 +62,75 @@ export function generatePunk(scene){
     //BODY
     generateElem(scene, bodys[0], bodyColor.hexs['body']);
 
-
-
-
-
-    //BODY
-    // generateElem(scene, hairs[5]);
-    // generateElem(scene, eyes[1]); //Normaux
-    // generateElem(scene, mouths[1]);//Sourire
-    // generateElem(scene, noses[0], bodyColors[2].hexs['nose']); //Nez
-    // generateElem(scene, accessories[4]); //Boucle oreille
-
-
-    // generateElem(scene, bodys[0], bodyColors[2].hexs['body']);
-
-    //BEARD  = MOUTH
-    // generateElem(scene, mouths[0], hairColors[2].hex); //Barbe
-    // generateElem(scene, mouths[1]);//Sourire
-    // generateElem(scene, mouths[2], hairColors[2].hex)//Pate
-
-    //HAIR = HAT
-    // generateElem(scene, hairs[0], hairColors[2].hex);
     // generateElem(scene, hairs[0], bodyColors[2].hexs['reflect']); //Default (reflet: quand il n'y a aucun hair/hat)
-
-
-    //NOSE
-    // generateElem(scene, noses[0], bodyColors[0].hexs['nose']);
-
-    //EYES = GLASS
-    // generateElem(scene, eyes[0]); //Alien
-    // generateElem(scene, eyes[2]); //Louche
-    // generateElem(scene, eyes[3]); //Mask
-
-
-    //ACCESSORIES
-    // generateElem(scene, accessories[0]); //Cigarette
-    // generateElem(scene, accessories[1]); //Blunt
-    // generateElem(scene, accessories[2]); //Pipe
-    // generateElem(scene, accessories[3]); //Hoodies
-    // generateElem(scene, accessories[4], hairColors[3].hex); //Casque audio
-
-
-
-    // Pixel.animateHat(scene);
-
-    // generateElem(scene, Constants.smoke);
-    // generateElem(scene, Constants.cigarette);
-    // generateElem(scene, Constants.smoke);
-
-
 }
 
 function generateElem(scene, obj, color){
-    console.log(obj.name)
+
+    punkParts.push(obj.name);
+
+    console.log("generateElem: "+obj.name)
     obj.elems.forEach(element => {
         //ne fonctionne pas sans le string vide.
         let img = require(''+ element.src);
         let elemImg = Pixel.getBuffer(img);
         pixels.concat(Pixel.addPixelBlockToScene(pixels, element.name, elemImg, scene, color, element.thikness, element.z, element.rotation)); 
     });
+
+    console.log(punkParts);
 }
 
+export function toogle (obj, scene, render){
+    console.log("toogle")
+    console.log(obj)
+    scene.remove(obj);
+
+    // var nextIndex = getNextIndex(glasses, obj.name);
+    // console.log("glasses");
+
+    // console.log(glasses);
+    // console.log(nextIndex)
+    // var nextObj = glasses[nextIndex];
+    // console.log(nextObj)
+
+    // generateElem(scene, nextObj);
+}
+
+
+export function generateElemByType(elementName){
+
+    getNextIndex(glasses, elementName);
+    // var objToDraw, index;
+
+    // switch (type) {
+    //     case "hair":
+    //         index = hairs.length();
+
+    //         break;
+    
+    //     default:
+    //         break;
+    // }
+}
+
+
+
+
+
+//todo, on envoi le nom depuis scene ici, on recup l'id du nouveau composant, on genere le nouveau composant ici.
+
+//si l'index qu'on veut rajouté est superieur a la taille de la liste
+function getNextIndex(elements, elementName){
+    console.log("getNextIndex");
+    console.log(elements);
+    console.log(elementName)
+
+    var nextIndex;
+    var currentIndex = elements.findIndex(i => i.name === elementName);
+   (currentIndex > elements.length -1) ? nextIndex = 0 : nextIndex = currentIndex +4; 
+
+   console.log(`current index is ${currentIndex}`);
+   console.log(`next  is ${nextIndex}`);
+
+   return nextIndex;
+}

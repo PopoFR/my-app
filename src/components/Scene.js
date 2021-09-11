@@ -2,9 +2,10 @@ import React, { useEffect} from "react";
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as PunkFactory from "./punk/PunkFactory.js";
-
+import Export from "../components/Export"; 
 import { saveAs } from 'file-saver';
 
+import { GUI } from 'three/examples/jsm/libs/dat.gui.module'
 
 function Scene() {
     
@@ -35,12 +36,15 @@ function Scene() {
         createLights();
         createPunk();
         createControls();
+        createPanel();
         createRenderer();
+        takeScreenshot();
 
         renderer.setAnimationLoop(() => {
             update();
             render();
         });
+
 
     }
 
@@ -70,11 +74,11 @@ function Scene() {
     }
 
     function takeScreenshot(){
-        console.log("pouf")
-
-        var glass = scene.getObjectByName("glass01");
-        console.log(glass)
-        setOpacity(glass, 0.5);
+        // console.log("pouf")
+        // console.log(scene);
+        // var glass = scene.getObjectByName("glass01");
+        // console.log(glass)
+        // setOpacity(glass, 0.5);
 
         // glass.material = glass.material.clone();
         // glass.material.opacity = 0.5;
@@ -90,9 +94,7 @@ function Scene() {
         // console.log(canvas);
         //FIN WORK
 
-        // var strMime = "image/jpeg";
-        // var base64Image = renderer.domElement.toDataURL(strMime);
-
+        
   
         // var imageBuffer = decodeBase64Image(base64Image);
 
@@ -132,6 +134,26 @@ function Scene() {
         controls.update();
     }
 
+
+    function createPanel(){
+        const gui = new GUI({ width: 310 })
+        const cubeFolder = gui.addFolder('Customize')
+        var obj =  scene.getObjectByName("glass01");
+    }
+
+    
+
+    function toogle(){
+
+        Export(renderer);
+        console.log(scene.toJSON())
+
+        // var obj =  scene.getObjectByName("glass01");
+        // PunkFactory.toogle(obj, scene, render);
+        // scene.remove(obj)
+    }
+
+
     function createRenderer(){
         renderer = new THREE.WebGLRenderer({preserveDrawingBuffer: true});
         renderer.domElement.id = 'p3nkd-canvas';
@@ -145,12 +167,20 @@ function Scene() {
     function update(){
     }
 
+    const test  = () => {
+        // Export(renderer);
+    }
     function render(){
-         renderer.render(scene, camera);
+        renderer.render(scene, camera);
     }
 
     return (
-        <button onClick={takeScreenshot}>press</button>
+        <div>
+            {/* <button onClick={takeScreenshot}>press</button> */}
+            <button onClick={toogle}>del</button>
+
+        </div>
+       
     )
 }
 

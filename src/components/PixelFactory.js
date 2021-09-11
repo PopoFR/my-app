@@ -21,7 +21,7 @@ export function addPixelBlockToScene(pixels, name, png, scene, customColor, thik
 
           const geometry = new THREE.BoxGeometry(1, 1, thikness);
 
-          //si une couleur personnalisé est attribué et que le pixel n'est pas noir (bordure), on set la couleur perso.
+          //si une couleur personnalisée est attribuée et que le pixel n'est pas noir (bordure), on set la couleur perso.
           var color = (customColor !== undefined && r !== 0) ? new THREE.Color(customColor) : new THREE.Color(`rgb(${r}, ${g}, ${b})`);
 
           const material = new THREE.MeshBasicMaterial( { 
