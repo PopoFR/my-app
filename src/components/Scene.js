@@ -17,7 +17,7 @@ controls,
 renderer;
 
 const Scene = () => {
-    
+
     const [loading, setLoading] = useState(false);
 
     function handleState(state){
@@ -40,12 +40,9 @@ const Scene = () => {
         createControls();
         createPanel();
         createRenderer();
-        // exportPunk(); //doit attendre que le render client soit terminé
-
-        renderer.setAnimationLoop(() => {
-            update();
-            render();
-        });
+        update();
+        render();
+        exportPunk();
     }
 
     function createScene(){
@@ -90,8 +87,7 @@ const Scene = () => {
         container.appendChild(renderer.domElement);
     }
     
-    async function exportPunk(e){
-        e.preventDefault();
+    async function exportPunk(){
         setLoading(true);
         const name = 'P3nkD_xxxx';
         Export.doExport(scene, renderer, name)
