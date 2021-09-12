@@ -2,10 +2,13 @@ import React, { useEffect} from "react";
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as PunkFactory from "./punk/PunkFactory.js";
-import Export from "../components/Export"; 
+import * as Export from "../components/Export"; 
 import { saveAs } from 'file-saver';
 
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module'
+
+import * as Exporter from './exporter.js'
+import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter"
 
 function Scene() {
     
@@ -134,20 +137,25 @@ function Scene() {
         controls.update();
     }
 
-
     function createPanel(){
         const gui = new GUI({ width: 310 })
         const cubeFolder = gui.addFolder('Customize')
         var obj =  scene.getObjectByName("glass01");
     }
-
     
+    async function exportGLTF() {
+
+    }
+
+    function doExport(){    
+        Export.exportPreview(renderer);
+        // Export.exportGLTF(scene);
+        Exporter.download(scene);
+    }
 
     function toogle(){
-
-        Export(renderer);
-        console.log(scene.toJSON())
-
+        doExport();
+        // console.log(scene.toJSON())
         // var obj =  scene.getObjectByName("glass01");
         // PunkFactory.toogle(obj, scene, render);
         // scene.remove(obj)

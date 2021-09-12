@@ -1,14 +1,50 @@
 
 import axios from 'axios'
+import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter"
 
-export function Export(renderer){ 
 
-    console.log(renderer )
-    console.log("export");
-    exportPreview(renderer)
+export function exportGLTF(scene){
+    console.log("exportFile");
+    
+    const url = 'http://localhost:8000/uploadFile';
+
+
+    const exporter = new GLTFExporter();
+    exporter.parse(scene, function (gltfJson) {
+      console.log(gltfJson);
+      const jsonString = JSON.stringify(gltfJson);
+      console.log(jsonString);
+
+    }, { binary: true});
+
+
+
+
+    // var json =JSON.stringify(file);
+    // console.log(json)
+    // const requestMetadata = {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: data
+    // };
+
+    // fetch(recipeUrl, requestMetadata)
+    //     .then(res => {
+    //         console.log(res);
+    //     });
 }
 
-function exportPreview(renderer){
+
+// const res = await axios.post('https://httpbin.org/post', json, {
+//   headers: {
+//     // Overwrite Axios's automatically set Content-Type
+//     'Content-Type': 'application/json'
+//   }
+// });
+
+export function exportPreview(renderer){
     console.log("exportPreview");
 
     const strMime = "image/jpeg";
@@ -20,12 +56,11 @@ function exportPreview(renderer){
     const data = new FormData()
     data.append('file', file)
 
-    axios.post("http://localhost:8000/upload", data, { 
+    axios.post("http://localhost:8000/uploadPreview", data, { 
         // receive two    parameter endpoint url ,form data
     })
     .then(res => { // then print response status
-        console.log(res);
-        console.log("punk uploaded");
+        console.log(`p3nk3d (preview) uploader server response: ${res.statusText}`);
     })
 }
 
@@ -44,9 +79,4 @@ function dataURLtoFile(dataurl, filename) {
     return new File([u8arr], filename, {type:mime});
 }
 
-//Usage example:
-var file = dataURLtoFile('data:text/plain;base64,aGVsbG8gd29ybGQ=','hello.txt');
-console.log(file);
-
-export default Export;
 
