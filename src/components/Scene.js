@@ -1,4 +1,5 @@
-import React, { useEffect} from "react";
+import React, { useEffect, useState} from "react";
+
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
@@ -7,7 +8,6 @@ import * as PunkFactory from "./punk/PunkFactory.js";
 import * as Export from "../components/Export"; 
 
 function Scene() {
-    
     let 
     container,
     scene, 
@@ -25,7 +25,6 @@ function Scene() {
     },[]);
 
     function init(){
-
         createScene();
         createCamera();
         createLights();
@@ -40,7 +39,6 @@ function Scene() {
             render();
         });
     }
-
 
     function createScene(){
         container = document.querySelector("#scene-container");
@@ -87,8 +85,7 @@ function Scene() {
     async function exportPunk(e){
         e.preventDefault();
         const name = 'P3nkD_xxxx';
-        Export.exportGLB(scene, name);
-        Export.exportJPG(renderer,name);
+        Export.doExport(scene, renderer, name);
     }
 
     function update(){
@@ -106,10 +103,8 @@ function Scene() {
     //     });
     // }
 
-
     return (
         <div>
-            {/* <button onClick={takeScreenshot}>press</button> */}
             <button onClick={exportPunk}>export</button>
         </div>
        

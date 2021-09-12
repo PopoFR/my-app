@@ -2,7 +2,12 @@
 import axios from 'axios'
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter"
 
-export function exportGLB(scene, name) {
+export function doExport(scene, renderer, name){
+    exportGLB(scene, name)
+    exportJPG(renderer, name)
+}
+
+function exportGLB(scene, name) {
     console.log("exportGLB");
 
     const filename = `${name}.glb`
@@ -18,7 +23,7 @@ export function exportGLB(scene, name) {
     );
 }
 
-export function exportJPG(renderer, name){
+function exportJPG(renderer, name){
     console.log("exportJPG");
 
     const filename = `${name}.jpg`
