@@ -8,18 +8,11 @@ export function exportGLB(scene, name) {
     const filename = `${name}.glb`
     const url = 'http://localhost:8000/uploadGLB';
     const exporter = new GLTFExporter();
-    const data = new FormData();
 
     exporter.parse(
         scene,
         function (arrayBuffer) {
-            data.append('file', new Blob([arrayBuffer]), filename);
-
-            axios.post(url, data, {})
-            .then(res => {
-                console.log(`GLB uploader server response: ${res.statusText}`);
-            });
-
+            upload(url, new Blob([arrayBuffer]), filename);
         },
         { binary: true }
     );
@@ -33,16 +26,20 @@ export function exportJPG(renderer, name){
     const strMime = "image/jpeg";
     const base64Image = renderer.domElement.toDataURL(strMime);
     const file = dataURLtoFile(base64Image, filename);
-    const data = new FormData();
 
-    data.append('file', file);
+    upload(url, file, filename)
+}
+
+
+function upload(url, file, filename){
+
+    const data = new FormData();
+    data.append('file', file, filename);
 
     axios.post(url, data, {})
     .then(res => {
-        console.log(`JPG uploader server response: ${res.statusText}`);
+        console.log(`server response: ${res.statusText}`);
     });
-
-
 }
 
 function dataURLtoFile(dataurl, filename) {
