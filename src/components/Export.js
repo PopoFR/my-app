@@ -2,66 +2,47 @@
 import axios from 'axios'
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter"
 
+export function exportGLB(scene, name) {
+    console.log("exportGLB");
 
-export function exportGLTF(scene){
-    console.log("exportFile");
-    
-    const url = 'http://localhost:8000/uploadFile';
-
-
+    const filename = `${name}.glb`
+    const url = 'http://localhost:8000/uploadGLB';
     const exporter = new GLTFExporter();
-    exporter.parse(scene, function (gltfJson) {
-      console.log(gltfJson);
-      const jsonString = JSON.stringify(gltfJson);
-      console.log(jsonString);
+    const data = new FormData();
 
-    }, { binary: true});
+    exporter.parse(
+        scene,
+        function (arrayBuffer) {
+            data.append('file', new Blob([arrayBuffer]), filename);
 
+            axios.post(url, data, {})
+            .then(res => {
+                console.log(`GLB uploader server response: ${res.statusText}`);
+            });
 
-
-
-    // var json =JSON.stringify(file);
-    // console.log(json)
-    // const requestMetadata = {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: data
-    // };
-
-    // fetch(recipeUrl, requestMetadata)
-    //     .then(res => {
-    //         console.log(res);
-    //     });
+        },
+        { binary: true }
+    );
 }
 
+export function exportJPG(renderer, name){
+    console.log("exportJPG");
 
-// const res = await axios.post('https://httpbin.org/post', json, {
-//   headers: {
-//     // Overwrite Axios's automatically set Content-Type
-//     'Content-Type': 'application/json'
-//   }
-// });
-
-export function exportPreview(renderer){
-    console.log("exportPreview");
-
+    const filename = `${name}.jpg`
+    const url = "http://localhost:8000/uploadJPG";
     const strMime = "image/jpeg";
     const base64Image = renderer.domElement.toDataURL(strMime);
-    console.log(base64Image);
+    const file = dataURLtoFile(base64Image, filename);
+    const data = new FormData();
 
-    const file = dataURLtoFile(base64Image, 'P3nkD.jpg')
+    data.append('file', file);
 
-    const data = new FormData()
-    data.append('file', file)
+    axios.post(url, data, {})
+    .then(res => {
+        console.log(`JPG uploader server response: ${res.statusText}`);
+    });
 
-    axios.post("http://localhost:8000/uploadPreview", data, { 
-        // receive two    parameter endpoint url ,form data
-    })
-    .then(res => { // then print response status
-        console.log(`p3nk3d (preview) uploader server response: ${res.statusText}`);
-    })
+
 }
 
 function dataURLtoFile(dataurl, filename) {
