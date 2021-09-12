@@ -7,14 +7,22 @@ import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
 import * as PunkFactory from "./punk/PunkFactory.js";
 import * as Export from "../components/Export"; 
 
-function Scene() {
-    let 
-    container,
-    scene, 
-    camera, 
-    lights,
-    controls, 
-    renderer;
+
+let 
+container,
+scene, 
+camera, 
+lights,
+controls, 
+renderer;
+
+const Scene = () => {
+    
+    const [loading, setLoading] = useState(false);
+
+    function handleState(state){
+        setLoading(state);
+    }
 
     useEffect(()=>{
         console.log("Scene: useEffect");
@@ -84,8 +92,10 @@ function Scene() {
     
     async function exportPunk(e){
         e.preventDefault();
+        setLoading(true);
         const name = 'P3nkD_xxxx';
-        Export.doExport(scene, renderer, name);
+        Export.doExport(scene, renderer, name)
+            .then(() => setLoading(false));
     }
 
     function update(){
@@ -105,7 +115,9 @@ function Scene() {
 
     return (
         <div>
-            <button onClick={exportPunk}>export</button>
+            {loading ? <div className="loader"/> : <button type="button" onClick={exportPunk}>export</button>}
+
+            {loading ? <p>loading</p> : <p>pas loading</p>}
         </div>
        
     )

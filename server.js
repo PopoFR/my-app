@@ -28,7 +28,7 @@ app.post('/uploadJPG',function(req, res) {
           console.log(err)
           return res.status(500).json(err)
       }
-      console.log("P3nkD PNG saved.")
+      console.log("P3nkD JPG saved.")
       return res.status(200).send(req.file)
     })
 });

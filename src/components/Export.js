@@ -2,29 +2,30 @@
 import axios from 'axios'
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter"
 
-export function doExport(scene, renderer, name){
-    exportGLB(scene, name)
-    exportJPG(renderer, name)
+export async function doExport(scene, renderer, name){
+    return  Promise.all([exportGLB(scene, name), exportJPG(renderer, name)])
 }
 
-function exportGLB(scene, name) {
-    console.log("exportGLB");
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
+async function exportGLB(scene, name) {
     const filename = `${name}.glb`
     const url = 'http://localhost:8000/uploadGLB';
     const exporter = new GLTFExporter();
 
+    //POSE PROBLEME VOIR COMMENT ASYNC CETTE PARTIE?
     exporter.parse(
         scene,
-        function (arrayBuffer) {
-            upload(url, new Blob([arrayBuffer]), filename);
+         async function (arrayBuffer) {
+             await upload(url, new Blob([arrayBuffer]), filename);
         },
         { binary: true }
     );
 }
 
-function exportJPG(renderer, name){
-    console.log("exportJPG");
+async function exportJPG(renderer, name){
 
     const filename = `${name}.jpg`
     const url = "http://localhost:8000/uploadJPG";
@@ -32,18 +33,21 @@ function exportJPG(renderer, name){
     const base64Image = renderer.domElement.toDataURL(strMime);
     const file = dataURLtoFile(base64Image, filename);
 
-    upload(url, file, filename)
+    await upload(url, file, filename)
 }
 
 
-function upload(url, file, filename){
+
+/// CA VIENT DE LA !!!!
+async function upload(url, file, filename){
+    console.log(`exporting ${filename}`);
 
     const data = new FormData();
     data.append('file', file, filename);
 
     axios.post(url, data, {})
-    .then(res => {
-        console.log(`server response: ${res.statusText}`);
+    .then ((res)=> {
+        console.log(res)
     });
 }
 
