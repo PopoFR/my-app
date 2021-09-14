@@ -222,5 +222,119 @@
                 "z": 1.5
             }
         ]
+    },
+    {
+        "id": "9",
+        "name": "hat_mcDo",
+        "elems": 
+        [
+            {
+                "name": "hat_mcDo_face", 
+                "src": "./traits/img/male/hat/hat_mcDo_face.png", 
+                "thikness": 1, 
+                "z": 1
+            },
+            {
+                "name": "hat_mcDo_visor", 
+                "src": "./traits/img/male/hat/hat_mcDo_visor.png", 
+                "thikness": 4, 
+                "z": 3.5
+            },
+            {
+                "name": "hat_mcDo_back", 
+                "src": "./traits/img/male/hat/hat_mcDo_back.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "id": "10",
+        "name": "hat_bandana",
+        "elems": 
+        [{
+            "name": "bandana_face", 
+            "src": "./traits/img/male/hat/bandana_face.png", 
+            "thikness": 1, 
+            "z": 1
+        },
+        {
+            "name": "bandana_back", 
+            "src": "./traits/img/male/hat/bandana_back.png", 
+            "thikness": 1, 
+            "z": -0
+        }]
+    },
+    {
+        "id": "11",
+        "name": "hat_red_bandana",
+        "elems": 
+        [{
+            "name": "bandana_red_face", 
+            "src": "./traits/img/male/hat/bandana_red_face.png", 
+            "thikness": 1, 
+            "z": 1
+        },
+        {
+            "name": "bandana_red_back", 
+            "src": "./traits/img/male/hat/bandana_red_back.png", 
+            "thikness": 1, 
+            "z": -0
+        }]
+    } ,
+    {
+        "id": "12",
+        "name": "hat_mickey",
+        "elems": 
+        [{
+            "name": "hat_mickey_face", 
+            "src": "./traits/img/male/hat/hat_mickey.png", 
+            "thikness": 1, 
+            "z": 1
+        },
+        {
+            "name": "hat_mickey_back", 
+            "src": "./traits/img/male/hat/hat_mickey.png", 
+            "thikness": 1, 
+            "z": -0
+        }]
+    },
+    {
+        "id": "13",
+        "name": "hat_pokemon",
+        "elems": 
+        [
+            {
+                "name": "hat_pokemon_face", 
+                "src": "./traits/img/male/hat/hat_pokemon_face.png", 
+                "thikness": 1.5, 
+                "z": 1
+            },
+            {
+                "name": "hat_pokemon_visor", 
+                "src": "./traits/img/male/hat/hat_pokemon_visor.png", 
+                "thikness": 4, 
+                "z": 3.75
+            },
+            {
+                "name": "hat_pokemon_back", 
+                "src": "./traits/img/male/hat/hat_pokemon_back.png", 
+                "thikness": 1.5, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "id": "14",
+        "name": "hat_pokemon",
+        "elems": 
+        [
+            {
+                "name": "hat_pokemon_face", 
+                "src": "./traits/img/male/hat/1.png", 
+                "thikness": 1.5, 
+                "z": 1
+            }
+        ]
     }
 ]

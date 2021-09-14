@@ -2,11 +2,11 @@ import * as THREE from "three";
 import * as UPNG from 'upng-js';
 import TWEEN from '@tweenjs/tween.js';
 
+const group = new THREE.Group();
 
 export function addPixelBlockToScene(pixels, name, png, scene, customColor, thikness = 1, z = 0, orientation = null, wideFrame = true){
   console.log(`Pixel: addPixelBlockToScene(${customColor})`);
 
-  const group = new THREE.Group();
   
   // loop tous les pixels du png, (de gauche a droite et haut en bas), 
   // afin de générer des blocks de la couleur des pixels non transparents.
@@ -100,6 +100,15 @@ const base64ToArrayBuffer = function(base64) {
   return bytes.buffer;
 }
 
+export const animateScene = (scene) => {
+  const group2 = new THREE.Group();
+
+  console.log(scene);
+  console.log(group);
+
+
+
+}
 export const animateHat = (scene) => {
   var object = scene.getObjectByName("hat_helice2");
   console.log(object);

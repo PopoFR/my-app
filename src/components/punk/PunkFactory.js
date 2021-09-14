@@ -1,5 +1,7 @@
 import { remove } from '@tweenjs/tween.js';
 import * as Pixel from '../PixelFactory.js';
+import * as THREE from "three";
+
 
 const bodys = require('../punk/traits/json/Body.json');
 const eyes = require('../punk/traits/json/Eye.json');
@@ -25,51 +27,52 @@ let punkParts = [];
 //VOIR POUR LE BODY A 0.5 de thikness
 //TO AJOUTER LES PATES (poil/cheveux)
 //TODO LES VERRES DES LUNETTES.
-export function generatePunk(scene){
-    console.log("generatePunk")
+export function generatePunk(scene, group){
 
-    let bodyColor = colors['body'][1];
+    console.log("generatePunk")
+    
+    
+    let bodyColor = colors['body'][2];
     let hairColor = colors['hair'][1];
     let hairColor2 = colors['hair'][2];
 
+    
     //ACCESSORIES
 
     // generateElem(scene, accessories[3]); //SI HOODIE mettre cheveux pour hoodie ou pas de cheveux...
     // generateElem(scene, hairs[10], hairColor['hair']); //BOF !!!!
 
+    
     //REFLECT (if no hair &&  no hat)
-    generateElem(scene, hairs[0], bodyColor.hexs['reflect']);
+    // generateElem(scene, hats[14]);
+    generateElem(scene, hairs[5], hairColor2['hair'], group);
 
     //EYES
-    generateElem(scene, eyes[0], bodyColor.hexs['eye']);
+    generateElem(scene, eyes[0], bodyColor.hexs['eye'], group);
 
     //GLASS
-    generateElem(scene, glasses[0]);
 
     //IF LUNETTE PAS D'EYEBROW
     //EYEBROWS
-    // generateElem(scene, eyeBrows[0], hairColor['eyebrow']);
+    generateElem(scene, eyeBrows[0], hairColor['eyebrow'], group);
 
     //NOSE
-    generateElem(scene, noses[0], bodyColor.hexs["nose"]);
+    generateElem(scene, noses[0], bodyColor.hexs["nose"], group);
 
     //MOUTH (lié a beard...)
-    generateElem(scene, mouths[0]);//Neutre
+    generateElem(scene, mouths[0], group);
 
     //BEARD
-    generateElem(scene, beards[1], hairColor['beard']);
+    // generateElem(scene, beards[1], hairColor['beard']);
 
     //BODY
-    generateElem(scene, bodys[0], bodyColor.hexs['body']);
-
-    // generateElem(scene, hairs[0], bodyColors[2].hexs['reflect']); //Default (reflet: quand il n'y a aucun hair/hat)
+    generateElem(scene, bodys[0], bodyColor.hexs['body'], group);
+    generateElem(scene, hairs[0], bodyColor.hexs['reflect'], group); //Default (reflet: quand il n'y a aucun hair/hat)
 }
 
-function generateElem(scene, obj, color){
-
+function generateElem(scene, obj, color, group){
     punkParts.push(obj.name);
 
-    console.log("generateElem: "+obj.name)
     obj.elems.forEach(element => {
         //ne fonctionne pas sans le string vide.
         let img = require(''+ element.src);
@@ -77,7 +80,6 @@ function generateElem(scene, obj, color){
         pixels.concat(Pixel.addPixelBlockToScene(pixels, element.name, elemImg, scene, color, element.thikness, element.z, element.rotation)); 
     });
 
-    console.log(punkParts);
 }
 
 export function toogle (obj, scene, render){

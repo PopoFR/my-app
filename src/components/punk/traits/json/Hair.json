@@ -78,12 +78,6 @@
             "z": 0
         }]
     },
-
-
-
-
-
-
     {
         "id": "5",
         "name": "hair05",
@@ -96,7 +90,7 @@
         },
         {
             "name": "hair05_back", 
-            "src": "./traits/img/male/hair/hair05_front.png", 
+            "src": "./traits/img/male/hair/hair05_back.png", 
             "thikness": 2, 
             "z": 0
         }]
@@ -113,7 +107,7 @@
         },
         {
             "name": "hair06_back", 
-            "src": "./traits/img/male/hair/hair06_front.png", 
+            "src": "./traits/img/male/hair/hair06_back.png", 
             "thikness": 2, 
             "z": 0
         }]
@@ -147,7 +141,7 @@
         },
         {
             "name": "hair09_back", 
-            "src": "./traits/img/male/hair/hair09_front.png", 
+            "src": "./traits/img/male/hair/hair09_back.png", 
             "thikness": 1, 
             "z": 0
         }]

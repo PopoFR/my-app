@@ -1,20 +1,25 @@
 import React, { useEffect, useState} from "react";
+import * as Pixel from './PixelFactory.js';
 
 import * as THREE from "three";
+import TWEEN from '@tweenjs/tween.js'
+
+
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
 
 import * as PunkFactory from "./punk/PunkFactory.js";
 import * as Export from "../components/Export"; 
 
-
+import {TraitsGenerator} from "./punk/traits/TraitsGenerator.js"
 let 
 container,
 scene, 
 camera, 
 lights,
 controls, 
-renderer;
+renderer,
+group;
 
 const Scene = () => {
 
@@ -28,11 +33,11 @@ const Scene = () => {
         console.log("Scene: useEffect");
         init();
         return () => {
-            // Callback to cleanup three js, cancel animationFrame, etc
         }
     },[]);
 
     function init(){
+        TraitsGenerator();
         createScene();
         createCamera();
         createLights();
@@ -40,9 +45,10 @@ const Scene = () => {
         createControls();
         createPanel();
         createRenderer();
-        update();
-        render();
-        exportPunk();
+        animate();
+        // rotateScene();
+        // Pixel.animateScene(scene)
+        // exportPunk();
     }
 
     function createScene(){
@@ -62,7 +68,8 @@ const Scene = () => {
     }
 
     function createPunk(){
-        PunkFactory.generatePunk(scene);
+        group = null;
+        PunkFactory.generatePunk(scene, group);
     }
 
     function createControls(){
@@ -108,6 +115,22 @@ const Scene = () => {
     //       }
     //     });
     // }
+
+
+    function rotateScene(){
+        console.log("rotateScene")
+    }
+
+
+    function animate() {
+        var axis = new THREE.Vector3( 0, 1, 0 );
+        scene.rotateOnAxis(axis, 0.01);
+ 
+        requestAnimationFrame( animate );
+        controls.update(); // only required if controls.enableDamping = true, or if controls.autoRotate = true
+        TWEEN.update();
+        render();
+    }
 
     return (
         <div>
