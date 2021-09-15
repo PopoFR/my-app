@@ -10,7 +10,7 @@ import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
 
 import * as PunkFactory from "./punk/PunkFactory.js";
 import * as Export from "../components/Export"; 
-
+import Menu from './Menu'
 import {TraitsGenerator} from "./punk/traits/TraitsGenerator.js"
 let 
 container,
@@ -24,6 +24,8 @@ group;
 const Scene = () => {
 
     const [loading, setLoading] = useState(false);
+    const [hair, setHair] = useState(0);
+    const [actualTraits, setActualTraits] = useState([]);
 
     function handleState(state){
         setLoading(state);
@@ -68,8 +70,7 @@ const Scene = () => {
     }
 
     function createPunk(){
-        group = null;
-        PunkFactory.generatePunk(scene, group);
+        PunkFactory.generatePunk(scene, setActualTraits);
     }
 
     function createControls(){
@@ -116,11 +117,14 @@ const Scene = () => {
     //     });
     // }
 
-
     function rotateScene(){
         console.log("rotateScene")
     }
 
+    function toogleHair(e, type){
+        console.log(type)
+        setHair(e)
+    }
 
     function animate() {
         // var axis = new THREE.Vector3( 0, 1, 0 );
@@ -133,11 +137,22 @@ const Scene = () => {
     }
 
     return (
-        <div>
-            {loading ? <div className="loader"/> : <button type="button" onClick={exportPunk}>export</button>}
-
-            {loading ? <p>loading</p> : <p>pas loading</p>}
-        </div>
+        <>
+            <div>
+                My Traits: 
+                {actualTraits.forEach((item)=>{
+                    <span>{item.id}</span>
+                })}
+            </div>
+            <div>
+                <Menu toogleHair = {toogleHair}/>
+                my hair : {hair}
+            </div>
+            <div>
+                {loading ? <div className="loader"/> : <button type="button" onClick={exportPunk}>export</button>}
+                {loading ? <p>loading</p> : <p>pas loading</p>}
+            </div>
+        </>
        
     )
 }

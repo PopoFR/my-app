@@ -20,17 +20,16 @@ const colors = require('../punk/traits/json/Colors.json');
 let pixels = [{}];
 
 
-let punkParts = [];
+let punkParts = [{}];
 
 //TODO : LE REFLECT !
 //ACCESSORIES CASQUE POUR CHAQUE COUPE DE CHEVEUX.
 //VOIR POUR LE BODY A 0.5 de thikness
 //TO AJOUTER LES PATES (poil/cheveux)
 //TODO LES VERRES DES LUNETTES.
-export function generatePunk(scene, group){
+export function generatePunk(scene){
 
     console.log("generatePunk")
-    
     
     let bodyColor = colors['body'][2];
     let hairColor = colors['hair'][2];
@@ -41,38 +40,41 @@ export function generatePunk(scene, group){
 
     // generateElem(scene, accessories[7]);
     //SI HOODIE mettre cheveux pour hoodie ou pas de cheveux...
-    generateElem(scene, hats[20]); //BOF !!!!
-    generateElem(scene, hairs[10], hairColor['hair']); //BOF !!!!
+    generateElem(scene, hats[20], "hat",); //BOF !!!!
+    generateElem(scene, hairs[10], "hair", hairColor['hair']); //BOF !!!!
     
     //REFLECT (if no hair &&  no hat)
     // generateElem(scene, hats[14]);
     // generateElem(scene, hats[15]);
 
     //EYES
-    generateElem(scene, eyes[0], bodyColor.hexs['eye'], group);
+    generateElem(scene, eyes[0], "eye", bodyColor.hexs['eye']);
 
     //GLASS
 
     //IF LUNETTE PAS D'EYEBROW
     //EYEBROWS
-    generateElem(scene, eyeBrows[0], hairColor['eyebrow'], group);
+    generateElem(scene, eyeBrows[0], "eyebrow", hairColor['eyebrow']);
 
     //NOSE
-    generateElem(scene, noses[0], bodyColor.hexs["nose"], group);
+    generateElem(scene, noses[0], "nose", bodyColor.hexs["nose"]);
 
     //MOUTH (lié a beard...)
-    generateElem(scene, mouths[0], group);
+    generateElem(scene, mouths[0], "mouth");
 
     //BEARD
     // generateElem(scene, beards[1], hairColor['beard']);
 
     //BODY
-    generateElem(scene, bodys[0], bodyColor.hexs['body'], group);
-    generateElem(scene, hairs[0], bodyColor.hexs['reflect'], group); //Default (reflet: quand il n'y a aucun hair/hat)
+    generateElem(scene, bodys[0], "body", bodyColor.hexs['body'] );
+
+    console.log(punkParts)
+
+
 }
 
-function generateElem(scene, obj, color, group){
-    punkParts.push(obj.name);
+function generateElem(scene, obj, type,color = undefined){
+    punkParts.push({name: obj.name, type:type});
 
     obj.elems.forEach(element => {
         //ne fonctionne pas sans le string vide.
@@ -80,10 +82,10 @@ function generateElem(scene, obj, color, group){
         let elemImg = Pixel.getBuffer(img);
         pixels.concat(Pixel.addPixelBlockToScene(pixels, element.name, elemImg, scene, color, element.thikness, element.z, element.rotation)); 
     });
-
 }
 
-export function toogle (obj, scene, render){
+export function toogle (obj, scene, name){
+
     console.log("toogle")
     console.log(obj)
     scene.remove(obj);
