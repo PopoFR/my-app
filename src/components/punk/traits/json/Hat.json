@@ -326,14 +326,206 @@
     },
     {
         "id": "14",
-        "name": "hat_pokemon",
+        "name": "hat_mcDo",
         "elems": 
         [
             {
-                "name": "hat_pokemon_face", 
-                "src": "./traits/img/male/hat/1.png", 
-                "thikness": 1.5, 
+                "name": "hat_mcdo_topless_cap_front", 
+                "src": "./traits/img/male/hat/hat_mcdo_topless_cap_front.png", 
+                "thikness": 1.75, 
                 "z": 1
+            },
+            {
+                "name": "hat_mcdo_topless_cap_visor", 
+                "src": "./traits/img/male/hat/hat_mcdo_topless_cap_visor.png", 
+                "thikness": 3.25, 
+                "z": 3.5
+            },
+            {
+                "name": "hat_mcdo_topless_cap_back", 
+                "src": "./traits/img/male/hat/hat_mcdo_topless_cap_back.png", 
+                "thikness": 1.50, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "name": "nike_band",
+        "id": "15",
+        "elems": [
+            {
+                "name": "nike_band1",
+                "src": "./traits/img/male/hat/nike_band.png",
+                "thikness": 0.5,
+                "z": 1.5
+            },
+            {
+                "name": "nike_band2",
+                "src": "./traits/img/male/hat/nike_band.png",
+                "thikness": 1,
+                "z": 1
+            },
+            {
+                "name": "nike_band3",
+                "src": "./traits/img/male/hat/nike_band.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "nike_band4",
+                "src": "./traits/img/male/hat/nike_band.png",
+                "thikness": 0.5,
+                "z": -0.75
+            }
+        ]
+    },
+    {
+        "name": "sport_band_fr",
+        "id": "16",
+        "elems": [
+            {
+                "name": "sport_band1",
+                "src": "./traits/img/male/hat/sport_band_fr.png",
+                "thikness": 0.5,
+                "z": 1.5
+            },
+            {
+                "name": "sport_band2",
+                "src": "./traits/img/male/hat/sport_band_fr.png",
+                "thikness": 1,
+                "z": 1
+            },
+            {
+                "name": "sport_band3",
+                "src": "./traits/img/male/hat/sport_band_fr.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "sport_band4",
+                "src": "./traits/img/male/hat/sport_band_fr.png",
+                "thikness": 0.5,
+                "z": -0.75
+            }
+        ]
+    },
+    {
+        "name": "sport_band_de",
+        "id": "17",
+        "elems": [
+            {
+                "name": "sport_band1",
+                "src": "./traits/img/male/hat/sport_band_de.png",
+                "thikness": 0.5,
+                "z": 1.5
+            },
+            {
+                "name": "sport_band2",
+                "src": "./traits/img/male/hat/sport_band_de.png",
+                "thikness": 1,
+                "z": 1
+            },
+            {
+                "name": "sport_band3",
+                "src": "./traits/img/male/hat/sport_band_de.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "sport_band4",
+                "src": "./traits/img/male/hat/sport_band_de.png",
+                "thikness": 0.5,
+                "z": -0.75
+            }
+        ]
+    },
+    {
+        "name": "sport_band_it",
+        "id": "18",
+        "elems": [
+            {
+                "name": "sport_band1",
+                "src": "./traits/img/male/hat/sport_band_it.png",
+                "thikness": 0.5,
+                "z": 1.5
+            },
+            {
+                "name": "sport_band2",
+                "src": "./traits/img/male/hat/sport_band_it.png",
+                "thikness": 1,
+                "z": 1
+            },
+            {
+                "name": "sport_band3",
+                "src": "./traits/img/male/hat/sport_band_it.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "sport_band4",
+                "src": "./traits/img/male/hat/sport_band_it.png",
+                "thikness": 0.5,
+                "z": -0.75
+            }
+        ]
+    },
+    {
+        "name": "sport_band_rasta",
+        "id": "18",
+        "elems": [
+            {
+                "name": "sport_band1",
+                "src": "./traits/img/male/hat/sport_band_rasta.png",
+                "thikness": 0.5,
+                "z": 1.5
+            },
+            {
+                "name": "sport_band2",
+                "src": "./traits/img/male/hat/sport_band_rasta.png",
+                "thikness": 1,
+                "z": 1
+            },
+            {
+                "name": "sport_band3",
+                "src": "./traits/img/male/hat/sport_band_rasta.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "sport_band4",
+                "src": "./traits/img/male/hat/sport_band_rasta.png",
+                "thikness": 0.5,
+                "z": -0.75
+            }
+        ]
+    },
+    {
+        "name": "crown",
+        "id": "19",
+        "elems": [
+            {
+                "name": "crown",
+                "src": "./traits/img/male/hat/hat_crown.png",
+                "thikness": 0.5,
+                "z": 1.5
+            },
+            {
+                "name": "sport_band2",
+                "src": "./traits/img/male/hat/hat_crown.png",
+                "thikness": 1,
+                "z": 1
+            },
+            {
+                "name": "sport_band3",
+                "src": "./traits/img/male/hat/hat_crown.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "sport_band4",
+                "src": "./traits/img/male/hat/hat_crown.png",
+                "thikness": 0.5,
+                "z": -0.75
             }
         ]
     }

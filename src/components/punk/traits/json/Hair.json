@@ -162,6 +162,58 @@
             "thikness": 2, 
             "z": 0
         }]
+    },
+    {
+        "id": "10",
+        "name": "hair11",
+        "elems": 
+        [{
+            "name": "hair11_front", 
+            "src": "./traits/img/male/hair/hair11_front.png", 
+            "thikness": 1.5, 
+            "z": 1
+        },
+        {
+            "name": "hair11_back", 
+            "src": "./traits/img/male/hair/hair11_back.png", 
+            "thikness": 2, 
+            "z": 0
+        }]
+    },
+    {
+        "id": "11",
+        "name": "hair12",
+        "elems": 
+        [{
+            "name": "hair12_front", 
+            "src": "./traits/img/male/hair/hair12_front.png", 
+            "thikness": 1.5, 
+            "z": 1
+        },
+        {
+            "name": "hair12_back", 
+            "src": "./traits/img/male/hair/hair12_back.png", 
+            "thikness": 2, 
+            "z": 0
+        }]
+    },
+    {
+        "id": "12",
+        "name": "hair13",
+        "elems": 
+        [{
+            "name": "hair13_front", 
+            "src": "./traits/img/male/hair/hair13_front.png", 
+            "thikness": 1.5, 
+            "z": 1
+        },
+        {
+            "name": "hair12_back", 
+            "src": "./traits/img/male/hair/hair13_back.png", 
+            "thikness": 2, 
+            "z": 0
+        }]
     }
+
 
 ]

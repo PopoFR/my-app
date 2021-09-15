@@ -123,8 +123,8 @@ const Scene = () => {
 
 
     function animate() {
-        var axis = new THREE.Vector3( 0, 1, 0 );
-        scene.rotateOnAxis(axis, 0.01);
+        // var axis = new THREE.Vector3( 0, 1, 0 );
+        // scene.rotateOnAxis(axis, 0.01);
  
         requestAnimationFrame( animate );
         controls.update(); // only required if controls.enableDamping = true, or if controls.autoRotate = true

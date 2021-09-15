@@ -33,19 +33,20 @@ export function generatePunk(scene, group){
     
     
     let bodyColor = colors['body'][2];
-    let hairColor = colors['hair'][1];
+    let hairColor = colors['hair'][2];
     let hairColor2 = colors['hair'][2];
 
     
     //ACCESSORIES
 
-    // generateElem(scene, accessories[3]); //SI HOODIE mettre cheveux pour hoodie ou pas de cheveux...
-    // generateElem(scene, hairs[10], hairColor['hair']); //BOF !!!!
-
+    // generateElem(scene, accessories[7]);
+    //SI HOODIE mettre cheveux pour hoodie ou pas de cheveux...
+    generateElem(scene, hats[20]); //BOF !!!!
+    generateElem(scene, hairs[10], hairColor['hair']); //BOF !!!!
     
     //REFLECT (if no hair &&  no hat)
     // generateElem(scene, hats[14]);
-    generateElem(scene, hairs[5], hairColor2['hair'], group);
+    // generateElem(scene, hats[15]);
 
     //EYES
     generateElem(scene, eyes[0], bodyColor.hexs['eye'], group);

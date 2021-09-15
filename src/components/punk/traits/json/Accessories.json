@@ -1,91 +1,112 @@
-
 [
     {
         "name": "cigarette",
         "id": "0",
-        "elems": 
-        [{
-            "name": "cigarette", 
-            "src": "./traits/img/male/accessories/cigarette.png", 
-            "thikness": 1, 
-            "z": -4,
-            "rotation": {"x": "0", "y": "74.9", "z": "0"}
-        }]
+        "elems": [
+            {
+                "name": "cigarette",
+                "src": "./traits/img/male/accessories/cigarette.png",
+                "thikness": 1,
+                "z": -4,
+                "rotation": {
+                    "x": "0",
+                    "y": "74.9",
+                    "z": "0"
+                }
+            }
+        ]
     },
     {
         "name": "blunt",
         "id": "1",
-        "elems": 
-        [{
-            "name": "blunt", 
-            "src": "./traits/img/male/accessories/blunt.png", 
-            "thikness": 2, 
-            "z": -4,
-            "rotation": {"x": "0", "y": "74.9", "z": "0"}
-        }]
+        "elems": [
+            {
+                "name": "blunt",
+                "src": "./traits/img/male/accessories/blunt.png",
+                "thikness": 2,
+                "z": -4,
+                "rotation": {
+                    "x": "0",
+                    "y": "74.9",
+                    "z": "0"
+                }
+            }
+        ]
     },
     {
         "name": "pipe",
         "id": "2",
-        "elems": 
-        [{
-            "name": "pipeA", 
-            "src": "./traits/img/male/accessories/pipeA.png", 
-            "thikness": 1, 
-            "z": -4,
-            "rotation": {"x": "0", "y": "74.9", "z": "0"}
-        },
-        {
-            "name": "pipeB", 
-            "src": "./traits/img/male/accessories/pipeB.png", 
-            "thikness": 3, 
-            "z": -4,
-            "rotation": {"x": "0", "y": "74.9", "z": "0"}
-        }
-    ]},
+        "elems": [
+            {
+                "name": "pipeA",
+                "src": "./traits/img/male/accessories/pipeA.png",
+                "thikness": 1,
+                "z": -4,
+                "rotation": {
+                    "x": "0",
+                    "y": "74.9",
+                    "z": "0"
+                }
+            },
+            {
+                "name": "pipeB",
+                "src": "./traits/img/male/accessories/pipeB.png",
+                "thikness": 3,
+                "z": -4,
+                "rotation": {
+                    "x": "0",
+                    "y": "74.9",
+                    "z": "0"
+                }
+            }
+        ]
+    },
     {
         "name": "hoodies",
         "id": "3",
-        "elems": 
-        [{
-            "name": "hoodies_face", 
-            "src": "./traits/img/male/accessories/hoodies_face.png", 
-            "thikness": 3, 
-            "z": 1
-        },
-        {
-            "name": "hoodies_back", 
-            "src": "./traits/img/male/accessories/hoodies_back.png", 
-            "thikness": 1, 
-            "z": -1
-        }
-    ]},
+        "elems": [
+            {
+                "name": "hoodies_face",
+                "src": "./traits/img/male/accessories/hoodies_face.png",
+                "thikness": 3,
+                "z": 1
+            },
+            {
+                "name": "hoodies_back",
+                "src": "./traits/img/male/accessories/hoodies_back.png",
+                "thikness": 1,
+                "z": -1
+            }
+        ]
+    },
     {
         "name": "casque_audio",
         "id": "4",
-        "elems": 
-        [{
-            "name": "casque_audio_arceau", 
-            "src": "./traits/img/male/accessories/casque_audio_arceau2.png", 
-            "thikness": 1, 
-            "z": 0.5
-        },
-        {
-            "name": "casque_audio_ecouteur", 
-            "src": "./traits/img/male/accessories/casque_audio_ecouteur.png", 
-            "thikness": 3, 
-            "z": 0.5
-        }
-    ]},
+        "elems": [
+            {
+                "name": "casque_audio_arceau",
+                "src": "./traits/img/male/accessories/casque_audio_arceau2.png",
+                "thikness": 1,
+                "z": 0.5
+            },
+            {
+                "name": "casque_audio_ecouteur",
+                "src": "./traits/img/male/accessories/casque_audio_ecouteur.png",
+                "thikness": 3,
+                "z": 0.5
+            }
+        ]
+    },
     {
         "name": "hearing",
         "id": "5",
-        "elems": 
-        [{
-            "name": "hearing", 
-            "src": "./traits/img/male/accessories/hearing.png", 
-            "thikness": 0.5, 
-            "z": 1.5
-        }
-    ]}
+        "elems": [
+            {
+                "name": "hearing",
+                "src": "./traits/img/male/accessories/hearing.png",
+                "thikness": 0.5,
+                "z": 1.5
+            }
+        ]
+    }
 ]

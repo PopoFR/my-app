@@ -106,6 +106,9 @@ export const animateScene = (scene) => {
   console.log(scene);
   console.log(group);
 
+  var axis = new THREE.Vector3( 0, 0.5, 0 );
+  group.rotateOnAxis(axis, Math.PI);
+  group.rotation.y += 0.0002;
 
 
 }
