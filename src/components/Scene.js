@@ -12,6 +12,11 @@ import * as PunkFactory from "./punk/PunkFactory.js";
 import * as Export from "../components/Export"; 
 import Menu from './Menu'
 import {TraitsGenerator} from "./punk/traits/TraitsGenerator.js"
+
+
+
+import { GifWriter } from 'omggif'
+
 let 
 container,
 scene, 
@@ -23,13 +28,10 @@ group;
 
 const Scene = () => {
 
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [hair, setHair] = useState(0);
     const [actualTraits, setActualTraits] = useState([]);
 
-    function handleState(state){
-        setLoading(state);
-    }
 
     useEffect(()=>{
         console.log("Scene: useEffect");
@@ -47,10 +49,8 @@ const Scene = () => {
         createControls();
         createPanel();
         createRenderer();
-        animate();
-        // rotateScene();
         // Pixel.animateScene(scene)
-        // exportPunk();
+        exportPunk();
     }
 
     function createScene(){
@@ -75,7 +75,7 @@ const Scene = () => {
 
     function createControls(){
         controls = new OrbitControls(camera, container);
-        controls.target.set( 12, -12, 0 )
+        controls.target.set( 0, -12, 0 )
         controls.update();
     }
 
@@ -96,16 +96,16 @@ const Scene = () => {
     }
     
     async function exportPunk(){
-        setLoading(true);
         const name = 'P3nkD_xxxx';
-        Export.doExport(scene, renderer, name)
-            .then(() => setLoading(false));
+        Export.doExport(scene, renderer, name, render)
+            .then(() => console.log("end"));
     }
 
     function update(){
     }
 
     function render(){
+        scene.rotation.y += Math.PI / 60;
         renderer.render(scene, camera);
     }
 
@@ -117,28 +117,30 @@ const Scene = () => {
     //     });
     // }
 
-    function rotateScene(){
-        console.log("rotateScene")
-    }
-
     function toogleHair(e, type){
-        console.log(type)
         setHair(e)
     }
 
-    function animate() {
-        // var axis = new THREE.Vector3( 0, 1, 0 );
-        // scene.rotateOnAxis(axis, 0.01);
- 
-        requestAnimationFrame( animate );
-        controls.update(); // only required if controls.enableDamping = true, or if controls.autoRotate = true
-        TWEEN.update();
+    function tooglePunk(){
+        scene.clear();
+        createPunk();
+        animate();      
+    }
+
+    function animate(gif = false) {
+
+        requestAnimationFrame(animate);
         render();
+        scene.rotation.y += Math.PI / 180;
+
     }
 
     return (
         <>
             <div>
+                <button type="button" onClick={tooglePunk}>Regen punk</button>
+            </div>
+            {/* <div>
                 My Traits: 
                 {actualTraits.forEach((item)=>{
                     <span>{item.id}</span>
@@ -151,7 +153,7 @@ const Scene = () => {
             <div>
                 {loading ? <div className="loader"/> : <button type="button" onClick={exportPunk}>export</button>}
                 {loading ? <p>loading</p> : <p>pas loading</p>}
-            </div>
+            </div> */}
         </>
        
     )

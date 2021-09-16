@@ -31,7 +31,7 @@ export function addPixelBlockToScene(pixels, name, png, scene, customColor, thik
           } );
 
           let cube = new THREE.Mesh(geometry, material);
-          cube.position.set(x, -y, z);
+          cube.position.set(x-12, -y, z);
 
           //deasactivé car wideframe.opacity = 0
           if (wideFrame)
