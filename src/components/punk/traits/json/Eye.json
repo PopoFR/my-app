@@ -6,7 +6,7 @@
         [
             {
                 "name": "eyes01", 
-                "src": "./traits/img/male/eye/eye01.png", 
+                "src": "./punk/traits/img/male/eye/eye01.png", 
                 "thikness": 1, 
                 "z": 1
             }

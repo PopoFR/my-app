@@ -5,7 +5,7 @@
         "elems": 
         [{
             "name": "hair_default", 
-            "src": "./traits/img/male/hair/hair_default.png", 
+            "src": "./punk/traits/img/male/hair/hair_default.png", 
             "thikness": 1, 
             "z": 1
         }]
@@ -16,13 +16,13 @@
         "elems": 
         [{
             "name": "hair01_face", 
-            "src": "./traits/img/male/hair/hair01_face.png", 
+            "src": "./punk/traits/img/male/hair/hair01_face.png", 
             "thikness": 2, 
             "z": 1
         },
         {
             "name": "hair01_back", 
-            "src": "./traits/img/male/hair/hair01_back.png", 
+            "src": "./punk/traits/img/male/hair/hair01_back.png", 
             "thikness": 2, 
             "z": 0
         }]
@@ -33,13 +33,13 @@
         "elems": 
         [{
             "name": "hair02_face", 
-            "src": "./traits/img/male/hair/hair02_face.png", 
+            "src": "./punk/traits/img/male/hair/hair02_face.png", 
             "thikness": 2, 
             "z": 1
         },
         {
             "name": "hair02_back", 
-            "src": "./traits/img/male/hair/hair02_back.png", 
+            "src": "./punk/traits/img/male/hair/hair02_back.png", 
             "thikness": 2, 
             "z": 0
         }]
@@ -50,13 +50,13 @@
         "elems": 
         [{
             "name": "hair03_face", 
-            "src": "./traits/img/male/hair/hair03_face.png", 
+            "src": "./punk/traits/img/male/hair/hair03_face.png", 
             "thikness": 2, 
             "z": 1
         },
         {
             "name": "hair03_back", 
-            "src": "./traits/img/male/hair/hair03_back.png", 
+            "src": "./punk/traits/img/male/hair/hair03_back.png", 
             "thikness": 2, 
             "z": 0
         }]
@@ -67,13 +67,13 @@
         "elems": 
         [{
             "name": "hair04_face", 
-            "src": "./traits/img/male/hair/hair04_face.png", 
+            "src": "./punk/traits/img/male/hair/hair04_face.png", 
             "thikness": 2, 
             "z": 1
         },
         {
             "name": "hair04_back", 
-            "src": "./traits/img/male/hair/hair04_back.png", 
+            "src": "./punk/traits/img/male/hair/hair04_back.png", 
             "thikness": 2, 
             "z": 0
         }]
@@ -84,13 +84,13 @@
         "elems": 
         [{
             "name": "hair05_front", 
-            "src": "./traits/img/male/hair/hair05_front.png", 
+            "src": "./punk/traits/img/male/hair/hair05_front.png", 
             "thikness": 2, 
             "z": 1
         },
         {
             "name": "hair05_back", 
-            "src": "./traits/img/male/hair/hair05_back.png", 
+            "src": "./punk/traits/img/male/hair/hair05_back.png", 
             "thikness": 2, 
             "z": 0
         }]
@@ -101,13 +101,13 @@
         "elems": 
         [{
             "name": "hair06_front", 
-            "src": "./traits/img/male/hair/hair06_front.png", 
+            "src": "./punk/traits/img/male/hair/hair06_front.png", 
             "thikness": 2, 
             "z": 1
         },
         {
             "name": "hair06_back", 
-            "src": "./traits/img/male/hair/hair06_back.png", 
+            "src": "./punk/traits/img/male/hair/hair06_back.png", 
             "thikness": 2, 
             "z": 0
         }]
@@ -118,13 +118,13 @@
         "elems": 
         [{
             "name": "hair07_front", 
-            "src": "./traits/img/male/hair/hair07_front.png", 
+            "src": "./punk/traits/img/male/hair/hair07_front.png", 
             "thikness": 2, 
             "z": 1
         },
         {
             "name": "hair07_back", 
-            "src": "./traits/img/male/hair/hair07_front.png", 
+            "src": "./punk/traits/img/male/hair/hair07_front.png", 
             "thikness": 2, 
             "z": 0
         }]
@@ -135,13 +135,13 @@
         "elems": 
         [{
             "name": "hair09_front", 
-            "src": "./traits/img/male/hair/hair09_front.png", 
+            "src": "./punk/traits/img/male/hair/hair09_front.png", 
             "thikness": 1, 
             "z": 1
         },
         {
             "name": "hair09_back", 
-            "src": "./traits/img/male/hair/hair09_back.png", 
+            "src": "./punk/traits/img/male/hair/hair09_back.png", 
             "thikness": 1, 
             "z": 0
         }]
@@ -152,13 +152,13 @@
         "elems": 
         [{
             "name": "hair10_front", 
-            "src": "./traits/img/male/hair/hair10_front.png", 
+            "src": "./punk/traits/img/male/hair/hair10_front.png", 
             "thikness": 1.5, 
             "z": 1
         },
         {
             "name": "hair10_back", 
-            "src": "./traits/img/male/hair/hair10_back.png", 
+            "src": "./punk/traits/img/male/hair/hair10_back.png", 
             "thikness": 2, 
             "z": 0
         }]
@@ -169,13 +169,13 @@
         "elems": 
         [{
             "name": "hair11_front", 
-            "src": "./traits/img/male/hair/hair11_front.png", 
+            "src": "./punk/traits/img/male/hair/hair11_front.png", 
             "thikness": 1.5, 
             "z": 1
         },
         {
             "name": "hair11_back", 
-            "src": "./traits/img/male/hair/hair11_back.png", 
+            "src": "./punk/traits/img/male/hair/hair11_back.png", 
             "thikness": 2, 
             "z": 0
         }]
@@ -186,13 +186,13 @@
         "elems": 
         [{
             "name": "hair12_front", 
-            "src": "./traits/img/male/hair/hair12_front.png", 
+            "src": "./punk/traits/img/male/hair/hair12_front.png", 
             "thikness": 1.5, 
             "z": 1
         },
         {
             "name": "hair12_back", 
-            "src": "./traits/img/male/hair/hair12_back.png", 
+            "src": "./punk/traits/img/male/hair/hair12_back.png", 
             "thikness": 2, 
             "z": 0
         }]
@@ -203,13 +203,13 @@
         "elems": 
         [{
             "name": "hair13_front", 
-            "src": "./traits/img/male/hair/hair13_front.png", 
+            "src": "./punk/traits/img/male/hair/hair13_front.png", 
             "thikness": 1.5, 
             "z": 1
         },
         {
             "name": "hair12_back", 
-            "src": "./traits/img/male/hair/hair13_back.png", 
+            "src": "./punk/traits/img/male/hair/hair13_back.png", 
             "thikness": 2, 
             "z": 0
         }]

@@ -4,12 +4,7 @@ import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter"
 import { GifWriter } from 'omggif'
 
 export async function doExport(scene, renderer, name, render){
-    render()
     return  Promise.all([exportGLB(scene, name), exportJPG(renderer, name), exportGif(render, name)])
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function exportGLB(scene, name) {
@@ -17,7 +12,6 @@ async function exportGLB(scene, name) {
     const url = 'http://localhost:8000/uploadGLB';
     const exporter = new GLTFExporter();
 
-    //POSE PROBLEME VOIR COMMENT ASYNC CETTE PARTIE?
     exporter.parse(
         scene,
          async function (arrayBuffer) {
@@ -97,7 +91,6 @@ async function generateGIF( element, renderFunction, duration = 1, fps = 30 ) {
         }
 
         // Force palette to be power of 2
-
         let powof2 = 1;
         while ( powof2 < palette.length ) powof2 <<= 1;
         palette.length = powof2;
@@ -113,15 +106,10 @@ async function generateGIF( element, renderFunction, duration = 1, fps = 30 ) {
         // progress.value = current / frames;
 
         if ( current < frames ) {
-
             setTimeout(addFrame, 0, resolve);
-
         } else {
-
             resolve( buffer.subarray( 0, writer.end() ) );
-
         }
-
     } );
 
 }

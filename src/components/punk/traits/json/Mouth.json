@@ -5,7 +5,7 @@
         "elems": 
         [{
             "name": "mouth01", 
-            "src": "./traits/img/male/mouth/mouth01.png", 
+            "src": "./punk/traits/img/male/mouth/mouth01.png", 
             "thikness": 1, 
             "z": 1
         }]

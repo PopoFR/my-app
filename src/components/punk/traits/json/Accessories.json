@@ -5,7 +5,7 @@
         "elems": [
             {
                 "name": "cigarette",
-                "src": "./traits/img/male/accessories/cigarette.png",
+                "src": "./punk/traits/img/male/accessories/cigarette.png",
                 "thikness": 1,
                 "z": -4,
                 "rotation": {
@@ -22,7 +22,7 @@
         "elems": [
             {
                 "name": "blunt",
-                "src": "./traits/img/male/accessories/blunt.png",
+                "src": "./punk/traits/img/male/accessories/blunt.png",
                 "thikness": 2,
                 "z": -4,
                 "rotation": {
@@ -39,7 +39,7 @@
         "elems": [
             {
                 "name": "pipeA",
-                "src": "./traits/img/male/accessories/pipeA.png",
+                "src": "./punk/traits/img/male/accessories/pipeA.png",
                 "thikness": 1,
                 "z": -4,
                 "rotation": {
@@ -50,7 +50,7 @@
             },
             {
                 "name": "pipeB",
-                "src": "./traits/img/male/accessories/pipeB.png",
+                "src": "./punk/traits/img/male/accessories/pipeB.png",
                 "thikness": 3,
                 "z": -4,
                 "rotation": {
@@ -67,13 +67,13 @@
         "elems": [
             {
                 "name": "hoodies_face",
-                "src": "./traits/img/male/accessories/hoodies_face.png",
+                "src": "./punk/traits/img/male/accessories/hoodies_face.png",
                 "thikness": 3,
                 "z": 1
             },
             {
                 "name": "hoodies_back",
-                "src": "./traits/img/male/accessories/hoodies_back.png",
+                "src": "./punk/traits/img/male/accessories/hoodies_back.png",
                 "thikness": 1,
                 "z": -1
             }
@@ -85,13 +85,13 @@
         "elems": [
             {
                 "name": "casque_audio_arceau",
-                "src": "./traits/img/male/accessories/casque_audio_arceau2.png",
+                "src": "./punk/traits/img/male/accessories/casque_audio_arceau2.png",
                 "thikness": 1,
                 "z": 0.5
             },
             {
                 "name": "casque_audio_ecouteur",
-                "src": "./traits/img/male/accessories/casque_audio_ecouteur.png",
+                "src": "./punk/traits/img/male/accessories/casque_audio_ecouteur.png",
                 "thikness": 3,
                 "z": 0.5
             }
@@ -103,7 +103,7 @@
         "elems": [
             {
                 "name": "hearing",
-                "src": "./traits/img/male/accessories/hearing.png",
+                "src": "./punk/traits/img/male/accessories/hearing.png",
                 "thikness": 0.5,
                 "z": 1.5
             }

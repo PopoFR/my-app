@@ -1,3 +1,4 @@
+import React, { useEffect, useState} from "react";
 import { remove } from '@tweenjs/tween.js';
 import * as Pixel from '../PixelFactory.js';
 import * as THREE from "three";
@@ -22,6 +23,41 @@ let pixels = [{}];
 
 let punkParts = [{}];
 
+export const Traits  = (props) => {
+
+    const [traits, setTraits] = useState([]);
+
+    function init() {
+        // get random traits
+    }
+
+    function generateTrait() {
+        generateElem(props.scene, radomizeTrait(bodys), "body",);
+    }
+
+    function removeAllTraits(){
+        setTraits([]);
+    }
+
+}
+
+
+
+export default Traits;
+
+
+
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+
+function radomizeTrait(traits){
+     return traits[getRandomInt(traits.length)];
+}
+
+
 //TODO : LE REFLECT !
 //ACCESSORIES CASQUE POUR CHAQUE COUPE DE CHEVEUX.
 //VOIR POUR LE BODY A 0.5 de thikness
@@ -29,6 +65,7 @@ let punkParts = [{}];
 //TODO LES VERRES DES LUNETTES.
 export function generatePunk(scene){
 
+    console.log(radomizeTrait(hairs));
     console.log("generatePunk")
     
     let bodyColor = colors['body'][2];
@@ -40,7 +77,7 @@ export function generatePunk(scene){
 
     // generateElem(scene, accessories[7]);
     //SI HOODIE mettre cheveux pour hoodie ou pas de cheveux...
-    generateElem(scene, hats[20], "hat",); //BOF !!!!
+    generateElem(scene, radomizeTrait(hats), "hat",); //BOF !!!!
     generateElem(scene, hairs[10], "hair", hairColor['hair']); //BOF !!!!
     
     //REFLECT (if no hair &&  no hat)

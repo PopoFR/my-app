@@ -10,63 +10,49 @@
             "hex" : "#808080"
         }
     ],
-    "hair":
-    [
-        {
-            "name": "Dark",
-            "hair" : "#100C07",
-            "beard" : "#100C07",
-            "eyebrow" : "#100C07"
-        },
-        {
-            "name": "Blond",
-            "hair" : "#faf0be",
-            "beard" : "#faf0be",
-            "eyebrow" : "#faf0be"
-        },
-        {
-            "name": "Brown",
-            "hair" : "#2c1608",
-            "beard" : "#2c1608",
-            "eyebrow" : "#2c1608"
-        },
-        {
-            "name": "Ginger",
-            "hair" : "#b06500",
-            "beard" : "#b06500",
-            "eyebrow" : "#b06500"
-        },
-        {
-            "name": "Grey",
-            "hair" : "#e9e4dc",
-            "beard" : "#e9e4dc",
-            "eyebrow" : "#e9e4dc"
-        }
-    ],
     "hairs":
     [
         {
-            "name": "Black",
-            "hex": "#100C07"
+            "name": "Dark",
+            "hexs": {
+                "hair": "#100C07",
+                "beard": "#100C07",
+                "eyebrow": "#100C07"
+            }
         },
         {
             "name": "Blond",
-            "hex": "#faf0be"
+            "hexs": {
+                "hair": "#faf0be",
+                "beard": "#faf0be",
+                "eyebrow": "#faf0be"
+            }
         },
         {
             "name": "Brown",
-            "hex": "#2c1608"
+            "hexs": {
+                "hair": "#2c1608",
+                "beard": "#2c1608",
+                "eyebrow": "#2c1608"
+            }
         },
         {
             "name": "Ginger",
-            "hex": "#b06500"
+            "hexs": {
+                "hair": "#b06500",
+                "beard": "#b06500",
+                "eyebrow": "#b06500"
+            }
         },
         {
             "name": "Grey",
-            "hex": "#e9e4dc"
+            "hexs": {
+                "hair": "#e9e4dc",
+                "beard": "#e9e4dc",
+                "eyebrow": "#e9e4dc"
+            }
         }
     ],
-    
     "body":
     [
         {

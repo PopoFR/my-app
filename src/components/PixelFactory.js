@@ -61,7 +61,7 @@ export function addPixelBlockToScene(pixels, name, png, scene, customColor, thik
   model.add(group);   
   scene.add(model);
 
-  return pixels;
+  return group;
 }   
 
 

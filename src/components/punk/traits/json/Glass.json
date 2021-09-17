@@ -6,7 +6,7 @@
         [
             {
                 "name": "glass01", 
-                "src": "./traits/img/male/glass/glass01.png", 
+                "src": "./punk/traits/img/male/glass/glass01.png", 
                 "thikness": 1, 
                 "z": 1.5
             }
@@ -19,7 +19,7 @@
         [
             {
                 "name": "glass02", 
-                "src": "./traits/img/male/glass/glass02.png", 
+                "src": "./punk/traits/img/male/glass/glass02.png", 
                 "thikness": 1, 
                 "z": 1.5
             }
@@ -32,7 +32,7 @@
         [
             {
                 "name": "glass03", 
-                "src": "./traits/img/male/glass/glass03.png", 
+                "src": "./punk/traits/img/male/glass/glass03.png", 
                 "thikness": 1, 
                 "z": 1.5
             }
@@ -45,7 +45,7 @@
         [
             {
                 "name": "glass04", 
-                "src": "./traits/img/male/glass/glass04.png", 
+                "src": "./punk/traits/img/male/glass/glass04.png", 
                 "thikness": 1, 
                 "z": 1.5
             }
@@ -58,7 +58,7 @@
         [
             {
                 "name": "glass05", 
-                "src": "./traits/img/male/glass/glass05.png", 
+                "src": "./punk/traits/img/male/glass/glass05.png", 
                 "thikness": 1, 
                 "z": 1.5
             }
@@ -71,7 +71,7 @@
         [
             {
                 "name": "glass06", 
-                "src": "./traits/img/male/glass/glass06.png", 
+                "src": "./punk/traits/img/male/glass/glass06.png", 
                 "thikness": 1, 
                 "z": 1.5
             }
@@ -84,13 +84,13 @@
         [
             {
                 "name": "glass07a", 
-                "src": "./traits/img/male/glass/glass07a.png", 
+                "src": "./punk/traits/img/male/glass/glass07a.png", 
                 "thikness": 0.5, 
                 "z": 1.75
             },
             {
                 "name": "glass07b", 
-                "src": "./traits/img/male/glass/glass07b.png", 
+                "src": "./punk/traits/img/male/glass/glass07b.png", 
                 "thikness": 0.5, 
                 "z": 1.75
             }
@@ -103,7 +103,7 @@
         [
             {
                 "name": "glass08", 
-                "src": "./traits/img/male/glass/glass08.png", 
+                "src": "./punk/traits/img/male/glass/glass08.png", 
                 "thikness": 1, 
                 "z": 1
             }
@@ -116,7 +116,7 @@
         [
             {
                 "name": "glass09", 
-                "src": "./traits/img/male/glass/glass09.png", 
+                "src": "./punk/traits/img/male/glass/glass09.png", 
                 "thikness": 0.5, 
                 "z": 1.5
             }
@@ -129,7 +129,7 @@
         [
             {
                 "name": "glass10", 
-                "src": "./traits/img/male/glass/glass10.png", 
+                "src": "./punk/traits/img/male/glass/glass10.png", 
                 "thikness": 0.5, 
                 "z": 1.5
             }
@@ -142,7 +142,7 @@
         [
             {
                 "name": "glass11", 
-                "src": "./traits/img/male/glass/glass11.png", 
+                "src": "./punk/traits/img/male/glass/glass11.png", 
                 "thikness": 0.5, 
                 "z": 1.5
             }
