@@ -1,28 +1,32 @@
 import * as THREE from "three";
 import * as UPNG from 'upng-js';
 import TWEEN from '@tweenjs/tween.js';
+import Element from './Traits';
 
-const group = new THREE.Group();
 
-export function addPixelBlockToScene(pixels, name, png, scene, customColor, thikness = 1, z = 0, orientation = null, wideFrame = true){
-  console.log(`Pixel: addPixelBlockToScene(${customColor})`);
+export function addPixelBlockToScene(scene, pixels, element){
+  let group = new THREE.Group();
+  group.name = element.name;
 
+  console.log(`Pixel: addPixelBlockToScene(${element.name})`);
   
+  let img = getBuffer(require(''+ element.src));
+
   // loop tous les pixels du png, (de gauche a droite et haut en bas), 
   // afin de générer des blocks de la couleur des pixels non transparents.
-  for (var x = 0; x < png.width; x++){
-    for (var y = 0; y < png.height; y++){
-      let r = png.data[((y * (png.width * 4)) + (x * 4))];
-      let g = png.data[((y * (png.width * 4)) + (x * 4)) + 1];
-      let b = png.data[((y * (png.width * 4)) + (x * 4)) + 2];
-      let a = png.data[((y * (png.width * 4)) + (x * 4)) + 3];
+  for (let x = 0; x < img.width; x++){
+    for (let y = 0; y < img.height; y++){
+      let r = img.data[((y * (img.width * 4)) + (x * 4))];
+      let g = img.data[((y * (img.width * 4)) + (x * 4)) + 1];
+      let b = img.data[((y * (img.width * 4)) + (x * 4)) + 2];
+      let a = img.data[((y * (img.width * 4)) + (x * 4)) + 3];
 
       if (a !== undefined && a !== 0) {
 
-          const geometry = new THREE.BoxGeometry(1, 1, thikness);
+          const geometry = new THREE.BoxGeometry(1, 1, element.thikness);
 
           //si une couleur personnalisée est attribuée et que le pixel n'est pas noir (bordure), on set la couleur perso.
-          var color = (customColor !== undefined && r !== 0) ? new THREE.Color(customColor) : new THREE.Color(`rgb(${r}, ${g}, ${b})`);
+          let color = (element.color !== undefined && r !== 0) ? new THREE.Color(element.color) : new THREE.Color(`rgb(${r}, ${g}, ${b})`);
 
           const material = new THREE.MeshBasicMaterial( { 
             color: color,
@@ -31,39 +35,32 @@ export function addPixelBlockToScene(pixels, name, png, scene, customColor, thik
           } );
 
           let cube = new THREE.Mesh(geometry, material);
-          cube.position.set(x-12, -y, z);
+          cube.position.set(x-12, -y, element.z);
 
           //deasactivé car wideframe.opacity = 0
-          if (wideFrame)
-              addWideFrame(cube);
+          // if (wideFrame)
+          //     addWideFrame(cube);
 
           // console.log(`x: ${x}   y: ${y}`)
 
           //on s'assure qu'aucun pixel ne se chevauche.
           //Si 2 pixel on un x&&y identique ou un xz ou un yz
-          if (!pixels.some(elem => elem.x  == x && elem.y == y && elem.z == z)){
-            pixels.push({x, y, z});
+          if (!pixels.some(elem => elem !== undefined && elem.x  == x && elem.y == y && elem.z == element.z)){
+            pixels.push({x, y, ...element.z});
             group.add(cube);
           }
       } 
     }
   }
   
-  if (orientation !== null){
-      group.rotation.x +=  orientation.x; 
-      group.rotation.y += orientation.y; 
-      group.rotation.z +=  orientation.z; 
+  if (element.rotation !== undefined){
+      group.rotation.x +=  element.rotation.x; 
+      group.rotation.y += element.rotation.y; 
+      group.rotation.z +=  element.rotation.z; 
   }
   
-  //Pour nanimg de l'objet entier
-  let model = new THREE.Object3D();
-  model.name = name;
-  model.add(group);   
-  scene.add(model);
-
-  return group;
+  scene.add(group);
 }   
-
 
 export function getBuffer(img){
   const base64 = getBase64(img);
@@ -72,8 +69,8 @@ export function getBuffer(img){
 }
 
 const addWideFrame = (object) =>{
-  var geo = new THREE.EdgesGeometry( object.geometry );
-  var mat = new THREE.LineBasicMaterial( { 
+  let geo = new THREE.EdgesGeometry( object.geometry );
+  let mat = new THREE.LineBasicMaterial( { 
     color: 0x000000, 
     linewidth: 4,
     transparent: true,
@@ -81,7 +78,7 @@ const addWideFrame = (object) =>{
     name: "smoka"
   } );
 
-  var wireframe = new THREE.LineSegments( geo, mat );
+  let wireframe = new THREE.LineSegments( geo, mat );
   wireframe.renderOrder = 1; // make sure wireframes are rendered 2nd
   object.add(wireframe);
 }
@@ -91,43 +88,43 @@ const getBase64 = function(str) {
 }
 
 const base64ToArrayBuffer = function(base64) {
-  var binary_string = window.atob(base64);
-  var len = binary_string.length;
-  var bytes = new Uint8Array(len);
-  for (var i = 0; i < len; i++) {
+  let binary_string = window.atob(base64);
+  let len = binary_string.length;
+  let bytes = new Uint8Array(len);
+  for (let i = 0; i < len; i++) {
       bytes[i] = binary_string.charCodeAt(i);
   }
   return bytes.buffer;
 }
 
-export const animateScene = (scene) => {
-  const group2 = new THREE.Group();
+// export const animateScene = (scene) => {
+//   const group2 = new THREE.Group();
 
-  console.log(scene);
-  console.log(group);
+//   console.log(scene);
+//   console.log(group);
 
-  var axis = new THREE.Vector3( 0, 0.5, 0 );
-  group.rotateOnAxis(axis, Math.PI);
-  group.rotation.y += 0.0002;
+//   let axis = new THREE.Vector3( 0, 0.5, 0 );
+//   group.rotateOnAxis(axis, Math.PI);
+//   group.rotation.y += 0.0002;
+// }
 
 
-}
 export const animateHat = (scene) => {
-  var object = scene.getObjectByName("hat_helice2");
+  let object = scene.getObjectByName("hat_helice2");
   console.log(object);
-  // var material = object.children[0].children[0].clone().material;
-  // var wide = scene.getObjectByName("hat_helice3").clone().material;
+  // let material = object.children[0].children[0].clone().material;
+  // let wide = scene.getObjectByName("hat_helice3").clone().material;
 
   // setInterval(()=>{
 
   // }, 
   // 5000);
   
-  // var tweenSmoke = new TWEEN.Tween( material ).to( { opacity: 0 }, 3000 ).start();
-  // var tweenWidframe =  new TWEEN.Tween(wide).to( { opacity: 0 }, 3000 ).start();
+  // let tweenSmoke = new TWEEN.Tween( material ).to( { opacity: 0 }, 3000 ).start();
+  // let tweenWidframe =  new TWEEN.Tween(wide).to( { opacity: 0 }, 3000 ).start();
 
   
-  var tween = new TWEEN.Tween(object.rotation)
+  let tween = new TWEEN.Tween(object.rotation)
   .to({ y: "-" + Math.PI/2}, 1000)
   .delay(1000)
   .onComplete(function() {
@@ -137,5 +134,4 @@ export const animateHat = (scene) => {
   })
   .start();
 tween.repeat(Infinity);
-
 }

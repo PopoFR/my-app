@@ -71,11 +71,10 @@ const Scene = () => {
     }
 
     function createPunk(){
-        var p = getRandomPunk(scene, pixels, "punk")
-
-
-        setPunk({name: p.name, traits: [...p.traits]});
-
+        var myPunk = getRandomPunk(scene, "punk 120");
+        setPunk(myPunk);
+        console.log(myPunk)
+        console.log(punk)
     }
 
     function createControls(){
@@ -85,18 +84,18 @@ const Scene = () => {
     }
 
     function createPanel(){
-        const gui = new GUI({ width: 310 })
-        const cubeFolder = gui.addFolder('Customize')
-        var obj =  scene.getObjectByName("glass01");
+        // const gui = new GUI({ width: 310 })
+        // const cubeFolder = gui.addFolder('Customize')
+        // var obj =  scene.getObjectByName("glass01");
     }
     
     function createRenderer(){
         renderer = new THREE.WebGLRenderer();
         renderer.domElement.id = 'p3nkd-canvas';
         renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( 600, 600 );
+        renderer.setSize( 800, 500 );
         renderer.setClearColor( 0xfafafa  , 1 ); 
-                container.appendChild(renderer.domElement);
+        container.appendChild(renderer.domElement);
     }
     
     async function exportPunk(e){
@@ -107,12 +106,12 @@ const Scene = () => {
         scene.rotation.z = 0;
         render();
         const name = 'P3nkD_xxxx';
-        Export.doExport(scene, renderer, name, animatedRender)
-            .then(() => console.log("end"));
+        Export.doExport(scene, renderer, name, animatedRender)            
+        .then((RES) => console.log(RES));
     }
 
     function animatedRender(){
-        scene.rotation.y += Math.PI / 180;
+        scene.rotation.y += Math.PI / 60;
         render();
     }
     
@@ -159,6 +158,7 @@ const Scene = () => {
         <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
             <div id="scene-container"></div>
                 <div>
+                    {punk.name}
                 <button type="button" onClick={exportPunk}>EXPORT</button>
                 <button type="button" onClick={addPunk}>addPunk</button>
                     <button type="button" onClick={tooglePunk2}>del punk</button>
@@ -176,7 +176,7 @@ const Scene = () => {
                                 <p>{t.name}</p>
                             )}
                         </div>
-                </div> 
+                </div>  
             </div>
         {/* <div>
             My Traits: 
