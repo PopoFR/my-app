@@ -29,9 +29,7 @@ export function addPixelBlockToScene(scene, pixels, element){
           let color = (element.color !== undefined && r !== 0) ? new THREE.Color(element.color) : new THREE.Color(`rgb(${r}, ${g}, ${b})`);
 
           const material = new THREE.MeshBasicMaterial( { 
-            color: color,
-            transparent: true,
-            opacity: 1
+            color: color
           } );
 
           let cube = new THREE.Mesh(geometry, material);
@@ -60,6 +58,8 @@ export function addPixelBlockToScene(scene, pixels, element){
   }
   
   scene.add(group);
+
+  return group;
 }   
 
 export function getBuffer(img){

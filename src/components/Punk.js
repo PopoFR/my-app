@@ -1,23 +1,36 @@
-import {generateTrait, getRandomTraits} from './Traits';
+import {generateTrait, getRandomTraits, Trait} from './Traits';
+import * as THREE from "three";
 
-export default class Punk{
-    constructor(name, traits){
-        this.name = name;
-        this.traits = traits;
-    }
-}
+export function generatePunk(scene, name){
+    var punk = new THREE.Group();
+    punk.name = name;
 
+    var traits = getRandomTraits();
 
-export function getRandomPunk(scene, name){
-    var punk = new Punk(name, getRandomTraits());
-    generatePunk(scene, punk);
+    var pixels = [{}];
+
+    traits.forEach(trait => {
+        punk.add(generateTrait(scene, trait, pixels));
+    })
+
+    scene.add(punk);
     return punk;
 }
 
-export function generatePunk(scene, punk){
-    let pixels = [{}];
-    punk.traits.forEach(trait=>{
-        console.log(trait)
-        generateTrait(scene, pixels, trait);
+
+export function generatePunk21(scene, name, traitsObj){
+    var punk = new THREE.Group();
+    punk.name = name;
+
+    var traits = [];
+    traitsObj.forEach(obj => traits.push(new Trait(obj)));
+
+    var pixels = [{}];
+
+    traits.forEach(trait => {
+        punk.add(generateTrait(scene, trait, pixels));
     })
+
+    scene.add(punk);
+    return punk;
 }
