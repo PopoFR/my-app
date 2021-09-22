@@ -3,8 +3,8 @@ import axios from 'axios'
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter"
 import { GifWriter } from 'omggif'
 
-export async function doExport(scene, renderer, name, render){
-    return  Promise.all([exportGLB(scene, name), exportJPG(renderer, name), exportGif(render, name)])
+export async function doExport(scene, renderer, name, animatedRender){
+    return  Promise.all([exportGLB(scene, name), exportJPG(renderer, name), exportGif(animatedRender, name)])
 }
 
 async function exportGLB(scene, name) {
@@ -32,20 +32,20 @@ async function exportJPG(renderer, name){
     await upload(url, file, filename)
 }
 
-async function exportGif(render, name){
+async function exportGif(animatedRender, name){
     console.log("exportGif")
 
     const filename = `${name}.gif`
     const url = "http://localhost:8000/uploadGIF";
     const canvas1 = document.getElementById( 'p3nkd-canvas' );
-    const buffer = await generateGIF( canvas1, render, 4, 30 );
+    const buffer = await generateGIF( canvas1, animatedRender, 4, 30 );
     const blob = new Blob( [ buffer ], { type: 'image/gif' } );
 
     upload(url, blob, filename)
 }
 
 
-async function generateGIF( element, renderFunction, duration = 1, fps = 30 ) {
+async function generateGIF(element, animatedRender, duration = 1, fps = 30) {
 
     const frames = duration * fps;
 
@@ -63,7 +63,7 @@ async function generateGIF( element, renderFunction, duration = 1, fps = 30 ) {
 
     return new Promise( async function addFrame( resolve ) {
 
-        renderFunction( current / frames );
+        animatedRender( current / frames );
 
         context.drawImage( element, 0, 0 );
         const data = context.getImageData( 0, 0, canvas.width, canvas.height ).data;
