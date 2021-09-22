@@ -35,14 +35,12 @@ const Scene = () => {
         setTypeTraits(getTraitsName());
         setTraits(getTraitObject());
 
-        console.log("init")
         TraitsGenerator();
         createScene();
         createCamera();
         createLights();
         createPunk();
         createControls();
-        createPanel();
         createRenderer();
         animate();
 
@@ -54,6 +52,7 @@ const Scene = () => {
     function createScene(){
         container = document.querySelector("#scene-container");
         scene.name = "P3nkD";
+        
     }
 
     function createCamera(){
@@ -61,25 +60,19 @@ const Scene = () => {
         camera.position.x = 0;
         camera.position.y = -12;
         camera.position.z = 50;
-				scene.add( camera );
+		scene.add(camera);
     }
 
     function createLights(){
-
         const pointLight = new THREE.PointLight( 0xffffff, 0.8);
-        camera.add( pointLight );
+        camera.add(pointLight);
     }
 
     function createPunk(){
-        var myPunk = generatePunk(scene, "punk 120");
+        console.log("createPunk")
+        var myPunk = generatePunk("punk 120");
+        scene.add(myPunk);
         setPunk(myPunk);
-
-        // myPunk.traverse( function( node ) {
-        //     if( node.material ) {
-        //         node.material.opacity = 0.8;
-        //         node.material.transparent = true;
-        //     }
-        // });
     }
 
     function createControls(){
@@ -87,24 +80,17 @@ const Scene = () => {
         controls.target.set( 0, -12, 0 )
         controls.update();
     }
-
-    function createPanel(){
-        // const gui = new GUI({ width: 310 })
-        // const cubeFolder = gui.addFolder('Customize')
-        // var obj =  scene.getObjectByName("glass01");
-    }
     
     function createRenderer(){
         renderer = new THREE.WebGLRenderer();
         renderer.domElement.id = 'p3nkd-canvas';
-        renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( 800, 500 );
+        renderer.setPixelRatio( 1 );
+        renderer.setSize( 800, 800 );
         renderer.setClearColor( 0xfafafa  , 1 ); 
         container.appendChild(renderer.domElement);
     }
     
     async function exportPunk(e){
-
         render();
         const name = 'P3nkD_xxxx';
         Export.doExport(scene, renderer, name, animatedRender)            
@@ -129,19 +115,11 @@ const Scene = () => {
     function tooglePunk(e){
         e.preventDefault()
         punk.clear();
-        var myPunk = generatePunk(scene, "punk 121");
-        setPunk(myPunk);
+        
+        var newPunk = generatePunk("punk 121");
+        setPunk(newPunk);
+        scene.add(newPunk);
     }
-
-    function addPunk(){
-        createPunk();
-        console.log(scene)
-        render();
-    }
-
-
-
-
 
     function handleChange(e){
         console.log('handleChange')
@@ -189,7 +167,7 @@ const Scene = () => {
                 <button type="button" onClick={tooglePunk}>TOOGLE</button>
                 <button type="button" onClick={render}>refresh</button>
                 </div>
-                <div>
+                {/* <div>
                     <div>
                         Punk: {punk.name}
                     </div>
@@ -208,7 +186,7 @@ const Scene = () => {
                         </div>
                         )}
                     </div>
-                </div>  
+                </div>   */}
             </div>
         {/* <div>
             My Traits: 

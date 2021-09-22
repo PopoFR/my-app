@@ -1,14 +1,12 @@
 import * as THREE from "three";
 import * as UPNG from 'upng-js';
 import TWEEN from '@tweenjs/tween.js';
-import Element from './Traits';
 
+export function addPixelBlockToScene(pixels, element){
+  console.log(`Pixel: addPixelBlockToScene(${element.name})`);
 
-export function addPixelBlockToScene(scene, pixels, element){
   let group = new THREE.Group();
   group.name = element.name;
-
-  console.log(`Pixel: addPixelBlockToScene(${element.name})`);
   
   let img = getBuffer(require(''+ element.src));
 
@@ -24,6 +22,8 @@ export function addPixelBlockToScene(scene, pixels, element){
       if (a !== undefined && a !== 0) {
 
           const geometry = new THREE.BoxGeometry(1, 1, element.thikness);
+
+          console.log(element.thikness)
 
           //si une couleur personnalisée est attribuée et que le pixel n'est pas noir (bordure), on set la couleur perso.
           let color = (element.color !== undefined && r !== 0) ? new THREE.Color(element.color) : new THREE.Color(`rgb(${r}, ${g}, ${b})`);
@@ -43,10 +43,7 @@ export function addPixelBlockToScene(scene, pixels, element){
 
           //on s'assure qu'aucun pixel ne se chevauche.
           //Si 2 pixel on un x&&y identique ou un xz ou un yz
-          if (!pixels.some(elem => elem !== undefined && elem.x  == x && elem.y == y && elem.z == element.z)){
-            pixels.push({x, y, ...element.z});
-            group.add(cube);
-          }
+          group.add(cube);
       } 
     }
   }
@@ -57,8 +54,6 @@ export function addPixelBlockToScene(scene, pixels, element){
       group.rotation.z +=  element.rotation.z; 
   }
   
-  scene.add(group);
-
   return group;
 }   
 

@@ -25,14 +25,15 @@ export  class Trait {
 }
 
 export class Element {
-    constructor(name, color, src, z, thikness, rotation, isMerged) {
+    constructor(name, color, src, z, thikness, rotation, opacity, isMerged) {
         this.name = name;
         this.color = color;
         this.src = src;
         this.z = z;
         this.thikness = thikness;
         this.rotation = rotation;
-        this.isMerged = isMerged
+        this.opacity = opacity;
+        this.isMerged = isMerged;
     }
 }
 
@@ -99,26 +100,49 @@ export function getRandomTraits(){
         new Trait(glasses[0]),
         // new Trait(getRandomElem(glasses)),
 
-        new Trait(getRandomElem(hairs), hairColor.hexs.hair),
-        new Trait(getRandomElem(eyebrows), furColor.hexs.eyebrow),
-        new Trait(getRandomElem(eyes), bodyColor.hexs.eye),
-        new Trait(getRandomElem(noses), bodyColor.hexs.nose),
-        new Trait(getRandomElem(mouths)),
-        new Trait(getRandomElem(beards), furColor.hexs.beard),
+        // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
+        // new Trait(getRandomElem(eyebrows), furColor.hexs.eyebrow),
+        // new Trait(getRandomElem(eyes), bodyColor.hexs.eye),
+        // new Trait(getRandomElem(noses), bodyColor.hexs.nose),
+        // new Trait(getRandomElem(mouths)),
+        // new Trait(getRandomElem(beards), furColor.hexs.beard),
         new Trait(getRandomElem(bodys), bodyColor.hexs.body)
     ]
     return traits;
 };
 
-export function generateTrait(scene, trait, pixels){
+export function getFixedTraits(){
+    const bodyColor = colors['body'][2].hexs['body'];
+    const hairColor = colors['hairs'][0];
+    const furColor = colors['hairs'][0];
+
+    let traits = [  
+        new Trait(hats[20]),
+        new Trait(glasses[0]),
+        new Trait(bodys[0], bodyColor),
+        // new Trait(glasses[0]),
+
+        // new Trait(getRandomElem(glasses)),
+        // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
+        // new Trait(getRandomElem(eyebrows), furColor.hexs.eyebrow),
+        // new Trait(getRandomElem(eyes), bodyColor.hexs.eye),
+        // new Trait(getRandomElem(noses), bodyColor.hexs.nose),
+        // new Trait(getRandomElem(mouths)),
+        // new Trait(getRandomElem(beards), furColor.hexs.beard),
+    ]
+    return traits;
+}
+
+export function generateTrait(trait, pixels){
 
     let group = new THREE.Group();
     group.name = trait.name;
 
+    //pour chaque element (face, back, etc...) du trait, on genere un element.
     trait.elements.forEach(e => {
         //ne fonctionne pas sans le string vide.
-        let element = new Element (e.name, trait.color, e.src, e.z, e.thikness, trait.rotation, e.isMerged);
-        group.add(addPixelBlockToScene(scene, pixels, element)); 
+        let element = new Element (e.name, trait.color, e.src, e.z, e.thikness, trait.rotation, e.opacity, e.isMerged);
+        group.add(addPixelBlockToScene(pixels, element)); 
     });
 
     return group;
