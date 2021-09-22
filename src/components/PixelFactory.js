@@ -11,6 +11,8 @@ export function addPixelBlockToScene(pixels, element){
   let img = getBuffer(require(''+ element.src));
   const geometry = new THREE.BoxGeometry(1, 1, element.thikness);
 
+  let colors = [];
+  
   for (let x = 0; x < img.width; x++){
     for (let y = 0; y < img.height; y++){
       let r = img.data[((y * (img.width * 4)) + (x * 4))];
@@ -18,23 +20,38 @@ export function addPixelBlockToScene(pixels, element){
       let b = img.data[((y * (img.width * 4)) + (x * 4)) + 2];
       let a = img.data[((y * (img.width * 4)) + (x * 4)) + 3];
 
-      if (a !== undefined && a !== 0) {
+      if (a !== undefined && a !== 0 ) {
 
-          //si une couleur personnalisée est attribuée et que le pixel n'est pas noir (bordure), on set la couleur perso.
-          let color = (element.color !== undefined && r !== 0) ? new THREE.Color(element.color) : new THREE.Color(`rgb(${r}, ${g}, ${b})`);
+        let newX = x - 12;
+        let newY = -y; 
+        let z = element.z;
+        
+        //si le pixel n'existe pas on le crée (evite les chevauchements de texture)
+        if (!pixelExist(pixels, {x: newX, y: newY, z: z})){
+
+          //si une couleur perso existe et que le pixels n'est pas noir, on customise la couleur
+          let color = (element.color !== undefined && r !== 0 && g !== 0 && b !== 0) ? new THREE.Color(element.color) : new THREE.Color(`rgb(${r}, ${g}, ${b})`);
 
           const material = new THREE.MeshBasicMaterial({color: color});
 
+            //pour lunette
           if (element.isMerged){
             material.transparent = true;
             material.opacity = element.opacity;
           }
 
+          let newX = x - 12;
+          let newY = -y; 
+          let z = element.z;
 
           let cube = new THREE.Mesh(geometry, material);
-          cube.position.set(x-12, -y, element.z);
+
+          pixels.push({newX, newY, z})
+          cube.position.set(newX, newY, z);
 
           group.add(cube);
+
+        }
       } 
     }
   }
@@ -52,6 +69,12 @@ export function getBuffer(img){
   const base64 = getBase64(img);
   const buffer = base64ToArrayBuffer(base64);
   return UPNG.decode(buffer);
+}
+
+function pixelExist(pixels ,postions) {
+  return pixels.some(function(pixel) {
+    return pixel.x === postions.x && pixel.y === postions.y  && pixel.z === postions.z 
+  }); 
 }
 
 const addWideFrame = (object) =>{
