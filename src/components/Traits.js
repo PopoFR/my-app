@@ -14,7 +14,6 @@ const eyebrows = require('./punk/traits/json/EyeBrow.json');
 const glasses = require('./punk/traits/json/Glass.json');
 const accessories = require('./punk/traits/json/Accessories.json');
 
-
 export  class Trait {
     constructor(obj, color) {
         this.name = obj.name;
@@ -117,8 +116,8 @@ export function getFixedTraits(){
     const furColor = colors['hairs'][0];
 
     let traits = [  
-        new Trait(hats[20]),
-        new Trait(glasses[0]),
+        new Trait(hats[16]), //hat15 marche pas avec masque
+        new Trait(glasses[9]),
         new Trait(bodys[0], bodyColor),
         // new Trait(glasses[0]),
 

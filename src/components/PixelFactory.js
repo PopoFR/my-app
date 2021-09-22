@@ -9,9 +9,8 @@ export function addPixelBlockToScene(pixels, element){
   group.name = element.name;
   
   let img = getBuffer(require(''+ element.src));
+  const geometry = new THREE.BoxGeometry(1, 1, element.thikness);
 
-  // loop tous les pixels du png, (de gauche a droite et haut en bas), 
-  // afin de générer des blocks de la couleur des pixels non transparents.
   for (let x = 0; x < img.width; x++){
     for (let y = 0; y < img.height; y++){
       let r = img.data[((y * (img.width * 4)) + (x * 4))];
@@ -21,28 +20,20 @@ export function addPixelBlockToScene(pixels, element){
 
       if (a !== undefined && a !== 0) {
 
-          const geometry = new THREE.BoxGeometry(1, 1, element.thikness);
-
-          console.log(element.thikness)
-
           //si une couleur personnalisée est attribuée et que le pixel n'est pas noir (bordure), on set la couleur perso.
           let color = (element.color !== undefined && r !== 0) ? new THREE.Color(element.color) : new THREE.Color(`rgb(${r}, ${g}, ${b})`);
 
-          const material = new THREE.MeshBasicMaterial( { 
-            color: color
-          } );
+          const material = new THREE.MeshBasicMaterial({color: color});
+
+          if (element.isMerged){
+            material.transparent = true;
+            material.opacity = element.opacity;
+          }
+
 
           let cube = new THREE.Mesh(geometry, material);
           cube.position.set(x-12, -y, element.z);
 
-          //deasactivé car wideframe.opacity = 0
-          // if (wideFrame)
-          //     addWideFrame(cube);
-
-          // console.log(`x: ${x}   y: ${y}`)
-
-          //on s'assure qu'aucun pixel ne se chevauche.
-          //Si 2 pixel on un x&&y identique ou un xz ou un yz
           group.add(cube);
       } 
     }

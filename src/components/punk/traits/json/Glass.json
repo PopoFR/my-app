@@ -13,9 +13,9 @@
             {
                 "name": "glass01", 
                 "src": "./punk/traits/img/male/glass/glass01_glass.png", 
-                "thikness": 1, 
-                "z": 1,
-                "opacity": 0.5, 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.7, 
                 "isMerged": true
             }
         ]
@@ -26,10 +26,18 @@
         "elems": 
         [
             {
-                "name": "glass02", 
-                "src": "./punk/traits/img/male/glass/glass02.png", 
+                "name": "glass02_mount", 
+                "src": "./punk/traits/img/male/glass/glass02_mount.png", 
                 "thikness": 1, 
-                "z": 1.5
+                "z": 1
+            },
+            {
+                "name": "glass02_glass", 
+                "src": "./punk/traits/img/male/glass/glass02_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.7, 
+                "isMerged": true
             }
         ]
     },
@@ -39,10 +47,18 @@
         "elems": 
         [
             {
-                "name": "glass03", 
-                "src": "./punk/traits/img/male/glass/glass03.png", 
+                "name": "glass03_mount", 
+                "src": "./punk/traits/img/male/glass/glass03_mount.png", 
                 "thikness": 1, 
-                "z": 1.5
+                "z": 1
+            },
+            {
+                "name": "glass03_glass", 
+                "src": "./punk/traits/img/male/glass/glass03_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.7, 
+                "isMerged": true
             }
         ]
     },
@@ -52,10 +68,18 @@
         "elems": 
         [
             {
-                "name": "glass04", 
-                "src": "./punk/traits/img/male/glass/glass04.png", 
+                "name": "glass04_mount", 
+                "src": "./punk/traits/img/male/glass/glass04_mount.png", 
                 "thikness": 1, 
-                "z": 1.5
+                "z": 1
+            },
+            {
+                "name": "glass04_glass", 
+                "src": "./punk/traits/img/male/glass/glass04_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.7, 
+                "isMerged": true
             }
         ]
     },
@@ -68,7 +92,7 @@
                 "name": "glass05", 
                 "src": "./punk/traits/img/male/glass/glass05.png", 
                 "thikness": 1, 
-                "z": 1.5
+                "z": 1
             }
         ]
     },
@@ -78,10 +102,18 @@
         "elems": 
         [
             {
-                "name": "glass06", 
-                "src": "./punk/traits/img/male/glass/glass06.png", 
+                "name": "glass06_mount", 
+                "src": "./punk/traits/img/male/glass/glass06_mount.png", 
                 "thikness": 1, 
-                "z": 1.5
+                "z": 1
+            },
+            {
+                "name": "glass06_glass", 
+                "src": "./punk/traits/img/male/glass/glass06_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.8, 
+                "isMerged": true
             }
         ]
     },
@@ -91,68 +123,83 @@
         "elems": 
         [
             {
-                "name": "glass07a", 
+                "name": "glass07b", 
                 "src": "./punk/traits/img/male/glass/glass07a.png", 
-                "thikness": 0.5, 
-                "z": 1.75
+                "thikness": 1, 
+                "z": 1
             },
             {
-                "name": "glass07b", 
+                "name": "glass07a", 
                 "src": "./punk/traits/img/male/glass/glass07b.png", 
-                "thikness": 0.5, 
-                "z": 1.75
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.8, 
+                "isMerged": true
             }
         ]
     },
     {
-        "name": "glass08",
+        "name": "eyes_clown_blue",
         "id": "7",
         "elems": 
         [
             {
-                "name": "glass08", 
-                "src": "./punk/traits/img/male/glass/glass08.png", 
+                "name": "eyes_clown_blue", 
+                "src": "./punk/traits/img/male/glass/eyes_clown_blue.png", 
                 "thikness": 1, 
-                "z": 1
+                "z": 0
             }
         ]
     },
     {
-        "name": "glass09",
+        "name": "eyes_clown_green",
         "id": "8",
         "elems": 
         [
             {
-                "name": "glass09", 
-                "src": "./punk/traits/img/male/glass/glass09.png", 
+                "name": "eyes_clown_green", 
+                "src": "./punk/traits/img/male/glass/eyes_clown_green.png", 
                 "thikness": 0.5, 
                 "z": 1.5
             }
         ]
     },
     {
-        "name": "glass10",
+        "name": "glass_dbz",
         "id": "9",
         "elems": 
         [
             {
-                "name": "glass10", 
-                "src": "./punk/traits/img/male/glass/glass10.png", 
+                "name": "hat_mickey_back", 
+                "src": "./punk/traits/img/male/glass/glass_dbz_mount.png", 
                 "thikness": 0.5, 
-                "z": 1.5
-            }
-        ]
-    },
-    {
-        "name": "glass11",
-        "id": "10",
-        "elems": 
-        [
+                "z": -1.75
+            },
             {
-                "name": "glass11", 
-                "src": "./punk/traits/img/male/glass/glass11.png", 
-                "thikness": 0.5, 
-                "z": 1.5
+                "name": "glass_dbz_mount", 
+                "src": "./punk/traits/img/male/glass/glass_dbz_mount.png", 
+                "thikness": 1, 
+                "z": -1
+            },
+            {
+                "name": "glass_dbz_mount", 
+                "src": "./punk/traits/img/male/glass/glass_dbz_mount.png", 
+                "thikness": 1, 
+                "z": 0
+            },
+            {
+                "name": "glass_dbz_mount", 
+                "src": "./punk/traits/img/male/glass/glass_dbz_mount.png", 
+                "thikness": 1, 
+                "z": 1
+            },
+            {
+                "name": "glass_dbz_glass", 
+                "src": "./punk/traits/img/male/glass/glass_dbz_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.8, 
+                "isMerged": true
             }
         ]
     }
