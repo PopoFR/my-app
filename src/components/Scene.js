@@ -1,19 +1,19 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { AmbientLight } from 'three';
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
-import * as Export from "../components/Export"; 
-import {TraitsGenerator} from "./punk/traits/TraitsGenerator.js"
+import * as Export from "../components/Export";
+import { TraitsGenerator } from "./punk/traits/TraitsGenerator.js"
 import { getPunk, getRandomPunk } from "./Punk.js";
-import {getTraitsName, getTraitObject, getTraitO, Trait} from './Traits.js'
+import { getTraitsName, getTraitObject, getTraitO, Trait } from './Traits.js'
 
-let 
-container,
-camera, 
-lights,
-controls, 
-renderer;
+let
+    container,
+    camera,
+    lights,
+    controls,
+    renderer;
 
 const Scene = () => {
 
@@ -24,14 +24,14 @@ const Scene = () => {
     const [t, setT] = useState([]);
     const [traits, setTraits] = useState([]);
     const [currentOnChange, setCurrentOnchange] = useState("");
-    useEffect(()=>{
+    useEffect(() => {
         console.log("Scene: useEffect");
         init();
         return () => {
         }
-    },[]);
+    }, []);
 
-    function init(){
+    function init() {
         setTypeTraits(getTraitsName());
         setTraits(getTraitObject());
 
@@ -44,84 +44,85 @@ const Scene = () => {
         createRenderer();
         animate();
 
-        console.log(punk.traits)
         // exportPunk();
         // render();
     }
 
-    function createScene(){
+    function createScene() {
         container = document.querySelector("#scene-container");
         scene.name = "P3nkD";
-        
+
     }
 
-    function createCamera(){
-        camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+    function createCamera() {
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         camera.position.x = 0;
         camera.position.y = -12;
         camera.position.z = 50;
-		scene.add(camera);
+        scene.add(camera);
     }
 
-    function createLights(){
-        const pointLight = new THREE.PointLight( 0xffffff, 0.8);
+    function createLights() {
+        const pointLight = new THREE.PointLight(0xffffff, 0.8);
         camera.add(pointLight);
     }
 
-    function createPunk(){
-        console.log("createPunk")
+    function createPunk() {
         var myPunk = getPunk("punk 120");
         scene.add(myPunk);
         setPunk(myPunk);
+        console.log(myPunk);
     }
 
-    function createControls(){
+    function createControls() {
         controls = new OrbitControls(camera, container);
-        controls.target.set( 0, -12, 0 )
+        controls.target.set(0, -12, 0)
         controls.update();
     }
-    
-    function createRenderer(){
+
+    function createRenderer() {
         renderer = new THREE.WebGLRenderer();
         renderer.domElement.id = 'p3nkd-canvas';
-        renderer.setPixelRatio( 1 );
-        renderer.setSize( 800, 800 );
-        renderer.setClearColor( 0xfafafa  , 1 ); 
+        renderer.setPixelRatio(1);
+        renderer.setSize(800, 800);
+        renderer.setClearColor(0xfafafa, 1);
         container.appendChild(renderer.domElement);
     }
-    
-    async function exportPunk(e){
+
+    async function exportPunk(e) {
         render();
         const name = 'P3nkD_xxxx';
-        Export.doExport(scene, renderer, name, animatedRender)            
-        .then((RES) => console.log(RES));
+        Export.doExport(scene, renderer, name, animatedRender)
+            .then((RES) => console.log(RES));
     }
 
-    function animatedRender(){
+    function animatedRender() {
         scene.rotation.y += Math.PI / 60;
         render();
     }
-    
-    function render(){
+
+    function render() {
         renderer.render(scene, camera);
     }
 
     function animate() {
         if (isAnimate)
             requestAnimationFrame(animate);
-        render(); 
+        render();
     }
-    
-    function tooglePunk(e){
+
+    function tooglePunk(e) {
         e.preventDefault()
         punk.clear();
-        
+
         var newPunk = getRandomPunk();
         setPunk(newPunk);
         scene.add(newPunk);
     }
-
-    function handleChange(e){
+    function refresh() {
+        console.log(punk)
+    }
+    function handleChange(e) {
         console.log('handleChange')
         // let newTraits = [];
         // // punk.children.forEach(trait => {
@@ -142,7 +143,7 @@ const Scene = () => {
     }
 
     //TODO recuperer la position dans la liste. et gerer les couleur
-    function onFocus(selectedTrait, typeTraitLibelle){
+    function onFocus(selectedTrait, typeTraitLibelle) {
         console.log('onfocus')
 
         // setCurrentOnchange(selectedTrait);
@@ -152,43 +153,32 @@ const Scene = () => {
         //     if (trait.name !== selectedTrait)
         //     newTraitsName.push({name: trait.name, type: typeTraitLibelle});
         // })
-        
+
         // setT(newTraitsName)
         // console.log(newTraitsName)
     }
 
     return (
-        <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <div id="scene-container"></div>
+            <div>
+                {punk.name}
                 <div>
-                    {punk.name}
-                <div>
-                <button type="button" onClick={exportPunk}>EXPORT</button>
-                <button type="button" onClick={tooglePunk}>TOOGLE</button>
-                <button type="button" onClick={render}>refresh</button>
+                    <button type="button" onClick={exportPunk}>EXPORT</button>
+                    <button type="button" onClick={tooglePunk}>TOOGLE</button>
+                    <button type="button" onClick={refresh}>refresh</button>
                 </div>
-                {/* <div>
+                <div>
                     <div>
-                        Punk: {punk.name}
+                      {
+                          punk.children.map(trait=>{
+                              return <div id={trait.id}>{trait.name}</div>
+                          })
+                      }
                     </div>
-                        <div>
-                            My Traits: 
-                        </div>
-                    <div>
-                        {typeTraits && typeTraits.map((typeTraitLibelle, typeTraitId) => 
-                        <div key={typeTraitId}>
-                            <span>{typeTraitLibelle}: </span>
-                            <select onFocus = {()=>onFocus(punk.children[typeTraitId].name, typeTraitLibelle)} key={typeTraitId} onChange={handleChange}>
-                                {traits[typeTraitId] && traits[typeTraitId].map((traitLibelle, traitId) => 
-                                    <option selected={punk.children[typeTraitId].name == traitLibelle.name} key={traitId} value={traitLibelle.name}>{traitLibelle.name}</option>
-                                )}
-                            </select>
-                        </div>
-                        )}
-                    </div>
-                </div>   */}
+                </div>
             </div>
-        {/* <div>
+            {/* <div>
             My Traits: 
             {actualTraits.forEach((item)=>{
                 <span>{item.id}</span>
@@ -202,7 +192,7 @@ const Scene = () => {
             {loading ? <div className="loader"/> : <button type="button" onClick={exportPunk}>export</button>}
             {loading ? <p>loading</p> : <p>pas loading</p>}
         </div> */}
-    </div>
+        </div>
 
     )
 }

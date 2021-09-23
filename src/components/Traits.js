@@ -123,9 +123,9 @@ export function getFixedTraits() {
     let traits = [
         new Trait(bodys[0], bodyColor),
         new Trait(eyebrows[0], eyesBrowColor),
+        new Trait(hats[18]), 
         new Trait(glasses[7]),
         new Trait(eyes[1], eyesColor),
-        new Trait(hats[18]), 
         new Trait(noses[2], noseColor),
         new Trait(mouths[0]),
         new Trait(beards[8], beardColor),
