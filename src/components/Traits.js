@@ -116,9 +116,9 @@ export function getFixedTraits(){
     const furColor = colors['hairs'][0];
 
     let traits = [  
-        new Trait(hats[16]), //hat15 marche pas avec masque
-        new Trait(glasses[0]),
         new Trait(bodys[0], bodyColor),
+        new Trait(hats[6]), //hat15 marche pas avec masque
+        new Trait(glasses[0]),
         // new Trait(glasses[0]),
 
         // new Trait(getRandomElem(glasses)),
@@ -132,7 +132,7 @@ export function getFixedTraits(){
     return traits;
 }
 
-export function generateTrait(trait, pixels){
+export function generateTrait(trait, pixels, colors){
 
     let group = new THREE.Group();
     group.name = trait.name;
@@ -141,7 +141,7 @@ export function generateTrait(trait, pixels){
     trait.elements.forEach(e => {
         //ne fonctionne pas sans le string vide.
         let element = new Element (e.name, trait.color, e.src, e.z, e.thikness, trait.rotation, e.opacity, e.isMerged);
-        group.add(addPixelBlockToScene(pixels, element)); 
+        group.add(addPixelBlockToScene(pixels, colors, element)); 
     });
 
     return group;

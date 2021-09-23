@@ -2,7 +2,7 @@ import * as THREE from "three";
 import * as UPNG from 'upng-js';
 import TWEEN from '@tweenjs/tween.js';
 
-export function addPixelBlockToScene(pixels, element){
+export function addPixelBlockToScene(pixels, colors, element){
   console.log(`Pixel: addPixelBlockToScene(${element.name})`);
 
   let group = new THREE.Group();
@@ -11,7 +11,6 @@ export function addPixelBlockToScene(pixels, element){
   let img = getBuffer(require(''+ element.src));
   const geometry = new THREE.BoxGeometry(1, 1, element.thikness);
 
-  let colors = [];
   
   for (let x = 0; x < img.width; x++){
     for (let y = 0; y < img.height; y++){
@@ -27,41 +26,41 @@ export function addPixelBlockToScene(pixels, element){
         let z = element.z;
         
         //si le pixel n'existe pas on le crée (evite les chevauchements de texture)
-        if (!pixelExist(pixels, {x: newX, y: newY, z: z})){
+        if (!pixelExist(pixels, newX,  newY, z)){
 
           //si une couleur perso existe et que le pixels n'est pas noir, on customise la couleur
           let color = (element.color !== undefined && r !== 0 && g !== 0 && b !== 0) ? new THREE.Color(element.color) : new THREE.Color(`rgb(${r}, ${g}, ${b})`);
+          
+          //tableau de couleur
+          if (!colors.some(col => col.r === r && col.g === g && col.b === b)){
+            colors.push({r, g, b}); 
+          }
 
           const material = new THREE.MeshBasicMaterial({color: color});
 
-            //pour lunette
-          if (element.isMerged){
-            material.transparent = true;
+          //pour lunette 
+          if (element.isMerged){ 
+            material.transparent = true; 
             material.opacity = element.opacity;
           }
 
-          let newX = x - 12;
-          let newY = -y; 
-          let z = element.z;
-
           let cube = new THREE.Mesh(geometry, material);
-
           pixels.push({newX, newY, z})
           cube.position.set(newX, newY, z);
-
           group.add(cube);
-
         }
       } 
     }
   }
-  
+
+  //pour cigarette etc...  
   if (element.rotation !== undefined){
-      group.rotation.x +=  element.rotation.x; 
-      group.rotation.y += element.rotation.y; 
-      group.rotation.z +=  element.rotation.z; 
+    group.rotation.x +=  element.rotation.x; 
+    group.rotation.y += element.rotation.y; 
+    group.rotation.z +=  element.rotation.z;
   }
-  
+
+
   return group;
 }   
 
@@ -71,10 +70,8 @@ export function getBuffer(img){
   return UPNG.decode(buffer);
 }
 
-function pixelExist(pixels ,postions) {
-  return pixels.some(function(pixel) {
-    return pixel.x === postions.x && pixel.y === postions.y  && pixel.z === postions.z 
-  }); 
+function pixelExist(pixels, x, y, z) {
+  return pixels.some(pixel => pixel.x == x && pixel.y == y && pixel.z == z); 
 }
 
 const addWideFrame = (object) =>{
