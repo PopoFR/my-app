@@ -1,0 +1,265 @@
+[
+    {
+        "name": "glasses_beach",
+        "id": "0",
+        "elems": 
+        [
+            {
+                "name": "glasses_beach", 
+                "src": "./punk/traits/img/male/glasses/glasses_beach_mount.png", 
+                "thikness": 1, 
+                "z": 1
+            },
+            {
+                "name": "glasses_beach_glass", 
+                "src": "./punk/traits/img/male/glasses/glasses_beach_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.7, 
+                "isMerged": true
+            }
+        ]
+    },
+    {
+        "name": "glasses_beach_mini",
+        "id": "1",
+        "elems": 
+        [
+            {
+                "name": "glasses_sun_mini_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_beach_mini_mount.png", 
+                "thikness": 1, 
+                "z": 1
+            },
+            {
+                "name": "glasses_sun_mini_glass", 
+                "src": "./punk/traits/img/male/glasses/glasses_beach_mini_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.7, 
+                "isMerged": true
+            }
+        ]
+    },
+    {
+        "name": "glasses_designer",
+        "id": "2",
+        "elems": 
+        [
+            {
+                "name": "glasses_designer_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_designer_mount.png", 
+                "thikness": 1, 
+                "z": 1
+            },
+            {
+                "name": "glasses_designer_glass", 
+                "src": "./punk/traits/img/male/glasses/glasses_designer_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.7, 
+                "isMerged": true
+            }
+        ]
+    },
+    {
+        "name": "glasses_office",
+        "id": "3",
+        "elems": 
+        [
+            {
+                "name": "glasses_office_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_office_mount.png", 
+                "thikness": 1, 
+                "z": 1
+            },
+            {
+                "name": "glasses_office_glass", 
+                "src": "./punk/traits/img/male/glasses/glasses_office_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.7, 
+                "isMerged": true
+            }
+        ]
+    },
+    {
+        "name": "glasses_thuglife",
+        "id": "4",
+        "elems": 
+        [
+            {
+                "name": "glasses_thuglife_main", 
+                "src": "./punk/traits/img/male/glasses/glasses_thuglife.png", 
+                "thikness": 1, 
+                "z": 1
+            }
+        ]
+    },
+    {
+        "name": "glasses_black_mini",
+        "id": "5",
+        "elems": 
+        [
+            {
+                "name": "glasses_black_mini_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_black_mini_mount.png", 
+                "thikness": 1, 
+                "z": 1
+            },
+            {
+                "name": "glasses_black_mini_glass", 
+                "src": "./punk/traits/img/male/glasses/glasses_black_mini_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.8, 
+                "isMerged": true
+            }
+        ]
+    },
+    {
+        "name": "glasses_daftpunk",
+        "id": "6",
+        "elems": 
+        [
+            {
+                "name": "glasses_daftpunk_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_daftpunk_mount.png", 
+                "thikness": 1, 
+                "z": 1
+            },
+            {
+                "name": "glasses_daftpunk_glass", 
+                "src": "./punk/traits/img/male/glasses/glasses_daftpunk_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.8, 
+                "isMerged": true
+            }
+        ]
+    },
+    {
+        "name": "eyesglasses_clown_eyes_blue_clown_blue",
+        "id": "7",
+        "elems": 
+        [
+            {
+                "name": "glasses_clown_eyes_blue_main", 
+                "src": "./punk/traits/img/male/glasses/glasses_clown_eyes_blue.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "name": "glasses_clown_eyes_green",
+        "id": "8",
+        "elems": 
+        [
+            {
+                "name": "glasses_clown_green_main", 
+                "src": "./punk/traits/img/male/glasses/glasses_clown_eyes_green.png", 
+                "thikness": 1, 
+                "z": 1
+            }
+        ]
+    },
+    {
+        "name": "glasses_dbz",
+        "id": "9",
+        "elems": 
+        [
+            {
+                "name": "glasses_dbz_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_dbz_mount.png", 
+                "thikness": 0.5, 
+                "z": -1.75
+            },
+            {
+                "name": "glasses_dbz_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_dbz_mount.png", 
+                "thikness": 1, 
+                "z": -1
+            },
+            {
+                "name": "glasses_dbz_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_dbz_mount.png", 
+                "thikness": 1, 
+                "z": 0
+            },
+            {
+                "name": "glasses_dbz_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_dbz_mount.png", 
+                "thikness": 1, 
+                "z": 1
+            },
+            {
+                "name": "glasses_dbz_glass", 
+                "src": "./punk/traits/img/male/glasses/glasses_dbz_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.8, 
+                "isMerged": true
+            }
+        ]
+    },
+    {
+        "name": "glasses_robber",
+        "id": "10",
+        "elems": 
+        [
+            
+            {
+                "name": "glasses_robber_front", 
+                "src": "./punk/traits/img/male/glasses/glasses_robber_front.png", 
+                "thikness": 1, 
+                "z": 0
+            },
+            {
+                "name": "glasses_robber_back", 
+                "src": "./punk/traits/img/male/glasses/glasses_robber_back.png", 
+                "thikness": 1, 
+                "z": -1
+            }
+        ]
+    },
+    {
+        "name": "glasses_pirate",
+        "id": "11",
+        "elems": 
+        [
+            {
+                "name": "glasses_pirate_front", 
+                "src": "./punk/traits/img/male/glasses/glasses_pirate_front.png", 
+                "thikness": 1, 
+                "z": 0
+            },
+            {
+                "name": "glasses_pirate_back", 
+                "src": "./punk/traits/img/male/glasses/glasses_pirate_back.png", 
+                "thikness": 1, 
+                "z": -1
+            }
+        ]
+    },
+    {
+        "name": "glasses_ninja",
+        "id": "12",
+        "elems": 
+        [
+            {
+                "name": "glasses_ninja_front", 
+                "src": "./punk/traits/img/male/glasses/glasses_ninja_front.png", 
+                "thikness": 1, 
+                "z": 0
+            },
+            {
+                "name": "glasses_ninja_back", 
+                "src": "./punk/traits/img/male/glasses/glasses_ninja_back.png", 
+                "thikness": 1, 
+                "z": -1
+            }
+        ]
+    }
+
+]

@@ -11,7 +11,7 @@ const mouths = require('./punk/traits/json/Mouth.json');
 const beards = require('./punk/traits/json/Beard.json');
 const hats = require('./punk/traits/json/Hat.json');
 const eyebrows = require('./punk/traits/json/EyeBrow.json');
-const glasses = require('./punk/traits/json/Glass.json');
+const glasses = require('./punk/traits/json/Glasses.json');
 const accessories = require('./punk/traits/json/Accessories.json');
 
 export  class Trait {
