@@ -92,6 +92,7 @@ const Scene = () => {
     }
 
     async function exportPunk() {
+        controls.reset();        
         setIsLoading(true);
         Export.doExport(scene, renderer, punk.name, animatedRender)
             .then(() => {
