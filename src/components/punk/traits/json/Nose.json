@@ -1,13 +1,13 @@
 
 [
     {
-        "name": "nose01",
+        "name": "nose_regular",
         "elems": 
         [{
-            "name": "nose01", 
-            "src": "./punk/traits/img/male/nose/nose01.png", 
-            "thikness": 0.5, 
-            "z": 1.5
+            "name": "nose_regular_main", 
+            "src": "./punk/traits/img/male/nose/nose_regular.png", 
+            "thikness": 1, 
+            "z": 1
         }]
     }
 ]

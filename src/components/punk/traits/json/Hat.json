@@ -269,30 +269,30 @@
     },
     {
         "id": "10",
-        "name": "hat_creeps_bandana",
+        "name": "hat_bandana_crips",
         "elems": 
         [
             {
-                "name": "hat_creeps_bandana_back", 
-                "src": "./punk/traits/img/male/hat/bandana_back.png", 
+                "name": "hat_bandana_crips_back1", 
+                "src": "./punk/traits/img/male/hat/hat_bandana_crips_back.png", 
                 "thikness": 0.5, 
                 "z": -1.75
             },
             {
-                "name": "hat_creeps_bandana_back", 
-                "src": "./punk/traits/img/male/hat/bandana_back.png", 
+                "name": "hat_bandana_crips_back2", 
+                "src": "./punk/traits/img/male/hat/hat_bandana_crips_back.png", 
                 "thikness": 1, 
                 "z": -1
             },
             {
-                "name": "hat_creeps_bandana_face", 
-                "src": "./punk/traits/img/male/hat/bandana_face.png", 
+                "name": "hat_bandana_crips_face1", 
+                "src": "./punk/traits/img/male/hat/hat_bandana_crips_face.png", 
                 "thikness": 1, 
                 "z": 0
             },
             {
-                "name": "hat_creeps_bandana_face", 
-                "src": "./punk/traits/img/male/hat/bandana_face.png", 
+                "name": "hat_bandana_crips_face2", 
+                "src": "./punk/traits/img/male/hat/hat_bandana_crips_face.png", 
                 "thikness": 0.5, 
                 "z": 0.75
             }
@@ -300,30 +300,30 @@
     },
     {
         "id": "11",
-        "name": "hat_bloods_bandana",
+        "name": "hat_bandana_bloodz",
         "elems": 
         [
             {
-                "name": "bandana_red_back", 
-                "src": "./punk/traits/img/male/hat/bandana_red_back.png", 
+                "name": "hat_bandana_bloodz_back1", 
+                "src": "./punk/traits/img/male/hat/hat_bandana_bloodz_back.png", 
                 "thikness": 0.5, 
                 "z": -1.75
             },
             {
-                "name": "bandana_red_back", 
-                "src": "./punk/traits/img/male/hat/bandana_red_back.png", 
+                "name": "hat_bandana_bloodz_back2", 
+                "src": "./punk/traits/img/male/hat/hat_bandana_bloodz_back.png", 
                 "thikness": 1, 
                 "z": -1
             },
             {
-                "name": "bandana_red_face", 
-                "src": "./punk/traits/img/male/hat/bandana_red_face.png", 
+                "name": "hat_bandana_bloodz_face1", 
+                "src": "./punk/traits/img/male/hat/hat_bandana_bloodz_face.png", 
                 "thikness": 1, 
                 "z": 0
             },
             {
-                "name": "bandana_red_face", 
-                "src": "./punk/traits/img/male/hat/bandana_red_face.png", 
+                "name": "hat_bandana_bloodz_face2", 
+                "src": "./punk/traits/img/male/hat/hat_bandana_bloodz_face.png", 
                 "thikness": 0.5, 
                 "z": 0.75
             }
@@ -586,7 +586,7 @@
     },
     {
         "name": "crown",
-        "id": "19",
+        "id": "20",
         "elems": [
             {
                 "name": "crown",
@@ -613,6 +613,37 @@
                 "z": -2
             }
 
+        ]
+    },
+    {
+        "id": "21",
+        "name": "hat_bandana_surgery",
+        "elems": 
+        [
+            {
+                "name": "hat_bandana_surgery_back1", 
+                "src": "./punk/traits/img/male/hat/hat_bandana_surgery_back.png", 
+                "thikness": 0.5, 
+                "z": -1.75
+            },
+            {
+                "name": "hat_bandana_surgery_back2", 
+                "src": "./punk/traits/img/male/hat/hat_bandana_surgery_back.png", 
+                "thikness": 1, 
+                "z": -1
+            },
+            {
+                "name": "hat_bandana_surgery_face1", 
+                "src": "./punk/traits/img/male/hat/hat_bandana_surgery_face.png", 
+                "thikness": 1, 
+                "z": 0
+            },
+            {
+                "name": "hat_bandana_surgery_face2", 
+                "src": "./punk/traits/img/male/hat/hat_bandana_surgery_face.png", 
+                "thikness": 0.5, 
+                "z": 0.75
+            }
         ]
     }
 ]

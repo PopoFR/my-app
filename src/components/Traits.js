@@ -1,5 +1,5 @@
-import {addPixelBlockToScene} from './PixelFactory';
-import {getRandomElem} from './Utils'
+import { addPixelBlockToScene } from './PixelFactory';
+import { getRandomElem } from './Utils'
 import * as THREE from "three";
 
 const colors = require('./punk/traits/json/Colors.json');
@@ -14,7 +14,9 @@ const eyebrows = require('./punk/traits/json/EyeBrow.json');
 const glasses = require('./punk/traits/json/Glasses.json');
 const accessories = require('./punk/traits/json/Accessories.json');
 
-export  class Trait {
+
+//methode new Element, + generation dans constructeur Traits.
+export class Trait {
     constructor(obj, color) {
         this.name = obj.name;
         this.color = color;
@@ -36,7 +38,7 @@ export class Element {
     }
 }
 
-export function getTraitObject(){
+export function getTraitObject() {
     const traits = [
         // colors, 
         hats,
@@ -45,7 +47,7 @@ export function getTraitObject(){
         eyebrows,
         eyes,
         noses,
-        mouths, 
+        mouths,
         beards,
         bodys
     ];
@@ -53,24 +55,24 @@ export function getTraitObject(){
     return traits;
 }
 
-export function getTraitO(punk){
+export function getTraitO(punk) {
     const traits = [
         // colors, 
-        {name: "hats", ojb: hats},
-        {name: "glasses", ojb: glasses},
-        {name: "hairs", ojb: hairs},
-        {name: "eyebrows", ojb: eyebrows},
-        {name: "eyes", ojb: eyes},
-        {name: "noses", ojb: noses},
-        {name: "mouths", ojb: mouths},
-        {name: "beards", ojb: beards},
-        {name: "bodys", ojb: bodys},
+        { name: "hats", ojb: hats },
+        { name: "glasses", ojb: glasses },
+        { name: "hairs", ojb: hairs },
+        { name: "eyebrows", ojb: eyebrows },
+        { name: "eyes", ojb: eyes },
+        { name: "noses", ojb: noses },
+        { name: "mouths", ojb: mouths },
+        { name: "beards", ojb: beards },
+        { name: "bodys", ojb: bodys },
     ];
     return traits;
 }
 
 
-export function getTraitsName(){
+export function getTraitsName() {
 
     const traits = [
         // 'colors',
@@ -88,15 +90,15 @@ export function getTraitsName(){
     return traits;
 }
 
-export function getRandomTraits(){
+export function getRandomTraits() {
 
     const bodyColor = getRandomElem(colors['body']);
     const hairColor = getRandomElem(colors['hairs']);
     const furColor = getRandomElem(colors['hairs']);
 
-    let traits = [  
+    let traits = [
         new Trait(getRandomElem(hats)),
-        new Trait(glasses[0]),
+        new Trait(glasses[13]),
         // new Trait(getRandomElem(glasses)),
 
         // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
@@ -110,16 +112,22 @@ export function getRandomTraits(){
     return traits;
 };
 
-export function getFixedTraits(){
+export function getFixedTraits() {
     const bodyColor = colors['body'][2].hexs['body'];
     const hairColor = colors['hairs'][0];
-    const furColor = colors['hairs'][0];
+    const eyesColor = colors['body'][2].hexs['eye'];
+    const noseColor = colors['body'][2].hexs['nose'];
+    const eyesBrowColor = colors['body'][2].hexs['eyebrow'];
+    const beardColor = colors['hairs'][2].hexs.beard;
 
-    let traits = [  
+    let traits = [
         new Trait(bodys[0], bodyColor),
-        // new Trait(hats[6]), //hat15 marche pas avec masque
-        new Trait(glasses[10]),
-        // new Trait(glasses[0]),
+        new Trait(hats[18]), //hat15 marche pas avec masque, lunette 14 marche pas avec plein de chsoe
+        new Trait(eyes[1], eyesColor),
+        new Trait(eyebrows[0], eyesBrowColor),
+        new Trait(glasses[13]),
+        new Trait(noses[0], noseColor),
+        new Trait(beards[9], beardColor),
 
         // new Trait(getRandomElem(glasses)),
         // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
@@ -132,7 +140,7 @@ export function getFixedTraits(){
     return traits;
 }
 
-export function generateTrait(trait, pixels, colors){
+export function generateTrait(trait, pixels, colors) {
 
     let group = new THREE.Group();
     group.name = trait.name;
@@ -140,8 +148,8 @@ export function generateTrait(trait, pixels, colors){
     //pour chaque element (face, back, etc...) du trait, on genere un element.
     trait.elements.forEach(e => {
         //ne fonctionne pas sans le string vide.
-        let element = new Element (e.name, trait.color, e.src, e.z, e.thikness, trait.rotation, e.opacity, e.isMerged);
-        group.add(addPixelBlockToScene(pixels, colors, element)); 
+        let element = new Element(e.name, trait.color, e.src, e.z, e.thikness, trait.rotation, e.opacity, e.isMerged);
+        group.add(addPixelBlockToScene(pixels, colors, element));
     });
 
     return group;

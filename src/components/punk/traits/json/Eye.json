@@ -1,14 +1,40 @@
 [
     {
-        "name": "eyes01",
+        "name": "eyes_looking_left",
         "id": "0",
         "elems": 
         [
             {
-                "name": "eyes01", 
-                "src": "./punk/traits/img/male/eye/eye01.png", 
+                "name": "eyes_looking_left_main", 
+                "src": "./punk/traits/img/male/eye/eyes_looking_left.png", 
                 "thikness": 1, 
-                "z": 1
+                "z": 0
+            }
+        ]
+    },
+    {
+        "name": "eyes_looking_right",
+        "id": "1",
+        "elems": 
+        [
+            {
+                "name": "eyes_looking_right_main", 
+                "src": "./punk/traits/img/male/eye/eyes_looking_right.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "name": "eyes_looking_cross",
+        "id": "2",
+        "elems": 
+        [
+            {
+                "name": "eyes_looking_cross_main", 
+                "src": "./punk/traits/img/male/eye/eyes_looking_cross.png", 
+                "thikness": 1, 
+                "z": 0
             }
         ]
     }

@@ -61,6 +61,7 @@
                 "body": "#713f1d",
                 "eyebrow": "#562600",
                 "eye": "#723709",
+                "nose": "#562600",
                 "reflect": "#8b532c"
             }
         },
@@ -70,6 +71,7 @@
                 "body": "#ae8b61",
                 "eyebrow": "#86581e",
                 "eye": "#a77c47",
+                "nose": "#86581e",
                 "reflect": "#b69f82"
             }
         },
@@ -79,6 +81,7 @@
                 "body": "#dbb180",
                 "eyebrow": "#a66e2c",
                 "eye": "#d29d60",
+                "nose": "#a66e2c",
                 "reflect": "#e7cba9"
             }
         },

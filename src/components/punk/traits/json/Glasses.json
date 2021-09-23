@@ -139,7 +139,7 @@
         ]
     },
     {
-        "name": "eyesglasses_clown_eyes_blue_clown_blue",
+        "name": "glasses_clown_eyes_blue",
         "id": "7",
         "elems": 
         [
@@ -258,6 +258,54 @@
                 "src": "./punk/traits/img/male/glasses/glasses_ninja_back.png", 
                 "thikness": 1, 
                 "z": -1
+            }
+        ]
+    },
+    {
+        "name": "glasses_3d",
+        "id": "13",
+        "elems": 
+        [
+            {
+                "name": "glasses_3d_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_3d_mount.png", 
+                "thikness": 1, 
+                "z": 1
+            },
+            {
+                "name": "glasses_3d_glass", 
+                "src": "./punk/traits/img/male/glasses/glasses_3d_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.7, 
+                "isMerged": true
+            }
+        ]
+    },
+    {
+        "name": "glasses_welding_google",
+        "id": "14",
+        "elems": 
+        [
+            {
+                "name": "glasses_welding_google_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_welding_google_mount.png", 
+                "thikness": 1, 
+                "z": 1
+            },
+            {
+                "name": "glasses_welding_google_branch", 
+                "src": "./punk/traits/img/male/glasses/glasses_welding_google_branch.png", 
+                "thikness": 1, 
+                "z": 0
+            },
+            {
+                "name": "glasses_welding_google_glass", 
+                "src": "./punk/traits/img/male/glasses/glasses_welding_google_glass.png", 
+                "thikness": 0, 
+                "z": 1.5,
+                "opacity": 0.7, 
+                "isMerged": true
             }
         ]
     }

@@ -1,14 +1,14 @@
 [
     {
-        "name": "eyebrow01",
+        "name": "eyebrow_regular",
         "id": "0",
         "elems": 
         [
             {
-                "name": "eyebrow01", 
-                "src": "./punk/traits/img/male/eye/eyebrow01.png", 
-                "thikness": 1.5, 
-                "z": 1
+                "name": "eyebrow_regular_main", 
+                "src": "./punk/traits/img/male/eyebrow/eyebrow_regular.png", 
+                "thikness": 1, 
+                "z": 0
             }
         ]
     }
