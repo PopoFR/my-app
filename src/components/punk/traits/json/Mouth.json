@@ -7,7 +7,7 @@
             "name": "mouth01", 
             "src": "./punk/traits/img/male/mouth/mouth01.png", 
             "thikness": 1, 
-            "z": 1
+            "z": 0
         }]
     }
 ]

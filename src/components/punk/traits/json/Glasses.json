@@ -160,7 +160,7 @@
                 "name": "glasses_clown_green_main", 
                 "src": "./punk/traits/img/male/glasses/glasses_clown_eyes_green.png", 
                 "thikness": 1, 
-                "z": 1
+                "z": 0
             }
         ]
     },

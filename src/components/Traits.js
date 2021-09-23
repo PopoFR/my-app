@@ -14,7 +14,6 @@ const eyebrows = require('./punk/traits/json/EyeBrow.json');
 const glasses = require('./punk/traits/json/Glasses.json');
 const accessories = require('./punk/traits/json/Accessories.json');
 
-
 //methode new Element, + generation dans constructeur Traits.
 export class Trait {
     constructor(obj, color) {
@@ -26,7 +25,7 @@ export class Trait {
 }
 
 export class Element {
-    constructor(name, color, src, z, thikness, rotation, opacity, isMerged) {
+    constructor(name, color, src, z, thikness, rotation, opacity, isMerged, mouthZ) {
         this.name = name;
         this.color = color;
         this.src = src;
@@ -35,6 +34,7 @@ export class Element {
         this.rotation = rotation;
         this.opacity = opacity;
         this.isMerged = isMerged;
+        this.mouthZ = mouthZ;
     }
 }
 
@@ -97,45 +97,40 @@ export function getRandomTraits() {
     const furColor = getRandomElem(colors['hairs']);
 
     let traits = [
+        new Trait(getRandomElem(bodys), bodyColor.hexs.body),
+        new Trait(getRandomElem(eyes), bodyColor.hexs.eye),
+        new Trait(getRandomElem(eyebrows), furColor.hexs.eyebrow),
+        new Trait(getRandomElem(glasses)),
         new Trait(getRandomElem(hats)),
-        new Trait(glasses[13]),
-        // new Trait(getRandomElem(glasses)),
-
+        new Trait(getRandomElem(noses), bodyColor.hexs.nose),
+        new Trait(getRandomElem(mouths)),
+        new Trait(getRandomElem(beards), furColor.hexs.beard),
         // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
-        // new Trait(getRandomElem(eyebrows), furColor.hexs.eyebrow),
-        // new Trait(getRandomElem(eyes), bodyColor.hexs.eye),
-        // new Trait(getRandomElem(noses), bodyColor.hexs.nose),
-        // new Trait(getRandomElem(mouths)),
-        // new Trait(getRandomElem(beards), furColor.hexs.beard),
-        new Trait(getRandomElem(bodys), bodyColor.hexs.body)
     ]
     return traits;
 };
 
+    //hat15 marche pas avec masque, 
+    //lunette 14 marche pas avec plein de chsoe
 export function getFixedTraits() {
     const bodyColor = colors['body'][2].hexs['body'];
     const hairColor = colors['hairs'][0];
     const eyesColor = colors['body'][2].hexs['eye'];
-    const noseColor = colors['body'][2].hexs['nose'];
+    const noseColor = colors['body'][2].hexs['body'];
     const eyesBrowColor = colors['body'][2].hexs['eyebrow'];
     const beardColor = colors['hairs'][2].hexs.beard;
 
     let traits = [
         new Trait(bodys[0], bodyColor),
-        new Trait(hats[18]), //hat15 marche pas avec masque, lunette 14 marche pas avec plein de chsoe
-        new Trait(eyes[1], eyesColor),
         new Trait(eyebrows[0], eyesBrowColor),
-        new Trait(glasses[13]),
-        new Trait(noses[0], noseColor),
-        new Trait(beards[9], beardColor),
-
-        // new Trait(getRandomElem(glasses)),
+        new Trait(glasses[7]),
+        new Trait(eyes[1], eyesColor),
+        new Trait(hats[18]), 
+        new Trait(noses[2], noseColor),
+        new Trait(mouths[0]),
+        new Trait(beards[8], beardColor),
         // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
-        // new Trait(getRandomElem(eyebrows), furColor.hexs.eyebrow),
-        // new Trait(getRandomElem(eyes), bodyColor.hexs.eye),
-        // new Trait(getRandomElem(noses), bodyColor.hexs.nose),
         // new Trait(getRandomElem(mouths)),
-        // new Trait(getRandomElem(beards), furColor.hexs.beard),
     ]
     return traits;
 }

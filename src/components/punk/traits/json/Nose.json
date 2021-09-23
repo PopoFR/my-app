@@ -1,13 +1,35 @@
-
 [
     {
         "name": "nose_regular",
-        "elems": 
-        [{
-            "name": "nose_regular_main", 
-            "src": "./punk/traits/img/male/nose/nose_regular.png", 
-            "thikness": 1, 
-            "z": 1
-        }]
+        "elems": [
+            {
+                "name": "nose_regular_main",
+                "src": "./punk/traits/img/male/nose/nose_regular.png",
+                "thikness": 1,
+                "z": 1
+            }
+        ]
+    },
+    {
+        "name": "nose_clown",
+        "elems": [
+            {
+                "name": "nose_clown_main",
+                "src": "./punk/traits/img/male/nose/nose_clown.png",
+                "thikness": 1,
+                "z": 1
+            }
+        ]
+    },
+    {
+        "name": "nose_pig",
+        "elems": [
+            {
+                "name": "nose_pig_main",
+                "src": "./punk/traits/img/male/nose/nose_pig.png",
+                "thikness": 1,
+                "z": 1
+            }
+        ]
     }
 ]
