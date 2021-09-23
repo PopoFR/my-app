@@ -11,7 +11,7 @@ export function addPixelBlockToScene(pixels, colors, element){
   let img = getBuffer(require(''+ element.src));
   const geometry = new THREE.BoxGeometry(1, 1, element.thikness);
 
-  
+  //parcours des pixels de l'image (gauche a droite, haut en bas)
   for (let x = 0; x < img.width; x++){
     for (let y = 0; y < img.height; y++){
       let r = img.data[((y * (img.width * 4)) + (x * 4))];
@@ -19,8 +19,10 @@ export function addPixelBlockToScene(pixels, colors, element){
       let b = img.data[((y * (img.width * 4)) + (x * 4)) + 2];
       let a = img.data[((y * (img.width * 4)) + (x * 4)) + 3];
 
+      //si le pixel n'est pas transparant (vide)
       if (a !== undefined && a !== 0 ) {
 
+        //pour centrage
         let newX = x - 12;
         let newY = -y; 
         let z = element.z;
@@ -31,7 +33,7 @@ export function addPixelBlockToScene(pixels, colors, element){
           //si une couleur perso existe et que le pixels n'est pas noir, on customise la couleur
           let color = (element.color !== undefined && r !== 0 && g !== 0 && b !== 0) ? new THREE.Color(element.color) : new THREE.Color(`rgb(${r}, ${g}, ${b})`);
           
-          //tableau de couleur
+          //tableau de couleurs
           if (!colors.some(col => col.r === r && col.g === g && col.b === b)){
             colors.push({r, g, b}); 
           }
@@ -60,11 +62,11 @@ export function addPixelBlockToScene(pixels, colors, element){
     group.rotation.z +=  element.rotation.z;
   }
 
-
   return group;
 }   
 
-export function getBuffer(img){
+
+function getBuffer(img){
   const base64 = getBase64(img);
   const buffer = base64ToArrayBuffer(base64);
   return UPNG.decode(buffer);
@@ -74,7 +76,7 @@ function pixelExist(pixels, x, y, z) {
   return pixels.some(pixel => pixel.x == x && pixel.y == y && pixel.z == z); 
 }
 
-const addWideFrame = (object) =>{
+function addWideFrame(object){
   let geo = new THREE.EdgesGeometry( object.geometry );
   let mat = new THREE.LineBasicMaterial( { 
     color: 0x000000, 
@@ -89,7 +91,7 @@ const addWideFrame = (object) =>{
   object.add(wireframe);
 }
 
-const getBase64 = function(str) {
+function getBase64(str){
   return str.default.split(',')[1];
 }
 
@@ -97,23 +99,11 @@ const base64ToArrayBuffer = function(base64) {
   let binary_string = window.atob(base64);
   let len = binary_string.length;
   let bytes = new Uint8Array(len);
-  for (let i = 0; i < len; i++) {
+  for (let i = 0; i < len; i++) 
       bytes[i] = binary_string.charCodeAt(i);
-  }
+
   return bytes.buffer;
 }
-
-// export const animateScene = (scene) => {
-//   const group2 = new THREE.Group();
-
-//   console.log(scene);
-//   console.log(group);
-
-//   let axis = new THREE.Vector3( 0, 0.5, 0 );
-//   group.rotateOnAxis(axis, Math.PI);
-//   group.rotation.y += 0.0002;
-// }
-
 
 export const animateHat = (scene) => {
   let object = scene.getObjectByName("hat_helice2");

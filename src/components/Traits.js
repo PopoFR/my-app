@@ -117,8 +117,8 @@ export function getFixedTraits(){
 
     let traits = [  
         new Trait(bodys[0], bodyColor),
-        new Trait(hats[6]), //hat15 marche pas avec masque
-        new Trait(glasses[0]),
+        // new Trait(hats[6]), //hat15 marche pas avec masque
+        new Trait(glasses[10]),
         // new Trait(glasses[0]),
 
         // new Trait(getRandomElem(glasses)),
