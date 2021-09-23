@@ -110,10 +110,8 @@
             {
                 "name": "glasses_black_mini_glass", 
                 "src": "./punk/traits/img/male/glasses/glasses_black_mini_glass.png", 
-                "thikness": 0, 
-                "z": 1.5,
-                "opacity": 0.8, 
-                "isMerged": true
+                "thikness": 1, 
+                "z": 1
             }
         ]
     },
