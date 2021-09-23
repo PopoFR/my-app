@@ -91,10 +91,9 @@ const Scene = () => {
         container.appendChild(renderer.domElement);
     }
 
-    async function exportPunk(e) {
+    async function exportPunk() {
         setIsLoading(true);
-        const name = 'P3nkD_xxxx';
-        Export.doExport(scene, renderer, name, animatedRender)
+        Export.doExport(scene, renderer, punk.name, animatedRender)
             .then(() => {
                 setIsLoading(false);
             });
