@@ -4,7 +4,7 @@ import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter"
 import { GifWriter } from 'omggif'
 
 export async function doExport(scene, renderer, name, animatedRender){
-    return  Promise.all([exportGLB(scene, name), exportJPG(renderer, name), exportGif(animatedRender, name)])
+    return Promise.all([exportGLB(scene, name), exportJPG(renderer, name), exportGif(animatedRender, name)])
 }
 
 async function exportGLB(scene, name) {
@@ -41,7 +41,7 @@ async function exportGif(animatedRender, name){
     const buffer = await generateGIF( canvas1, animatedRender, 4, 30 );
     const blob = new Blob( [ buffer ], { type: 'image/gif' } );
 
-    upload(url, blob, filename)
+    await upload(url, blob, filename)
 }
 
 
@@ -94,8 +94,6 @@ async function generateGIF(element, animatedRender, duration = 1, fps = 30) {
         let powof2 = 1;
         while ( powof2 < palette.length ) powof2 <<= 1;
         palette.length = powof2;
-
-        console.log(palette)
         
         const delay = 100 / fps; // Delay in hundredths of a sec (100 = 1s)
         const options = { palette: new Uint32Array( palette ), delay: delay };
@@ -115,34 +113,6 @@ async function generateGIF(element, animatedRender, duration = 1, fps = 30) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /// CA VIENT DE LA !!!!
 async function upload(url, file, filename){
     console.log(`exporting ${filename}`);
@@ -151,9 +121,7 @@ async function upload(url, file, filename){
     data.append('file', file, filename);
 
     axios.post(url, data, {})
-    .then ((res)=> {
-        console.log(res)
-    });
+    .catch(err=>console.log(err));
 }
 
 function dataURLtoFile(dataurl, filename) {

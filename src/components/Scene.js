@@ -24,6 +24,8 @@ const Scene = () => {
     const [t, setT] = useState([]);
     const [traits, setTraits] = useState([]);
     const [currentOnChange, setCurrentOnchange] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+
     useEffect(() => {
         console.log("Scene: useEffect");
         init();
@@ -90,14 +92,16 @@ const Scene = () => {
     }
 
     async function exportPunk(e) {
-        render();
+        setIsLoading(true);
         const name = 'P3nkD_xxxx';
         Export.doExport(scene, renderer, name, animatedRender)
-            .then((RES) => console.log(RES));
+            .then(() => {
+                setIsLoading(false);
+            });
     }
 
     function animatedRender() {
-        scene.rotation.y += Math.PI / 60;
+        punk.rotation.y += Math.PI / 60;
         render();
     }
 
@@ -164,7 +168,9 @@ const Scene = () => {
             <div>
                 {punk.name}
                 <div>
-                    <button type="button" onClick={exportPunk}>EXPORT</button>
+                    {!isLoading && 
+                        <button type="button" onClick={exportPunk}>EXPORT</button>
+                    }
                     <button type="button" onClick={tooglePunk}>TOOGLE</button>
                     <button type="button" onClick={refresh}>refresh</button>
                 </div>

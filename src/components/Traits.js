@@ -116,17 +116,17 @@ export function getFixedTraits() {
     const bodyColor = colors['body'][2].hexs['body'];
     const hairColor = colors['hairs'][0];
     const eyesColor = colors['body'][2].hexs['eye'];
-    const noseColor = colors['body'][2].hexs['body'];
+    const noseColor = colors['body'][2].hexs['nose'];
     const eyesBrowColor = colors['body'][2].hexs['eyebrow'];
     const beardColor = colors['hairs'][2].hexs.beard;
 
     let traits = [
         new Trait(bodys[0], bodyColor),
         new Trait(eyebrows[0], eyesBrowColor),
-        new Trait(hats[18]), 
+        new Trait(hats[14]), 
         new Trait(glasses[7]),
         new Trait(eyes[1], eyesColor),
-        new Trait(noses[2], noseColor),
+        new Trait(noses[0], noseColor),
         new Trait(mouths[0]),
         new Trait(beards[8], beardColor),
         // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
