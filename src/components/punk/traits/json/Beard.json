@@ -1,115 +1,125 @@
 [
     {
-        "name": "beard01",
-        "id": "0",
+        "type": "beard",
+        "id": 0,
+        "name": "butcher",
         "elems": [
             {
                 "name": "beard01_main",
                 "src": "./punk/traits/img/male/beard/beard01.png",
-                "thikness": 0.5,
-                "z": 0.5
+                "thikness": 1,
+                "z": 1
             }
         ]
     },
     {
-        "name": "beard02",
-        "id": "1",
+        "type": "beard",
+        "id": 1,
+        "name": "regular",
         "elems": [
             {
                 "name": "beard02_main",
                 "src": "./punk/traits/img/male/beard/beard02.png",
-                "thikness": 0.5,
-                "z": 0.5
+                "thikness": 1,
+                "z": 1
             }
         ]
     },
     {
-        "name": "beard03",
-        "id": "2",
+        "type": "colar",
+        "id": 2,
+        "name": "colar",
         "elems": [
             {
                 "name": "beard03_main",
                 "src": "./punk/traits/img/male/beard/beard03.png",
                 "thikness": 0.5,
-                "z": 0.5
+                "z": 0.75
             }
         ]
     },
     {
-        "name": "beard04",
-        "id": "3",
+        "type": "beard",
+        "id": 3,
+        "name": "goat",
         "elems": [
             {
                 "name": "beard04_main",
                 "src": "./punk/traits/img/male/beard/beard04.png",
                 "thikness": 0.5,
-                "z": 0.5
+                "z": 0.75
             }
         ]
     },
     {
-        "name": "beard05",
-        "id": "4",
+        "type": "goat",
+        "id": 4,
+        "name": "goat01",
         "elems": [
             {
                 "name": "beard05_main",
                 "src": "./punk/traits/img/male/beard/beard05.png",
                 "thikness": 0.5,
-                "z": 0.5
+                "z": 0.75
             }
         ]
     },
     {
+        "type": "beard",
+        "id": 5,
         "name": "beard06",
-        "id": "5",
         "elems": [
             {
                 "name": "beard06_main",
                 "src": "./punk/traits/img/male/beard/beard06.png",
-                "thikness": 0.5,
-                "z": 0.5
+                "thikness": 1,
+                "z": 1
             }
         ]
     },
     {
-        "name": "beard07",
-        "id": "6",
+        "type": "sideburns",
+        "id": 6,
+        "name": "sideburns01",
         "elems": [
             {
                 "name": "beard07_main",
                 "src": "./punk/traits/img/male/beard/beard07.png",
                 "thikness": 0.5,
-                "z": 0.5
+                "z": 0.75
             }
         ]
     },
     {
+        "type": "beard",
+        "id": 7,
         "name": "beard08",
-        "id": "7",
         "elems": [
             {
                 "name": "beard08_main",
                 "src": "./punk/traits/img/male/beard/beard08.png",
-                "thikness": 0.5,
-                "z": 0.5
+                "thikness": 1,
+                "z": 1
             }
         ]
     },
     {
-        "name": "beard09",
-        "id": "8",
+        "type": "colar",
+        "id": 8,
+        "name": "colar02",
         "elems": [
             {
                 "name": "beard09_main",
                 "src": "./punk/traits/img/male/beard/beard09.png",
                 "thikness": 0.5,
-                "z": 0.5
+                "z": 0.75
             }
         ]
     },
     {
+        "type": "mustache",
+        "id": 9,
         "name": "mustache01",
-        "id": "9",
         "elems": [
             {
                 "name": "mustache01_main",
@@ -120,8 +130,9 @@
         ]
     },
     {
+        "type": "mustache",
+        "id": 10,
         "name": "mustache02",
-        "id": "10",
         "elems": [
             {
                 "name": "mustache02_main",

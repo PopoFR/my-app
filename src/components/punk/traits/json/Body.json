@@ -1,18 +1,21 @@
 [
     {
+        "type": "body",
+        "id": 0,
         "name": "male01",
-        "elems": 
-        [{
-            "name": "male01_face", 
-            "src": "./punk/traits/img/male/body/male01_face.png", 
-            "thikness": 1, 
-            "z": 0
-        },
-        {
-            "name": "male01_back", 
-            "src": "./punk/traits/img/male/body/male01_back.png", 
-            "thikness": 1, 
-            "z": -1
-        }]
+        "elems": [
+            {
+                "name": "male01_face",
+                "src": "./punk/traits/img/male/body/male01_face.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "male01_back",
+                "src": "./punk/traits/img/male/body/male01_back.png",
+                "thikness": 1,
+                "z": -1
+            }
+        ]
     }
 ]

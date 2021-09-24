@@ -5,8 +5,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
 import * as Export from "../components/Export";
 import { TraitsGenerator } from "./punk/traits/TraitsGenerator.js"
-import { getPunk, getRandomPunk } from "./Punk.js";
 import { getTraitsName, getTraitObject, getTraitO, Trait } from './Traits.js'
+import {getRandomPunk, getPunk} from './PunkFactory';
 
 let
     container,
@@ -73,7 +73,6 @@ const Scene = () => {
         var myPunk = getPunk("punk 120");
         scene.add(myPunk);
         setPunk(myPunk);
-        console.log(myPunk);
     }
 
     function createControls() {

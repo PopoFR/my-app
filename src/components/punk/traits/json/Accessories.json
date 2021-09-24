@@ -1,7 +1,8 @@
 [
     {
+        "type": "accessory",
+        "id": 0,
         "name": "cigarette",
-        "id": "0",
         "elems": [
             {
                 "name": "cigarette",
@@ -17,8 +18,9 @@
         ]
     },
     {
+        "type": "accessory",
+        "id": 1,
         "name": "blunt",
-        "id": "1",
         "elems": [
             {
                 "name": "blunt",
@@ -34,8 +36,9 @@
         ]
     },
     {
+        "type": "accessory",
+        "id": 2,
         "name": "pipe",
-        "id": "2",
         "elems": [
             {
                 "name": "pipeA",
@@ -62,8 +65,9 @@
         ]
     },
     {
+        "type": "accessory",
+        "id": 3,
         "name": "hoodies",
-        "id": "3",
         "elems": [
             {
                 "name": "hoodies_face",
@@ -80,8 +84,9 @@
         ]
     },
     {
+        "type": "accessory",
+        "id": 4,
         "name": "casque_audio",
-        "id": "4",
         "elems": [
             {
                 "name": "casque_audio_arceau",
@@ -98,8 +103,9 @@
         ]
     },
     {
+        "type": "accessory",
+        "id": 5,
         "name": "hearing",
-        "id": "5",
         "elems": [
             {
                 "name": "hearing",
@@ -110,8 +116,9 @@
         ]
     },
     {
+        "type": "accessory",
+        "id": 6,
         "name": "accessories_necklass_bullet",
-        "id": "6",
         "elems": [
             {
                 "name": "accessories_necklass_bullet_main",
@@ -128,8 +135,9 @@
         ]
     },
     {
+        "type": "accessory",
+        "id": 7,
         "name": "accessories_encircles",
-        "id": "5",
         "elems": [
             {
                 "name": "accessories_encircles_main",

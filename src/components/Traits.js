@@ -21,6 +21,7 @@ export class Trait {
         this.color = color;
         this.rotation = obj.rotation;
         this.elements = obj.elems;
+        this.type = obj.type;
     }
 }
 
@@ -92,30 +93,9 @@ export function getTraitsName() {
 
 function build(){
     var beard = getRandomElem(beards);
-
 }
 
 
-
-export function getRandomTraits() {
-
-    const bodyColor = getRandomElem(colors['body']);
-    const hairColor = getRandomElem(colors['hairs']);
-    const furColor = getRandomElem(colors['hairs']);
-
-    let traits = [
-        new Trait(getRandomElem(bodys), bodyColor.hexs.body),
-        new Trait(getRandomElem(eyes), bodyColor.hexs.eye),
-        new Trait(getRandomElem(eyebrows), furColor.hexs.eyebrow),
-        new Trait(getRandomElem(glasses)),
-        new Trait(getRandomElem(hats)),
-        new Trait(getRandomElem(noses), bodyColor.hexs.nose),
-        new Trait(getRandomElem(mouths)),
-        new Trait(getRandomElem(beards), furColor.hexs.beard),
-        // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
-    ]
-    return traits;
-};
 
     //hat15 marche pas avec masque, 
     //lunette 14 marche pas avec plein de chsoe
@@ -135,7 +115,7 @@ export function getFixedTraits() {
         new Trait(eyes[3], eyesColor),
         new Trait(noses[0], noseColor),
         new Trait(mouths[0]),
-        new Trait(beards[1], beardColor),
+        new Trait(beards[9], beardColor),
         new Trait(accessories[7], metalColor),
 
         // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
@@ -146,9 +126,12 @@ export function getFixedTraits() {
 
 export function generateTrait(trait, pixels, colors) {
 
-    let group = new THREE.Group();
+    var isCustomMouthZ = false;
+    var group = new THREE.Group();
     group.name = trait.name;
 
+    customizeZforBeard();
+    
     //pour chaque element (face, back, etc...) du trait, on genere un element.
     trait.elements.forEach(e => {
         //ne fonctionne pas sans le string vide.
@@ -157,4 +140,40 @@ export function generateTrait(trait, pixels, colors) {
     });
 
     return group;
+
+    //VA DANS LE FOREACH GENERATE TRAIT...
+    function customizeZforBeard(){
+        console.log(isCustomMouthZ)
+        isCustomMouthZ = true;
+
+        console.log("customizeZforBeard")
+        if (trait.type === "beard")
+            isCustomMouthZ = true;
+
+        if (isCustomMouthZ && trait.type === "mouth"){
+            console.log("MouthCustomizedMouthCustomizedMouthCustomizedMouthCustomizedMouthCustomized")
+            trait.z += 1;
+        }
+    }
 }
+
+
+export function getRandomTraits(){
+
+    const bodyColor = getRandomElem(colors['body']);
+    const hairColor = getRandomElem(colors['hairs']);
+    const furColor = getRandomElem(colors['hairs']);
+
+    let traits = [
+        new Trait(getRandomElem(bodys), bodyColor.hexs.body),
+        new Trait(getRandomElem(eyes), bodyColor.hexs.eye),
+        new Trait(getRandomElem(eyebrows), furColor.hexs.eyebrow),
+        new Trait(getRandomElem(glasses)),
+        new Trait(getRandomElem(hats)),
+        new Trait(getRandomElem(noses), bodyColor.hexs.nose),
+        new Trait(getRandomElem(mouths)),
+        new Trait(getRandomElem(beards), furColor.hexs.beard),
+        // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
+    ]
+    return traits;
+};

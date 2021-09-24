@@ -1,7 +1,8 @@
 [
     {
+        "type": "eyebrow",
+        "id": 0,
         "name": "eyebrow_regular",
-        "id": "0",
         "elems": 
         [
             {

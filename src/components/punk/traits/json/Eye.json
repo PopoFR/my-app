@@ -1,7 +1,8 @@
 [
     {
+        "type": "eyes",
+        "id": 0,
         "name": "eyes_looking_left",
-        "id": "0",
         "elems": 
         [
             {
@@ -13,8 +14,9 @@
         ]
     },
     {
+        "type": "eyes",
+        "id": 1,
         "name": "eyes_looking_right",
-        "id": "1",
         "elems": 
         [
             {
@@ -26,8 +28,9 @@
         ]
     },
     {
+        "type": "eyes",
+        "id": 2,
         "name": "eyes_looking_cross",
-        "id": "2",
         "elems": 
         [
             {
@@ -39,8 +42,9 @@
         ]
     },
     {
+        "type": "eyes",
+        "id": 3,
         "name": "eyes_looking_crossout",
-        "id": "3",
         "elems": 
         [
             {

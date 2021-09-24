@@ -1,7 +1,8 @@
 [
     {
+        "type": "glasses",
+        "id": 0,
         "name": "glasses_beach",
-        "id": "0",
         "elems": 
         [
             {
@@ -21,8 +22,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 1,
         "name": "glasses_beach_mini",
-        "id": "1",
         "elems": 
         [
             {
@@ -42,8 +44,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 2,
         "name": "glasses_designer",
-        "id": "2",
         "elems": 
         [
             {
@@ -63,8 +66,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 3,
         "name": "glasses_office",
-        "id": "3",
         "elems": 
         [
             {
@@ -84,8 +88,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 4,
         "name": "glasses_thuglife",
-        "id": "4",
         "elems": 
         [
             {
@@ -97,8 +102,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 5,
         "name": "glasses_black_mini",
-        "id": "5",
         "elems": 
         [
             {
@@ -116,8 +122,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 6,
         "name": "glasses_daftpunk",
-        "id": "6",
         "elems": 
         [
             {
@@ -137,8 +144,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 7,
         "name": "glasses_clown_eyes_blue",
-        "id": "7",
         "elems": 
         [
             {
@@ -150,8 +158,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 8,
         "name": "glasses_clown_eyes_green",
-        "id": "8",
         "elems": 
         [
             {
@@ -163,8 +172,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 9,
         "name": "glasses_dbz",
-        "id": "9",
         "elems": 
         [
             {
@@ -202,8 +212,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 10,
         "name": "glasses_robber",
-        "id": "10",
         "elems": 
         [
             
@@ -222,8 +233,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 11,
         "name": "glasses_pirate",
-        "id": "11",
         "elems": 
         [
             {
@@ -241,8 +253,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 12,
         "name": "glasses_ninja",
-        "id": "12",
         "elems": 
         [
             {
@@ -260,8 +273,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 13,
         "name": "glasses_3d",
-        "id": "13",
         "elems": 
         [
             {
@@ -281,8 +295,9 @@
         ]
     },
     {
+        "type": "glasses",
+        "id": 14,
         "name": "glasses_welding_google",
-        "id": "14",
         "elems": 
         [
             {

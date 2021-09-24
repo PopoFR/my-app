@@ -9,7 +9,6 @@ import TWEEN from '@tweenjs/tween.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
 
-import * as PunkFactory from "./punk/PunkFactory.js";
 import * as Export from "./Export"; 
 
 import {TraitsGenerator} from "./punk/traits/TraitsGenerator.js"

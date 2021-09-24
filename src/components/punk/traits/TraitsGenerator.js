@@ -5,7 +5,6 @@ export function TraitsGenerator(){
 
     const rarity = [{rarity: "commun"}, {rarity: "rare"}];
 
-    console.log("TraitsGenerator")
     // expected output: 0, 1 or 2
     // console.log(getRandomInt(3));
     
@@ -19,7 +18,6 @@ export function TraitsGenerator(){
         const nbPunk = 10000;
         return (nbPunk/100*rarity)/nbItemDifferent;
     }
-
 
     // https://stackoverflow.com/questions/62413615/making-a-rarity-chance-in-javascript
 

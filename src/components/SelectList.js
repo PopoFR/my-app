@@ -3,7 +3,6 @@ import { conditionalExpression } from "@babel/types";
 const SelectList = (props) => {
 
     const onChange = (e) => {
-        console.log(e.target.value) 
         props.toogle(e.target.value)
     }
 

@@ -3,7 +3,7 @@ import * as UPNG from 'upng-js';
 import TWEEN from '@tweenjs/tween.js';
 
 export function addPixelBlockToScene(pixels, colors, element){
-  console.log(`Pixel: addPixelBlockToScene(${element.name})`);
+  // console.log(`Pixel: addPixelBlockToScene(${element.name})`);
 
   let group = new THREE.Group();
   group.name = element.name;
@@ -44,6 +44,9 @@ export function addPixelBlockToScene(pixels, colors, element){
           if (element.isMerged){ 
             material.transparent = true; 
             material.opacity = element.opacity;
+            material.polygonOffset = true;
+            material.polygonOffsetUnit = 1;
+            material.polygonOffsetFactor = -1;
           }
 
           let cube = new THREE.Mesh(geometry, material);
@@ -107,7 +110,6 @@ const base64ToArrayBuffer = function(base64) {
 
 export const animateHat = (scene) => {
   let object = scene.getObjectByName("hat_helice2");
-  console.log(object);
   // let material = object.children[0].children[0].clone().material;
   // let wide = scene.getObjectByName("hat_helice3").clone().material;
 
