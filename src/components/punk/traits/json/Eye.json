@@ -37,5 +37,18 @@
                 "z": 0
             }
         ]
+    },
+    {
+        "name": "eyes_looking_crossout",
+        "id": "3",
+        "elems": 
+        [
+            {
+                "name": "eyes_looking_crossout", 
+                "src": "./punk/traits/img/male/eye/eyes_looking_crossout.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
     }
 ]

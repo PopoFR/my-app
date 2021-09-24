@@ -105,7 +105,37 @@
                 "name": "hearing",
                 "src": "./punk/traits/img/male/accessories/hearing.png",
                 "thikness": 0.5,
-                "z": 1.5
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "name": "accessories_necklass_bullet",
+        "id": "6",
+        "elems": [
+            {
+                "name": "accessories_necklass_bullet_main",
+                "src": "./punk/traits/img/male/accessories/accessories_necklass_bullet.png",
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "accessories_necklass_bullet_main",
+                "src": "./punk/traits/img/male/accessories/accessories_necklass_bullet.png",
+                "thikness": 0.5,
+                "z": -1.75
+            }
+        ]
+    },
+    {
+        "name": "accessories_encircles",
+        "id": "5",
+        "elems": [
+            {
+                "name": "accessories_encircles_main",
+                "src": "./punk/traits/img/male/accessories/accessories_encircles.png",
+                "thikness": 1,
+                "z": 0
             }
         ]
     }

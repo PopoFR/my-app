@@ -6,8 +6,8 @@
             {
                 "name": "beard01_main",
                 "src": "./punk/traits/img/male/beard/beard01.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.5
             }
         ]
     },
@@ -18,8 +18,8 @@
             {
                 "name": "beard02_main",
                 "src": "./punk/traits/img/male/beard/beard02.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.5
             }
         ]
     },
@@ -30,8 +30,8 @@
             {
                 "name": "beard03_main",
                 "src": "./punk/traits/img/male/beard/beard03.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.5
             }
         ]
     },
@@ -42,8 +42,8 @@
             {
                 "name": "beard04_main",
                 "src": "./punk/traits/img/male/beard/beard04.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.5
             }
         ]
     },
@@ -54,8 +54,8 @@
             {
                 "name": "beard05_main",
                 "src": "./punk/traits/img/male/beard/beard05.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.5
             }
         ]
     },
@@ -66,8 +66,8 @@
             {
                 "name": "beard06_main",
                 "src": "./punk/traits/img/male/beard/beard06.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.5
             }
         ]
     },
@@ -78,8 +78,8 @@
             {
                 "name": "beard07_main",
                 "src": "./punk/traits/img/male/beard/beard07.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.5
             }
         ]
     },
@@ -90,8 +90,8 @@
             {
                 "name": "beard08_main",
                 "src": "./punk/traits/img/male/beard/beard08.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.5
             }
         ]
     },
@@ -102,8 +102,8 @@
             {
                 "name": "beard09_main",
                 "src": "./punk/traits/img/male/beard/beard09.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.5
             }
         ]
     },
@@ -114,8 +114,8 @@
             {
                 "name": "mustache01_main",
                 "src": "./punk/traits/img/male/beard/mustache01.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.5
             }
         ]
     },
@@ -126,8 +126,8 @@
             {
                 "name": "mustache02_main",
                 "src": "./punk/traits/img/male/beard/mustache02.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.5
             }
         ]
     }

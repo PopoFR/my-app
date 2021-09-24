@@ -90,6 +90,13 @@ export function getTraitsName() {
     return traits;
 }
 
+function build(){
+    var beard = getRandomElem(beards);
+
+}
+
+
+
 export function getRandomTraits() {
 
     const bodyColor = getRandomElem(colors['body']);
@@ -119,16 +126,18 @@ export function getFixedTraits() {
     const noseColor = colors['body'][2].hexs['nose'];
     const eyesBrowColor = colors['body'][2].hexs['eyebrow'];
     const beardColor = colors['hairs'][2].hexs.beard;
+    const metalColor = colors['metal'][1].hexs;
 
     let traits = [
         new Trait(bodys[0], bodyColor),
         new Trait(eyebrows[0], eyesBrowColor),
         new Trait(hats[14]), 
-        new Trait(glasses[7]),
-        new Trait(eyes[1], eyesColor),
+        new Trait(eyes[3], eyesColor),
         new Trait(noses[0], noseColor),
         new Trait(mouths[0]),
-        new Trait(beards[8], beardColor),
+        new Trait(beards[1], beardColor),
+        new Trait(accessories[7], metalColor),
+
         // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
         // new Trait(getRandomElem(mouths)),
     ]
