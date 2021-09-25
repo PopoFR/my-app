@@ -50,25 +50,25 @@
         "elems": [
             {
                 "name": "hair02_back",
-                "src": "./punk/traits/img/male/hair/hair02_back.png",
+                "src": "./punk/traits/img/male/hair/1/hair02_back.png",
                 "thikness": 0.5,
                 "z": -1.75
             },
             {
                 "name": "hair02_back",
-                "src": "./punk/traits/img/male/hair/hair02_back.png",
+                "src": "./punk/traits/img/male/hair/1/hair02_back.png",
                 "thikness": 1,
                 "z": -1
             },
             {
                 "name": "hair02_face",
-                "src": "./punk/traits/img/male/hair/hair02_face.png",
+                "src": "./punk/traits/img/male/hair/1/hair02_face.png",
                 "thikness": 1,
                 "z": 0
             },
             {
                 "name": "hair02_face",
-                "src": "./punk/traits/img/male/hair/hair02_face.png",
+                "src": "./punk/traits/img/male/hair/1/hair02_face.png",
                 "thikness": 0.5,
                 "z": 0.75
             }

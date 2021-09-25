@@ -3,12 +3,31 @@
         "type": "hat",
         "id": 0,
         "name": "hat_baenie",
+        "hair": 1,
         "elems": [
             {
-                "name": "hat_baenie",
+                "name": "hat_beanie",
                 "src": "./punk/traits/img/male/hat/hat_beanie.png",
-                "thikness": 3,
-                "z": -0.5
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hat_beanie",
+                "src": "./punk/traits/img/male/hat/hat_beanie.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hat_beanie",
+                "src": "./punk/traits/img/male/hat/hat_beanie.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hat_beanie",
+                "src": "./punk/traits/img/male/hat/hat_beanie.png",
+                "thikness": 0.5,
+                "z": 0.75
             }
         ]
     },
@@ -35,6 +54,7 @@
         "type": "hat",
         "id": 2,
         "name": "hat_biker",
+        "hair": 1,
         "elems": [
             {
                 "name": "hat_biker_face",
@@ -54,6 +74,7 @@
         "type": "hat",
         "id": 3,
         "name": "hat_bucket",
+        "hair": 1,
         "elems": [
             {
                 "name": "hat_bucket",
