@@ -33,10 +33,9 @@ function generatePunk(traits){
     var punk = new THREE.Group();
     var pixels = [{x:0, y:0, z:0}];
     var colors = [{r:0, g:0, b:0}];
-    var isBeared;
+    var isBeared = false;
     var bearTickness;
     var bearZ;
-
     traits.forEach(trait => {
 
         //si il a une barbe, on elargie plus et on decale plus ou moins la bouche
@@ -47,6 +46,8 @@ function generatePunk(traits){
         }
 
         if (isBeared === true && trait.type === "mouth"){
+            
+            console.log("MouthCustomizedMouthCustomizedMouthCustomizedMouthCustomizedMouthCustomized")
             trait.elems[0].thikness = bearTickness;
             trait.elems[0].z = bearZ; //1 = thikness du body
         }
@@ -60,12 +61,41 @@ function generatePunk(traits){
     })
 
 return punk;
+}
 
-function handdleMouthAndBear(){
+
+    //hat15 marche pas avec masque, 
+    //lunette 14 marche pas avec plein de chsoe
+    function getFixedTraits() {
+        const bodyColor = colors['body'][2].hexs['body'];
+        const hairColor = colors['hairs'][2].hexs['hair'];
+        const eyesColor = colors['body'][2].hexs['eye'];
+        const noseColor = colors['body'][2].hexs['nose'];
+        const eyesBrowColor = colors['body'][2].hexs['eyebrow'];
+        const beardColor = colors['hairs'][2].hexs.beard;
+        const metalColor = colors['metal'][1].hexs;
     
-}
+        let traits = [
+            new Trait(bodys[0], bodyColor),
+    
+            new Trait(eyebrows[0], eyesBrowColor),
+            new Trait(noses[0], noseColor),
+    
+            new Trait(eyes[3], eyesColor),
+    
+            new Trait(beards[5]),
+            new Trait(mouths[0]),
 
-}
+            new Trait(hairs[1]),
+            new Trait(hats[21]),
+
+            // new Trait(accessories[7], metalColor),
+    
+            // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
+            // new Trait(getRandomElem(mouths)),
+        ]
+        return traits;
+    }
 
 
 function generateTrait(trait, pixels, colors) {
@@ -97,38 +127,7 @@ function generateTrait(trait, pixels, colors) {
     }
 }
 
-    //hat15 marche pas avec masque, 
-    //lunette 14 marche pas avec plein de chsoe
-function getFixedTraits() {
-    const bodyColor = colors['body'][2].hexs['body'];
-    const hairColor = colors['hairs'][2].hexs['hair'];
-    const eyesColor = colors['body'][2].hexs['eye'];
-    const noseColor = colors['body'][2].hexs['nose'];
-    const eyesBrowColor = colors['body'][2].hexs['eyebrow'];
-    const beardColor = colors['hairs'][2].hexs.beard;
-    const metalColor = colors['metal'][1].hexs;
 
-    let traits = [
-        new Trait(bodys[0], bodyColor),
-
-        new Trait(eyebrows[0], eyesBrowColor),
-        new Trait(eyes[3], eyesColor),
-        new Trait(noses[0], noseColor),
-        new Trait(mouths[0]),
-
-        new Trait(hairs[1], hairColor),
-
-        // new Trait(glasses[0]),
-
-        new Trait(hats[0]), 
-
-        // new Trait(accessories[7], metalColor),
-
-        // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
-        // new Trait(getRandomElem(mouths)),
-    ]
-    return traits;
-}
 
 
 function getRandomTraits() {

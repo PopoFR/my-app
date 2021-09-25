@@ -54,7 +54,6 @@
         "type": "hat",
         "id": 2,
         "name": "hat_biker",
-        "hair": 1,
         "elems": [
             {
                 "name": "hat_biker_face",
@@ -74,7 +73,6 @@
         "type": "hat",
         "id": 3,
         "name": "hat_bucket",
-        "hair": 1,
         "elems": [
             {
                 "name": "hat_bucket",
@@ -119,6 +117,7 @@
         "type": "hat",
         "id": 5,
         "name": "hat_colonial",
+        "hair": 1,
         "elems": [
             {
                 "name": "hat_colonial",
@@ -193,6 +192,7 @@
         "type": "hat",
         "id": 7,
         "name": "hat_cowboy",
+        "hair": 1,
         "elems": [
             {
                 "name": "hat_cowboy",
@@ -224,6 +224,7 @@
         "type": "hat",
         "id": 8,
         "name": "hat_peaked_cap",
+        "hair": 1,
         "elems": [
             {
                 "name": "hat_peaked_cap_back",
@@ -292,6 +293,7 @@
         "type": "hat",
         "id": 10,
         "name": "hat_bandana_crips",
+        "hair": 1,
         "elems": [
             {
                 "name": "hat_bandana_crips_back1",
@@ -323,6 +325,7 @@
         "type": "hat",
         "id": 11,
         "name": "hat_bandana_bloodz",
+        "hair": 1,
         "elems": [
             {
                 "name": "hat_bandana_bloodz_back1",
@@ -422,6 +425,7 @@
         "type": "hat",
         "id": 14,
         "name": "hat_mcDo_topless",
+        "hair": 1,
         "elems": [
             {
                 "name": "hat_mcdo_topless_cap_visor",
@@ -490,6 +494,7 @@
         "type": "hat",
         "id": 16,
         "name": "sport_band_fr",
+        "hair": 1,
         "elems": [
             {
                 "name": "sport_band1",
@@ -521,6 +526,7 @@
         "type": "hat",
         "id": 17,
         "name": "sport_band_de",
+        "hair": 1,
         "elems": [
             {
                 "name": "sport_band_de",
@@ -552,6 +558,7 @@
         "type": "hat",
         "id": 18,
         "name": "sport_band_it",
+        "hair": 1,
         "elems": [
             {
                 "name": "sport_band_it",
@@ -583,6 +590,7 @@
         "type": "hat",
         "id": 19,
         "name": "sport_band_rasta",
+        "hair": 1,
         "elems": [
             {
                 "name": "sport_band1",
@@ -644,6 +652,7 @@
     {
         "type": "hat",
         "id": 21,
+        "hair": 1,
         "name": "hat_bandana_surgery",
         "elems": [
             {
