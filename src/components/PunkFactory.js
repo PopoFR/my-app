@@ -33,35 +33,64 @@ function generatePunk(traits){
     var punk = new THREE.Group();
     var pixels = [{x:0, y:0, z:0}];
     var colors = [{r:0, g:0, b:0}];
+    var hairPack;
+  
+
+
+    traits.forEach(trait => {
+        //jouer avec les dossier... genre au lieu de pointer tout le chemin du png, ne pointer que 
+        //si il a une barbe, on elargie plus et on decale plus ou moins la bouche
+        handleMouthBeard(trait);
+        
+        if (trait.type === "hat")
+            hairPack = trait.hairPack;
+
+            console.log(hairPack)
+
+        //on modelise chaque element de chaque traitz
+        trait.elems.forEach(e => {
+
+            var srcPath = handleHairHat(trait, e, hairPack);
+            //copier e.src et renvoyé un modifié .
+            let element = new Element(e.name, trait.color, srcPath, e.z, e.thikness, trait.rotation, e.opacity, e.isMerged);
+            punk.add(addPixelBlockToScene(pixels, colors, element));
+        });
+    })
+ 
+    function handleHairHat(tr, elem, hairPack){
+        if (tr.type === "hair"){
+            console.log("hairpâck = "+ hairPack)
+            var elementSplited = elem.src.split("/hair/");
+            var newSrcPath = `${elementSplited[0]}/hair/${hairPack}/${elementSplited[1]}`;
+            console.log(newSrcPath)
+            return newSrcPath
+        }
+
+        return elem.src
+    }
+
+    
     var isBeared = false;
     var bearTickness;
     var bearZ;
-    traits.forEach(trait => {
-
-        //si il a une barbe, on elargie plus et on decale plus ou moins la bouche
+    
+    function handleMouthBeard(trait){
         if (trait.type === "beard"){
             isBeared = true;
             bearTickness = trait.elems[0].thikness;
             bearZ = trait.elems[0].z;
         }
 
-        if (isBeared === true && trait.type === "mouth"){
-            
+        if (isBeared && trait.type === "mouth"){
             console.log("MouthCustomizedMouthCustomizedMouthCustomizedMouthCustomizedMouthCustomized")
             trait.elems[0].thikness = bearTickness;
             trait.elems[0].z = bearZ; //1 = thikness du body
         }
+    }
 
-
-        //on modelise chaque element de chaque trait
-        trait.elems.forEach(e => {
-            let element = new Element(e.name, trait.color, e.src, e.z, e.thikness, trait.rotation, e.opacity, e.isMerged);
-            punk.add(addPixelBlockToScene(pixels, colors, element));
-        });
-    })
-
-return punk;
+    return punk;
 }
+
 
 
     //hat15 marche pas avec masque, 
@@ -77,17 +106,13 @@ return punk;
     
         let traits = [
             new Trait(bodys[0], bodyColor),
-    
             new Trait(eyebrows[0], eyesBrowColor),
             new Trait(noses[0], noseColor),
-    
             new Trait(eyes[3], eyesColor),
-    
             new Trait(beards[5]),
             new Trait(mouths[0]),
-
-            new Trait(hairs[1]),
-            new Trait(hats[21]),
+            new Trait(hats[8]),
+            new Trait(hairs[4]),
 
             // new Trait(accessories[7], metalColor),
     
@@ -140,11 +165,13 @@ function getRandomTraits() {
         new Trait(getRandomElem(bodys), bodyColor.hexs.body),
         new Trait(getRandomElem(eyes), bodyColor.hexs.eye),
         new Trait(getRandomElem(eyebrows), furColor.hexs.eyebrow),
-        new Trait(getRandomElem(glasses)),
-        new Trait(getRandomElem(hats)),
         new Trait(getRandomElem(noses), bodyColor.hexs.nose),
+        new Trait(getRandomElem(glasses)),
         new Trait(getRandomElem(mouths)),
         new Trait(getRandomElem(beards), furColor.hexs.beard),
+        new Trait(getRandomElem(hats)),
+        new Trait(getRandomElem(hairs), furColor.hexs.beard),
+
         // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
     ]
     return traits;
@@ -158,6 +185,7 @@ class Trait {
         this.rotation = obj.rotation;
         this.elems = obj.elems;
         this.type = obj.type;
+        this.hairPack = obj.hairPack
     }
 }
 
