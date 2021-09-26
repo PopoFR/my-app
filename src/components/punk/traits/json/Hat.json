@@ -481,13 +481,13 @@
             },
             {
                 "name": "nike_band_back",
-                "src": "./punk/traits/img/male/hat/nike_band_back.png",
+                "src": "./punk/traits/img/male/hat/nike_band_mid.png",
                 "thikness": 1,
                 "z": -1
             },
             {
                 "name": "nike_band_front",
-                "src": "./punk/traits/img/male/hat/nike_band_front.png",
+                "src": "./punk/traits/img/male/hat/nike_band_mid.png",
                 "thikness": 1,
                 "z": 0
             },
