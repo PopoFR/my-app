@@ -106,9 +106,9 @@ function getFixedTraits() {
 
     let traits = [
         new Trait(bodys[0], bodyColor),
-        new Trait(eyebrows[0], eyesBrowColor),
         new Trait(noses[0], noseColor),
         new Trait(eyes[3], eyesColor),
+        new Trait(eyebrows[0], eyesBrowColor),
         new Trait(beards[5]),
         new Trait(mouths[0]),
         new Trait(hats[6]),
