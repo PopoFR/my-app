@@ -5,7 +5,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
 import * as Export from "../components/Export";
 import { TraitsGenerator } from "./punk/traits/TraitsGenerator.js"
-import { getTraitsName, getTraitObject, getTraitO, Trait } from './Traits.js'
 import {getRandomPunk, getPunk} from './PunkFactory';
 
 let
@@ -34,8 +33,6 @@ const Scene = () => {
     }, []);
 
     function init() {
-        setTypeTraits(getTraitsName());
-        setTraits(getTraitObject());
 
         TraitsGenerator();
         createScene();
@@ -57,7 +54,22 @@ const Scene = () => {
     }
 
     function createCamera() {
-        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        var HEIGHT = window.innerHeight;
+        var WIDTH = window.innerWidth;
+        var windowHalfX = WIDTH / 2;
+        var windowHalfY = HEIGHT / 2;
+      
+        var aspectRatio = WIDTH / HEIGHT;
+        var fieldOfView = 50;
+        var nearPlane = 1;
+        var farPlane = 2000;
+        camera = new THREE.PerspectiveCamera(
+          fieldOfView,
+          aspectRatio,
+          nearPlane,
+          farPlane
+          );
         camera.position.x = 0;
         camera.position.y = -12;
         camera.position.z = 50;
@@ -65,8 +77,21 @@ const Scene = () => {
     }
 
     function createLights() {
-        const pointLight = new THREE.PointLight(0xffffff, 0.8);
-        camera.add(pointLight);
+        const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.6, 100 );
+        const light = new THREE.HemisphereLight(0xffffff, 0xb3858c, 0.9);
+     
+        
+        directionalLight.position.set( 8, 8, 2 );
+        directionalLight.castShadow = true;
+        
+        directionalLight.shadow.mapSize.width = 512;  // default
+        directionalLight.shadow.mapSize.height = 512; // default
+        directionalLight.shadow.camera.near = 0.5;    // default
+        directionalLight.shadow.camera.far = 500;
+
+         
+        scene.add(light);
+        scene.add(directionalLight);
     }
 
     function createPunk() {
@@ -82,12 +107,26 @@ const Scene = () => {
     }
 
     function createRenderer() {
-        renderer = new THREE.WebGLRenderer();
+        renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.domElement.id = 'p3nkd-canvas';
-        renderer.setPixelRatio(1);
+        
+        renderer.setPixelRatio( window.devicePixelRatio );
+        
         renderer.setSize(800, 800);
         renderer.setClearColor(0xfafafa, 1);
-        container.appendChild(renderer.domElement);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMapEnabled = true;
+        renderer.shadowMapSoft = true;
+
+        renderer.shadowCameraNear = 1;
+        renderer.shadowCameraFar = 500;
+        renderer.shadowCameraFov = 60;
+
+        renderer.shadowMapBias = 0.05;
+        renderer.shadowMapDarkness = 1;
+        renderer.shadowMapWidth = 512;
+        renderer.shadowMapHeight = 512;
+                container.appendChild(renderer.domElement);
     }
 
     async function exportPunk() {

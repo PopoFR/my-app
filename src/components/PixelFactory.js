@@ -38,7 +38,7 @@ export function addPixelBlockToScene(pixels, colors, element) {
             colors.push({ r, g, b });
           }
 
-          const material = new THREE.MeshPhongMaterial({ color: color });
+          const material = new THREE.MeshToonMaterial({ color: color });
 
           //pour lunette 
           if (element.isMerged) {
@@ -48,6 +48,7 @@ export function addPixelBlockToScene(pixels, colors, element) {
           }
 
           let cube = new THREE.Mesh(geometry, material);
+          cube.castShadow = true;
           pixels.push({ newX, newY, z })
           cube.position.set(newX, newY, z);
           group.add(cube);

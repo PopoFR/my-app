@@ -58,10 +58,10 @@ function generatePunk(traits) {
 
         //on modelise chaque element de chaque traitz
         trait.elems.forEach(e => {
-
+            
             var customZandThikness = handleMouthBeard(trait, e.z, e.thikness, isBeared, bearTickness, bearZ);
-
             var srcPath = handleHairHat(trait, e, hairPack);
+
             //copier e.src et renvoyé un modifié .
             let element = new Element(e.name, trait.color, srcPath, customZandThikness.z, customZandThikness.thikness, trait.rotation, e.opacity, e.isMerged);
             punk.add(addPixelBlockToScene(pixels, colors, element));
@@ -69,7 +69,7 @@ function generatePunk(traits) {
     })
 
     function handleHairHat(tr, elem, hairPack) {
-        if (tr.type === "hair") {
+        if (tr.type === "hair" && hairPack !== undefined) {
             var elementSplited = elem.src.split("/hair/");
             var newSrcPath = `${elementSplited[0]}/hair/${hairPack}/${elementSplited[1]}`;
             return newSrcPath
@@ -81,7 +81,6 @@ function generatePunk(traits) {
 
     function handleMouthBeard(trait, z, thikness, isBeared, bearTickness, bearZ) {
         if (isBeared && trait.type === "mouth") {
-            console.log("MouthCustomizedMouthCustomizedMouthCustomizedMouthCustomizedMouthCustomized")
             thikness = bearTickness;
             z = bearZ;
         }
@@ -111,8 +110,9 @@ function getFixedTraits() {
         new Trait(eyebrows[0], eyesBrowColor),
         new Trait(beards[5]),
         new Trait(mouths[0]),
-        new Trait(hats[6]),
-        new Trait(hairs[7]),
+        new Trait(hairs[0], colors['body'][2].hexs.reflect),
+
+        // new Trait(hairs[13]),
         /*  */
         // new Trait(accessories[7], metalColor),
 
@@ -121,24 +121,6 @@ function getFixedTraits() {
     ]
     return traits;
 }
-
-
-function generateTrait(trait, pixels, colors) {
-    var isCustomMouthZ = false;
-    var group = new THREE.Group();
-    group.name = trait.name;
-
-    //pour chaque element (face, back, etc...) du trait, on genere un element.
-    trait.elements.forEach(e => {
-        //ne fonctionne pas sans le string vide.
-        let element = new Element(e.name, trait.color, e.src, e.z, e.thikness, trait.rotation, e.opacity, e.isMerged);
-        group.add(addPixelBlockToScene(pixels, colors, element));
-    });
-
-    return group;
-}
-
-
 
 
 function getRandomTraits() {
@@ -155,7 +137,6 @@ function getRandomTraits() {
         new Trait(getRandomElem(glasses)),
         new Trait(getRandomElem(beards), furColor.hexs.beard),
         new Trait(getRandomElem(mouths)),
-
         new Trait(getRandomElem(hats)),
         new Trait(getRandomElem(hairs), furColor.hexs.beard),
 
