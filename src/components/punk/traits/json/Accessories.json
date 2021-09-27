@@ -3,15 +3,16 @@
         "type": "accessory",
         "id": 0,
         "name": "cigarette",
+        "isCustomZ": true,
         "elems": [
             {
                 "name": "cigarette",
                 "src": "./punk/traits/img/male/accessories/cigarette.png",
                 "thikness": 1,
-                "z": -4,
+                "z": 0,
                 "rotation": {
                     "x": "0",
-                    "y": "74.9",
+                    "y": "4.95",
                     "z": "0"
                 }
             }
@@ -21,15 +22,16 @@
         "type": "accessory",
         "id": 1,
         "name": "blunt",
+        "isCustomZ": true,
         "elems": [
             {
                 "name": "blunt",
                 "src": "./punk/traits/img/male/accessories/blunt.png",
-                "thikness": 2,
-                "z": -4,
+                "thikness": 1.5,
+                "z": 0,
                 "rotation": {
                     "x": "0",
-                    "y": "74.9",
+                    "y": "5.25",
                     "z": "0"
                 }
             }
@@ -39,29 +41,44 @@
         "type": "accessory",
         "id": 2,
         "name": "pipe",
+        "isCustomZ": true,
         "elems": [
+           
             {
                 "name": "pipeA",
                 "src": "./punk/traits/img/male/accessories/pipeA.png",
-                "thikness": 1,
-                "z": -4,
+                "thikness": 1.5,
+                "z": 0,
                 "rotation": {
                     "x": "0",
-                    "y": "74.9",
+                    "y": "4.95",
                     "z": "0"
                 }
             },
+
             {
                 "name": "pipeB",
                 "src": "./punk/traits/img/male/accessories/pipeB.png",
                 "thikness": 3,
-                "z": -4,
+                "z":0,
                 "rotation": {
                     "x": "0",
-                    "y": "74.9",
+                    "y": "4.95",
+                    "z": "0"
+                }
+            },
+            {
+                "name": "pipeC",
+                "src": "./punk/traits/img/male/accessories/pipeC.png",
+                "thikness": 1,
+                "z":0,
+                "rotation": {
+                    "x": "0",
+                    "y": "4.95",
                     "z": "0"
                 }
             }
+ 
         ]
     },
     {
@@ -73,13 +90,13 @@
                 "name": "hoodies_face",
                 "src": "./punk/traits/img/male/accessories/hoodies_face.png",
                 "thikness": 3,
-                "z": 1
+                "z": 0
             },
             {
                 "name": "hoodies_back",
                 "src": "./punk/traits/img/male/accessories/hoodies_back.png",
                 "thikness": 1,
-                "z": -1
+                "z": -2
             }
         ]
     },
@@ -118,7 +135,7 @@
     {
         "type": "accessory",
         "id": 6,
-        "name": "accessories_necklass_bullet",
+        "name": "necklass_bullet",
         "elems": [
             {
                 "name": "accessories_necklass_bullet_main",
@@ -137,13 +154,58 @@
     {
         "type": "accessory",
         "id": 7,
-        "name": "accessories_encircles",
+        "name": "encircles",
         "elems": [
             {
                 "name": "accessories_encircles_main",
                 "src": "./punk/traits/img/male/accessories/accessories_encircles.png",
                 "thikness": 1,
                 "z": 0
+            }
+        ]
+    },
+    {
+        "type": "accessory",
+        "id": 8,
+        "name": "covid_mask",
+        "elems": [
+            {
+                "name": "accessories_covid_mask",
+                "src": "./punk/traits/img/male/accessories/accessories_covid_mask.png",
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "accessories_covid_mask_nose",
+                "src": "./punk/traits/img/male/accessories/accessories_covid_mask_nose.png",
+                "thikness": 1,
+                "z": 1
+            }
+        ]
+    },
+    {
+        "type": "accessory",
+        "id": 9,
+        "name": "surgery_mask",
+        "elems": [
+            {
+                "name": "accessories_surgery_mask",
+                "src": "./punk/traits/img/male/accessories/accessories_surgery_mask.png",
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "accessories_surgery_mask_nose",
+                "src": "./punk/traits/img/male/accessories/accessories_surgery_mask_nose.png",
+                "thikness": 1,
+                "z": 1
+            },
+            
+            {
+                "name": "accessories_surgery_mask_back",
+                "src": "./punk/traits/img/male/accessories/accessories_surgery_mask_back.png",
+                "thikness": 0.5,
+                "z": -1.75
             }
         ]
     }

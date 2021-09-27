@@ -29,6 +29,9 @@ export function getRandomPunk() {
     return punk;
 }
 
+
+//RARITY
+// plus simple et de mettre une rarity sur les type ET une rarity par item
 function generatePunk(traits) {
     var punk = new THREE.Group();
     var pixels = [{ x: 0, y: 0, z: 0 }];
@@ -61,9 +64,8 @@ function generatePunk(traits) {
             
             var customZandThikness = handleMouthBeard(trait, e.z, e.thikness, isBeared, bearTickness, bearZ);
             var srcPath = handleHairHat(trait, e, hairPack);
-
             //copier e.src et renvoyé un modifié .
-            let element = new Element(e.name, trait.color, srcPath, customZandThikness.z, customZandThikness.thikness, trait.rotation, e.opacity, e.isMerged);
+            let element = new Element(e.name, trait.color, srcPath, customZandThikness.z, customZandThikness.thikness, e.rotation, e.opacity, e.isMerged);
             punk.add(addPixelBlockToScene(pixels, colors, element));
         });
     })
@@ -79,11 +81,16 @@ function generatePunk(traits) {
     }
 
 
-    function handleMouthBeard(trait, z, thikness, isBeared, bearTickness, bearZ) {
-        if (isBeared && trait.type === "mouth") {
-            thikness = bearTickness;
-            z = bearZ;
+    function handleMouthBeard(trait, z, thikness, isBeared, customThikness, customZ) {
+        if (isBeared && (trait.type === "mouth")) {
+            console.log("here")
+            thikness = customThikness;
+            z = customZ;
         }
+        
+        if (trait.type === "accessory" && trait.isCustomZ === true)
+            z = customZ;
+
 
         return {z: z, thikness: thikness};
     }
@@ -105,11 +112,15 @@ function getFixedTraits() {
 
     let traits = [
         new Trait(bodys[0], bodyColor),
-        new Trait(noses[0], noseColor),
-        new Trait(eyes[3], eyesColor),
         new Trait(eyebrows[0], eyesBrowColor),
-        new Trait(beards[5]),
+        new Trait(glasses[0]),
+        new Trait(eyes[3], eyesColor),
+        // new Trait(beards[0]),
         new Trait(mouths[0]),
+        new Trait(noses[0], noseColor),
+        new Trait(accessories[8]),
+
+
         new Trait(hairs[0], colors['body'][2].hexs.reflect),
 
         // new Trait(hairs[13]),
@@ -150,10 +161,10 @@ class Trait {
     constructor(obj, color) {
         this.name = obj.name;
         this.color = color;
-        this.rotation = obj.rotation;
-        this.elems = obj.elems;
+            this.elems = obj.elems;
         this.type = obj.type;
-        this.hairPack = obj.hairPack
+        this.hairPack = obj.hairPack;
+        this.isCustomZ = obj.isCustomZ;
     }
 }
 

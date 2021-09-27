@@ -3,7 +3,8 @@ import * as UPNG from 'upng-js';
 import TWEEN from '@tweenjs/tween.js';
 
 export function addPixelBlockToScene(pixels, colors, element) {
-  // console.log(`Pixel: addPixelBlockToScene(${element.name})`);
+  console.log(`Pixel: addPixelBlockToScene(${element.name})`);
+  console.log(`rotation : (${element.rotation})`);
 
   let group = new THREE.Group();
   group.name = element.name;
@@ -56,9 +57,11 @@ export function addPixelBlockToScene(pixels, colors, element) {
       }
     }
   }
+  console.log(element.rotation)
 
   //pour cigarette etc...  
   if (element.rotation !== undefined) {
+    console.log(element.rotation)
     group.rotation.x += element.rotation.x;
     group.rotation.y += element.rotation.y;
     group.rotation.z += element.rotation.z;
