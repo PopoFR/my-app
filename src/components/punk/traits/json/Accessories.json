@@ -200,6 +200,18 @@
                 "thikness": 1,
                 "z": 1
             },
+            {
+                "name": "accessories_surgery_mask_mid1",
+                "src": "./punk/traits/img/male/accessories/accessories_surgery_mask_mid.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "accessories_surgery_mask_mid2",
+                "src": "./punk/traits/img/male/accessories/accessories_surgery_mask_mid.png",
+                "thikness": 1,
+                "z": -1
+            },
             
             {
                 "name": "accessories_surgery_mask_back",
