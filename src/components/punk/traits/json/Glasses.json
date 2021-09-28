@@ -145,34 +145,6 @@
     },
     {
         "type": "glasses",
-        "id": 7,
-        "name": "glasses_clown_eyes_blue",
-        "elems": 
-        [
-            {
-                "name": "glasses_clown_eyes_blue_main", 
-                "src": "./punk/traits/img/male/glasses/glasses_clown_eyes_blue.png", 
-                "thikness": 1, 
-                "z": 0
-            }
-        ]
-    },
-    {
-        "type": "glasses",
-        "id": 8,
-        "name": "glasses_clown_eyes_green",
-        "elems": 
-        [
-            {
-                "name": "glasses_clown_green_main", 
-                "src": "./punk/traits/img/male/glasses/glasses_clown_eyes_green.png", 
-                "thikness": 1, 
-                "z": 0
-            }
-        ]
-    },
-    {
-        "type": "glasses",
         "id": 9,
         "name": "glasses_dbz",
         "elems": 

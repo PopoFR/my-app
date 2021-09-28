@@ -112,16 +112,16 @@ function getFixedTraits() {
 
     let traits = [
         new Trait(bodys[0], bodyColor),
+        new Trait(hairs[0], colors['body'][2].hexs.reflect),
         new Trait(eyebrows[0], eyesBrowColor),
-        new Trait(glasses[0]),
-        new Trait(eyes[3], eyesColor),
+        new Trait(eyes[2]),
         // new Trait(beards[0]),
         new Trait(mouths[0]),
         new Trait(noses[0], noseColor),
-        new Trait(accessories[8]),
+        new Trait(accessories[9]),
+        new Trait(hats[10]),
 
 
-        new Trait(hairs[0], colors['body'][2].hexs.reflect),
 
         // new Trait(hairs[13]),
         /*  */

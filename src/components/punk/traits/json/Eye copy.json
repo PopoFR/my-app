@@ -1,0 +1,170 @@
+[
+    {
+        "type": "eyes",
+        "id": 0,
+        "name": "eyes_looking_left",
+        "elems": 
+        [
+            {
+                "name": "eyes_looking_left_main", 
+                "src": "./punk/traits/img/male/eye/eyes_looking_left.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 1,
+        "name": "eyes_looking_right",
+        "elems": 
+        [
+            {
+                "name": "eyes_looking_right_main", 
+                "src": "./punk/traits/img/male/eye/eyes_looking_right.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 2,
+        "name": "eyes_looking_cross",
+        "elems": 
+        [
+            {
+                "name": "eyes_looking_cross_main", 
+                "src": "./punk/traits/img/male/eye/eyes_looking_cross.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 3,
+        "name": "eyes_looking_crossout",
+        "elems": 
+        [
+            {
+                "name": "eyes_looking_crossout", 
+                "src": "./punk/traits/img/male/eye/eyes_looking_crossout.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 4,
+        "name": "eyes_clown_green_looking_crossout",
+        "elems": 
+        [
+            {
+                "name": "eyes_clown_green_looking_crossout", 
+                "src": "./punk/traits/img/male/eye/eyes_clown_green_looking_crossout.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 4,
+        "name": "eyes_clown_green_looking_cross",
+        "elems": 
+        [
+            {
+                "name": "eyes_clown_green_looking_cross", 
+                "src": "./punk/traits/img/male/eye/eyes_clown_green_looking_cross.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 4,
+        "name": "eyes_clown_green_looking_right",
+        "elems": 
+        [
+            {
+                "name": "eyes_clown_green_looking_right", 
+                "src": "./punk/traits/img/male/eye/eyes_clown_green_looking_right.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 4,
+        "name": "eyes_clown_green_looking_left",
+        "elems": 
+        [
+            {
+                "name": "eyes_clown_green_looking_left", 
+                "src": "./punk/traits/img/male/eye/eyes_clown_green_looking_left.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 4,
+        "name": "eyes_clown_blue_looking_crossout",
+        "elems": 
+        [
+            {
+                "name": "eyes_clown_blue_looking_crossout", 
+                "src": "./punk/traits/img/male/eye/eyes_clown_blue_looking_crossout.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 4,
+        "name": "eyes_clown_blue_looking_cross",
+        "elems": 
+        [
+            {
+                "name": "eyes_clown_blue_looking_cross", 
+                "src": "./punk/traits/img/male/eye/eyes_clown_blue_looking_cross.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 4,
+        "name": "eyes_clown_blue_looking_left",
+        "elems": 
+        [
+            {
+                "name": "eyes_clown_blue_looking_left", 
+                "src": "./punk/traits/img/male/eye/eyes_clown_blue_looking_left.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 4,
+        "name": "eyes_clown_blue_looking_right",
+        "elems": 
+        [
+            {
+                "name": "eyes_clown_blue_looking_right", 
+                "src": "./punk/traits/img/male/eye/eyes_clown_blue_looking_right.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    }
+]

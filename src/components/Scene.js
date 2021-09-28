@@ -57,9 +57,7 @@ const Scene = () => {
 
         var HEIGHT = window.innerHeight;
         var WIDTH = window.innerWidth;
-        var windowHalfX = WIDTH / 2;
-        var windowHalfY = HEIGHT / 2;
-      
+     
         var aspectRatio = WIDTH / HEIGHT;
         var fieldOfView = 50;
         var nearPlane = 1;
@@ -88,8 +86,6 @@ const Scene = () => {
         directionalLight.shadow.mapSize.height = 512; // default
         directionalLight.shadow.camera.near = 0.5;    // default
         directionalLight.shadow.camera.far = 500;
-
-         
         scene.add(light);
         scene.add(directionalLight);
     }
@@ -111,22 +107,9 @@ const Scene = () => {
         renderer.domElement.id = 'p3nkd-canvas';
         
         renderer.setPixelRatio( window.devicePixelRatio );
-        
-        renderer.setSize(800, 800);
+        renderer.setSize(400, 200);
         renderer.setClearColor(0xfafafa, 1);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.shadowMapEnabled = true;
-        renderer.shadowMapSoft = true;
-
-        renderer.shadowCameraNear = 1;
-        renderer.shadowCameraFar = 500;
-        renderer.shadowCameraFov = 60;
-
-        renderer.shadowMapBias = 0.05;
-        renderer.shadowMapDarkness = 1;
-        renderer.shadowMapWidth = 512;
-        renderer.shadowMapHeight = 512;
-                container.appendChild(renderer.domElement);
+        container.appendChild(renderer.domElement);
     }
 
     async function exportPunk() {
