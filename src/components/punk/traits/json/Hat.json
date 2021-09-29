@@ -276,8 +276,8 @@
                 "z": -1.75
             },
             {
-                "name": "hat_mcDo_face",
-                "src": "./punk/traits/img/male/hat/hat_mcDo_face.png",
+                "name": "hat_mcDo_back2",
+                "src": "./punk/traits/img/male/hat/hat_mcDo_back.png",
                 "thikness": 1,
                 "z": -1
             },

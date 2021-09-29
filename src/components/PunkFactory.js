@@ -115,20 +115,23 @@ function getFixedTraits() {
     const metalColor = colors['metal'][0].hex;
 
     let traits = [
-        new Trait(bodys[0], bodyColor),
+        new Trait(bodys[0]),
         new Trait(bodys[1], reflectColor),
-        new Trait(eyebrows[0], eyesBrowColor),
-        new Trait(eyes[2]),
+        new Trait(eyebrows[0]),
+        new Trait(eyes[3]),
         // new Trait(glasses[7]),
         // new Trait(beards[0]),
 
         new Trait(mouths[0]),
-        new Trait(noses[0], noseColor),
-        new Trait(hats[0]),
-        new Trait(hairs[9]),        
+        // new Trait(noses[0], noseColor),
+        new Trait(hats[17]),
+        new Trait(hairs[4]),        
 
 
         new Trait(jewels[3], metalColor),
+        new Trait(jewels[0], metalColor),
+        new Trait(accessories[6]),
+        new Trait(accessories[5]),
 
 
         // new Trait(hairs[13]),
@@ -159,7 +162,7 @@ function getRandomTraits() {
         new Trait(getRandomElem(glasses)),
         new Trait(getRandomElem(beards), furColor.hexs.beard),
         new Trait(getRandomElem(mouths)),
-        new Trait(hats[0]),
+        new Trait(getRandomElem(hats)),
         new Trait(getRandomElem(hairs), furColor.hexs.beard),
 
         // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
