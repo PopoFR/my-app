@@ -17,5 +17,18 @@
                 "z": -1
             }
         ]
+    },
+    {
+        "type": "body",
+        "id": 1,
+        "name": "male01_reflect",
+        "elems": [
+            {
+                "name": "male01_reflect_main",
+                "src": "./punk/traits/img/male/body/male01_reflect.png",
+                "thikness": 1,
+                "z": 0
+            }
+        ]
     }
 ]

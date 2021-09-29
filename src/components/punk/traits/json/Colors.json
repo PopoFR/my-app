@@ -1,17 +1,15 @@
 {
-    "metal":
-    [
+    "metal": [
         {
             "name": "gold",
-            "hex" : "#ffd700"
-            },
-        {   
+            "hex": "#ffd700"
+        },
+        {
             "name": "silver",
-            "hex" : "#808080"
+            "hex": "#808080"
         }
     ],
-    "hairs":
-    [
+    "hairs": [
         {
             "name": "Dark",
             "hexs": {
@@ -53,8 +51,7 @@
             }
         }
     ],
-    "body":
-    [
+    "body": [
         {
             "name": "Black",
             "hexs": {
@@ -62,7 +59,7 @@
                 "eyebrow": "#562600",
                 "eye": "#723709",
                 "nose": "#562600",
-                "reflect": "#8b532c"
+                "reflect": "#9d6640"
             }
         },
         {
@@ -95,15 +92,6 @@
             }
         },
         {
-            "name": "Ape",
-            "hexs": {
-                "body": "#352410",
-                "eyebrow": "#6a563f",
-                "eye": "#a98c6b",
-                "reflect": ""
-            }
-        },
-        {
             "name": "Orc",
             "hexs": {
                 "body": "#7da269",
@@ -123,4 +111,3 @@
         }
     ]
 }
-

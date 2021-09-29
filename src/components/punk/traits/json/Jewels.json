@@ -1,0 +1,120 @@
+[
+    {
+        "type": "jewels",
+        "id": 0,
+        "name": "hearing",
+        "elems": [
+            {
+                "name": "jewels_hearing",
+                "src": "./punk/traits/img/male/jewels/jewels_hearing.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "jewels",
+        "id": 1,
+        "name": "jewels_necklass_bullet",
+        "elems": [
+            {
+                "name": "jewels_necklass_bullet_front",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass_bullet.png",
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "jewels_necklass_bullet_back",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass_bullet.png",
+                "thikness": 0.5,
+                "z": -1.75
+            }
+        ]
+    },
+    {
+        "type": "jewels",
+        "id": 2,
+        "name": "jewels_necklass",
+        "elems": [
+            {
+                "name": "jewels_necklass_front",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass.png",
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "jewels_necklass_back",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "jewels_necklass_neck",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass2.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "jewels_necklass_neck",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass2.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "jewels_necklass_neck",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass2.png",
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "jewels_necklass_neck",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass2.png",
+                "thikness": 0.5,
+                "z": -1.75
+            }
+        ]
+    },
+    {
+        "type": "jewels",
+        "id": 3,
+        "name": "jewels_necklass_straight",
+        "elems": [
+            {
+                "name": "jewels_necklass_straight_front",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass_straight.png",
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "jewels_necklass_straight_back",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass_straight.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "jewels_necklass_straight_neck",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass_straight2.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "jewels_necklass_straight_neck",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass_straight2.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "jewels_necklass_straight_neck",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass_straight2.png",
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "jewels_necklass_straight_neck",
+                "src": "./punk/traits/img/male/jewels/jewels_necklass_straight2.png",
+                "thikness": 0.5,
+                "z": -1.75
+            }
+        ]
+    }
+]

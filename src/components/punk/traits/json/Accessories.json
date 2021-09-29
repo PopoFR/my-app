@@ -43,7 +43,6 @@
         "name": "pipe",
         "isCustomZ": true,
         "elems": [
-           
             {
                 "name": "pipeA",
                 "src": "./punk/traits/img/male/accessories/pipeA.png",
@@ -55,12 +54,11 @@
                     "z": "0"
                 }
             },
-
             {
                 "name": "pipeB",
                 "src": "./punk/traits/img/male/accessories/pipeB.png",
                 "thikness": 3,
-                "z":0,
+                "z": 0,
                 "rotation": {
                     "x": "0",
                     "y": "4.95",
@@ -71,14 +69,13 @@
                 "name": "pipeC",
                 "src": "./punk/traits/img/male/accessories/pipeC.png",
                 "thikness": 1,
-                "z":0,
+                "z": 0,
                 "rotation": {
                     "x": "0",
                     "y": "4.95",
                     "z": "0"
                 }
             }
- 
         ]
     },
     {
@@ -121,43 +118,11 @@
     },
     {
         "type": "accessory",
-        "id": 5,
-        "name": "hearing",
-        "elems": [
-            {
-                "name": "hearing",
-                "src": "./punk/traits/img/male/accessories/hearing.png",
-                "thikness": 0.5,
-                "z": 0.75
-            }
-        ]
-    },
-    {
-        "type": "accessory",
-        "id": 6,
-        "name": "necklass_bullet",
-        "elems": [
-            {
-                "name": "accessories_necklass_bullet_main",
-                "src": "./punk/traits/img/male/accessories/accessories_necklass_bullet.png",
-                "thikness": 0.5,
-                "z": 0.75
-            },
-            {
-                "name": "accessories_necklass_bullet_main",
-                "src": "./punk/traits/img/male/accessories/accessories_necklass_bullet.png",
-                "thikness": 0.5,
-                "z": -1.75
-            }
-        ]
-    },
-    {
-        "type": "accessory",
         "id": 7,
         "name": "encircles",
         "elems": [
             {
-                "name": "accessories_encircles_main",
+                "name": "accessories_encircles",
                 "src": "./punk/traits/img/male/accessories/accessories_encircles.png",
                 "thikness": 1,
                 "z": 0
@@ -167,6 +132,20 @@
     {
         "type": "accessory",
         "id": 8,
+        "name": "drool",
+        "isCustomZ": true,
+        "elems": [
+            {
+                "name": "accessories_drool",
+                "src": "./punk/traits/img/male/accessories/accessories_drool.png",
+                "thikness": 1,
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "accessory",
+        "id": 9,
         "name": "covid_mask",
         "elems": [
             {
@@ -185,7 +164,7 @@
     },
     {
         "type": "accessory",
-        "id": 9,
+        "id": 10,
         "name": "surgery_mask",
         "elems": [
             {
@@ -212,7 +191,6 @@
                 "thikness": 1,
                 "z": -1
             },
-            
             {
                 "name": "accessories_surgery_mask_back",
                 "src": "./punk/traits/img/male/accessories/accessories_surgery_mask_back.png",
