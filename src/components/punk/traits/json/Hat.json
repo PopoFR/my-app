@@ -690,5 +690,70 @@
                 "z": 0.75
             }
         ]
+    },
+    {
+        "type": "hat",
+        "id": 22,
+        "hairPack": 2,
+        "name": "hat_sorcer",
+        "elems": [
+            {
+                "name": "hat_sorcer_back",
+                "src": "./punk/traits/img/male/hat/hat_sorcer_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hat_sorcer_back",
+                "src": "./punk/traits/img/male/hat/hat_sorcer_back.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hat_sorcer",
+                "src": "./punk/traits/img/male/hat/hat_sorcer.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hat_sorcer",
+                "src": "./punk/traits/img/male/hat/hat_sorcer.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    }
+    ,
+    {
+        "type": "hat",
+        "id": 22,
+        "hairPack": 2,
+        "name": "hat_sorcer",
+        "elems": [
+            {
+                "name": "hat_sorcer_back",
+                "src": "./punk/traits/img/male/hat/hat_sorcer2.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hat_sorcer_back",
+                "src": "./punk/traits/img/male/hat/hat_sorcer2.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hat_sorcer",
+                "src": "./punk/traits/img/male/hat/hat_sorcer2.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hat_sorcer",
+                "src": "./punk/traits/img/male/hat/hat_sorcer2.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
     }
 ]
