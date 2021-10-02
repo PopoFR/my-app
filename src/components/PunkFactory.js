@@ -35,6 +35,7 @@ export function getRandomPunk() {
 // plus simple et de mettre une rarity sur les type ET une rarity par item
 function generatePunk(traits) {
     var punk = new THREE.Group();
+
     var pixels = [{ x: 0, y: 0, z: 0 }];
     var colors = [{ r: 0, g: 0, b: 0 }];
 
@@ -46,6 +47,10 @@ function generatePunk(traits) {
 
 
     traits.forEach(trait => {
+
+        var traitGroup = new THREE.Group();
+        traitGroup.name = trait.name;
+
         //jouer avec les dossier... genre au lieu de pointer tout le chemin du png, ne pointer que 
         //si il a une barbe, on elargie plus et on decale plus ou moins la bouche
 
@@ -61,14 +66,17 @@ function generatePunk(traits) {
 
         //on modelise chaque element de chaque traitz
         trait.elems.forEach(e => {
-            
             var customZandThikness = handleMouthBeard(trait, e.z, e.thikness, isBeared, bearTickness, bearZ);
             var srcPath = handleHairHat(trait, e, hairPack);
             //copier e.src et renvoyé un modifié .
             let element = new Element(e.name, trait.color, srcPath, customZandThikness.z, customZandThikness.thikness, e.rotation, e.opacity, e.isMerged);
-            punk.add(addPixelBlockToScene(pixels, colors, element));
+            traitGroup.add(addPixelBlockToScene(pixels, colors, element));
         });
+
+        punk.add(traitGroup);
     })
+
+
 
     function handleHairHat(trait, elem, hairPack) {
         console.log(trait)
@@ -84,18 +92,17 @@ function generatePunk(traits) {
         return elem.src
     }
 
-
     function handleMouthBeard(trait, z, thikness, isBeared, customThikness, customZ) {
         if (isBeared && (trait.type === "mouth")) {
             thikness = customThikness;
             z = customZ;
         }
-        
+
         if (trait.type === "accessory" && trait.isCustomZ === true)
             z = customZ;
 
 
-        return {z: z, thikness: thikness};
+        return { z: z, thikness: thikness };
     }
 
     return punk;
@@ -125,7 +132,7 @@ function getFixedTraits() {
         new Trait(mouths[0]),
         new Trait(noses[0], noseColor),
         new Trait(hats[17]),
-        new Trait(hairs[2], hairColor),        
+        new Trait(hairs[2], hairColor),
 
 
         new Trait(jewels[3], metalColor),
@@ -175,7 +182,7 @@ class Trait {
     constructor(obj, color) {
         this.name = obj.name;
         this.color = color;
-            this.elems = obj.elems;
+        this.elems = obj.elems;
         this.type = obj.type;
         this.hairPack = obj.hairPack;
         this.isCustomZ = obj.isCustomZ;

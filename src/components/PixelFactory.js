@@ -24,7 +24,7 @@ export function addPixelBlockToScene(pixels, colors, element) {
 
         //pour centrage
         let newX = x - 12;
-        let newY = -y;
+        let newY = -y + 24;
         let z = element.z;
 
         //si le pixel n'existe pas on le crée (evite les chevauchements de texture)

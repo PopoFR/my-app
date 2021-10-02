@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
 import * as Export from "../components/Export";
 import { TraitsGenerator } from "./punk/traits/TraitsGenerator.js"
-import {getRandomPunk, getPunk} from './PunkFactory';
+import { getRandomPunk, getPunk } from './PunkFactory';
 
 let
     container,
@@ -50,38 +50,38 @@ const Scene = () => {
     function createScene() {
         container = document.querySelector("#scene-container");
         scene.name = "P3nkD";
-
+        scene.add( new THREE.GridHelper( 1000, 10, 0x888888, 0x444444 ) );
     }
 
     function createCamera() {
 
         var HEIGHT = window.innerHeight;
         var WIDTH = window.innerWidth;
-     
-        var aspectRatio = WIDTH / HEIGHT;
-        var fieldOfView = 50;
+
+        var aspectRatio = 1;
+        var fieldOfView = 30;
         var nearPlane = 1;
         var farPlane = 2000;
         camera = new THREE.PerspectiveCamera(
-          fieldOfView,
-          aspectRatio,
-          nearPlane,
-          farPlane
-          );
+            fieldOfView,
+            aspectRatio,
+            nearPlane,
+            farPlane
+        );
         camera.position.x = 0;
-        camera.position.y = -12;
+        camera.position.y = 12;
         camera.position.z = 50;
         scene.add(camera);
     }
 
     function createLights() {
-        const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.6, 100 );
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6, 100);
         const light = new THREE.HemisphereLight(0xffffff, 0xb3858c, 0.9);
-     
-        
-        directionalLight.position.set( 8, 8, 2 );
+
+
+        directionalLight.position.set(8, 8, 2);
         directionalLight.castShadow = true;
-        
+
         directionalLight.shadow.mapSize.width = 512;  // default
         directionalLight.shadow.mapSize.height = 512; // default
         directionalLight.shadow.camera.near = 0.5;    // default
@@ -98,22 +98,23 @@ const Scene = () => {
 
     function createControls() {
         controls = new OrbitControls(camera, container);
-        controls.target.set(0, -12, 0)
+        // controls.maxPolarAngle = 0.9 * Math.PI / 2;
+        controls.target.set(0, 12, 0)
         controls.update();
     }
 
     function createRenderer() {
         renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.domElement.id = 'p3nkd-canvas';
-        
-        renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize(400, 200);
+
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(150, 150);
         renderer.setClearColor(0xfafafa, 1);
         container.appendChild(renderer.domElement);
     }
 
     async function exportPunk() {
-        controls.reset();        
+        controls.reset();
         setIsLoading(true);
         Export.doExport(scene, renderer, punk.name, animatedRender)
             .then(() => {
@@ -184,27 +185,24 @@ const Scene = () => {
     }
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <div id="scene-container"></div>
-            <div>
-                {punk.name}
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center",  flexWrap: "wrap", alignItems: "center" }}>
+                <div id="scene-container"></div>
                 <div>
-                    {!isLoading && 
-                        <button type="button" onClick={exportPunk}>EXPORT</button>
-                    }
-                    <button type="button" onClick={tooglePunk}>TOOGLE</button>
-                    <button type="button" onClick={refresh}>refresh</button>
+                        {!isLoading &&
+                            <button type="button" onClick={exportPunk}>EXPORT</button>
+                        }
+                        <button type="button" onClick={tooglePunk}>TOOGLE</button>
+                        <button type="button" onClick={refresh}>refresh</button>
                 </div>
-                <div>
-                    <div>
-                      {
-                          punk.children.map(trait=>{
-                              return <div id={trait.id}>{trait.name}</div>
-                          })
-                      }
-                    </div>
+                <div style={{ display: "flex", flex: 1,  flexDirection: "column", alignItems: "center"}}>
+                    
+                        {
+                            punk.children.map(trait => {
+                                return <div id={trait.id}>{trait.name}</div>
+                            })
+                        }
                 </div>
-            </div>
+       
             {/* <div>
             My Traits: 
             {actualTraits.forEach((item)=>{
