@@ -49,7 +49,6 @@ const Scene = () => {
     function createScene() {
         container = document.querySelector("#scene-container");
         scene.name = "P3nkD";
-        scene.add( new THREE.GridHelper( 1000, 10, 0x888888, 0x444444 ) );
     }
 
     function createCamera() {
