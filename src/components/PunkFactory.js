@@ -76,7 +76,7 @@ function generatePunk(traits) {
         punk.add(traitGroup);
     })
 
-
+    
 
     function handleHairHat(trait, elem, hairPack) {
         console.log(trait)
@@ -97,12 +97,12 @@ function generatePunk(traits) {
             thikness = customThikness;
             z = customZ;
         }
-
+        
         if (trait.type === "accessory" && trait.isCustomZ === true)
             z = customZ;
 
 
-        return { z: z, thikness: thikness };
+        return {z: z, thikness: thikness};
     }
 
     return punk;
@@ -131,8 +131,8 @@ function getFixedTraits() {
 
         new Trait(mouths[0]),
         new Trait(noses[0], noseColor),
-        new Trait(hats[17]),
-        new Trait(hairs[2], hairColor),
+        new Trait(hats[7]),
+        new Trait(hairs[2], hairColor),        
 
 
         new Trait(jewels[3], metalColor),
@@ -182,7 +182,7 @@ class Trait {
     constructor(obj, color) {
         this.name = obj.name;
         this.color = color;
-        this.elems = obj.elems;
+            this.elems = obj.elems;
         this.type = obj.type;
         this.hairPack = obj.hairPack;
         this.isCustomZ = obj.isCustomZ;

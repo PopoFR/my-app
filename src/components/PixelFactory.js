@@ -48,7 +48,8 @@ export function addPixelBlockToScene(pixels, colors, element) {
           }
 
           let cube = new THREE.Mesh(geometry, material);
-          cube.castShadow = true;
+
+
           pixels.push({ newX, newY, z })
           cube.position.set(newX, newY, z);
           group.add(cube);

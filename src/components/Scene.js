@@ -33,7 +33,6 @@ const Scene = () => {
     }, []);
 
     function init() {
-
         TraitsGenerator();
         createScene();
         createCamera();
@@ -55,9 +54,6 @@ const Scene = () => {
 
     function createCamera() {
 
-        var HEIGHT = window.innerHeight;
-        var WIDTH = window.innerWidth;
-
         var aspectRatio = 1;
         var fieldOfView = 30;
         var nearPlane = 1;
@@ -75,17 +71,11 @@ const Scene = () => {
     }
 
     function createLights() {
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6, 100);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
         const light = new THREE.HemisphereLight(0xffffff, 0xb3858c, 0.9);
 
+        directionalLight.position.set(0, 8, 2);
 
-        directionalLight.position.set(8, 8, 2);
-        directionalLight.castShadow = true;
-
-        directionalLight.shadow.mapSize.width = 512;  // default
-        directionalLight.shadow.mapSize.height = 512; // default
-        directionalLight.shadow.camera.near = 0.5;    // default
-        directionalLight.shadow.camera.far = 500;
         scene.add(light);
         scene.add(directionalLight);
     }
@@ -115,6 +105,8 @@ const Scene = () => {
 
     async function exportPunk() {
         controls.reset();
+        controls.target.set(0, 12, 0)
+        controls.update();
         setIsLoading(true);
         Export.doExport(scene, renderer, punk.name, animatedRender)
             .then(() => {

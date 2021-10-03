@@ -222,6 +222,18 @@
                 "src": "./punk/traits/img/male/hat/hat_cowboy.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "hat_cowboy",
+                "src": "./punk/traits/img/male/hat/hat_cowboy2.png",
+                "thikness": 1.5,
+                "z": 1.75
+            },
+            {
+                "name": "hat_cowboy2",
+                "src": "./punk/traits/img/male/hat/hat_cowboy2.png",
+                "thikness": 1.5,
+                "z": -2.75
             }
         ]
     },
