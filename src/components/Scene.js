@@ -49,6 +49,7 @@ const Scene = () => {
     function createScene() {
         container = document.querySelector("#scene-container");
         scene.name = "P3nkD";
+        // scene.add( new THREE.GridHelper( 1000, 10, 0x888888, 0x444444 ) );
     }
 
     function createCamera() {
@@ -63,8 +64,8 @@ const Scene = () => {
             nearPlane,
             farPlane
         );
-        camera.position.x = 0;
-        camera.position.y = 12;
+        camera.position.x = -25;
+        camera.position.y = 25;
         camera.position.z = 50;
         scene.add(camera);
     }
@@ -104,7 +105,9 @@ const Scene = () => {
 
     async function exportPunk() {
         controls.reset();
-        controls.target.set(0, 12, 0)
+        controls.target.set(0, 12, 0);
+        camera.position.y = 25;
+        camera.position.x = -25;
         controls.update();
         setIsLoading(true);
         Export.doExport(scene, renderer, punk.name, animatedRender)
