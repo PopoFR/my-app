@@ -36,7 +36,7 @@ const Scene = () => {
         TraitsGenerator();
         createScene();
         createCamera();
-        createLights();
+        createWorld();
         createPunk();
         createControls();
         createRenderer();
@@ -49,33 +49,125 @@ const Scene = () => {
     function createScene() {
         container = document.querySelector("#scene-container");
         scene.name = "P3nkD";
-        // scene.add( new THREE.GridHelper( 1000, 10, 0x888888, 0x444444 ) );
+        scene.background = new THREE.Color().setHSL( 0.6, 0, 1 );
+        scene.fog = new THREE.Fog( scene.background, 1, 5000 );
     }
+
+
+
+    function createWorld() {
+
+        // LIGHTS
+
+        const hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.4 );
+        hemiLight.color.setHSL( 0.6, 1, 0.6 );
+        hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
+        hemiLight.position.set( 0, 50, 0 );
+
+        scene.add( hemiLight );
+
+        const hemiLightHelper = new THREE.HemisphereLightHelper( hemiLight, 10 );
+        scene.add( hemiLightHelper );
+
+        //
+
+        const dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
+        dirLight.color.setHSL( 0.1, 1, 0.95 );
+        dirLight.position.set(-0.1, 3, 5 );
+        dirLight.position.multiplyScalar( 30 );
+        scene.add( dirLight );
+
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 5000;
+        dirLight.shadow.mapSize.height = 5000;
+        const d = 50;
+
+        dirLight.shadow.camera.left = - d;
+        dirLight.shadow.camera.right = d;
+        dirLight.shadow.camera.top = d;
+        dirLight.shadow.camera.bottom = - d;
+
+        dirLight.shadow.camera.far = 3500;
+        dirLight.shadow.bias = - 0.00001;
+
+        const dirLightHelper = new THREE.DirectionalLightHelper( dirLight, 10 );
+        // scene.add( dirLightHelper );
+
+        // GROUND
+
+        const groundGeo = new THREE.PlaneGeometry( 10000, 10000 );
+        const groundMat = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+
+        const ground = new THREE.Mesh( groundGeo, groundMat );
+        ground.position.y = 0.5;
+        ground.rotation.x = - Math.PI / 2;
+        ground.receiveShadow = true;
+        scene.add( ground );
+
+        // SKYDOME
+
+        const vertexShader = document.getElementById( 'vertexShader' ).textContent;
+        const fragmentShader = document.getElementById( 'fragmentShader' ).textContent;
+        const uniforms = {
+            "topColor": { value: new THREE.Color( 0x0077ff ) },
+            "bottomColor": { value: new THREE.Color( 0xffffff ) },
+            "offset": { value: 33 },
+            "exponent": { value: 0.6 }
+        };
+        uniforms[ "topColor" ].value.copy( hemiLight.color );
+
+        scene.fog.color.copy( uniforms[ "bottomColor" ].value );
+
+        const skyGeo = new THREE.SphereGeometry( 4000, 32, 15 );
+        const skyMat = new THREE.ShaderMaterial( {
+            uniforms: uniforms,
+            vertexShader: vertexShader,
+            fragmentShader: fragmentShader,
+            side: THREE.BackSide
+        } );
+
+        const sky = new THREE.Mesh( skyGeo, skyMat );
+        scene.add( sky );
+    }
+
 
     function createCamera() {
 
         var aspectRatio = 1;
         var fieldOfView = 30;
         var nearPlane = 1;
-        var farPlane = 2000;
+        var farPlane = 5000;
+
         camera = new THREE.PerspectiveCamera(
             fieldOfView,
             aspectRatio,
             nearPlane,
             farPlane
         );
-        camera.position.x = -25;
-        camera.position.y = 25;
-        camera.position.z = 50;
+        setCameraPosition();
         scene.add(camera);
     }
 
+    function setCameraPosition(){
+        camera.position.x = -25;
+        camera.position.y = 15;
+        camera.position.z = 50;
+    }
+
+
     function createLights() {
+
+        const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6);
+        hemiLight.color.setHSL(0.6, 1, 0.6);
+        hemiLight.groundColor.setHSL(0.095, 1, 0.75);
+        hemiLight.position.set(0, 50, 0);
+        scene.add(hemiLight);
+
+
+
         const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
         const light = new THREE.HemisphereLight(0xffffff, 0xb3858c, 0.9);
-
         directionalLight.position.set(0, 8, 2);
-
         scene.add(light);
         scene.add(directionalLight);
     }
@@ -94,21 +186,24 @@ const Scene = () => {
     }
 
     function createRenderer() {
-        renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, preserveDrawingBuffer: true });
         renderer.domElement.id = 'p3nkd-canvas';
-
         renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(150, 150);
-        renderer.setClearColor(0xfafafa, 1);
+        renderer.setSize(300, 300);
+        renderer.setClearColor(0xa9e1ff, 1);
         container.appendChild(renderer.domElement);
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        renderer.shadowMap.enabled = true;
+
+
     }
 
     async function exportPunk() {
         controls.reset();
         controls.target.set(0, 12, 0);
-        camera.position.y = 25;
-        camera.position.x = -25;
+        setCameraPosition();
         controls.update();
+
         setIsLoading(true);
         Export.doExport(scene, renderer, punk.name, animatedRender)
             .then(() => {
@@ -139,78 +234,30 @@ const Scene = () => {
         setPunk(newPunk);
         scene.add(newPunk);
     }
+
     function refresh() {
         console.log(punk)
     }
-    function handleChange(e) {
-        console.log('handleChange')
-        // let newTraits = [];
-        // // punk.children.forEach(trait => {
-        // //     if (trait.name !== e.target.value) 
-        // //     newTraits.push(trait);
-        // // });
 
-        // setT(t.push(e.target.value))
-        // let traitsObject = getTraitO();
-
-        // t.forEach(n=>{
-        //     let i = traitsObject.findIndex(trait => trait.name === n);
-        //     // console.log(n)
-
-        //     // console.log(traitsObject.filter(traitObject=>traitObject.name === n).obj)
-        // })
-
-    }
-
-    //TODO recuperer la position dans la liste. et gerer les couleur
-    function onFocus(selectedTrait, typeTraitLibelle) {
-        console.log('onfocus')
-
-        // setCurrentOnchange(selectedTrait);
-        // let newTraitsName = [{name: "", type: ""}];
-
-        // punk.children.forEach(trait => {
-        //     if (trait.name !== selectedTrait)
-        //     newTraitsName.push({name: trait.name, type: typeTraitLibelle});
-        // })
-
-        // setT(newTraitsName)
-        // console.log(newTraitsName)
-    }
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center",  flexWrap: "wrap", alignItems: "center" }}>
-                <div id="scene-container"></div>
-                <div>
-                        {!isLoading &&
-                            <button type="button" onClick={exportPunk}>EXPORT</button>
-                        }
-                        <button type="button" onClick={tooglePunk}>TOOGLE</button>
-                        <button type="button" onClick={refresh}>refresh</button>
-                </div>
-                <div style={{ display: "flex", flex: 1,  flexDirection: "column", alignItems: "center"}}>
-                    
-                        {
-                            punk.children.map(trait => {
-                                return <div id={trait.id}>{trait.name}</div>
-                            })
-                        }
-                </div>
-       
-            {/* <div>
-            My Traits: 
-            {actualTraits.forEach((item)=>{
-                <span>{item.id}</span>
-            })}
-        </div>
-        <div>
-            <Menu toogleHair = {toogleHair}/>
-            my hair : {hair}
-        </div>
-        <div>
-            {loading ? <div className="loader"/> : <button type="button" onClick={exportPunk}>export</button>}
-            {loading ? <p>loading</p> : <p>pas loading</p>}
-        </div> */}
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
+            <div id="scene-container"></div>
+            <div>
+                {!isLoading &&
+                    <button type="button" onClick={exportPunk}>EXPORT</button>
+                }
+                <button type="button" onClick={tooglePunk}>TOOGLE</button>
+                <button type="button" onClick={refresh}>refresh</button>
+            </div>
+            <div style={{ display: "flex", flex: 1, flexDirection: "column", alignItems: "center" }}>
+
+                {
+                    punk.children.map(trait => {
+                        return <div id={trait.id}>{trait.name}</div>
+                    })
+                }
+            </div>
         </div>
 
     )

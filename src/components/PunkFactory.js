@@ -125,13 +125,13 @@ function getFixedTraits() {
         new Trait(bodys[0], bodyColor),
         new Trait(bodys[1], reflectColor),
         new Trait(eyebrows[0]),
-        new Trait(eyes[3]),
+        new Trait(eyes[0]),
         // new Trait(glasses[7]),
         // new Trait(beards[0]),
 
         new Trait(mouths[0]),
         new Trait(noses[0], noseColor),
-        new Trait(hats[7]),
+        new Trait(hats[9]),
         new Trait(hairs[2], hairColor),        
 
 
