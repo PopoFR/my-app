@@ -3,8 +3,6 @@ import * as UPNG from 'upng-js';
 import TWEEN from '@tweenjs/tween.js';
 
 export function addPixelBlockToScene(pixels, colors, element) {
-  console.log(`Pixel: addPixelBlockToScene(${element.name})`);
-
   let group = new THREE.Group();
   group.name = element.name;
 

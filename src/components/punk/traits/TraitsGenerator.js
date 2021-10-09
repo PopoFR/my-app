@@ -12,8 +12,6 @@ export function TraitsGenerator(){
         element.test = "T";
     });
 
-    console.log(calculNbToMint(20, 5))
-    
     function calculNbToMint(rarity, nbItemDifferent){
         const nbPunk = 10000;
         return (nbPunk/100*rarity)/nbItemDifferent;

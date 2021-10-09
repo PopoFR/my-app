@@ -79,13 +79,9 @@ function generatePunk(traits) {
     
 
     function handleHairHat(trait, elem, hairPack) {
-        console.log(trait)
-        console.log(hairPack)
-
         if (trait.type === "hair" && hairPack !== undefined) {
             var elementSplited = elem.src.split("/hair/");
             var newSrcPath = `${elementSplited[0]}/hair/${hairPack}/${elementSplited[1]}`;
-            console.log(newSrcPath)
             return newSrcPath
         }
 

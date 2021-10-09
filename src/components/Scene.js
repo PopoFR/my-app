@@ -9,24 +9,16 @@ import { getRandomPunk, getPunk } from './PunkFactory';
 
 let
     container,
+    scene,
     camera,
-    lights,
     controls,
     renderer;
 
 const Scene = () => {
-
-    const [scene, setScene] = useState(new THREE.Scene());
     const [punk, setPunk] = useState(new THREE.Group());
-    const [isAnimate, setIsAnimate] = useState(true);
-    const [typeTraits, setTypeTraits] = useState([]);
-    const [t, setT] = useState([]);
-    const [traits, setTraits] = useState([]);
-    const [currentOnChange, setCurrentOnchange] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        console.log("Scene: useEffect");
         init();
         return () => {
         }
@@ -36,114 +28,23 @@ const Scene = () => {
         TraitsGenerator();
         createScene();
         createCamera();
-        createWorld();
+        createLights();
         createPunk();
         createControls();
         createRenderer();
         animate();
-
-        // exportPunk();
-        // render();
     }
 
     function createScene() {
         container = document.querySelector("#scene-container");
+        scene = new THREE.Scene();  
         scene.name = "P3nkD";
         scene.background = new THREE.Color().setHSL( 0.6, 0, 1 );
         scene.fog = new THREE.Fog( scene.background, 1, 5000 );
     }
 
-
-
-    function createWorld() {
-
-        // LIGHTS
-
-        const hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.4 );
-        hemiLight.color.setHSL( 0.6, 1, 0.6 );
-        hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
-        hemiLight.position.set( 0, 50, 0 );
-
-        scene.add( hemiLight );
-
-        const hemiLightHelper = new THREE.HemisphereLightHelper( hemiLight, 10 );
-        scene.add( hemiLightHelper );
-
-        //
-
-        const dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
-        dirLight.color.setHSL( 0.1, 1, 0.95 );
-        dirLight.position.set(-0.1, 3, 5 );
-        dirLight.position.multiplyScalar( 30 );
-        scene.add( dirLight );
-
-        dirLight.castShadow = true;
-        dirLight.shadow.mapSize.width = 5000;
-        dirLight.shadow.mapSize.height = 5000;
-        const d = 50;
-
-        dirLight.shadow.camera.left = - d;
-        dirLight.shadow.camera.right = d;
-        dirLight.shadow.camera.top = d;
-        dirLight.shadow.camera.bottom = - d;
-
-        dirLight.shadow.camera.far = 3500;
-        dirLight.shadow.bias = - 0.00001;
-
-        const dirLightHelper = new THREE.DirectionalLightHelper( dirLight, 10 );
-        // scene.add( dirLightHelper );
-
-        // GROUND
-
-        const groundGeo = new THREE.PlaneGeometry( 10000, 10000 );
-        const groundMat = new THREE.MeshLambertMaterial( { color: 0xffffff } );
-
-        const ground = new THREE.Mesh( groundGeo, groundMat );
-        ground.position.y = 0.5;
-        ground.rotation.x = - Math.PI / 2;
-        ground.receiveShadow = true;
-        scene.add( ground );
-
-        // SKYDOME
-
-        const vertexShader = document.getElementById( 'vertexShader' ).textContent;
-        const fragmentShader = document.getElementById( 'fragmentShader' ).textContent;
-        const uniforms = {
-            "topColor": { value: new THREE.Color( 0x0077ff ) },
-            "bottomColor": { value: new THREE.Color( 0xffffff ) },
-            "offset": { value: 33 },
-            "exponent": { value: 0.6 }
-        };
-        uniforms[ "topColor" ].value.copy( hemiLight.color );
-
-        scene.fog.color.copy( uniforms[ "bottomColor" ].value );
-
-        const skyGeo = new THREE.SphereGeometry( 4000, 32, 15 );
-        const skyMat = new THREE.ShaderMaterial( {
-            uniforms: uniforms,
-            vertexShader: vertexShader,
-            fragmentShader: fragmentShader,
-            side: THREE.BackSide
-        } );
-
-        const sky = new THREE.Mesh( skyGeo, skyMat );
-        scene.add( sky );
-    }
-
-
     function createCamera() {
-
-        var aspectRatio = 1;
-        var fieldOfView = 30;
-        var nearPlane = 1;
-        var farPlane = 5000;
-
-        camera = new THREE.PerspectiveCamera(
-            fieldOfView,
-            aspectRatio,
-            nearPlane,
-            farPlane
-        );
+        camera = new THREE.PerspectiveCamera(30, 1, 1, 5000);
         setCameraPosition();
         scene.add(camera);
     }
@@ -154,22 +55,29 @@ const Scene = () => {
         camera.position.z = 50;
     }
 
-
     function createLights() {
+        const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x00000, 0.4);
+        hemiLight.color.setHSL( 0.6, 1, 0.6 );
+        hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
+        hemiLight.position.set( 0, 30, 0 );
+        scene.add( hemiLight );
 
-        const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6);
-        hemiLight.color.setHSL(0.6, 1, 0.6);
-        hemiLight.groundColor.setHSL(0.095, 1, 0.75);
-        hemiLight.position.set(0, 50, 0);
-        scene.add(hemiLight);
+        const dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
+        dirLight.position.set(0.1, 3, 5 );
+        // dirLight.position.multiplyScalar( 30 );
+        scene.add( dirLight );
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 10000;
+        dirLight.shadow.mapSize.height = 10000;
 
+        const d = 30;
+        dirLight.shadow.camera.left = - d;
+        dirLight.shadow.camera.right = d;
+        dirLight.shadow.camera.top = d;
+        dirLight.shadow.camera.bottom = - d;
 
-
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
-        const light = new THREE.HemisphereLight(0xffffff, 0xb3858c, 0.9);
-        directionalLight.position.set(0, 8, 2);
-        scene.add(light);
-        scene.add(directionalLight);
+        dirLight.shadow.camera.far = 3500;
+        dirLight.shadow.bias = - 0.00001;
     }
 
     function createPunk() {
@@ -180,31 +88,26 @@ const Scene = () => {
 
     function createControls() {
         controls = new OrbitControls(camera, container);
-        // controls.maxPolarAngle = 0.9 * Math.PI / 2;
         controls.target.set(0, 12, 0)
         controls.update();
     }
 
     function createRenderer() {
-        renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, preserveDrawingBuffer: true });
+        renderer = new THREE.WebGLRenderer({antialias: true, preserveDrawingBuffer: true });
         renderer.domElement.id = 'p3nkd-canvas';
         renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(300, 300);
-        renderer.setClearColor(0xa9e1ff, 1);
+        renderer.setSize(150, 150);
         container.appendChild(renderer.domElement);
         renderer.outputEncoding = THREE.sRGBEncoding;
         renderer.shadowMap.enabled = true;
-
-
     }
 
     async function exportPunk() {
+        setIsLoading(true);
         controls.reset();
         controls.target.set(0, 12, 0);
         setCameraPosition();
         controls.update();
-
-        setIsLoading(true);
         Export.doExport(scene, renderer, punk.name, animatedRender)
             .then(() => {
                 setIsLoading(false);
@@ -221,15 +124,14 @@ const Scene = () => {
     }
 
     function animate() {
-        if (isAnimate)
-            requestAnimationFrame(animate);
+        requestAnimationFrame(animate);
+        punk.rotation.y += Math.PI / 60;
         render();
     }
 
     function tooglePunk(e) {
         e.preventDefault()
         punk.clear();
-
         var newPunk = getRandomPunk();
         setPunk(newPunk);
         scene.add(newPunk);
