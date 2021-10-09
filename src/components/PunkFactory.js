@@ -127,7 +127,7 @@ function getFixedTraits() {
 
         new Trait(mouths[0]),
         new Trait(noses[0], noseColor),
-        new Trait(hats[9]),
+        new Trait(hats[22]),
         new Trait(hairs[2], hairColor),        
 
 
@@ -178,7 +178,7 @@ class Trait {
     constructor(obj, color) {
         this.name = obj.name;
         this.color = color;
-            this.elems = obj.elems;
+        this.elems = obj.elems;
         this.type = obj.type;
         this.hairPack = obj.hairPack;
         this.isCustomZ = obj.isCustomZ;

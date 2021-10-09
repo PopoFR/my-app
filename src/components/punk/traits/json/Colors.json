@@ -13,41 +13,57 @@
         {
             "name": "Dark",
             "hexs": {
-                "hair": "#100C07",
-                "beard": "#100C07",
-                "eyebrow": "#100C07"
+                "hair": "#1d1710",
+                "beard": "#261e15",
+                "eyebrow": "#2b2118"
             }
         },
         {
             "name": "Blond",
             "hexs": {
-                "hair": "#faf0be",
-                "beard": "#faf0be",
-                "eyebrow": "#faf0be"
+                "hair": "#fff68e",
+                "beard": "#f3ea81",
+                "eyebrow": "#fff68e"
             }
         },
         {
             "name": "Brown",
             "hexs": {
-                "hair": "#2c1608",
-                "beard": "#2c1608",
-                "eyebrow": "#2c1608"
+                "hair": "#573a1c",
+                "beard": "#573a1c",
+                "eyebrow": "#4f3b26"
             }
         },
         {
             "name": "Ginger",
             "hexs": {
-                "hair": "#b06500",
-                "beard": "#b06500",
-                "eyebrow": "#b06500"
+                "hair": "#e65700",
+                "beard": "#e65700",
+                "eyebrow": "#d04f00"
             }
         },
         {
             "name": "Grey",
             "hexs": {
-                "hair": "#e9e4dc",
-                "beard": "#e9e4dc",
-                "eyebrow": "#e9e4dc"
+                "hair": "#e8e8e8",
+                "beard": "#e8e8e8",
+                "eyebrow": "#c9c9c9"
+            }
+        },
+        {
+            "name": "Pink",
+            "hexs": {
+                "hair": "#ff8ebe",
+                "beard": "#e273a3",
+                "eyebrow": "#e273a3"
+            }
+        },
+        {
+            "name": "Pink",
+            "hexs": {
+                "hair": "#28b143",
+                "beard": "#28b143",
+                "eyebrow": "#25a23d"
             }
         }
     ],
@@ -56,17 +72,15 @@
             "name": "Black",
             "hexs": {
                 "body": "#713f1d",
-                "eyebrow": "#562600",
                 "eye": "#723709",
-                "nose": "#562600",
-                "reflect": "#9d6640"
+                "nose": "#723709",
+                "reflect": "#8b532c"
             }
         },
         {
             "name": "Tanned",
             "hexs": {
                 "body": "#ae8b61",
-                "eyebrow": "#86581e",
                 "eye": "#a77c47",
                 "nose": "#86581e",
                 "reflect": "#b69f82"
@@ -76,7 +90,6 @@
             "name": "White",
             "hexs": {
                 "body": "#dbb180",
-                "eyebrow": "#a66e2c",
                 "eye": "#d29d60",
                 "nose": "#a66e2c",
                 "reflect": "#e7cba9"
@@ -86,17 +99,15 @@
             "name": "Alien",
             "hexs": {
                 "body": "#c8fbfb",
-                "eyebrow": "",
-                "eye": "",
-                "reflect": ""
+                "eye": "#9be0e0",
+                "reflect": "#ffffff"
             }
         },
         {
             "name": "Orc",
             "hexs": {
                 "body": "#7da269",
-                "eyebrow": "#5e7253",
-                "eye": "#5e7253",
+                "eye": "#ff0000",
                 "reflect": "#9bbc88"
             }
         },
@@ -104,7 +115,6 @@
             "name": "Vampire",
             "hexs": {
                 "body": "#ead9d9",
-                "eyebrow": "#a58d8d",
                 "eye": "#c9b2b2",
                 "reflect": "#ffffff"
             }
