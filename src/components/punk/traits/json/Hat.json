@@ -79,10 +79,23 @@
         "elems": [
             {
                 "name": "hat_bucket",
+                "src": "./punk/traits/img/male/hat/hat_bucket2.png",
+                "thikness": 0.5,
+                "z": -2.25
+            },
+            {
+                "name": "hat_bucket",
                 "src": "./punk/traits/img/male/hat/hat_bucket.png",
                 "thikness": 3,
                 "z": -0.5
+            },
+            {
+                "name": "hat_bucket",
+                "src": "./punk/traits/img/male/hat/hat_bucket2.png",
+                "thikness": 0.5,
+                "z": 1.25
             }
+
         ]
     },
     {
@@ -125,6 +138,12 @@
         "elems": [
             {
                 "name": "hat_colonial",
+                "src": "./punk/traits/img/male/hat/hat_colonial2.png",
+                "thikness": 0.5,
+                "z": -2.25
+            },
+            {
+                "name": "hat_colonial",
                 "src": "./punk/traits/img/male/hat/hat_colonial.png",
                 "thikness": 0.5,
                 "z": -1.75
@@ -146,6 +165,12 @@
                 "src": "./punk/traits/img/male/hat/hat_colonial.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "hat_colonial",
+                "src": "./punk/traits/img/male/hat/hat_colonial2.png",
+                "thikness": 0.5,
+                "z": 1.25
             }
         ]
     },

@@ -13,15 +13,15 @@
         {
             "name": "Dark",
             "hexs": {
-                "hair": "#1d1710",
-                "beard": "#261e15",
-                "eyebrow": "#2b2118"
+                "hair": "#050505",
+                "beard": "#050505",
+                "eyebrow": "#050505"
             }
         },
         {
             "name": "Blond",
             "hexs": {
-                "hair": "#fff68e",
+                "hair": "#fffb5c",
                 "beard": "#f3ea81",
                 "eyebrow": "#fff68e"
             }
@@ -29,9 +29,9 @@
         {
             "name": "Brown",
             "hexs": {
-                "hair": "#573a1c",
-                "beard": "#573a1c",
-                "eyebrow": "#4f3b26"
+                "hair": "#531e00",
+                "beard": "#531e00",
+                "eyebrow": "#531e00"
             }
         },
         {

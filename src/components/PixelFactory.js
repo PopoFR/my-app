@@ -36,10 +36,11 @@ export function addPixelBlockToScene(pixels, colors, element) {
             colors.push({ r, g, b });
           }
 
-          const material = new THREE.MeshPhongMaterial({ color: color});
+          var material = new THREE.MeshPhongMaterial({ color: color, shininess: 0});
 
           //pour lunette 
           if (element.isMerged) {
+            material = new THREE.MeshBasicMaterial({ color: color, reflectivity: 90});
             material.transparent = true;
             material.opacity = element.opacity;
           }

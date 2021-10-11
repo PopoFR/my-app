@@ -6,6 +6,7 @@ import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
 import * as Export from "../components/Export";
 import { TraitsGenerator } from "./punk/traits/TraitsGenerator.js"
 import { getRandomPunk, getPunk } from './PunkFactory';
+import {Menu, ColorMenu} from '../Menu';
 
 let
     container,
@@ -17,6 +18,7 @@ let
 const Scene = () => {
     const [punk, setPunk] = useState(new THREE.Group());
     const [isLoading, setIsLoading] = useState(false);
+    const [bodyColor, setBodyColor] = useState('#ffffff');
 
     useEffect(() => {
         init();
@@ -64,7 +66,7 @@ const Scene = () => {
 
         const dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
         dirLight.position.set(0.1, 3, 5 );
-        // dirLight.position.multiplyScalar( 30 );
+        
         scene.add( dirLight );
         dirLight.castShadow = true;
         dirLight.shadow.mapSize.width = 10000;
@@ -160,6 +162,7 @@ const Scene = () => {
                     })
                 }
             </div>
+            <ColorMenu bodyColor = {bodyColor}/>
         </div>
 
     )

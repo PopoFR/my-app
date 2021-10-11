@@ -104,13 +104,13 @@ function generatePunk(traits) {
     return punk;
 }
 
-
 //hat15 marche pas avec masque, 
 //lunette 14 marche pas avec plein de chsoe
 function getFixedTraits() {
     const bodyColor = colors['body'][2].hexs['body'];
     const reflectColor = colors['body'][2].hexs['reflect'];
-    const hairColor = colors['hairs'][3].hexs['hair'];
+    const hairColor = colors['hairs'][2];
+
     const eyesColor = colors['body'][2].hexs['eye'];
     const noseColor = colors['body'][2].hexs['nose'];
     const eyesBrowColor = colors['body'][2].hexs['eyebrow'];
@@ -120,21 +120,22 @@ function getFixedTraits() {
     let traits = [
         new Trait(bodys[0], bodyColor),
         new Trait(bodys[1], reflectColor),
-        new Trait(eyebrows[0]),
+        new Trait(eyebrows[0], hairColor.hexs.eyebrow),
         new Trait(eyes[0]),
-        // new Trait(glasses[7]),
         // new Trait(beards[0]),
 
         new Trait(mouths[0]),
         new Trait(noses[0], noseColor),
-        new Trait(hats[22]),
-        new Trait(hairs[2], hairColor),        
+        new Trait(hats[1]),
+        new Trait(hairs[2], hairColor.hexs.hair),        
+        new Trait(glasses[7]),
 
 
         new Trait(jewels[3], metalColor),
         new Trait(jewels[0], metalColor),
         new Trait(accessories[6]),
         new Trait(accessories[5]),
+        new Trait(accessories[0]),
 
 
         // new Trait(hairs[13]),
