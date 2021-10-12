@@ -241,6 +241,12 @@
                 "src": "./punk/traits/img/male/glasses/glasses_ninja_back.png", 
                 "thikness": 1, 
                 "z": -1
+            },
+            {
+                "name": "glasses_ninja_back", 
+                "src": "./punk/traits/img/male/glasses/glasses_ninja_back.png", 
+                "thikness": 0.5, 
+                "z": -1.75
             }
         ]
     },

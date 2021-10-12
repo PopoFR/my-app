@@ -139,7 +139,7 @@
                 "name": "accessories_drool",
                 "src": "./punk/traits/img/male/accessories/accessories_drool.png",
                 "thikness": 1,
-                "z": 0
+                "z": 2
             }
         ]
     },

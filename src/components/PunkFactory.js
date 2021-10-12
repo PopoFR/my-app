@@ -94,8 +94,14 @@ function generatePunk(traits) {
             z = customZ;
         }
         
-        if (trait.type === "accessory" && trait.isCustomZ === true)
+        if (trait.type === "accessory" && trait.isCustomZ === true){
+            console.log("customZ")
+            console.log(customZ)
+
+            console.log("customZ")
             z = customZ;
+        }
+            
 
 
         return {z: z, thikness: thikness};
@@ -107,35 +113,35 @@ function generatePunk(traits) {
 //hat15 marche pas avec masque, 
 //lunette 14 marche pas avec plein de chsoe
 function getFixedTraits() {
-    const bodyColor = colors['body'][2].hexs['body'];
+    const bodyColor = colors['body'][5];
     const reflectColor = colors['body'][2].hexs['reflect'];
-    const hairColor = colors['hairs'][2];
+    const hairColor = colors['hairs'][5];
+    const noseColor = bodyColor.hexs['nose'];
 
     const eyesColor = colors['body'][2].hexs['eye'];
-    const noseColor = colors['body'][2].hexs['nose'];
     const eyesBrowColor = colors['body'][2].hexs['eyebrow'];
     const beardColor = colors['hairs'][2].hexs.beard;
     const metalColor = colors['metal'][0].hex;
 
     let traits = [
-        new Trait(bodys[0], bodyColor),
-        new Trait(bodys[1], reflectColor),
+        new Trait(bodys[0], bodyColor.hexs.body),
+        new Trait(bodys[1], bodyColor.hexs.reflect),
+        new Trait(accessories[5], bodyColor.hexs.encircles),
         new Trait(eyebrows[0], hairColor.hexs.eyebrow),
-        new Trait(eyes[0]),
+        new Trait(eyes[0], bodyColor.hexs.eye),
         // new Trait(beards[0]),
 
         new Trait(mouths[0]),
-        new Trait(noses[0], noseColor),
-        new Trait(hats[1]),
-        new Trait(hairs[2], hairColor.hexs.hair),        
-        new Trait(glasses[7]),
+        new Trait(noses[0], bodyColor.hexs.nose),
+        new Trait(hats[21]),
 
 
         new Trait(jewels[3], metalColor),
         new Trait(jewels[0], metalColor),
-        new Trait(accessories[6]),
-        new Trait(accessories[5]),
         new Trait(accessories[0]),
+        new Trait(accessories[6]),
+        new Trait(hairs[14], hairColor.hexs.hair),        
+        new Trait(glasses[10]),
 
 
         // new Trait(hairs[13]),

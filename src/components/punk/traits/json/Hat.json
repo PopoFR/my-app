@@ -336,7 +336,7 @@
         "type": "hat",
         "id": 10,
         "name": "hat_bandana_crips",
-        "hairPack": 1,
+        "hairPack": 2,
         "elems": [
             {
                 "name": "hat_bandana_crips_back1",
@@ -368,7 +368,7 @@
         "type": "hat",
         "id": 11,
         "name": "hat_bandana_bloodz",
-        "hairPack": 1,
+        "hairPack": 2,
         "elems": [
             {
                 "name": "hat_bandana_bloodz_back1",
@@ -470,7 +470,7 @@
         "type": "hat",
         "id": 14,
         "name": "hat_mcDo_topless",
-        "hairPack": 1,
+        "hairPack": 3,
         "elems": [
             {
                 "name": "hat_mcdo_topless_cap_visor",
@@ -699,7 +699,7 @@
     {
         "type": "hat",
         "id": 21,
-        "hairPack": 1,
+        "hairPack": 2,
         "name": "hat_bandana_surgery",
         "elems": [
             {

@@ -13,17 +13,17 @@
         {
             "name": "Dark",
             "hexs": {
-                "hair": "#050505",
-                "beard": "#050505",
-                "eyebrow": "#050505"
+                "hair": "#291e13",
+                "beard": "#291e13",
+                "eyebrow": "#14100c"
             }
         },
         {
             "name": "Blond",
             "hexs": {
-                "hair": "#fffb5c",
-                "beard": "#f3ea81",
-                "eyebrow": "#fff68e"
+                "hair": "#f0d33f",
+                "beard": "#fffb5c",
+                "eyebrow": "#e2c846"
             }
         },
         {
@@ -37,15 +37,15 @@
         {
             "name": "Ginger",
             "hexs": {
-                "hair": "#e65700",
-                "beard": "#e65700",
-                "eyebrow": "#d04f00"
+                "hair": "#d96b00",
+                "beard": "#d96b00",
+                "eyebrow": "#b95b00"
             }
         },
         {
             "name": "Grey",
             "hexs": {
-                "hair": "#e8e8e8",
+                "hair": "#d6d6d6",
                 "beard": "#e8e8e8",
                 "eyebrow": "#c9c9c9"
             }
@@ -73,8 +73,10 @@
             "hexs": {
                 "body": "#713f1d",
                 "eye": "#723709",
-                "nose": "#723709",
-                "reflect": "#8b532c"
+                "nose": "#713f1d",
+                "reflect": "#8b532c",
+                "encircles": "#5d3920"
+
             }
         },
         {
@@ -82,8 +84,9 @@
             "hexs": {
                 "body": "#ae8b61",
                 "eye": "#a77c47",
-                "nose": "#86581e",
-                "reflect": "#b69f82"
+                "nose": "#ae8b61",
+                "reflect": "#b69f82",
+                "encircles": "#967a59"
             }
         },
         {
@@ -92,7 +95,8 @@
                 "body": "#dbb180",
                 "eye": "#d29d60",
                 "nose": "#a66e2c",
-                "reflect": "#e7cba9"
+                "reflect": "#e7cba9",
+                "encircles": "#c5a37c"
             }
         },
         {
@@ -100,7 +104,9 @@
             "hexs": {
                 "body": "#c8fbfb",
                 "eye": "#9be0e0",
-                "reflect": "#ffffff"
+                "nose": "#c8fbfb",
+                "reflect": "#ffffff",
+                "encircles": "#aac1c1"
             }
         },
         {
@@ -108,7 +114,9 @@
             "hexs": {
                 "body": "#7da269",
                 "eye": "#ff0000",
-                "reflect": "#9bbc88"
+                "reflect": "#9bbc88",
+                "nose": "#7da269",
+                "encircles": "#718b62"
             }
         },
         {
@@ -116,7 +124,9 @@
             "hexs": {
                 "body": "#ead9d9",
                 "eye": "#c9b2b2",
-                "reflect": "#ffffff"
+                "nose": "#ead9d9",
+                "reflect": "#ffffff",
+                "encircles": "#d2c2c2"
             }
         }
     ]
