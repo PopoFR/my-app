@@ -4,7 +4,20 @@ import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter"
 import { GifWriter } from 'omggif'
 
 export async function doExport(scene, renderer, name, animatedRender){
-    return Promise.all([exportGLB(scene, name), exportJPG(renderer, name), exportGif(animatedRender, name)])
+    Promise.all([
+        exportGLB(scene, name), 
+        exportJPG(renderer, name),
+        exportGif(animatedRender, name) 
+    ]).then(()=>{
+        updateJson(scene);
+    })
+}
+
+async function updateJson(scene) {
+    console.log("updateJson")
+    const url = 'http://localhost:8000/updateJson';
+    const filename = "test.json";
+    await upload(url, new Blob([]), filename);
 }
 
 async function exportGLB(scene, name) {
@@ -121,7 +134,6 @@ async function upload(url, file, filename){
     data.append('file', file, filename);
 
     axios.post(url, data, {})
-    .catch(err=>console.log(err));
 }
 
 function dataURLtoFile(dataurl, filename) {

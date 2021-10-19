@@ -4,16 +4,14 @@ import { getRandomElem } from './Utils'
 
 const colors = require('./punk/traits/json/Colors.json');
 const hairs = require('./punk/traits/json/Hair.json');
-const bodys = require('./punk/traits/json/Body.json');
 const eyes = require('./punk/traits/json/Eye.json');
 const noses = require('./punk/traits/json/Nose.json');
-const mouths = require('./punk/traits/json/Mouth.json');
 const beards = require('./punk/traits/json/Beard.json');
 const hats = require('./punk/traits/json/Hat.json');
-const eyebrows = require('./punk/traits/json/EyeBrow.json');
 const glasses = require('./punk/traits/json/Glasses.json');
 const accessories = require('./punk/traits/json/Accessories.json');
 const jewels = require('./punk/traits/json/Jewels.json');
+const base = require('./punk/traits/json/Base.json');
 
 export function getPunk(name) {
     var traits = getFixedTraits();
@@ -115,32 +113,31 @@ function generatePunk(traits) {
 function getFixedTraits() {
     const bodyColor = colors['body'][5];
     const reflectColor = colors['body'][2].hexs['reflect'];
-    const hairColor = colors['hairs'][5];
+    const hairColor = colors['hairs'][2];
     const noseColor = bodyColor.hexs['nose'];
 
     const eyesColor = colors['body'][2].hexs['eye'];
     const eyesBrowColor = colors['body'][2].hexs['eyebrow'];
     const beardColor = colors['hairs'][2].hexs.beard;
     const metalColor = colors['metal'][0].hex;
-
+    
     let traits = [
-        new Trait(bodys[0], bodyColor.hexs.body),
-        new Trait(bodys[1], bodyColor.hexs.reflect),
+        new Trait(base[0], bodyColor.hexs.body),
+        new Trait(base[1], bodyColor.hexs.reflect),
+        new Trait(base[3], hairColor.hexs.eyebrow),
+        new Trait(base[2], bodyColor.hexs.eye),
+        new Trait(eyes[1]),
+        new Trait(base[4]),
+
+
         new Trait(accessories[5], bodyColor.hexs.encircles),
-        new Trait(eyebrows[0], hairColor.hexs.eyebrow),
-        new Trait(eyes[0], bodyColor.hexs.eye),
         // new Trait(beards[0]),
-
-        new Trait(mouths[0]),
         new Trait(noses[0], bodyColor.hexs.nose),
-        new Trait(hats[21]),
-
-
         new Trait(jewels[3], metalColor),
         new Trait(jewels[0], metalColor),
         new Trait(accessories[0]),
         new Trait(accessories[6]),
-        new Trait(hairs[14], hairColor.hexs.hair),        
+        new Trait(hairs[13], hairColor.hexs.hair),        
         new Trait(glasses[10]),
 
 
@@ -163,15 +160,15 @@ function getRandomTraits() {
 
     let traits = [
 
-        new Trait(bodys[0], bodyColor.hexs.body),
-        new Trait(bodys[1], bodyColor.hexs.reflect),
-
-        new Trait(getRandomElem(eyes), bodyColor.hexs.eye),
-        new Trait(getRandomElem(eyebrows), furColor.hexs.eyebrow),
+        new Trait(base[0], bodyColor.hexs.body),
+        new Trait(base[1], bodyColor.hexs.reflect),
+        new Trait(base[3], hairColor.hexs.eyebrow),
+        new Trait(base[2], bodyColor.hexs.eye),
+        new Trait(getRandomElem(eyes)),
+        new Trait(getRandomElem(beards), furColor.hexs.beard),
+        new Trait(base[4]),
         new Trait(getRandomElem(noses), bodyColor.hexs.nose),
         new Trait(getRandomElem(glasses)),
-        new Trait(getRandomElem(beards), furColor.hexs.beard),
-        new Trait(getRandomElem(mouths)),
         new Trait(getRandomElem(hats)),
         new Trait(getRandomElem(hairs), furColor.hexs.beard),
 

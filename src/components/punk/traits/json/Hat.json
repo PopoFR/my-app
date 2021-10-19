@@ -777,5 +777,69 @@
                 "z": 1.50
             }
         ]
+    },
+    {
+        "type": "hat",
+        "id": 23,
+        "name": "crown",
+        "hairPack": 3,
+        "elems": [
+            {
+                "name": "crown",
+                "src": "./punk/traits/img/male/hat/hat_crown2.png",
+                "thikness": 1,
+                "z": 1
+            },
+            {
+                "name": "sport_band2",
+                "src": "./punk/traits/img/male/hat/hat_crown.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "sport_band2",
+                "src": "./punk/traits/img/male/hat/hat_crown.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "sport_band3",
+                "src": "./punk/traits/img/male/hat/hat_crown2.png",
+                "thikness": 1,
+                "z": -2
+            }
+        ]
+    },
+    {
+        "type": "hat",
+        "id": 24,
+        "hairPack": 2,
+        "name": "hat_bandana_surgery",
+        "elems": [
+            {
+                "name": "hat_bandana_surgery_back1",
+                "src": "./punk/traits/img/male/hat/2.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hat_bandana_surgery_tail1",
+                "src": "./punk/traits/img/male/hat/2.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hat_bandana_surgery_tail2",
+                "src": "./punk/traits/img/male/hat/2.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hat_bandana_surgery_face2",
+                "src": "./punk/traits/img/male/hat/2.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
     }
 ]

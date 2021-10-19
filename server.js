@@ -1,6 +1,7 @@
 const express = require('express');
 const multer = require('multer')
 const cors = require('cors');
+const fs = require('fs')
 const app = express();
 
 app.use(cors())
@@ -9,7 +10,7 @@ app.use(cors())
 //JPG FILE
 const previewStorage = multer.diskStorage({
     destination: function (req, file, cb) {
-    cb(null, 'public/generatedP3nkd/img')
+    cb(null, './generatedP3nkd/img')
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + '-' +file.originalname )
@@ -36,7 +37,7 @@ app.post('/uploadJPG',function(req, res) {
 //GLTF FILE
 const fileStorage = multer.diskStorage({ 
   destination: function (req, file, cb) {
-    cb(null, 'public/generatedP3nkd/files')
+    cb(null, './generatedP3nkd/files')
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + '-' +file.originalname )
@@ -64,7 +65,7 @@ app.post('/uploadGLB', function (req, res) {
 //GIF
 const gifStorage = multer.diskStorage({ 
   destination: function (req, file, cb) {
-    cb(null, 'public/generatedP3nkd/gifs')
+    cb(null, './generatedP3nkd/gifs')
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + '-' +file.originalname )
@@ -88,6 +89,35 @@ app.post('/uploadGIF', function (req, res) {
   })
 })
 
+
+app.post('/updateJson', function (req, res) {
+  
+  console.log("Updating Json...")
+
+  var currentSearchResult = '55555555'
+
+  fs.readFile('./generatedP3nkd/punks.json', function (err, data) {
+    console.log("reading")
+    if (err)
+    console.log(err)
+    console.log("data")
+    console.log(data)
+    console.log("data")
+
+      var json = JSON.parse(data)
+      console.log(json)
+      json.push('search result: ' + currentSearchResult)
+
+      fs.writeFile('./generatedP3nkd/punks.json', JSON.stringify(json), 
+        function(errA) {
+          if(errA) {
+               console.log(errA);
+          }
+          console.log("The file was saved!");
+      }); 
+  })
+
+})
 
 
 

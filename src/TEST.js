@@ -15,7 +15,6 @@
 //     const bodys = require('./punk/traits/json/Body.json');
 //     const eyes = require('./punk/traits/json/Eye.json');
 //     const noses = require('./punk/traits/json/Nose.json');
-//     const mouths = require('./punk/traits/json/Mouth.json');
 //     const beards = require('./punk/traits/json/Beard.json');
 //     const hats = require('./punk/traits/json/Hat.json');
 //     const eyebrows = require('./punk/traits/json/EyeBrow.json');

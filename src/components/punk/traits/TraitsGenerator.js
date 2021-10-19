@@ -1,4 +1,3 @@
-const mouths = require('../traits/json/Mouth.json');
 
 
 export function TraitsGenerator(){
@@ -7,10 +6,6 @@ export function TraitsGenerator(){
 
     // expected output: 0, 1 or 2
     // console.log(getRandomInt(3));
-    
-    mouths.forEach(element => {
-        element.test = "T";
-    });
 
     function calculNbToMint(rarity, nbItemDifferent){
         const nbPunk = 10000;

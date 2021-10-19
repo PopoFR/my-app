@@ -201,6 +201,12 @@
                 "src": "./punk/traits/img/male/glasses/glasses_robber_back.png", 
                 "thikness": 1, 
                 "z": -1
+            },
+            {
+                "name": "glasses_robber_back", 
+                "src": "./punk/traits/img/male/glasses/glasses_robber_back.png", 
+                "thikness": 0.5, 
+                "z": -1.75
             }
         ]
     },

@@ -7,6 +7,8 @@ import * as Export from "../components/Export";
 import { TraitsGenerator } from "./punk/traits/TraitsGenerator.js"
 import { getRandomPunk, getPunk } from './PunkFactory';
 import {Menu, ColorMenu} from '../Menu';
+import {Link} from "react-router-dom";
+import {Viewer} from "./Viewer";
 
 let
     container,
@@ -17,8 +19,9 @@ let
 
 const Scene = () => {
     const [punk, setPunk] = useState(new THREE.Group());
-    const [isLoading, setIsLoading] = useState(false);
     const [bodyColor, setBodyColor] = useState('#ffffff');
+    const [isLoading, setIsLoading] = useState(false);
+
 
     useEffect(() => {
         init();
@@ -149,6 +152,9 @@ const Scene = () => {
 
     return (
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
+
+
+            <Link to="/Viewer"> Viewer </Link>
             <div id="scene-container"></div>
             <div>
                 {!isLoading &&

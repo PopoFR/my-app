@@ -7,7 +7,6 @@ export  function Menu(props){
 export  function ColorMenu(props){
 
     const colors = require('./components/punk/traits/json/Colors.json');
-    console.log(colors.body)
     return (
     <>
         <div>BodyColor color: {props.bodyColor}</div>
