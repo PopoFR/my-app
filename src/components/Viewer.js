@@ -7,18 +7,19 @@ import * as Export from "../components/Export";
 import { getRandomPunk, getPunk } from '../components/PunkFactory';
 
 let
-container,
-scene,
-camera,
-controls,
-renderer,
-loader,
-light1,
-light2,
-INTERSECTED,
-pointer,
-raycaster
-;
+    container,
+    scene,
+    camera,
+    controls,
+    renderer,
+    loader,
+    light0,
+    light1,
+    light2,
+    INTERSECTED,
+    pointer,
+    raycaster
+    ;
 var onOffCubes = []
 
 const Viewer = () => {
@@ -56,10 +57,12 @@ const Viewer = () => {
     }
 
     function setCameraPosition() {
-        camera.position.x = -25;
-        camera.position.y = 15;
-        camera.position.z = 50;
+        camera.position.x = -15;
+        camera.position.y = 5;
+        camera.position.z = 55;
     }
+
+    const d = 30;
 
     function createLights() {
         light2 = new THREE.DirectionalLight(0xffffff, 1);
@@ -67,31 +70,41 @@ const Viewer = () => {
         light2.castShadow = true;
         light2.shadow.mapSize.width = 3000;
         light2.shadow.mapSize.height = 3000;
-
-        const d = 30;
         light2.shadow.camera.left = - d;
         light2.shadow.camera.right = d;
         light2.shadow.camera.top = d;
         light2.shadow.camera.bottom = - d;
-
         light2.shadow.camera.far = 3500;
         light2.shadow.bias = - 0.00001;
-        // scene.add( light2 );
 
         light1 = new THREE.DirectionalLight(0xffffff, 0.4);
-        light1.position.set(-15, 30, 1);
+        light1.position.set(-25, 30, 50);
         light1.color.setHSL(0.6, 1, 0.6);
         light1.castShadow = true;
         light1.shadow.mapSize.width = 3000;
         light1.shadow.mapSize.height = 3000;
-
         light1.shadow.camera.left = - d;
         light1.shadow.camera.right = d;
         light1.shadow.camera.top = d;
         light1.shadow.camera.bottom = - d;
-
         light1.shadow.camera.far = 3500;
         light1.shadow.bias = - 0.00001;
+        
+        light0 = new THREE.DirectionalLight(0xffffff, 0.2);
+        light0.position.set(10, 30, 50);
+        light0.color.setHSL(0.6, 1, 0.6);
+        light0.castShadow = true;
+        light0.shadow.mapSize.width = 3000;
+        light0.shadow.mapSize.height = 3000;
+        light0.shadow.camera.left = - d;
+        light0.shadow.camera.right = d;
+        light0.shadow.camera.top = d;
+        light0.shadow.camera.bottom = - d;
+        light0.shadow.camera.far = 3500;
+        light0.shadow.bias = - 0.00001;
+
+
+        camera.add(light0);
         camera.add(light1);
         scene.add(light2);
         scene.add(camera)
@@ -102,50 +115,50 @@ const Viewer = () => {
         controls.update();
     }
 
-    function onPointerMove( event ) {
-        pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-        pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1.2;
+    function onPointerMove(event) {
+        pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+        pointer.y = - (event.clientY / window.innerHeight) * 2 + 1.2;
         pointer.y = pointer.y
     }
-    
-    function onMouseOver( event ) {
+
+    function onMouseOver(event) {
         document.body.style.cursor = 'grab'
     }
-    
-    function onMouseOut( event ) {
+
+    function onMouseOut(event) {
         document.body.style.cursor = 'default'
     }
 
 
     function createRenderer() {
         raycaster = new THREE.Raycaster();
-        document.addEventListener( 'mousemove', onPointerMove );
+        document.addEventListener('mousemove', onPointerMove);
 
         renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
         renderer.domElement.id = 'p3nkd-canvas';
         renderer.shadowMap.enabled = true;
         renderer.castShadow = true;
         renderer.outputEncoding = THREE.LinearEncoding;
-        renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( 150, 150);
-        container.appendChild( renderer.domElement );
+        renderer.setPixelRatio(devicePixelRatio);
+        renderer.setSize(150, 150);
+        container.appendChild(renderer.domElement);
 
-        
+
         var canvas = document.querySelector("#p3nkd-canvas");
-        canvas.addEventListener( 'mouseover', onMouseOver );
-        canvas.addEventListener( 'mouseout', onMouseOut );
-        
+        canvas.addEventListener('mouseover', onMouseOver);
+        canvas.addEventListener('mouseout', onMouseOut);
+
         // renderer.outputEncoding = THREE.sRGBEncoding;
     }
 
     function render() {
-        
+
         // raycaster.setFromCamera( pointer, camera );
         // var obj = scene.getObjectByName( "punk_120" );
         // const intersects = raycaster.intersectObjects( onOffCubes, true );
         // if ( intersects.length > 0 ) {
         //     if ( INTERSECTED != intersects[ 0 ].object ) {
-               
+
         //         if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
         //         INTERSECTED = intersects[ 0 ].object;
         //         INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
@@ -178,7 +191,7 @@ const Viewer = () => {
 
                 // });
                 scene.add(gltf.scene);
-               
+
                 gltf.scene.traverse(function (obj) {
                     if (obj.isLight) {
 
@@ -190,13 +203,14 @@ const Viewer = () => {
                         onOffCubes.push(obj);
                     }
                 })
-                
+
                 setPunk(gltf.scene.children[1]);
 
                 // punk.on('click', function(ev) {
                 //     console.log("click")
                 // });
-                gltf.scene.children[1].position.y -= 12;
+                gltf.scene.children[1].position.y -= 10;
+                gltf.scene.children[1].position.x += 1;
                 animate();
             },
             // called while loading is progressing
@@ -210,12 +224,12 @@ const Viewer = () => {
             }
         );
     }
-    
+
 
     function animate() {
         requestAnimationFrame(animate);
         controls.autoRotate = false;
-        controls.autoRotateSpeed = 20;
+        controls.autoRotateSpeed = 30;
         controls.update();
         render();
     }
@@ -230,6 +244,8 @@ const Viewer = () => {
         e.preventDefault()
         punk.clear();
         var newPunk = getRandomPunk();
+        newPunk.position.y -= 10;
+        newPunk.position.x += 1;
         setPunk(newPunk);
         scene.add(newPunk);
     }
