@@ -25,7 +25,7 @@ var onOffCubes = []
 const Viewer = () => {
 
 
-    const punkPath = './test.glb';
+    const punkPath = './1635074314850-punk 120.glb';
     const [isLoading, setIsLoading] = useState(false);
     const [punk, setPunk] = useState(new THREE.Group());
 
@@ -77,9 +77,8 @@ const Viewer = () => {
         light2.shadow.camera.far = 3500;
         light2.shadow.bias = - 0.00001;
 
-        light1 = new THREE.DirectionalLight(0xffffff, 0.4);
+        light1 = new THREE.DirectionalLight(0xffffff, 0.2);
         light1.position.set(-25, 30, 50);
-        light1.color.setHSL(0.6, 1, 0.6);
         light1.castShadow = true;
         light1.shadow.mapSize.width = 3000;
         light1.shadow.mapSize.height = 3000;
@@ -92,7 +91,6 @@ const Viewer = () => {
         
         light0 = new THREE.DirectionalLight(0xffffff, 0.2);
         light0.position.set(10, 30, 50);
-        light0.color.setHSL(0.6, 1, 0.6);
         light0.castShadow = true;
         light0.shadow.mapSize.width = 3000;
         light0.shadow.mapSize.height = 3000;
@@ -102,7 +100,6 @@ const Viewer = () => {
         light0.shadow.camera.bottom = - d;
         light0.shadow.camera.far = 3500;
         light0.shadow.bias = - 0.00001;
-
 
         camera.add(light0);
         camera.add(light1);
@@ -200,6 +197,7 @@ const Viewer = () => {
                         obj.receiveShadow = true
                         obj.material.metalness = 0
                         obj.material.roughness = 1
+                        
                         onOffCubes.push(obj);
                     }
                 })

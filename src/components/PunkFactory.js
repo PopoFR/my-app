@@ -122,6 +122,7 @@ function getFixedTraits() {
     const metalColor = colors['metal'][0].hex;
     
     let traits = [
+        
         new Trait(base[0], bodyColor.hexs.body),
         new Trait(base[1], bodyColor.hexs.reflect),
         new Trait(base[3], hairColor.hexs.eyebrow),
@@ -137,7 +138,7 @@ function getFixedTraits() {
         new Trait(jewels[0], metalColor),
         new Trait(accessories[0]),
         new Trait(accessories[6]),
-        new Trait(hairs[13], hairColor.hexs.hair),        
+        new Trait(hairs[12], hairColor.hexs.hair),        
         new Trait(glasses[10]),
 
 
