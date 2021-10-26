@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Scene from './components/Scene';
 import Viewer from './components/Viewer';
+import Neon from './components/Neon';
 
 import {
   BrowserRouter as Router,
@@ -23,6 +24,9 @@ ReactDOM.render(
           </Route>
           <Route path="/viewer">
             <Viewer />
+          </Route>
+          <Route path="/neon">
+            <Neon />
           </Route>
         </Switch>
     </Router>

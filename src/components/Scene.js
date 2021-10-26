@@ -155,6 +155,7 @@ const Scene = () => {
 
 
             <Link to="/Viewer"> Viewer </Link>
+            <Link to="/Neon"> Neon </Link>
             <div id="scene-container"></div>
             <div>
                 {!isLoading &&
