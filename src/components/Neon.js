@@ -52,8 +52,9 @@ const Neon = () => {
 
     function initScene() {
 
-    
-        renderer = new THREE.WebGLRenderer();
+        var group = new THREE.Group();
+
+        renderer = new THREE.WebGLRenderer({antialias: true});
         renderer.setSize( window.innerWidth, window.innerHeight );
     
         scene = new THREE.Scene();
@@ -89,25 +90,11 @@ const Neon = () => {
             smokeParticles.push(particle);
         }
      
-        var container = document.querySelector("#neon-container");
 
 
-    
-
-        const boxWidth = 200;
-        const boxHeight = 200;
-        const boxDepth = 1000;
-        const geometry2 = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
-        const material2 = new THREE.MeshBasicMaterial({color: 0x44aa88});
+       const material2 = new THREE.MeshBasicMaterial({color: 0x44aa88});
         const material3 = new THREE.MeshBasicMaterial({color: 0xaa4466});
-
-        const cube2 = new THREE.Mesh(geometry2, material2);
-        const cube3 = new THREE.Mesh(geometry2, material3);
-
-
-        cube2.position.x += 250;
-        scene.add(cube2);
-        scene.add(cube3);
+        const material4 = new THREE.MeshBasicMaterial({color: 0x7caa44});
 
 
 
@@ -128,30 +115,57 @@ const Neon = () => {
         var loader = new THREE.FontLoader(); 
         var myFont = loader.parse(helveticaRegular); 
 
-        var textGeometry = new THREE.TextGeometry( 'Hello three.js!', { 
+        var textGeometry = new THREE.TextGeometry( 'x', { 
             font: myFont,
             size: 500,
             height: 5,
             curveSegments: 12,
             bevelEnabled: true,
-            bevelThickness: 10,
-            bevelSize: 8,
+            bevelThickness: 30,
+            bevelSize: 10,
             bevelOffset: 0,
-            bevelSegments: 5 
-        
+            bevelSegments: 10
         } ); 
 
-      
-           
-           const material0 = new THREE.MeshBasicMaterial({color: 'red'});
-           const mesh2 = new THREE.Mesh(textGeometry, material3);
-           mesh.position.x += 250;
+        var textGeometry2 = new THREE.TextGeometry( 'o', { 
+            font: myFont,
+            size: 500,
+            height: 5,
+            curveSegments: 12,
+            bevelEnabled: true,
+            bevelThickness: 30,
+            bevelSize: 10,
+            bevelOffset: 0,
+            bevelSegments: 10
+        } ); 
 
-           scene.add(mesh2);
+        var textGeometry3 = new THREE.TextGeometry( 'z', { 
+            font: myFont,
+            size: 500,
+            height: 5,
+            curveSegments: 12,
+            bevelEnabled: true,
+            bevelThickness: 30,
+            bevelSize: 10,
+            bevelOffset: 0,
+            bevelSegments: 10
+        } ); 
+
+           const meshX = new THREE.Mesh(textGeometry, material2);
+           const meshO = new THREE.Mesh(textGeometry2, material3);
+           const meshT = new THREE.Mesh(textGeometry3, material4);
+
+           meshX.position.x = 350;
+           meshO.position.x = 750;
+           meshT.position.x = 1150;
+
+           group.add(meshX)
+           group.add(meshO)
+           group.add(meshT)
+
+           scene.add(group);
            console.log('foo');
     
-
-
         
         const params = {
             exposure: 1,
@@ -161,7 +175,9 @@ const Neon = () => {
         };
 
        controls = new OrbitControls( camera, renderer.domElement );
-
+       controls.autoRotate = false;
+       controls.autoRotateSpeed = 30;
+      controls.target = new THREE.Vector3(950, 0, 0); // what 
 
         document.body.appendChild( renderer.domElement );
 
@@ -181,7 +197,10 @@ const Neon = () => {
 
 
     function animate() {
+
+
         requestAnimationFrame( animate );
+  
         // required if controls.enableDamping or controls.autoRotate are set to true
         controls.update();
         composer.render();

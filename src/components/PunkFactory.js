@@ -129,9 +129,9 @@ function getFixedTraits() {
         new Trait(jewels[0], metalColor),
         new Trait(accessories[0]),
         new Trait(accessories[6]),
-        new Trait(glasses[0]),
-        new Trait(hats[1]),        
-        new Trait(hairs[1], hairColor.hexs.hair),        
+        // new Trait(glasses[10]),
+        new Trait(hats[12]),        
+        new Trait(hairs[13], hairColor.hexs.hair),        
     ]
     return traits;
 }

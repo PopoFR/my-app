@@ -5,6 +5,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as Export from "../components/Export";
 import { getRandomPunk, getPunk } from '../components/PunkFactory';
+import { Scene } from "three";
 
 let
     container,
@@ -25,7 +26,7 @@ var onOffCubes = []
 const Viewer = () => {
 
 
-    const punkPath = './test.glb';
+    const punkPath = './1635251349506-random punk.glb';
     const [isLoading, setIsLoading] = useState(false);
     const [punk, setPunk] = useState(new THREE.Group());
 
@@ -101,6 +102,7 @@ const Viewer = () => {
         light0.shadow.camera.far = 3500;
         light0.shadow.bias = - 0.00001;
 
+        camera.add(light1);
 
         camera.add(light0);
         scene.add(light2);
@@ -187,29 +189,20 @@ const Viewer = () => {
                 //     element.castShadow = true;
 
                 // });
-                scene.add(gltf.scene);
-                console.log(gltf.scene)
+      
                 gltf.scene.traverse(function (obj) {
-                    if (obj.isLight) {
-
-                    } else if (obj.isMesh) {
-             
-
+                    if (obj.isMesh) {
                         obj.castShadow = true
                         obj.receiveShadow = true
                         obj.material.metalness = 0.2
                         obj.material.roughness = 1
-                        onOffCubes.push(obj);
                     }
                 })
-
-                setPunk(gltf.scene.children[1]);
-
-                // punk.on('click', function(ev) {
-                //     console.log("click")
-                // });
+                scene.add(gltf.scene);
+                console.log(gltf.scene)
                 gltf.scene.children[1].position.y -= 10;
                 gltf.scene.children[1].position.x += 1;
+                setPunk(gltf.scene.children[1]);
                 animate();
             },
             // called while loading is progressing
@@ -243,12 +236,13 @@ const Viewer = () => {
         e.preventDefault()
         punk.clear();
         // var newPunk = getRandomPunk();
-        var newPunk = getPunk();
+        var newPunk = getRandomPunk();
 
         newPunk.position.y -= 10;
         newPunk.position.x += 1;
         setPunk(newPunk);
         scene.add(newPunk);
+        console.log(scene)
     }
 
     async function exportPunk() {
