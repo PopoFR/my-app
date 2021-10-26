@@ -38,16 +38,40 @@
         "hairPack": 1,
         "elems": [
             {
+                "name": "hat_cop_back",
+                "src": "./punk/traits/img/male/hat/hat_cop_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
                 "name": "hat_cop_face",
                 "src": "./punk/traits/img/male/hat/hat_cop_face.png",
-                "thikness": 2.5,
+                "thikness": 1,
                 "z": 0
             },
             {
-                "name": "hat_cop_back",
-                "src": "./punk/traits/img/male/hat/hat_cop_back.png",
+                "name": "hat_cop_face",
+                "src": "./punk/traits/img/male/hat/hat_cop_face.png",
                 "thikness": 1,
-                "z": -1.5
+                "z": -1
+            },
+            {
+                "name": "hat_cop_face",
+                "src": "./punk/traits/img/male/hat/hat_cop_face.png",
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "hat_cop_face",
+                "src": "./punk/traits/img/male/hat/hat_cop_face2.png",
+                "thikness": 0.5,
+                "z": 1.25
+            },
+            {
+                "name": "hat_cop_face",
+                "src": "./punk/traits/img/male/hat/hat_cop_face3.png",
+                "thikness": 1,
+                "z": 2
             }
         ]
     },
@@ -58,16 +82,40 @@
         "hairPack": 1,
         "elems": [
             {
+                "name": "hat_biker_back",
+                "src": "./punk/traits/img/male/hat/hat_biker_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
                 "name": "hat_biker_face",
                 "src": "./punk/traits/img/male/hat/hat_biker_face.png",
-                "thikness": 2.5,
+                "thikness": 1,
                 "z": 0
             },
             {
-                "name": "hat_biker_back",
-                "src": "./punk/traits/img/male/hat/hat_biker_back.png",
+                "name": "hat_biker_face",
+                "src": "./punk/traits/img/male/hat/hat_biker_face.png",
                 "thikness": 1,
-                "z": -1.5
+                "z": -1
+            },
+            {
+                "name": "hat_biker_face",
+                "src": "./punk/traits/img/male/hat/hat_biker_face.png",
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "hat_biker_face",
+                "src": "./punk/traits/img/male/hat/hat_biker_face2.png",
+                "thikness": 0.5,
+                "z": 1.25
+            },
+            {
+                "name": "hat_biker_face",
+                "src": "./punk/traits/img/male/hat/hat_biker_face2.png",
+                "thikness": 1,
+                "z": 2
             }
         ]
     },
@@ -139,7 +187,7 @@
             {
                 "name": "hat_colonial",
                 "src": "./punk/traits/img/male/hat/hat_colonial2.png",
-                "thikness": 0.5,
+                "thikness": 1,
                 "z": -2.25
             },
             {
@@ -169,7 +217,7 @@
             {
                 "name": "hat_colonial",
                 "src": "./punk/traits/img/male/hat/hat_colonial2.png",
-                "thikness": 0.5,
+                "thikness": 1,
                 "z": 1.25
             }
         ]
@@ -288,9 +336,21 @@
             },
             {
                 "name": "hat_peaked_cap_front",
-                "src": "./punk/traits/img/male/hat/hat_peaked_cap_front.png",
+                "src": "./punk/traits/img/male/hat/hat_peaked_cap_back.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "hat_peaked_cap_front",
+                "src": "./punk/traits/img/male/hat/hat_peaked_cap_front3.png",
+                "thikness": 0.5,
+                "z": 1.25
+            },
+            {
+                "name": "hat_peaked_cap_front",
+                "src": "./punk/traits/img/male/hat/hat_peaked_cap_front2.png",
+                "thikness": 1,
+                "z": 2
             }
         ]
     },
@@ -807,38 +867,6 @@
                 "src": "./punk/traits/img/male/hat/hat_crown2.png",
                 "thikness": 1,
                 "z": -2
-            }
-        ]
-    },
-    {
-        "type": "hat",
-        "id": 24,
-        "hairPack": 2,
-        "name": "hat_bandana_surgery",
-        "elems": [
-            {
-                "name": "hat_bandana_surgery_back1",
-                "src": "./punk/traits/img/male/hat/2.png",
-                "thikness": 0.5,
-                "z": -1.75
-            },
-            {
-                "name": "hat_bandana_surgery_tail1",
-                "src": "./punk/traits/img/male/hat/2.png",
-                "thikness": 1,
-                "z": -1
-            },
-            {
-                "name": "hat_bandana_surgery_tail2",
-                "src": "./punk/traits/img/male/hat/2.png",
-                "thikness": 1,
-                "z": 0
-            },
-            {
-                "name": "hat_bandana_surgery_face2",
-                "src": "./punk/traits/img/male/hat/2.png",
-                "thikness": 0.5,
-                "z": 0.75
             }
         ]
     }

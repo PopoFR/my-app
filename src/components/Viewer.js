@@ -25,7 +25,7 @@ var onOffCubes = []
 const Viewer = () => {
 
 
-    const punkPath = './1635074314850-punk 120.glb';
+    const punkPath = './test.glb';
     const [isLoading, setIsLoading] = useState(false);
     const [punk, setPunk] = useState(new THREE.Group());
 
@@ -77,7 +77,7 @@ const Viewer = () => {
         light2.shadow.camera.far = 3500;
         light2.shadow.bias = - 0.00001;
 
-        light1 = new THREE.DirectionalLight(0xffffff, 0.2);
+        light1 = new THREE.DirectionalLight(0xffffff, 0.1);
         light1.position.set(-25, 30, 50);
         light1.castShadow = true;
         light1.shadow.mapSize.width = 3000;
@@ -89,7 +89,7 @@ const Viewer = () => {
         light1.shadow.camera.far = 3500;
         light1.shadow.bias = - 0.00001;
         
-        light0 = new THREE.DirectionalLight(0xffffff, 0.2);
+        light0 = new THREE.DirectionalLight(0xffffff, 0.1);
         light0.position.set(10, 30, 50);
         light0.castShadow = true;
         light0.shadow.mapSize.width = 3000;
@@ -101,8 +101,8 @@ const Viewer = () => {
         light0.shadow.camera.far = 3500;
         light0.shadow.bias = - 0.00001;
 
+
         camera.add(light0);
-        camera.add(light1);
         scene.add(light2);
         scene.add(camera)
     }
@@ -188,16 +188,17 @@ const Viewer = () => {
 
                 // });
                 scene.add(gltf.scene);
-
+                console.log(gltf.scene)
                 gltf.scene.traverse(function (obj) {
                     if (obj.isLight) {
 
                     } else if (obj.isMesh) {
+             
+
                         obj.castShadow = true
                         obj.receiveShadow = true
-                        obj.material.metalness = 0
+                        obj.material.metalness = 0.2
                         obj.material.roughness = 1
-                        
                         onOffCubes.push(obj);
                     }
                 })
@@ -241,7 +242,9 @@ const Viewer = () => {
     function tooglePunk(e) {
         e.preventDefault()
         punk.clear();
-        var newPunk = getRandomPunk();
+        // var newPunk = getRandomPunk();
+        var newPunk = getPunk();
+
         newPunk.position.y -= 10;
         newPunk.position.x += 1;
         setPunk(newPunk);
@@ -264,6 +267,8 @@ const Viewer = () => {
     return (
         <>
             <Link to="/"> Home </Link>
+            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
+
             <div>
                 {!isLoading &&
                     <button type="button" onClick={exportPunk}>EXPORT</button>
@@ -272,6 +277,7 @@ const Viewer = () => {
             </div>
 
             <div id="viewer-container"></div>
+            </div>
         </>
     )
 }

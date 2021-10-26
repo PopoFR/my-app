@@ -68,7 +68,6 @@ const Scene = () => {
         scene.add( hemiLight );
 
         const dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
-        
         dirLight.position.set(0.1, 3, 5 );
         scene.add( dirLight );
         dirLight.castShadow = true;

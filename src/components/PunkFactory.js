@@ -13,7 +13,8 @@ const accessories = require('./punk/traits/json/Accessories.json');
 const jewels = require('./punk/traits/json/Jewels.json');
 const base = require('./punk/traits/json/Base.json');
 
-export function getPunk(name) {
+export function getPunk() {
+    var name = "random punk";
     var traits = getFixedTraits();
     var punk = generatePunk(traits);
     punk.name = name;
@@ -42,15 +43,13 @@ function generatePunk(traits) {
     var isBeared = false;
     var bearTickness;
     var bearZ;
+    var isHair = false;
 
 
     traits.forEach(trait => {
 
         var traitGroup = new THREE.Group();
         traitGroup.name = trait.name;
-
-        //jouer avec les dossier... genre au lieu de pointer tout le chemin du png, ne pointer que 
-        //si il a une barbe, on elargie plus et on decale plus ou moins la bouche
 
         if (trait.type === "hat")
             hairPack = trait.hairPack;
@@ -60,12 +59,16 @@ function generatePunk(traits) {
             bearTickness = trait.elems[0].thikness;
             bearZ = trait.elems[0].z;
         }
+        if (trait.type === "hair") {
+            isHair = true;
+        }
 
 
         //on modelise chaque element de chaque traitz
         trait.elems.forEach(e => {
             var customZandThikness = handleMouthBeard(trait, e.z, e.thikness, isBeared, bearTickness, bearZ);
             var srcPath = handleHairHat(trait, e, hairPack);
+
             //copier e.src et renvoyé un modifié .
             let element = new Element(e.name, trait.color, srcPath, customZandThikness.z, customZandThikness.thikness, e.rotation, e.opacity, e.isMerged);
             traitGroup.add(addPixelBlockToScene(pixels, colors, element));
@@ -73,8 +76,6 @@ function generatePunk(traits) {
 
         punk.add(traitGroup);
     })
-
-    
 
     function handleHairHat(trait, elem, hairPack) {
         if (trait.type === "hair" && hairPack !== undefined) {
@@ -93,14 +94,12 @@ function generatePunk(traits) {
         }
         
         if (trait.type === "accessory" && trait.isCustomZ === true){
-            console.log("customZ")
-            console.log(customZ)
-
-            console.log("customZ")
             z = customZ;
         }
             
-
+        if (trait.type === "glasses" && trait.hide === true){
+            z = 0;
+        }
 
         return {z: z, thikness: thikness};
     }
@@ -112,24 +111,16 @@ function generatePunk(traits) {
 //lunette 14 marche pas avec plein de chsoe
 function getFixedTraits() {
     const bodyColor = colors['body'][5];
-    const reflectColor = colors['body'][2].hexs['reflect'];
     const hairColor = colors['hairs'][2];
-    const noseColor = bodyColor.hexs['nose'];
-
-    const eyesColor = colors['body'][2].hexs['eye'];
-    const eyesBrowColor = colors['body'][2].hexs['eyebrow'];
-    const beardColor = colors['hairs'][2].hexs.beard;
     const metalColor = colors['metal'][0].hex;
     
     let traits = [
-        
         new Trait(base[0], bodyColor.hexs.body),
         new Trait(base[1], bodyColor.hexs.reflect),
         new Trait(base[3], hairColor.hexs.eyebrow),
         new Trait(base[2], bodyColor.hexs.eye),
         new Trait(eyes[1]),
         new Trait(base[4]),
-
 
         new Trait(accessories[5], bodyColor.hexs.encircles),
         // new Trait(beards[0]),
@@ -138,16 +129,9 @@ function getFixedTraits() {
         new Trait(jewels[0], metalColor),
         new Trait(accessories[0]),
         new Trait(accessories[6]),
-        new Trait(hairs[12], hairColor.hexs.hair),        
-        new Trait(glasses[10]),
-
-
-        // new Trait(hairs[13]),
-        /*  */
-        // new Trait(accessories[7], metalColor),
-
-        // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
-        // new Trait(getRandomElem(mouths)),
+        new Trait(glasses[0]),
+        new Trait(hats[1]),        
+        new Trait(hairs[1], hairColor.hexs.hair),        
     ]
     return traits;
 }
@@ -155,9 +139,9 @@ function getFixedTraits() {
 
 function getRandomTraits() {
 
-    const bodyColor = getRandomElem(colors['body']);
+    // const bodyColor = getRandomElem(colors['body']);
     const hairColor = getRandomElem(colors['hairs']);
-    const furColor = getRandomElem(colors['hairs']);
+    const bodyColor = colors['body'][5];
 
     let traits = [
 
@@ -166,14 +150,13 @@ function getRandomTraits() {
         new Trait(base[3], hairColor.hexs.eyebrow),
         new Trait(base[2], bodyColor.hexs.eye),
         new Trait(getRandomElem(eyes)),
-        new Trait(getRandomElem(beards), furColor.hexs.beard),
+        new Trait(getRandomElem(beards), hairColor.hexs.beard),
         new Trait(base[4]),
         new Trait(getRandomElem(noses), bodyColor.hexs.nose),
-        new Trait(getRandomElem(glasses)),
+            new Trait(getRandomElem(glasses)),
         new Trait(getRandomElem(hats)),
-        new Trait(getRandomElem(hairs), furColor.hexs.beard),
+        new Trait(getRandomElem(hairs), hairColor.hexs.hair),
 
-        // new Trait(getRandomElem(hairs), hairColor.hexs.hair),
     ]
     return traits;
 };
