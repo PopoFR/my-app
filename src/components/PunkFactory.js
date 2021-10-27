@@ -119,8 +119,8 @@ function getFixedTraits() {
         new Trait(base[1], bodyColor.hexs.reflect),
         new Trait(base[3], hairColor.hexs.eyebrow),
         new Trait(base[2], bodyColor.hexs.eye),
-        new Trait(eyes[1]),
         new Trait(base[4]),
+        new Trait(eyes[0]),
 
         new Trait(accessories[5], bodyColor.hexs.encircles),
         // new Trait(beards[0]),
@@ -137,26 +137,93 @@ function getFixedTraits() {
 }
 
 
-function getRandomTraits() {
 
-    // const bodyColor = getRandomElem(colors['body']);
-    const hairColor = getRandomElem(colors['hairs']);
-    const bodyColor = colors['body'][5];
 
-    let traits = [
+//min = 1, max = 
+function checkIsPicked(max) {
+    max = Math.floor(max);
+    var isPicked =  Math.floor(Math.random() * (max - 1)) + 1 == 1 ? true : false;
+    return isPicked;
+  }
 
+function getRandomTrait(traits, max, finalTraits, color){
+
+    if (checkIsPicked(max)){
+        var trait = new Trait(pickRandom(traits), color);
+        finalTraits.push(trait);
+        console.log("PIKED")
+    }
+
+    return finalTraits;
+
+}
+
+function getBase(bodyColor, hairColor){
+
+    var bases = [
         new Trait(base[0], bodyColor.hexs.body),
         new Trait(base[1], bodyColor.hexs.reflect),
         new Trait(base[3], hairColor.hexs.eyebrow),
         new Trait(base[2], bodyColor.hexs.eye),
+    ];
+
+    return bases;
+}
+
+
+function getRandomTraits() {
+    // const bodyColor = getRandomElem(colors['body']);
+    //On recupere les couleurs peau/cheveux
+    const hairColor =  pickRandom(colors.hairs);
+    const bodyColor = pickRandom(colors.body);
+
+    //on recupere la base (corps, bouche sourcil, reflet, oeil) (commun a tout les punk)
+    var allTraits = getBase(bodyColor, hairColor);
+
+    
+    const ratioBold = hairs.length;
+    const ratioBear = 3;
+    const ratioHat = 5;
+    const rationGlasses = 10;
+    const ratioJewels = 20;
+    const ratioEncircles = 20;
+    const ratioDrool = 20;
+    const ratioAccessorys = 30;
+    const ratioEyes = 1;
+    const ratioNoses = 1;
+
+    console.log(bodyColor.nose)
+    
+    // finalTraits = getRandomTrait(hairs, ratioBold, ratioBold, finalTraits);
+    allTraits = getRandomTrait(noses, ratioNoses, allTraits, bodyColor.hexs.nose);
+    allTraits = getRandomTrait(eyes, ratioEyes, allTraits);
+    allTraits = getRandomTrait(beards, ratioBear, allTraits, hairColor.hexs.beard);
+    allTraits.push(new Trait(base[4]));
+    allTraits = getRandomTrait(glasses, rationGlasses, allTraits);
+    allTraits = getRandomTrait(hats, ratioHat, allTraits);
+    allTraits = getRandomTrait(jewels, ratioJewels, allTraits);
+
+    console.log("finalTraits")
+    console.log(allTraits)
+    console.log("finalTraits")
+
+    return allTraits;
+
+    // finalTraits.push(getRandomTrait(glasses, rationGlasses));
+
+    // getRandomTrait(glasses, rationGlasses, finalTraits);
+    // getRandomTrait(hats, ratioHat, finalTraits);
+    // getRandomTrait(jewels, ratioJewels, finalTraits);
+
+    //on recupe tout les traits random (pas forcement tout les traits sont générés)
+
+    let traits = [
         new Trait(getRandomElem(eyes)),
         new Trait(getRandomElem(beards), hairColor.hexs.beard),
-        new Trait(base[4]),
         new Trait(getRandomElem(noses), bodyColor.hexs.nose),
-            new Trait(getRandomElem(glasses)),
+        new Trait(getRandomElem(glasses)),
         new Trait(getRandomElem(hats)),
         new Trait(getRandomElem(hairs), hairColor.hexs.hair),
-
     ]
     return traits;
 };
@@ -186,4 +253,42 @@ class Element {
         this.mouthZ = mouthZ;
     }
 }
+
+
+var rarities = [{
+    name: "common",
+    rarity: 0
+  }, {
+    name: "mythics",
+    rarity: 35
+  }, {
+    name: "legends",
+    rarity: 20
+  }, {
+    name: "ub",
+    rarity: 1
+  }];
+
+  
+function pickRandom(items) {
+
+    // Calculate chances for common
+    var filler = 100 - items.map(r => r.rarity).reduce((sum, current) => sum + current);
+  
+    if (filler <= 0) {
+      console.log("chances sum is higher than 100!");
+      return;
+    }
+  
+    // Create an array of 100 elements, based on the chances field
+    var probability = items.map((r, i) => Array(r.rarity === 0 ? filler : r.rarity).fill(i)).reduce((c, v) => c.concat(v), []);
+  
+    // Pick one
+    var pIndex = Math.floor(Math.random() * 100);
+
+    var rarity = items[probability[pIndex]];
+
+    return (rarity);
+  }
+
 

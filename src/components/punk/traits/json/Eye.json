@@ -3,6 +3,7 @@
         "type": "eyes",
         "id": 0,
         "name": "eyes_looking_left",
+        "rarity": 0,
         "elems": 
         [
             {
@@ -17,6 +18,7 @@
         "type": "eyes",
         "id": 1,
         "name": "eyes_looking_right",
+        "rarity": 40,
         "elems": 
         [
             {
@@ -31,6 +33,7 @@
         "type": "eyes",
         "id": 2,
         "name": "eyes_looking_cross",
+        "rarity": 10,
         "elems": 
         [
             {
@@ -45,6 +48,7 @@
         "type": "eyes",
         "id": 3,
         "name": "eyes_looking_crossout",
+        "rarity": 10,
         "elems": 
         [
             {

@@ -3,6 +3,7 @@
         "type": "jewels",
         "id": 0,
         "name": "hearing",
+        "rarity": 0,
         "elems": [
             {
                 "name": "jewels_hearing",
@@ -16,6 +17,7 @@
         "type": "jewels",
         "id": 1,
         "name": "jewels_necklass_bullet",
+        "rarity": 25,
         "elems": [
             {
                 "name": "jewels_necklass_bullet_front",
@@ -35,6 +37,7 @@
         "type": "jewels",
         "id": 2,
         "name": "jewels_necklass",
+        "rarity": 25,
         "elems": [
             {
                 "name": "jewels_necklass_front",
@@ -78,6 +81,7 @@
         "type": "jewels",
         "id": 3,
         "name": "jewels_necklass_straight",
+        "rarity": 25,
         "elems": [
             {
                 "name": "jewels_necklass_straight_front",

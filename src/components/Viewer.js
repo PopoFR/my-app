@@ -199,7 +199,6 @@ const Viewer = () => {
                     }
                 })
                 scene.add(gltf.scene);
-                console.log(gltf.scene)
                 gltf.scene.children[1].position.y -= 10;
                 gltf.scene.children[1].position.x += 1;
                 setPunk(gltf.scene.children[1]);
@@ -242,7 +241,6 @@ const Viewer = () => {
         newPunk.position.x += 1;
         setPunk(newPunk);
         scene.add(newPunk);
-        console.log(scene)
     }
 
     async function exportPunk() {

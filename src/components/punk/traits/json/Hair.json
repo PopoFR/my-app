@@ -2,13 +2,31 @@
     {
         "type": "hair",
         "id": 0,
-        "name": "reflect",
+        "name": "hair_pigtails",
         "elems": [
             {
-                "name": "reflect_main",
-                "src": "./punk/traits/img/male/hair/hair_default.png",
+                "name": "hair_pigtails_back",
+                "src": "./punk/traits/img/male/hair/hair_pigtails_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair_pigtails_back",
+                "src": "./punk/traits/img/male/hair/hair_pigtails_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair_pigtails_front",
+                "src": "./punk/traits/img/male/hair/hair_pigtails_front.png",
                 "thikness": 1,
                 "z": 0
+            },
+            {
+                "name": "hair_pigtails_front",
+                "src": "./punk/traits/img/male/hair/hair_pigtails_front.png",
+                "thikness": 0.5,
+                "z": 0.75
             }
         ]
     },
@@ -386,37 +404,6 @@
             {
                 "name": "hair14_front",
                 "src": "./punk/traits/img/male/hair/hair14_front.png",
-                "thikness": 0.5,
-                "z": 0.75
-            }
-        ]
-    },
-    {
-        "type": "hair",
-        "id": 14,
-        "name": "hair_pigtails",
-        "elems": [
-            {
-                "name": "hair_pigtails_back",
-                "src": "./punk/traits/img/male/hair/hair_pigtails_back.png",
-                "thikness": 0.5,
-                "z": -1.75
-            },
-            {
-                "name": "hair_pigtails_back",
-                "src": "./punk/traits/img/male/hair/hair_pigtails_back.png",
-                "thikness": 1,
-                "z": -1
-            },
-            {
-                "name": "hair_pigtails_front",
-                "src": "./punk/traits/img/male/hair/hair_pigtails_front.png",
-                "thikness": 1,
-                "z": 0
-            },
-            {
-                "name": "hair_pigtails_front",
-                "src": "./punk/traits/img/male/hair/hair_pigtails_front.png",
                 "thikness": 0.5,
                 "z": 0.75
             }

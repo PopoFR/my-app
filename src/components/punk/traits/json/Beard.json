@@ -3,6 +3,7 @@
         "type": "beard",
         "id": 0,
         "name": "butcher",
+        "rarity": 9,
         "elems": [
             {
                 "name": "beard01_main",
@@ -16,6 +17,7 @@
         "type": "beard",
         "id": 1,
         "name": "regular",
+        "rarity": 0,
         "elems": [
             {
                 "name": "beard02_main",
@@ -29,6 +31,7 @@
         "type": "colar",
         "id": 2,
         "name": "colar",
+        "rarity": 9,
         "elems": [
             {
                 "name": "beard03_main",
@@ -42,6 +45,7 @@
         "type": "beard",
         "id": 3,
         "name": "goat",
+        "rarity": 9,
         "elems": [
             {
                 "name": "beard04_main",
@@ -55,6 +59,7 @@
         "type": "goat",
         "id": 4,
         "name": "goat01",
+        "rarity": 9,
         "elems": [
             {
                 "name": "beard05_main",
@@ -68,6 +73,7 @@
         "type": "beard",
         "id": 5,
         "name": "beard06",
+        "rarity": 9,
         "elems": [
             {
                 "name": "beard06_main",
@@ -81,6 +87,7 @@
         "type": "sideburns",
         "id": 6,
         "name": "sideburns01",
+        "rarity": 9,
         "elems": [
             {
                 "name": "beard07_main",
@@ -94,6 +101,7 @@
         "type": "beard",
         "id": 7,
         "name": "beard08",
+        "rarity": 9,
         "elems": [
             {
                 "name": "beard08_main",
@@ -107,6 +115,7 @@
         "type": "colar",
         "id": 8,
         "name": "colar02",
+        "rarity": 9,
         "elems": [
             {
                 "name": "beard09_main",
@@ -120,6 +129,7 @@
         "type": "mustache",
         "id": 9,
         "name": "mustache01",
+        "rarity": 9,
         "elems": [
             {
                 "name": "mustache01_main",
@@ -133,6 +143,7 @@
         "type": "mustache",
         "id": 10,
         "name": "mustache02",
+        "rarity": 9,
         "elems": [
             {
                 "name": "mustache02_main",

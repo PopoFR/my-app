@@ -4,6 +4,7 @@
         "id": 0,
         "name": "hat_baenie",
         "hairPack": 2,
+        "rarity": 0,
         "elems": [
             {
                 "name": "hat_beanie",
@@ -36,6 +37,7 @@
         "id": 1,
         "name": "hat_cop",
         "hairPack": 1,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_cop_back",
@@ -80,6 +82,7 @@
         "id": 2,
         "name": "hat_biker",
         "hairPack": 1,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_biker_back",
@@ -124,6 +127,7 @@
         "id": 3,
         "name": "hat_bucket",
         "hairPack": 2,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_bucket",
@@ -151,6 +155,7 @@
         "id": 4,
         "name": "hat_cap",
         "hairPack": 2,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_cap",
@@ -183,6 +188,7 @@
         "id": 5,
         "name": "hat_colonial",
         "hairPack": 1,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_colonial",
@@ -227,6 +233,7 @@
         "id": 6,
         "name": "hat_copter",
         "hairPack": 2,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_copter_visor",
@@ -271,6 +278,7 @@
         "id": 7,
         "name": "hat_cowboy",
         "hairPack": 1,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_cowboy",
@@ -315,6 +323,7 @@
         "id": 8,
         "name": "hat_peaked_cap",
         "hairPack": 1,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_peaked_cap_back",
@@ -359,6 +368,7 @@
         "id": 9,
         "name": "hat_mcDo",
         "hairPack": 2,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_copter_visor",
@@ -397,6 +407,7 @@
         "id": 10,
         "name": "hat_bandana_crips",
         "hairPack": 2,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_bandana_crips_back1",
@@ -429,6 +440,7 @@
         "id": 11,
         "name": "hat_bandana_bloodz",
         "hairPack": 2,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_bandana_bloodz_back1",
@@ -461,6 +473,7 @@
         "id": 12,
         "name": "hat_mickey",
         "hairPack": 2,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_mickey_back",
@@ -493,6 +506,7 @@
         "id": 13,
         "name": "hat_pokemon",
         "hairPack": 2,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_pokemon_visor",
@@ -531,6 +545,7 @@
         "id": 14,
         "name": "hat_mcDo_topless",
         "hairPack": 3,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_mcdo_topless_cap_visor",
@@ -569,6 +584,7 @@
         "id": 15,
         "name": "nike_band",
         "hairPack": 3,
+        "rarity": 4,
         "elems": [
             {
                 "name": "nike_band_back",
@@ -601,6 +617,7 @@
         "id": 16,
         "name": "sport_band_fr",
         "hairPack": 3,
+        "rarity": 4,
         "elems": [
             {
                 "name": "sport_band1",
@@ -633,6 +650,7 @@
         "id": 17,
         "name": "sport_band_de",
         "hairPack": 3,
+        "rarity": 4,
         "elems": [
             {
                 "name": "sport_band_de",
@@ -665,6 +683,7 @@
         "id": 18,
         "name": "sport_band_it",
         "hairPack": 3,
+        "rarity": 4,
         "elems": [
             {
                 "name": "sport_band_it",
@@ -697,6 +716,7 @@
         "id": 19,
         "name": "sport_band_rasta",
         "hairPack": 3,
+        "rarity": 4,
         "elems": [
             {
                 "name": "sport_band1",
@@ -729,6 +749,7 @@
         "id": 20,
         "name": "crown",
         "hairPack": 3,
+        "rarity": 4,
         "elems": [
             {
                 "name": "crown",
@@ -759,8 +780,9 @@
     {
         "type": "hat",
         "id": 21,
-        "hairPack": 2,
         "name": "hat_bandana_surgery",
+        "hairPack": 2,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_bandana_surgery_back1",
@@ -791,8 +813,9 @@
     {
         "type": "hat",
         "id": 22,
-        "hairPack": 2,
         "name": "hat_sorcer",
+        "hairPack": 2,
+        "rarity": 4,
         "elems": [
             {
                 "name": "hat_sorcer_back_2",
@@ -843,6 +866,7 @@
         "id": 23,
         "name": "crown",
         "hairPack": 3,
+        "rarity": 4,
         "elems": [
             {
                 "name": "crown",

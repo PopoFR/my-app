@@ -2,7 +2,7 @@
     {
         "type": "body",
         "id": 0,
-        "name": "male01",
+        "name": "body",
         "elems": [
             {
                 "name": "face_main",
@@ -62,7 +62,7 @@
     {
         "type": "mouth",
         "id": 4,
-        "name": "mouth_main",
+        "name": "mouth",
         "elems": [
             {
                 "name": "mouth01",
