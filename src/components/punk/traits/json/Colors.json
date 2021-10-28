@@ -2,17 +2,19 @@
     "metal": [
         {
             "name": "gold",
+            "rarity": 0,
             "hex": "#ffd700"
         },
         {
             "name": "silver",
+            "rarity": 50,
             "hex": "#808080"
         }
     ],
     "hairs": [
         {
             "name": "Dark",
-            "rarity": 22,
+            "rarity": 0,
             "hexs": {
                 "hair": "#291e13",
                 "beard": "#291e13",
@@ -66,7 +68,7 @@
         },
         {
             "name": "Green",
-            "rarity": 0,
+            "rarity": 3,
             "hexs": {
                 "hair": "#28b143",
                 "beard": "#28b143",
@@ -75,6 +77,16 @@
         }
     ],
     "body": [
+        {
+            "name": "Ape",
+            "rarity": 0,
+            "hexs": {
+                "eye": "#c9b2b2",
+                "nose": "#ead9d9",
+                "reflect": "#ffffff",
+                "encircles": "#d2c2c2"
+            }
+        },
         {
             "name": "Black",
             "rarity": 30,
@@ -136,15 +148,6 @@
             "rarity": 3,
             "hexs": {
                 "body": "#ead9d9",
-                "eye": "#c9b2b2",
-                "nose": "#ead9d9",
-                "reflect": "#ffffff",
-                "encircles": "#d2c2c2"
-            }
-        },
-        {
-            "name": "Ape",
-            "hexs": {
                 "eye": "#c9b2b2",
                 "nose": "#ead9d9",
                 "reflect": "#ffffff",

@@ -758,22 +758,22 @@
                 "z": 1
             },
             {
-                "name": "sport_band2",
+                "name": "crown",
+                "src": "./punk/traits/img/male/hat/hat_crown2.png",
+                "thikness": 1,
+                "z": -2
+            },
+            {
+                "name": "crown",
                 "src": "./punk/traits/img/male/hat/hat_crown.png",
                 "thikness": 1,
                 "z": -1
             },
             {
-                "name": "sport_band2",
+                "name": "crown",
                 "src": "./punk/traits/img/male/hat/hat_crown.png",
                 "thikness": 1,
                 "z": 0
-            },
-            {
-                "name": "sport_band3",
-                "src": "./punk/traits/img/male/hat/hat_crown2.png",
-                "thikness": 1,
-                "z": -2
             }
         ]
     },
@@ -858,39 +858,6 @@
                 "src": "./punk/traits/img/male/hat/hat_sorcer_front_jewel.png",
                 "thikness": 0.5,
                 "z": 1.50
-            }
-        ]
-    },
-    {
-        "type": "hat",
-        "id": 23,
-        "name": "crown",
-        "hairPack": 3,
-        "rarity": 4,
-        "elems": [
-            {
-                "name": "crown",
-                "src": "./punk/traits/img/male/hat/hat_crown2.png",
-                "thikness": 1,
-                "z": 1
-            },
-            {
-                "name": "sport_band2",
-                "src": "./punk/traits/img/male/hat/hat_crown.png",
-                "thikness": 1,
-                "z": -1
-            },
-            {
-                "name": "sport_band2",
-                "src": "./punk/traits/img/male/hat/hat_crown.png",
-                "thikness": 1,
-                "z": 0
-            },
-            {
-                "name": "sport_band3",
-                "src": "./punk/traits/img/male/hat/hat_crown2.png",
-                "thikness": 1,
-                "z": -2
             }
         ]
     }

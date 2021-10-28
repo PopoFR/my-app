@@ -16,7 +16,7 @@
     {
         "type": "jewels",
         "id": 1,
-        "name": "jewels_necklass_bullet",
+        "name": "necklass_bullet",
         "rarity": 25,
         "elems": [
             {
@@ -36,7 +36,7 @@
     {
         "type": "jewels",
         "id": 2,
-        "name": "jewels_necklass",
+        "name": "necklass",
         "rarity": 25,
         "elems": [
             {
@@ -80,7 +80,7 @@
     {
         "type": "jewels",
         "id": 3,
-        "name": "jewels_necklass_straight",
+        "name": "necklass_straight",
         "rarity": 25,
         "elems": [
             {

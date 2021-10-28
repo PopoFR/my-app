@@ -19,7 +19,7 @@
         ]
     },
     {
-        "type": "body",
+        "type": "reflect",
         "id": 1,
         "name": "reflect",
         "elems": [
@@ -32,9 +32,9 @@
         ]
     },
     {
-        "type": "eyes",
+        "type": "white_eye",
         "id": 2,
-        "name": "eyes",
+        "name": "white_eye",
         "elems": 
         [
             {
@@ -56,6 +56,12 @@
                 "src": "./punk/traits/img/male/base/eyebrows.png", 
                 "thikness": 1, 
                 "z": 0
+            },
+            {
+                "name": "eyebrow_main", 
+                "src": "./punk/traits/img/male/base/eyebrows.png", 
+                "thikness": 0.5, 
+                "z": 0.5
             }
         ]
     },

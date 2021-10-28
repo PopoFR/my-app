@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as Export from "../components/Export";
-import { getRandomPunk, getPunk } from '../components/PunkFactory';
+import { getRandomPunk, getPunk, getXPunk } from '../components/PunkFactory';
 import { Scene } from "three";
 
 let
@@ -206,7 +206,7 @@ const Viewer = () => {
             },
             // called while loading is progressing
             function (xhr) {
-                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                // console.log((xhr.loaded / xhr.total * 100));
             },
             // called when loading has errors
             function (error) {
@@ -243,6 +243,14 @@ const Viewer = () => {
         scene.add(newPunk);
     }
 
+    function generateXPunk(e) {
+        e.preventDefault()
+        punk.clear();
+        // var newPunk = getRandomPunk();
+        getXPunk(1000);
+    }
+
+
     async function exportPunk() {
         setIsLoading(true);
         controls.reset();
@@ -254,8 +262,6 @@ const Viewer = () => {
             });
     }
 
-
-
     return (
         <>
             <Link to="/"> Home </Link>
@@ -266,6 +272,10 @@ const Viewer = () => {
                     <button type="button" onClick={exportPunk}>EXPORT</button>
                 }
                 <button type="button" onClick={tooglePunk}>TOOGLE</button>
+
+                <button type="button" onClick={generateXPunk}>GENERATE</button>
+
+
             </div>
 
             <div id="viewer-container"></div>
