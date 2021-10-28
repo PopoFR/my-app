@@ -12,6 +12,8 @@ const glasses = require('./punk/traits/json/Glasses.json');
 const accessories = require('./punk/traits/json/Accessories.json');
 const jewels = require('./punk/traits/json/Jewels.json');
 const base = require('./punk/traits/json/Base.json');
+const smokes = require('./punk/traits/json/Smoke.json');
+const masks = require('./punk/traits/json/Mask.json');
 
 export function getPunk() {
     var name = "random punk";
@@ -36,7 +38,7 @@ export function getXPunk(ammount) {
     var name = "random punk";
 
     //on genere les traits de x (ammount) punk
-    for (let index = 0; index < 1000; index++) {
+    for (let index = 0; index < 10; index++) {
         randomTraits.push(getRandomTraits());
     }
     //on supprime les doublons
@@ -45,6 +47,7 @@ export function getXPunk(ammount) {
     let distinctTraitsList = Array.from(json).map(JSON.parse);
 
     console.log(distinctTraitsList)
+
 }
 
 
@@ -61,7 +64,6 @@ function generatePunk(traits) {
     var isBeared = false;
     var bearTickness;
     var bearZ;
-    var isHair = false;
 
 
     traits.forEach(trait => {
@@ -77,18 +79,15 @@ function generatePunk(traits) {
             bearTickness = trait.elems[0].thikness;
             bearZ = trait.elems[0].z;
         }
-        if (trait.type === "hair") {
-            isHair = true;
-        }
 
-
+        var customX = 0;
         //on modelise chaque element de chaque traitz
         trait.elems.forEach(e => {
-            var customZandThikness = handleCustomElement(trait, e.z, e.thikness, isBeared, bearTickness, bearZ);
+            var customZandThikness = handleCustomElement(trait, e.z, e.thikness, isBeared, bearTickness, bearZ, customX);
             var srcPath = handleHairHat(trait, e, hairPack);
 
             //copier e.src et renvoyé un modifié .
-            let element = new Element(e.name, trait.color, srcPath, customZandThikness.z, customZandThikness.thikness, e.rotation, e.opacity, e.isMerged);
+            let element = new Element(e.name, trait.color, srcPath, customZandThikness.z, customZandThikness.thikness, e.rotation, e.opacity, e.isMerged, customZandThikness.customX);
             var voxels = addPixelBlockToScene(pixels, colors, element)
 
             traitGroup.add(voxels);
@@ -107,7 +106,7 @@ function generatePunk(traits) {
         return elem.src
     }
 
-    function handleCustomElement(trait, z, thikness, isBeared, customThikness, customZ) {
+    function handleCustomElement(trait, z, thikness, isBeared, customThikness, customZ, x) {
         if (isBeared && (trait.type === "mouth")) {
             thikness = customThikness;
             z = customZ;
@@ -121,7 +120,13 @@ function generatePunk(traits) {
             z = 0;
         }
 
-        return { z: z, thikness: thikness };
+        if (isBeared && (trait.name === "pipe" || trait.name === "cigarette")) {
+            x = 0.7;
+            z = customZ+0.30;
+        }
+
+
+        return { z: z, thikness: thikness, customX: x };
     }
 
     return punk;
@@ -135,6 +140,7 @@ function getFixedTraits() {
     const metalColor = colors['metal'][0].hex;
 
     let traits = [
+        // new Trait(accessories[0]), 
         new Trait(base[0], bodyColor.hexs.body),
         new Trait(base[1], bodyColor.hexs.reflect),
         new Trait(base[3], hairColor.hexs.eyebrow),
@@ -142,14 +148,11 @@ function getFixedTraits() {
         new Trait(beards[0]),
         new Trait(base[4]),
         new Trait(eyes[0]),
-        new Trait(accessories[5], bodyColor.hexs.encircles),
+        // new Trait(glasses[6]),
         new Trait(noses[0], bodyColor.hexs.nose),
-        new Trait(jewels[3], metalColor),
+        new Trait(jewels[1], metalColor),
         new Trait(jewels[0], metalColor),
-        // new Trait(accessories[3]), //hoodies
-        new Trait(accessories[6]),
-        new Trait(glasses[7]),
-        new Trait(hats[20]),
+        new Trait(hats[6]),
         new Trait(hairs[0], hairColor.hexs.hair),
     ]
     return traits;
@@ -170,33 +173,36 @@ function getBase(bodyColor, hairColor) {
     var bases = [
         new Trait(base[0], bodyColor.hexs.body),
         new Trait(base[1], bodyColor.hexs.reflect),
-        new Trait(base[3], hairColor.hexs.eyebrow),
         new Trait(base[2], bodyColor.hexs.eye),
+        new Trait(base[3], hairColor.hexs.eyebrow),
     ];
 
     return bases;
 }
 
 
+//TODO SET DROOL ET GOAT    
 function getRandomTraits() {
 
     //les ratio de rarity par type d'items
-    const ratioHairs = 3;
-    const ratioBear = 3;
+    const ratioHairs = 1;
+    const ratioBear = 1;
     const ratioHat = 5;
     const rationGlasses = 10;
     const ratioJewels = 1;
-    const ratioEncircles = 20;
-    const ratioDrool = 20;
     const ratioAccessorys = 30;
     const ratioEyes = 1;
     const ratioNoses = 1;
+    const ratioSmoke = 1;
+    const ratioEncirclesAndDrool = 1;
+
+    const ratioMask = 1;
 
     //On recupere les couleurs peau/cheveux
     const hairColor = pickRandom(colors.hairs);
     const bodyColor = pickRandom(colors.body);
     const metalColor = pickRandom(colors.metal).hex;
-
+    
     //on recupere la base (corps, bouche sourcil, reflet, oeil) (commun a tout les punk)
     var allTraits = getBase(bodyColor, hairColor);
 
@@ -207,14 +213,32 @@ function getRandomTraits() {
     }
 
     //ajout des autres traits
-    allTraits = getRandomTrait(eyes, ratioEyes, allTraits);
-    allTraits = getRandomTrait(beards, ratioBear, allTraits, hairColor.hexs.beard);
+
+    var isBeared = false;
+    if (checkIsPicked(ratioBear)){
+        allTraits.push(new Trait(pickRandom(beards), hairColor.hexs.beard));
+        isBeared = true;
+    }
+
     allTraits.push(new Trait(base[4]));//bouche
     allTraits = getRandomTrait(glasses, rationGlasses, allTraits);
+    allTraits = getRandomTrait(eyes, ratioEyes, allTraits);
     allTraits = getRandomTrait(hats, ratioHat, allTraits);
     allTraits = getRandomTrait(jewels, ratioJewels, allTraits, metalColor);
     allTraits = getRandomTrait(hairs, ratioHairs, allTraits, hairColor.hexs.hair);
-    allTraits.push(new Trait(accessories[2]));//bouche
+
+    //bave et cerne (1:10)
+    // if (checkIsPicked(ratioEncirclesAndDrool)){
+    //     allTraits.push(new Trait(accessories[2], bodyColor.hexs.encircles));
+    //     allTraits.push(new Trait(accessories[3]));
+    // }
+
+    if (!isBeared && checkIsPicked(ratioMask)){
+        allTraits.push(new Trait(pickRandom(masks)));
+    }
+
+
+    allTraits = getRandomTrait(smokes, ratioSmoke, allTraits);
 
     return allTraits;
 };
@@ -241,7 +265,7 @@ class Trait {
 }
 
 class Element {
-    constructor(name, color, src, z, thikness, rotation, opacity, isMerged, mouthZ) {
+    constructor(name, color, src, z, thikness, rotation, opacity, isMerged, customX) {
         this.name = name;
         this.color = color;
         this.src = src;
@@ -250,7 +274,7 @@ class Element {
         this.rotation = rotation;
         this.opacity = opacity;
         this.isMerged = isMerged;
-        this.mouthZ = mouthZ;
+        this.customX = customX;
     }
 }
 

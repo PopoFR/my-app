@@ -371,7 +371,7 @@
         "rarity": 4,
         "elems": [
             {
-                "name": "hat_copter_visor",
+                "name": "hat_mcDo_visor",
                 "src": "./punk/traits/img/male/hat/hat_mcDo_visor.png",
                 "thikness": 4,
                 "z": 3
@@ -815,7 +815,7 @@
         "id": 22,
         "name": "hat_sorcer",
         "hairPack": 2,
-        "rarity": 4,
+        "rarity": 3,
         "elems": [
             {
                 "name": "hat_sorcer_back_2",
@@ -858,6 +858,27 @@
                 "src": "./punk/traits/img/male/hat/hat_sorcer_front_jewel.png",
                 "thikness": 0.5,
                 "z": 1.50
+            },
+            {
+                "type": "accessory",
+                "id": 23,
+                "name": "hoodies",
+                "hairPack": 4,
+                "rarity": 1,
+                "elems": [
+                    {
+                        "name": "hoodies_face",
+                        "src": "./punk/traits/img/male/accessories/hoodies_face.png",
+                        "thikness": 3,
+                        "z": 0
+                    },
+                    {
+                        "name": "hoodies_back",
+                        "src": "./punk/traits/img/male/accessories/hoodies_back.png",
+                        "thikness": 1,
+                        "z": -2
+                    }
+                ]
             }
         ]
     }

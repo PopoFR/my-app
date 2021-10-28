@@ -277,35 +277,5 @@
                 "isMerged": true
             }
         ]
-    },
-    {
-        "type": "glasses",
-        "id": 12,
-        "name": "glasses_welding_google",
-        "rarity": 7,
-        "elems": 
-        [
-            {
-                "name": "glasses_welding_google_mount", 
-                "src": "./punk/traits/img/male/glasses/glasses_welding_google_mount.png", 
-                "thikness": 1, 
-                "z": 1
-            },
-            {
-                "name": "glasses_welding_google_branch", 
-                "src": "./punk/traits/img/male/glasses/glasses_welding_google_branch.png", 
-                "thikness": 1, 
-                "z": 0
-            },
-            {
-                "name": "glasses_welding_google_glass", 
-                "src": "./punk/traits/img/male/glasses/glasses_welding_google_glass.png", 
-                "thikness": 0, 
-                "z": 1.5,
-                "opacity": 0.7, 
-                "isMerged": true
-            }
-        ]
     }
-
 ]

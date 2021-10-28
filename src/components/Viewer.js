@@ -234,8 +234,8 @@ const Viewer = () => {
     function tooglePunk(e) {
         e.preventDefault()
         punk.clear();
+        var newPunk = getPunk();
         // var newPunk = getRandomPunk();
-        var newPunk = getRandomPunk();
 
         newPunk.position.y -= 10;
         newPunk.position.x += 1;

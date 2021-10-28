@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
 import * as Export from "../components/Export";
 import { TraitsGenerator } from "./punk/traits/TraitsGenerator.js"
-import { getRandomPunk, getPunk } from './PunkFactory';
+import { getRandomPunk, getPunk, getXPunk} from './PunkFactory';
 import {Menu, ColorMenu} from '../Menu';
 import {Link} from "react-router-dom";
 import {Viewer} from "./Viewer";
@@ -146,8 +146,8 @@ const Scene = () => {
     }
 
     function refresh() {
-        console.log(punk)
-    }
+        getXPunk() 
+       }
 
 
     return (

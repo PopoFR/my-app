@@ -10,7 +10,7 @@
         "type": "hair",
         "id": 1,
         "name": "hair01",
-        "rarity": 7,
+        "rarity": 6,
         "elems": [
             {
                 "name": "hair01_back",
@@ -42,7 +42,7 @@
         "type": "hair",
         "id": 2,
         "name": "hair02",
-        "rarity": 7,
+        "rarity": 6,
         "elems": [
             {
                 "name": "hair02_back",
@@ -74,7 +74,7 @@
         "type": "hair",
         "id": 3,
         "name": "hair03",
-        "rarity": 7,
+        "rarity": 6,
         "elems": [
             {
                 "name": "hair03_back",
@@ -106,7 +106,7 @@
         "type": "hair",
         "id": 4,
         "name": "hair04",
-        "rarity": 7,
+        "rarity": 6,
         "elems": [
             {
                 "name": "hair04_back",
@@ -138,7 +138,7 @@
         "type": "hair",
         "id": 5,
         "name": "hair05",
-        "rarity": 7,
+        "rarity": 6,
         "elems": [
             {
                 "name": "hair05_back",
@@ -170,7 +170,7 @@
         "type": "hair",
         "id": 6,
         "name": "hair06",
-        "rarity": 7,
+        "rarity": 6,
         "elems": [
             {
                 "name": "hair06_back",
@@ -202,7 +202,7 @@
         "type": "hair",
         "id": 7,
         "name": "hair07",
-        "rarity": 7,
+        "rarity": 6,
         "elems": [
             {
                 "name": "hair07_back",
@@ -233,28 +233,8 @@
     {
         "type": "hair",
         "id": 8,
-        "name": "hair09",
-        "rarity": 7,
-        "elems": [
-            {
-                "name": "hair09_front",
-                "src": "./punk/traits/img/male/hair/hair09_front.png",
-                "thikness": 1,
-                "z": 0
-            },
-            {
-                "name": "hair09_back",
-                "src": "./punk/traits/img/male/hair/hair09_back.png",
-                "thikness": 1,
-                "z": -1
-            }
-        ]
-    },
-    {
-        "type": "hair",
-        "id": 9,
         "name": "hair10",
-        "rarity": 7,
+        "rarity": 6,
         "elems": [
             {
                 "name": "hair10_back",
@@ -284,9 +264,9 @@
     },
     {
         "type": "hair",
-        "id": 10,
+        "id": 9,
         "name": "hair11",
-        "rarity": 7,
+        "rarity": 6,
         "elems": [
             {
                 "name": "hair11_back",
@@ -304,9 +284,9 @@
     },
     {
         "type": "hair",
-        "id": 11,
+        "id": 10,
         "name": "hair12",
-        "rarity": 7,
+        "rarity": 6,
         "elems": [
             {
                 "name": "hair12_back",
@@ -329,6 +309,38 @@
             {
                 "name": "hair12_front",
                 "src": "./punk/traits/img/male/hair/hair12_front.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "hair",
+        "id": 11,
+        "name": "hair13",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair13_back",
+                "src": "./punk/traits/img/male/hair/hair13_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair13_back",
+                "src": "./punk/traits/img/male/hair/hair13_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair13_front",
+                "src": "./punk/traits/img/male/hair/hair13_front.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hair13_front",
+                "src": "./punk/traits/img/male/hair/hair13_front.png",
                 "thikness": 0.5,
                 "z": 0.75
             }
@@ -337,30 +349,30 @@
     {
         "type": "hair",
         "id": 12,
-        "name": "hair13",
-        "rarity": 7,
+        "name": "hair14",
+        "rarity": 6,
         "elems": [
             {
-                "name": "hair13_back",
-                "src": "./punk/traits/img/male/hair/hair13_back.png",
+                "name": "hair14_back",
+                "src": "./punk/traits/img/male/hair/hair14_back.png",
                 "thikness": 0.5,
                 "z": -1.75
             },
             {
-                "name": "hair13_back",
-                "src": "./punk/traits/img/male/hair/hair13_back.png",
+                "name": "hair14_back",
+                "src": "./punk/traits/img/male/hair/hair14_back.png",
                 "thikness": 1,
                 "z": -1
             },
             {
-                "name": "hair13_front",
-                "src": "./punk/traits/img/male/hair/hair13_front.png",
+                "name": "hair14_front",
+                "src": "./punk/traits/img/male/hair/hair14_front.png",
                 "thikness": 1,
                 "z": 0
             },
             {
-                "name": "hair13_front",
-                "src": "./punk/traits/img/male/hair/hair13_front.png",
+                "name": "hair14_front",
+                "src": "./punk/traits/img/male/hair/hair14_front.png",
                 "thikness": 0.5,
                 "z": 0.75
             }
@@ -369,40 +381,8 @@
     {
         "type": "hair",
         "id": 13,
-        "name": "hair14",
-        "rarity": 7,
-        "elems": [
-            {
-                "name": "hair14_back",
-                "src": "./punk/traits/img/male/hair/hair14_back.png",
-                "thikness": 0.5,
-                "z": -1.75
-            },
-            {
-                "name": "hair14_back",
-                "src": "./punk/traits/img/male/hair/hair14_back.png",
-                "thikness": 1,
-                "z": -1
-            },
-            {
-                "name": "hair14_front",
-                "src": "./punk/traits/img/male/hair/hair14_front.png",
-                "thikness": 1,
-                "z": 0
-            },
-            {
-                "name": "hair14_front",
-                "src": "./punk/traits/img/male/hair/hair14_front.png",
-                "thikness": 0.5,
-                "z": 0.75
-            }
-        ]
-    },
-    {
-        "type": "hair",
-        "id": 14,
         "name": "hair_pigtails",
-        "rarity": 7,
+        "rarity": 6,
         "elems": [
             {
                 "name": "hair_pigtails_back",

@@ -40,7 +40,6 @@ export function addPixelBlockToScene(pixels, colors, element) {
             color: color, 
             metalness: 0.2, 
             roughness: 1
-          
           });
 
           //pour lunette 
@@ -60,6 +59,12 @@ export function addPixelBlockToScene(pixels, colors, element) {
       }
     }
   }
+
+  if (element.customX !== 0 && element.customX !== undefined){
+    group.translateX(1);
+  }
+
+  // group.translateX(element.customX);
 
   //pour cigarette etc...  
   if (element.rotation !== undefined) {
