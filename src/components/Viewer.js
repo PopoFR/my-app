@@ -234,9 +234,7 @@ const Viewer = () => {
     function tooglePunk(e) {
         e.preventDefault()
         punk.clear();
-        var newPunk = getPunk();
-        // var newPunk = getRandomPunk();
-
+        var newPunk = getRandomPunk();
         newPunk.position.y -= 10;
         newPunk.position.x += 1;
         setPunk(newPunk);
@@ -250,6 +248,15 @@ const Viewer = () => {
         getXPunk(1000);
     }
 
+    function fixedPunk(e){
+        e.preventDefault()
+        punk.clear();
+        var newPunk = getPunk();
+        newPunk.position.y -= 10;
+        newPunk.position.x += 1;
+        setPunk(newPunk);
+        scene.add(newPunk);
+    }
 
     async function exportPunk() {
         setIsLoading(true);
@@ -271,9 +278,11 @@ const Viewer = () => {
                 {!isLoading &&
                     <button type="button" onClick={exportPunk}>EXPORT</button>
                 }
-                <button type="button" onClick={tooglePunk}>TOOGLE</button>
+                <button type="button" onClick={fixedPunk}>FIXED</button>
 
-                <button type="button" onClick={generateXPunk}>GENERATE</button>
+                <button type="button" onClick={tooglePunk}>RANDOM</button>
+
+                <button type="button" onClick={generateXPunk}>GENERATE LIST</button>
 
 
             </div>

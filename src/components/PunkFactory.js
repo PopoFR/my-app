@@ -1,3 +1,4 @@
+import { isIfStatement } from "@babel/types";
 import * as THREE from "three";
 import { addPixelBlockToScene } from './PixelFactory';
 import { getRandomElem } from './Utils'
@@ -174,7 +175,7 @@ function getBase(bodyColor, hairColor) {
         new Trait(base[0], bodyColor.hexs.body),
         new Trait(base[1], bodyColor.hexs.reflect),
         new Trait(base[2], bodyColor.hexs.eye),
-        new Trait(base[3], hairColor.hexs.eyebrow),
+        new Trait(base[5]),
     ];
 
     return bases;
@@ -188,7 +189,7 @@ function getRandomTraits() {
     const ratioHairs = 1;
     const ratioBear = 1;
     const ratioHat = 5;
-    const rationGlasses = 10;
+    const rationGlasses = 1;
     const ratioJewels = 1;
     const ratioAccessorys = 30;
     const ratioEyes = 1;
@@ -215,14 +216,22 @@ function getRandomTraits() {
     //ajout des autres traits
 
     var isBeared = false;
+    var glassName;
+
     if (checkIsPicked(ratioBear)){
         allTraits.push(new Trait(pickRandom(beards), hairColor.hexs.beard));
         isBeared = true;
     }
-
-    allTraits.push(new Trait(base[4]));//bouche
-    allTraits = getRandomTrait(glasses, rationGlasses, allTraits);
+    
+    allTraits.push(new Trait(base[5]));//bouche
     allTraits = getRandomTrait(eyes, ratioEyes, allTraits);
+
+    if (checkIsPicked(rationGlasses)){
+        var trait = new Trait(pickRandom(glasses));
+        allTraits.push(trait);
+        glassName = trait.name;
+    }   
+
     allTraits = getRandomTrait(hats, ratioHat, allTraits);
     allTraits = getRandomTrait(jewels, ratioJewels, allTraits, metalColor);
     allTraits = getRandomTrait(hairs, ratioHairs, allTraits, hairColor.hexs.hair);
@@ -233,11 +242,13 @@ function getRandomTraits() {
     //     allTraits.push(new Trait(accessories[3]));
     // }
 
-    if (!isBeared && checkIsPicked(ratioMask)){
-        allTraits.push(new Trait(pickRandom(masks)));
-    }
+  
+    //sourcil droit si pas bandeau de pirate
+        if(glassName !== "glasses_pirate")
+            allTraits.push(new Trait(base[3], hairColor.hexs.eyebrow));
+        allTraits.push(new Trait(base[4], hairColor.hexs.eyebrow));
 
-
+        
     allTraits = getRandomTrait(smokes, ratioSmoke, allTraits);
 
     return allTraits;

@@ -48,18 +48,38 @@
     {
         "type": "eyebrow",
         "id": 3,
-        "name": "eyebrow",
+        "name": "eyebrows_left",
         "elems": 
         [
             {
-                "name": "eyebrow_main", 
-                "src": "./punk/traits/img/male/base/eyebrows.png", 
+                "name": "eyebrows_left", 
+                "src": "./punk/traits/img/male/base/eyebrows_left.png", 
                 "thikness": 1, 
                 "z": 0
             },
             {
-                "name": "eyebrow_main", 
-                "src": "./punk/traits/img/male/base/eyebrows.png", 
+                "name": "eyebrows_left", 
+                "src": "./punk/traits/img/male/base/eyebrows_left.png", 
+                "thikness": 0.5, 
+                "z": 0.5
+            }
+        ]
+    },
+    {
+        "type": "eyebrow",
+        "id": 4,
+        "name": "eyebrows_right",
+        "elems": 
+        [
+            {
+                "name": "eyebrows_right", 
+                "src": "./punk/traits/img/male/base/eyebrows_right.png", 
+                "thikness": 1, 
+                "z": 0
+            },
+            {
+                "name": "eyebrows_right", 
+                "src": "./punk/traits/img/male/base/eyebrows_right.png", 
                 "thikness": 0.5, 
                 "z": 0.5
             }
@@ -67,7 +87,7 @@
     },
     {
         "type": "mouth",
-        "id": 4,
+        "id": 5,
         "name": "mouth",
         "elems": [
             {
