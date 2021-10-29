@@ -1,0 +1,29 @@
+[
+    {
+        "type": "accessory",
+        "id": 0,
+        "name": "encircles",
+        "elems": [
+            {
+                "name": "accessories_encircles",
+                "src": "./punk/traits/img/male/accessories/accessories_encircles.png",
+                "thikness": 1,
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "accessory",
+        "id": 0,
+        "name": "drool",
+        "isCustomZ": true,
+        "elems": [
+            {
+                "name": "accessories_drool",
+                "src": "./punk/traits/img/male/accessories/accessories_drool.png",
+                "thikness": 1,
+                "z": 0
+            }
+        ]
+    }
+]
