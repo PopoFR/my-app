@@ -51,9 +51,6 @@ export function getXPunk(ammount) {
 
 }
 
-
-//RARITY
-// plus simple et de mettre une rarity sur les type ET une rarity par item
 function generatePunk(traits) {
     var punk = new THREE.Group();
 
@@ -66,9 +63,7 @@ function generatePunk(traits) {
     var bearTickness;
     var bearZ;
 
-
     traits.forEach(trait => {
-
         var traitGroup = new THREE.Group();
         traitGroup.name = trait.name;
 
@@ -97,6 +92,7 @@ function generatePunk(traits) {
         punk.add(traitGroup);
     })
 
+    //Gestion Hairpack (si chapeau = hat, hair = hat.haipack/hair)
     function handleHairHat(trait, elem, hairPack) {
         if (trait.type === "hair" && hairPack !== undefined) {
             var elementSplited = elem.src.split("/hair/");
@@ -107,6 +103,7 @@ function generatePunk(traits) {
         return elem.src
     }
 
+    //Gestion de l'epaisseur, de la profondeur, de la position x et de la rotation, des elements customisé (cigarette, etc...)
     function handleCustomElement(trait, z, thikness, isBeared, customThikness, customZ, x) {
         if (isBeared && (trait.type === "mouth")) {
             thikness = customThikness;
@@ -117,15 +114,10 @@ function generatePunk(traits) {
             z = customZ;
         }
 
-        if (trait.type === "glasses" && trait.hide === true) {
-            z = 0;
-        }
-
         if (isBeared && (trait.name === "pipe" || trait.name === "cigarette")) {
             x = 0.7;
             z = customZ + 0.30;
         }
-
 
         return { z: z, thikness: thikness, customX: x };
     }
@@ -133,8 +125,6 @@ function generatePunk(traits) {
     return punk;
 }
 
-//hat15 marche pas avec masque, 
-//lunette 14 marche pas avec plein de chsoe
 function getFixedTraits() {
     const bodyColor = colors['body'][5];
     const hairColor = colors['hairs'][2];
@@ -150,17 +140,19 @@ function getFixedTraits() {
         new Trait(eyes[0]),
         new Trait(encircleAndDrool[0]),        
         new Trait(glasses[9]),
+        new Trait(base[5]),
 
         new Trait(noses[0], bodyColor.hexs.nose),
         new Trait(jewels[1], metalColor),
         new Trait(jewels[0], metalColor),
-        new Trait(hats[6]),
+        new Trait(hats[23]),
         new Trait(hairs[0], hairColor.hexs.hair),
     ]
     return traits;
 }
 
 
+//Affiche/N'affiche pas, aléatoirement selon tableau rarité des items; un item; puis selectionne aleatoirement un item, selon la rarité au sein du type d'item (item.rarity)
 function getRandomTrait(traits, max, finalTraits, color) {
     if (checkIsPicked(max)) {
         var trait = new Trait(pickRandom(traits), color);
@@ -170,33 +162,30 @@ function getRandomTrait(traits, max, finalTraits, color) {
     return finalTraits;
 }
 
-function getBase(bodyColor, hairColor) {
 
-    var bases = [
+//body, reflet, blanc des yeux, bouche
+function getBase(bodyColor) {
+    return [
         new Trait(base[0], bodyColor.hexs.body),
         new Trait(base[1], bodyColor.hexs.reflect),
         new Trait(base[2], bodyColor.hexs.eye),
         new Trait(base[5]),
     ];
-
-    return bases;
 }
 
-
-//TODO SET DROOL ET GOAT    
 function getRandomTraits() {
 
     //les ratio de rarity par type d'items
-    const ratioHairs = 1;
-    const ratioBear = 1;
-    const ratioHat = 5;
-    const rationGlasses = 1;
-    const ratioJewels = 1;
-    const ratioEyes = 1;
-    const ratioNoses = 1;
-    const ratioSmoke = 1;
-    const ratioEncirclesAndDrool = 1;
-    const ratioMask = 1;
+    const hairRatio = 1;
+    const beardRatio = 100;
+    const hatRatio = 5;
+    const glassesRatio = 1;
+    const jewelRatio = 1;
+    const eyesRatio = 1;
+    const noseRatio = 1;
+    const smokingRatio = 1;
+    const encirclesAndDroolRatio = 1;
+    const maskRatio = 1;
 
     //On recupere les couleurs peau/cheveux
     const hairColor = pickRandom(colors.hairs);
@@ -204,11 +193,11 @@ function getRandomTraits() {
     const metalColor = pickRandom(colors.metal).hex;
 
     //on recupere la base (corps, bouche sourcil, reflet, oeil) (commun a tout les punk)
-    var allTraits = getBase(bodyColor, hairColor);
+    var allTraits = getBase(bodyColor);
 
     // si le punk est un ape, on n'ajoute ni le nez ni le reflet)
     if (bodyColor.name !== 'Ape') {
-        allTraits = getRandomTrait(noses, ratioNoses, allTraits, bodyColor.hexs.nose);
+        allTraits = getRandomTrait(noses, noseRatio, allTraits, bodyColor.hexs.nose);
         allTraits.push(new Trait(base[4], bodyColor.hexs.reflect));
     }
 
@@ -218,25 +207,28 @@ function getRandomTraits() {
     var glassName;
 
     //BARBE
-    if (checkIsPicked(ratioBear)) {
+    if (checkIsPicked(beardRatio)) {
         allTraits.push(new Trait(pickRandom(beards), hairColor.hexs.beard));
         isBeared = true;
     }
+    else{
+        allTraits = getRandomTrait(masks, maskRatio, allTraits);    //YEUX
+    }
 
     allTraits.push(new Trait(base[5]));    //BOUCHE
-    allTraits = getRandomTrait(eyes, ratioEyes, allTraits);    //YEUX
+    allTraits = getRandomTrait(eyes, eyesRatio, allTraits);    //YEUX
 
 
     var randomGlasses;
     //LE NOM DES LUNETTES
-    if (checkIsPicked(rationGlasses)) {
+    if (checkIsPicked(glassesRatio)) {
         randomGlasses = new Trait(pickRandom(glasses));
         glassName = randomGlasses.name;
     }
 
-    allTraits = getRandomTrait(hats, ratioHat, allTraits);    //CHAPEAU
-    allTraits = getRandomTrait(jewels, ratioJewels, allTraits, metalColor);    //BIJOUX
-    allTraits = getRandomTrait(hairs, ratioHairs, allTraits, hairColor.hexs.hair);    //CHEVEUX
+    allTraits = getRandomTrait(hats, hatRatio, allTraits);    //CHAPEAU
+    allTraits = getRandomTrait(jewels, jewelRatio, allTraits, metalColor);    //BIJOUX
+    allTraits = getRandomTrait(hairs, hairRatio, allTraits, hairColor.hexs.hair);    //CHEVEUX
 
     //Si bandeau pirate il n'y a pas de sourcil gauche
     if (glassName !== "glasses_pirate")
@@ -244,19 +236,19 @@ function getRandomTraits() {
     allTraits.push(new Trait(base[4], hairColor.hexs.eyebrow));//  SOURCIL DROIT
 
 
+    
     //CERNE ET BAVE
-    if (checkIsPicked(ratioEncirclesAndDrool)) {
-        if(glassName !== 'glasses_robber' && glassName !== 'glasses_ninja')
-            allTraits.push(new Trait(encircleAndDrool[0], bodyColor.hexs.encircles));
+    if (checkIsPicked(encirclesAndDroolRatio)) {
+        allTraits.push(new Trait(encircleAndDrool[0], bodyColor.hexs.encircles));
         allTraits.push(new Trait(encircleAndDrool[1]));
     }
 
-    //AJOUT DES LUNETTES 
+    //AJOUT DES LUNETTES  (je comprend pas pourquoi cette partie doit etre mise apres la poche sous les yeux... logiquement ca devrait etre l'inverse)
     if (randomGlasses !== undefined)
         allTraits.push(randomGlasses);
 
 
-    allTraits = getRandomTrait(smokes, ratioSmoke, allTraits);  //CIGARETTE
+    allTraits = getRandomTrait(smokes, smokingRatio, allTraits);  //CIGARETTE
 
     return allTraits;
 };

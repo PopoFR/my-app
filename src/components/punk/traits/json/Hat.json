@@ -8,6 +8,12 @@
         "elems": [
             {
                 "name": "hat_beanie",
+                "src": "./punk/traits/img/male/hat/hat_beanie_border.png",
+                "thikness": 0.5,
+                "z": -2.25
+            },
+            {
+                "name": "hat_beanie",
                 "src": "./punk/traits/img/male/hat/hat_beanie.png",
                 "thikness": 0.5,
                 "z": -1.75
@@ -29,6 +35,12 @@
                 "src": "./punk/traits/img/male/hat/hat_beanie.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "hat_beanie",
+                "src": "./punk/traits/img/male/hat/hat_beanie_border.png",
+                "thikness": 0.5,
+                "z": 1.25
             }
         ]
     },
@@ -815,7 +827,7 @@
         "id": 22,
         "name": "hat_sorcer",
         "hairPack": 2,
-        "rarity": 3,
+        "rarity": 2,
         "elems": [
             {
                 "name": "hat_sorcer_back_2",
@@ -879,6 +891,45 @@
                         "z": -2
                     }
                 ]
+            }
+        ]
+    },
+    {
+        "type": "hat",
+        "id": 23,
+        "name": "hat_cap_reverted_visor",
+        "hairPack": 2,
+        "rarity": 2,
+        "elems": [
+            {
+                "name": "hat_mcDo_visor",
+                "src": "./punk/traits/img/male/hat/hat_cap_reverted_visor.png",
+                "thikness": 3,
+                "z": -3.5
+            },
+            {
+                "name": "hat_mcDo_back",
+                "src": "./punk/traits/img/male/hat/hat_cap_reverted.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hat_mcDo_back2",
+                "src": "./punk/traits/img/male/hat/hat_cap_reverted.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hat_mcDo_face",
+                "src": "./punk/traits/img/male/hat/hat_cap_reverted.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hat_mcDo_face",
+                "src": "./punk/traits/img/male/hat/hat_cap_reverted.png",
+                "thikness": 0.5,
+                "z": 0.75
             }
         ]
     }
