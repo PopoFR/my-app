@@ -1,101 +1,101 @@
-[
-    {
-        "type": "body",
-        "id": 0,
-        "name": "body",
-        "elems": [
-            {
-                "name": "face_main",
-                "src": "./punk/traits/img/male/base/face.png",
-                "thikness": 1,
-                "z": 0
-            },
-            {
-                "name": "back_main",
-                "src": "./punk/traits/img/male/base/back.png",
-                "thikness": 1,
-                "z": -1
-            }
-        ]
-    },
-    {
-        "type": "reflect",
-        "id": 1,
-        "name": "reflect",
-        "elems": [
-            {
-                "name": "reflect_main",
-                "src": "./punk/traits/img/male/base/reflect.png",
-                "thikness": 1,
-                "z": 0
-            }
-        ]
-    },
-    {
-        "type": "white_eye",
-        "id": 2,
-        "name": "white_eye",
-        "elems": 
-        [
-            {
-                "name": "eyes_main", 
-                "src": "./punk/traits/img/male/base/eyes.png", 
-                "thikness": 1, 
-                "z": 0
-            }
-        ]
-    },
-    {
-        "type": "eyebrow",
-        "id": 3,
-        "name": "eyebrows_left",
-        "elems": 
-        [
-            {
-                "name": "eyebrows_left", 
-                "src": "./punk/traits/img/male/base/eyebrows_left.png", 
-                "thikness": 1, 
-                "z": 0
-            },
-            {
-                "name": "eyebrows_left", 
-                "src": "./punk/traits/img/male/base/eyebrows_left.png", 
-                "thikness": 0.5, 
-                "z": 0.5
-            }
-        ]
-    },
-    {
-        "type": "eyebrow",
-        "id": 4,
-        "name": "eyebrows_right",
-        "elems": 
-        [
-            {
-                "name": "eyebrows_right", 
-                "src": "./punk/traits/img/male/base/eyebrows_right.png", 
-                "thikness": 1, 
-                "z": 0
-            },
-            {
-                "name": "eyebrows_right", 
-                "src": "./punk/traits/img/male/base/eyebrows_right.png", 
-                "thikness": 0.5, 
-                "z": 0.5
-            }
-        ]
-    },
-    {
-        "type": "mouth",
-        "id": 5,
-        "name": "mouth",
-        "elems": [
-            {
-                "name": "mouth01",
-                "src": "./punk/traits/img/male/base/mouth.png",
-                "thikness": 1,
-                "z": 0
-            }
-        ]
-    }
-]
+{
+    "jsonName": "Base",
+    "elems": [
+        {
+            "type": "body",
+            "id": 0,
+            "name": "body",
+            "elems": [
+                {
+                    "name": "face_main",
+                    "src": "./punk/traits/img/male/base/face.png",
+                    "thikness": 1,
+                    "z": 0
+                },
+                {
+                    "name": "back_main",
+                    "src": "./punk/traits/img/male/base/back.png",
+                    "thikness": 1,
+                    "z": -1
+                }
+            ]
+        },
+        {
+            "type": "reflect",
+            "id": 1,
+            "name": "reflect",
+            "elems": [
+                {
+                    "name": "reflect_main",
+                    "src": "./punk/traits/img/male/base/reflect.png",
+                    "thikness": 1,
+                    "z": 0
+                }
+            ]
+        },
+        {
+            "type": "white_eye",
+            "id": 2,
+            "name": "white_eye",
+            "elems": [
+                {
+                    "name": "eyes_main",
+                    "src": "./punk/traits/img/male/base/eyes.png",
+                    "thikness": 1,
+                    "z": 0
+                }
+            ]
+        },
+        {
+            "type": "eyebrow",
+            "id": 3,
+            "name": "eyebrows_left",
+            "elems": [
+                {
+                    "name": "eyebrows_left",
+                    "src": "./punk/traits/img/male/base/eyebrows_left.png",
+                    "thikness": 1,
+                    "z": 0
+                },
+                {
+                    "name": "eyebrows_left",
+                    "src": "./punk/traits/img/male/base/eyebrows_left.png",
+                    "thikness": 0.5,
+                    "z": 0.5
+                }
+            ]
+        },
+        {
+            "type": "eyebrow",
+            "id": 4,
+            "name": "eyebrows_right",
+            "elems": [
+                {
+                    "name": "eyebrows_right",
+                    "src": "./punk/traits/img/male/base/eyebrows_right.png",
+                    "thikness": 1,
+                    "z": 0
+                },
+                {
+                    "name": "eyebrows_right",
+                    "src": "./punk/traits/img/male/base/eyebrows_right.png",
+                    "thikness": 0.5,
+                    "z": 0.5
+                }
+            ]
+        },
+        {
+            "type": "mouth",
+            "id": 5,
+            "name": "mouth",
+            "elems": [
+                {
+                    "name": "mouth01",
+                    "src": "./punk/traits/img/male/base/mouth.png",
+                    "thikness": 1,
+                    "z": 0
+                }
+            ]
+        }
+    ]
+}

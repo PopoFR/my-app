@@ -89,7 +89,7 @@ const Viewer = () => {
         light1.shadow.camera.bottom = - d;
         light1.shadow.camera.far = 3500;
         light1.shadow.bias = - 0.00001;
-        
+
         light0 = new THREE.DirectionalLight(0xffffff, 0.1);
         light0.position.set(10, 30, 50);
         light0.castShadow = true;
@@ -189,7 +189,7 @@ const Viewer = () => {
                 //     element.castShadow = true;
 
                 // });
-      
+
                 gltf.scene.traverse(function (obj) {
                     if (obj.isMesh) {
                         obj.castShadow = true
@@ -248,7 +248,7 @@ const Viewer = () => {
         getXPunk(1000);
     }
 
-    function fixedPunk(e){
+    function fixedPunk(e) {
         e.preventDefault()
         punk.clear();
         var newPunk = getPunk();
@@ -256,6 +256,10 @@ const Viewer = () => {
         newPunk.position.x += 1;
         setPunk(newPunk);
         scene.add(newPunk);
+    }
+
+    function getListGeneratedPunk() {
+        Export.getListGeneratedPunk();
     }
 
     async function exportPunk() {
@@ -274,20 +278,26 @@ const Viewer = () => {
             <Link to="/"> Home </Link>
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
 
-            <div>
-                {!isLoading &&
-                    <button type="button" onClick={exportPunk}>EXPORT</button>
-                }
-                <button type="button" onClick={fixedPunk}>FIXED</button>
+                <div>
+                    {!isLoading &&
+                        <button type="button" onClick={exportPunk}>EXPORT</button>
+                    }
 
-                <button type="button" onClick={tooglePunk}>RANDOM</button>
+                    <div>
+                        <button type="button" onClick={fixedPunk}>FIXED</button>
+                        <button type="button" onClick={tooglePunk}>RANDOM</button>
+                    </div>
 
-                <button type="button" onClick={generateXPunk}>GENERATE LIST</button>
+                    <div>
+                        <button type="button" onClick={generateXPunk}>GENERATE LIST</button>
+                    </div>
 
+                    <div>
+                        <button type="button" onClick={getListGeneratedPunk}>GET</button>
+                    </div>
 
-            </div>
-
-            <div id="viewer-container"></div>
+                </div>
+                <div id="viewer-container"></div>
             </div>
         </>
     )

@@ -12,6 +12,15 @@ export async function doExport(scene, renderer, name, animatedRender){
         updateJson(scene);
     })
 }
+export function getListGeneratedPunk(){
+    const url = 'http://localhost:8000/getListGeneratedPunk';
+
+    axios.get(url)
+    .then(res => {
+        console.log(res)
+        console.log(res.data)
+    })
+}
 
 async function updateJson(scene) {
     console.log("updateJson")
@@ -35,7 +44,6 @@ async function exportGLB(scene, name) {
 }
 
 async function exportJPG(renderer, name){
-
     const filename = `${name}.jpg`
     const url = "http://localhost:8000/uploadJPG";
     const strMime = "image/jpeg";

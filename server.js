@@ -99,10 +99,7 @@ app.post('/updateJson', function (req, res) {
   fs.readFile('./generatedP3nkd/punks.json', function (err, data) {
     console.log("reading")
     if (err)
-    console.log(err)
-    console.log("data")
-    console.log(data)
-    console.log("data")
+      console.log(err)
 
       var json = JSON.parse(data)
       console.log(json)
@@ -120,9 +117,11 @@ app.post('/updateJson', function (req, res) {
 })
 
 
+var list = ["test", "rrr"];
 
-
-
+app.get('/getListGeneratedPunk', (req, res) => {
+  res.send(list)
+});
 
 app.listen(8000, function() {
     console.log('P3nkD Exporter is running...  (localhost:8000)');

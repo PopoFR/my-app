@@ -1,44 +1,47 @@
-[
-    {
-        "type": "nose",
-        "id": 0,
-        "name": "nose_regular",
-        "rarity": 0,
-        "elems": [
-            {
-                "name": "nose_regular_main",
-                "src": "./punk/traits/img/male/nose/nose_regular.png",
-                "thikness": 0.5,
-                "z": 0.75
-            }
-        ]
-    },
-    {
-        "type": "nose",
-        "id": 1,
-        "name": "nose_clown",
-        "rarity": 5,
-        "elems": [
-            {
-                "name": "nose_clown_main",
-                "src": "./punk/traits/img/male/nose/nose_clown.png",
-                "thikness": 0.5,
-                "z": 0.75
-            }
-        ]
-    },
-    {
-        "type": "nose",
-        "id": 2,
-        "name": "nose_pig",
-        "rarity": 1,
-        "elems": [
-            {
-                "name": "nose_pig_main",
-                "src": "./punk/traits/img/male/nose/nose_pig.png",
-                "thikness": 0.5,
-                "z": 0.75
-            }
-        ]
-    }
-]
+{
+    "jsonName": "Nose",
+    "elems": [
+        {
+            "type": "nose",
+            "id": 0,
+            "name": "nose_regular",
+            "rarity": 0,
+            "elems": [
+                {
+                    "name": "nose_regular_main",
+                    "src": "./punk/traits/img/male/nose/nose_regular.png",
+                    "thikness": 0.5,
+                    "z": 0.75
+                }
+            ]
+        },
+        {
+            "type": "nose",
+            "id": 1,
+            "name": "nose_clown",
+            "rarity": 5,
+            "elems": [
+                {
+                    "name": "nose_clown_main",
+                    "src": "./punk/traits/img/male/nose/nose_clown.png",
+                    "thikness": 0.5,
+                    "z": 0.75
+                }
+            ]
+        },
+        {
+            "type": "nose",
+            "id": 2,
+            "name": "nose_pig",
+            "rarity": 1,
+            "elems": [
+                {
+                    "name": "nose_pig_main",
+                    "src": "./punk/traits/img/male/nose/nose_pig.png",
+                    "thikness": 0.5,
+                    "z": 0.75
+                }
+            ]
+        }
+    ]
+}
