@@ -1,11 +1,14 @@
-const express = require('express');
+var express = require('express');
 const multer = require('multer')
 const cors = require('cors');
 const fs = require('fs')
 const app = express();
 
-app.use(cors())
+var bodyParser = require('body-parser');
+app.use(bodyParser.json({limit: '150mb'}));
+app.use(bodyParser.urlencoded({limit: '150mb', extended: true}));
 
+app.use(cors())
 
 //JPG FILE
 const previewStorage = multer.diskStorage({
@@ -114,6 +117,28 @@ app.post('/updateJson', function (req, res) {
       }); 
   })
 })
+
+
+app.post('/uploadJson', async (req, res) => {
+  console.log(req.body)
+  console.log(req.files)
+
+  try {
+      if(!req.body) {
+          res.send({
+              status: false,
+              message: 'No file uploaded'
+          });
+      } else {
+          let data = JSON.stringify(req.body);
+          fs.writeFileSync('./generatedP3nkd/punksssssssssssssssss.json', data);
+          return res.status(200).send("Json uploaded")
+      }
+  } catch (err) {
+      res.status(500).send(err);
+  }
+});
+
 
 
 var list = ["test", "rrr"];

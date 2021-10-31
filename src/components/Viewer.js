@@ -26,7 +26,7 @@ var onOffCubes = []
 const Viewer = () => {
 
 
-    const punkPath = './1635251349506-random punk.glb';
+    const punkPath = './1635704434543-punk_120.glb';
     const [isLoading, setIsLoading] = useState(false);
     const [punk, setPunk] = useState(new THREE.Group());
 

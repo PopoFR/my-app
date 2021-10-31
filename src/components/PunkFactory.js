@@ -26,17 +26,21 @@ export function getPunk() {
     return punk;
 }
 
-export function getRandomPunk() {
-    var name = "random punk";
-
-    const hairColor = pickRandom(colors.elems.hairs);
-    const bodyColor = pickRandom(colors.elems.body);
-    const metalColor = pickRandom(colors.elems.metal);
-
+export function getRandomPunk(name) {
+    console.log(name)
+    var allPunksTraits = [];
 //préparation des donnés
     //genere les traits (simplifiés)
-    var randomSimplifiedTraits = getRandomSimplifiedTraits(hairColor, bodyColor, metalColor);
-    // Export.uploadJson();
+
+   
+        const hairColor = pickRandom(colors.elems.hairs);
+        const bodyColor = pickRandom(colors.elems.body);
+        const metalColor = pickRandom(colors.elems.metal);
+
+        var randomSimplifiedTraits = getRandomSimplifiedTraits(hairColor, bodyColor, metalColor);
+        allPunksTraits.push(randomSimplifiedTraits);
+        // randomTraits.push({name: `junk3d_${index}`, traits: getSimplifiedTraits()});
+
     //upload la liste des traits
 
 
@@ -49,8 +53,6 @@ export function getRandomPunk() {
 
 
     var randomDetailedTraits = getDetailedTraits(randomSimplifiedTraits);
-
-    console.log(randomSimplifiedTraits);
     var punk = generatePunk(randomDetailedTraits);
     punk.name = name;
 

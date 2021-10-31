@@ -4,13 +4,11 @@ import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter"
 import { GifWriter } from 'omggif'
 
 export async function doExport(scene, renderer, name, animatedRender){
-    Promise.all([
+    return Promise.all([
         exportGLB(scene, name), 
-        exportJPG(renderer, name),
-        exportGif(animatedRender, name) 
-    ]).then(()=>{
-        updateJson(scene);
-    })
+        // exportJPG(renderer, name),
+        // exportGif(animatedRender, name) 
+    ])
 }
 export function getListGeneratedPunk(){
     const url = 'http://localhost:8000/getListGeneratedPunk';
@@ -27,6 +25,15 @@ async function updateJson(scene) {
     const url = 'http://localhost:8000/updateJson';
     const filename = "test.json";
     await upload(url, new Blob([]), filename);
+}
+
+
+export async function uploadJson(json) {
+    console.log("uploadJson")
+    console.log(json)
+    const url = 'http://localhost:8000/uploadJson';
+    const filename = "NEW.json";
+    await axios.post(url, json, {})
 }
 
 async function exportGLB(scene, name) {
@@ -137,7 +144,6 @@ async function generateGIF(element, animatedRender, duration = 1, fps = 30) {
 /// CA VIENT DE LA !!!!
 async function upload(url, file, filename){
     console.log(`exporting ${filename}`);
-
     const data = new FormData();
     data.append('file', file, filename);
 
