@@ -113,7 +113,6 @@ app.post('/updateJson', function (req, res) {
           console.log("The file was saved!");
       }); 
   })
-
 })
 
 

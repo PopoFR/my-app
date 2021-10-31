@@ -2,6 +2,8 @@ import { isIfStatement } from "@babel/types";
 import * as THREE from "three";
 import { addPixelBlockToScene } from './PixelFactory';
 import { getRandomElem } from './Utils'
+import * as Export from "../components/Export";
+
 
 const colors = require('./punk/traits/json/Colors.json');
 const hairs = require('./punk/traits/json/Hair.json');
@@ -31,7 +33,21 @@ export function getRandomPunk() {
     const bodyColor = pickRandom(colors.elems.body);
     const metalColor = pickRandom(colors.elems.metal);
 
+//préparation des donnés
+    //genere les traits (simplifiés)
     var randomSimplifiedTraits = getRandomSimplifiedTraits(hairColor, bodyColor, metalColor);
+    // Export.uploadJson();
+    //upload la liste des traits
+
+
+//genération
+    //on get la liste
+        //tant qu'il y a des items dans la liste
+    //on genere le punk n°1 de la liste
+    //on upload le punk coté node
+    //on supprime de la liste coté node (celle qu'on get)
+
+
     var randomDetailedTraits = getDetailedTraits(randomSimplifiedTraits);
 
     console.log(randomSimplifiedTraits);
@@ -46,7 +62,7 @@ export function getRandomPunk() {
 
 function getDetailedTraits(simplifiedTraits){
     var detailedTraits = [];
-    simplifiedTraits.forEach(trait => detailedTraits.push(new Trait(getTraitDetail(trait.trait), trait.color)));
+    simplifiedTraits.forEach(trait => detailedTraits.push(new Trait(getTraitDetail(trait.name, trait.jsonName), trait.color)));
     return detailedTraits;
 }
 
@@ -181,7 +197,7 @@ function getFixedTraits() {
 function getRandomTrait(traits, max, finalTraits, color) {
     if (checkIsPicked(max)) {
         var trait = pickRandom(traits.elems);
-        finalTraits.push({trait: {name: trait.name, jsonName: traits.jsonName}, color: color});
+        finalTraits.push({name: trait.name, jsonName: traits.jsonName, color: color});
     }
     return finalTraits;
 }
@@ -208,19 +224,19 @@ function getRandomSimplifiedTraits(hairColor, bodyColor, metalColor) {
 
     var isBeared;
     var glassPicked;
-    
+
     var allTraits = [];
 
 //TRAITS
     //on recupere la base (corps, bouche sourcil, reflet, oeil) (commun a tout les punk)
 
-    allTraits.push({trait: {name: base.elems[0].name, jsonName: base.jsonName}, color: bodyColor.hexs.body});//BODY
-    allTraits.push({trait: {name: base.elems[2].name, jsonName: base.jsonName}, color: bodyColor.hexs.eye});//BLAND DES YEUX
+    allTraits.push({name: base.elems[0].name, jsonName: base.jsonName, color: bodyColor.hexs.body});//BODY
+    allTraits.push({name: base.elems[2].name, jsonName: base.jsonName, color: bodyColor.hexs.eye});//BLAND DES YEUX
 
     // si le punk est un ape, on n'ajoute ni le nez ni le reflet)
     if (bodyColor.name !== 'Ape') {
         allTraits = getRandomTrait(noses, noseRatio, allTraits, bodyColor.hexs.nose);//NEZ
-        allTraits.push({trait: {name: base.elems[1].name, jsonName: base.jsonName}, color: bodyColor.hexs.reflect});//REFLET
+        allTraits.push({name: base.elems[1].name, jsonName: base.jsonName, color: bodyColor.hexs.reflect});//REFLET
     }
 
 
@@ -228,14 +244,14 @@ function getRandomSimplifiedTraits(hairColor, bodyColor, metalColor) {
     //si il y a une barbe, il n'y a pas de mask... sinon il peux y avoir un mask
     if (checkIsPicked(beardRatio)) {
         var beard = pickRandom(beards.elems);
-        allTraits.push({trait: {name: beard.name, jsonName: beards.jsonName}, color: hairColor.hexs.beard});//BARBE
+        allTraits.push({name: beard.name, jsonName: beards.jsonName, color: hairColor.hexs.beard});//BARBE
         isBeared = true;
     }
     else{
         allTraits = getRandomTrait(masks, maskRatio, allTraits);
     }
 
-    allTraits.push({trait: {name: base.elems[5].name, jsonName: base.jsonName}, color: undefined});//BOUCHE
+    allTraits.push({name: base.elems[5].name, jsonName: base.jsonName, color: undefined});//BOUCHE
     allTraits = getRandomTrait(eyes, eyesRatio, allTraits);//YEUX
 
 
@@ -249,18 +265,18 @@ function getRandomSimplifiedTraits(hairColor, bodyColor, metalColor) {
 
     //regle pour bandeau pirate
     if (glassPicked?.name !== "glasses_pirate")
-        allTraits.push({trait: {name: base.elems[3].name, jsonName: base.jsonName}, color: hairColor.hexs.eyebrow});//SOURCIL GAUCHE
-    allTraits.push({trait: {name: base.elems[4].name, jsonName: base.jsonName}, color: hairColor.hexs.eyebrow});//SOURCIL DROIT
+        allTraits.push({name: base.elems[3].name, jsonName: base.jsonName, color: hairColor.hexs.eyebrow});//SOURCIL GAUCHE
+    allTraits.push({name: base.elems[4].name, jsonName: base.jsonName, color: hairColor.hexs.eyebrow});//SOURCIL DROIT
     
     //CERNE ET BAVE
     if (!bodyColor.name !== "Alien"  && checkIsPicked(encirclesAndDroolRatio)) {
-        allTraits.push({trait: {name: encircleAndDrool.elems[0].name, jsonName: encircleAndDrool.jsonName}, color: bodyColor.hexs.encircles});
-        allTraits.push({trait: {name: encircleAndDrool.elems[1].name, jsonName: encircleAndDrool.jsonName}, color: undefined});
+        allTraits.push({name: encircleAndDrool.elems[0].name, jsonName: encircleAndDrool.jsonName, color: bodyColor.hexs.encircles});
+        allTraits.push({name: encircleAndDrool.elems[1].name, jsonName: encircleAndDrool.jsonName, color: undefined});
     }
 
     //LUNETTES
     if (glassPicked)
-        allTraits.push({trait: {name: glassPicked.name, jsonName: glasses.jsonName}, color: undefined});
+        allTraits.push({name: glassPicked.name, jsonName: glasses.jsonName, color: undefined});
 
 
     allTraits = getRandomTrait(smokes, smokingRatio, allTraits);  //CIGARETTE
@@ -268,20 +284,10 @@ function getRandomSimplifiedTraits(hairColor, bodyColor, metalColor) {
     return allTraits;
 };
 
-function getJson(traits) {
-    var simplified = [];
-
-    traits.forEach(trait => {
-        simplified.push({ name: trait.name, color: trait.color })
-    });
-
-    return JSON.stringify(simplified)
-}
-
 //recupere les infos detaillés d'un trait (elems, z, thikness, etc...)
-function getTraitDetail(trait){
-    const itemsJson = require(`./punk/traits/json/${trait.jsonName}`).elems;
-    var itemDetail = itemsJson.find(item => item.name === trait.name)
+function getTraitDetail(name, jsonName){
+    const itemsJson = require(`./punk/traits/json/${jsonName}`).elems;
+    var itemDetail = itemsJson.find(item => item.name === name)
     return itemDetail
 }
 
