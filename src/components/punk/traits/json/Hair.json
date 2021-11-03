@@ -1,416 +1,413 @@
-{
-    "jsonName": "Hair",
-    "elems": [
-        {
-            "type": "hair",
-            "id": 0,
-            "name": "reflect",
-            "rarity": 0,
-            "elems": []
-        },
-        {
-            "type": "hair",
-            "id": 1,
-            "name": "hair01",
-            "rarity": 7,
-            "elems": [
-                {
-                    "name": "hair01_back",
-                    "src": "./punk/traits/img/male/hair/hair01_back.png",
-                    "thikness": 0.5,
-                    "z": -1.75
-                },
-                {
-                    "name": "hair01_back",
-                    "src": "./punk/traits/img/male/hair/hair01_back.png",
-                    "thikness": 1,
-                    "z": -1
-                },
-                {
-                    "name": "hair01_face",
-                    "src": "./punk/traits/img/male/hair/hair01_face.png",
-                    "thikness": 1,
-                    "z": 0
-                },
-                {
-                    "name": "hair01_face",
-                    "src": "./punk/traits/img/male/hair/hair01_face.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "hair",
-            "id": 2,
-            "name": "hair02",
-            "rarity": 7,
-            "elems": [
-                {
-                    "name": "hair02_back",
-                    "src": "./punk/traits/img/male/hair/hair02_back.png",
-                    "thikness": 0.5,
-                    "z": -1.75
-                },
-                {
-                    "name": "hair02_back",
-                    "src": "./punk/traits/img/male/hair/hair02_back.png",
-                    "thikness": 1,
-                    "z": -1
-                },
-                {
-                    "name": "hair02_face",
-                    "src": "./punk/traits/img/male/hair/hair02_face.png",
-                    "thikness": 1,
-                    "z": 0
-                },
-                {
-                    "name": "hair02_face",
-                    "src": "./punk/traits/img/male/hair/hair02_face.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "hair",
-            "id": 3,
-            "name": "hair03",
-            "rarity": 7,
-            "elems": [
-                {
-                    "name": "hair03_back",
-                    "src": "./punk/traits/img/male/hair/hair03_back.png",
-                    "thikness": 0.5,
-                    "z": -1.75
-                },
-                {
-                    "name": "hair03_back",
-                    "src": "./punk/traits/img/male/hair/hair03_back.png",
-                    "thikness": 1,
-                    "z": -1
-                },
-                {
-                    "name": "hair03_face",
-                    "src": "./punk/traits/img/male/hair/hair03_face.png",
-                    "thikness": 1,
-                    "z": 0
-                },
-                {
-                    "name": "hair03_face",
-                    "src": "./punk/traits/img/male/hair/hair03_face.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "hair",
-            "id": 4,
-            "name": "hair04",
-            "rarity": 7,
-            "elems": [
-                {
-                    "name": "hair04_back",
-                    "src": "./punk/traits/img/male/hair/hair04_back.png",
-                    "thikness": 0.5,
-                    "z": -1.75
-                },
-                {
-                    "name": "hair04_back",
-                    "src": "./punk/traits/img/male/hair/hair04_back.png",
-                    "thikness": 1,
-                    "z": -1
-                },
-                {
-                    "name": "hair04_face",
-                    "src": "./punk/traits/img/male/hair/hair04_face.png",
-                    "thikness": 1,
-                    "z": 0
-                },
-                {
-                    "name": "hair04_face",
-                    "src": "./punk/traits/img/male/hair/hair04_face.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "hair",
-            "id": 5,
-            "name": "hair05",
-            "rarity": 7,
-            "elems": [
-                {
-                    "name": "hair05_back",
-                    "src": "./punk/traits/img/male/hair/hair05_back.png",
-                    "thikness": 0.5,
-                    "z": -1.75
-                },
-                {
-                    "name": "hair05_back",
-                    "src": "./punk/traits/img/male/hair/hair05_back.png",
-                    "thikness": 1,
-                    "z": -1
-                },
-                {
-                    "name": "hair05_front",
-                    "src": "./punk/traits/img/male/hair/hair05_front.png",
-                    "thikness": 1,
-                    "z": 0
-                },
-                {
-                    "name": "hair05_front",
-                    "src": "./punk/traits/img/male/hair/hair05_front.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "hair",
-            "id": 6,
-            "name": "hair06",
-            "rarity": 7,
-            "elems": [
-                {
-                    "name": "hair06_back",
-                    "src": "./punk/traits/img/male/hair/hair06_back.png",
-                    "thikness": 0.5,
-                    "z": -1.75
-                },
-                {
-                    "name": "hair06_back",
-                    "src": "./punk/traits/img/male/hair/hair06_back.png",
-                    "thikness": 1,
-                    "z": -1
-                },
-                {
-                    "name": "hair06_front",
-                    "src": "./punk/traits/img/male/hair/hair06_front.png",
-                    "thikness": 1,
-                    "z": 0
-                },
-                {
-                    "name": "hair06_front",
-                    "src": "./punk/traits/img/male/hair/hair06_front.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "hair",
-            "id": 7,
-            "name": "hair07",
-            "rarity": 7,
-            "elems": [
-                {
-                    "name": "hair07_back",
-                    "src": "./punk/traits/img/male/hair/hair07_front.png",
-                    "thikness": 0.5,
-                    "z": -1.75
-                },
-                {
-                    "name": "hair07_back",
-                    "src": "./punk/traits/img/male/hair/hair07_front.png",
-                    "thikness": 1,
-                    "z": -1
-                },
-                {
-                    "name": "hair07_front",
-                    "src": "./punk/traits/img/male/hair/hair07_front.png",
-                    "thikness": 1,
-                    "z": 0
-                },
-                {
-                    "name": "hair07_front",
-                    "src": "./punk/traits/img/male/hair/hair07_front.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "hair",
-            "id": 8,
-            "name": "hair10",
-            "rarity": 7,
-            "elems": [
-                {
-                    "name": "hair10_back",
-                    "src": "./punk/traits/img/male/hair/hair10_back.png",
-                    "thikness": 0.5,
-                    "z": -1.75
-                },
-                {
-                    "name": "hair10_back",
-                    "src": "./punk/traits/img/male/hair/hair10_back.png",
-                    "thikness": 1,
-                    "z": -1
-                },
-                {
-                    "name": "hair10_front",
-                    "src": "./punk/traits/img/male/hair/hair10_front.png",
-                    "thikness": 1,
-                    "z": 0
-                },
-                {
-                    "name": "hair10_front",
-                    "src": "./punk/traits/img/male/hair/hair10_front.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "hair",
-            "id": 9,
-            "name": "hair11",
-            "rarity": 7,
-            "elems": [
-                {
-                    "name": "hair11_back",
-                    "src": "./punk/traits/img/male/hair/hair11_back.png",
-                    "thikness": 1,
-                    "z": -1
-                },
-                {
-                    "name": "hair11_front",
-                    "src": "./punk/traits/img/male/hair/hair11_front.png",
-                    "thikness": 1,
-                    "z": 0
-                }
-            ]
-        },
-        {
-            "type": "hair",
-            "id": 10,
-            "name": "hair12",
-            "rarity": 7,
-            "elems": [
-                {
-                    "name": "hair12_back",
-                    "src": "./punk/traits/img/male/hair/hair12_back.png",
-                    "thikness": 0.5,
-                    "z": -1.75
-                },
-                {
-                    "name": "hair12_back",
-                    "src": "./punk/traits/img/male/hair/hair12_back.png",
-                    "thikness": 1,
-                    "z": -1
-                },
-                {
-                    "name": "hair12_front",
-                    "src": "./punk/traits/img/male/hair/hair12_front.png",
-                    "thikness": 1,
-                    "z": 0
-                },
-                {
-                    "name": "hair12_front",
-                    "src": "./punk/traits/img/male/hair/hair12_front.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "hair",
-            "id": 11,
-            "name": "hair13",
-            "rarity": 7,
-            "elems": [
-                {
-                    "name": "hair13_back",
-                    "src": "./punk/traits/img/male/hair/hair13_back.png",
-                    "thikness": 0.5,
-                    "z": -1.75
-                },
-                {
-                    "name": "hair13_back",
-                    "src": "./punk/traits/img/male/hair/hair13_back.png",
-                    "thikness": 1,
-                    "z": -1
-                },
-                {
-                    "name": "hair13_front",
-                    "src": "./punk/traits/img/male/hair/hair13_front.png",
-                    "thikness": 1,
-                    "z": 0
-                },
-                {
-                    "name": "hair13_front",
-                    "src": "./punk/traits/img/male/hair/hair13_front.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "hair",
-            "id": 12,
-            "name": "hair14",
-            "rarity": 7,
-            "elems": [
-                {
-                    "name": "hair14_back",
-                    "src": "./punk/traits/img/male/hair/hair14_back.png",
-                    "thikness": 0.5,
-                    "z": -1.75
-                },
-                {
-                    "name": "hair14_back",
-                    "src": "./punk/traits/img/male/hair/hair14_back.png",
-                    "thikness": 1,
-                    "z": -1
-                },
-                {
-                    "name": "hair14_front",
-                    "src": "./punk/traits/img/male/hair/hair14_front.png",
-                    "thikness": 1,
-                    "z": 0
-                },
-                {
-                    "name": "hair14_front",
-                    "src": "./punk/traits/img/male/hair/hair14_front.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "hair",
-            "id": 13,
-            "name": "hair_pigtails",
-            "rarity": 7,
-            "elems": [
-                {
-                    "name": "hair_pigtails_back",
-                    "src": "./punk/traits/img/male/hair/hair_pigtails_back.png",
-                    "thikness": 0.5,
-                    "z": -1.75
-                },
-                {
-                    "name": "hair_pigtails_back",
-                    "src": "./punk/traits/img/male/hair/hair_pigtails_back.png",
-                    "thikness": 1,
-                    "z": -1
-                },
-                {
-                    "name": "hair_pigtails_front",
-                    "src": "./punk/traits/img/male/hair/hair_pigtails_front.png",
-                    "thikness": 1,
-                    "z": 0
-                },
-                {
-                    "name": "hair_pigtails_front",
-                    "src": "./punk/traits/img/male/hair/hair_pigtails_front.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        }
-    ]
-}
+[
+    {
+        "type": "hair",
+        "id": 0,
+        "name": "reflect",
+        "rarity": 0,
+        "elems": []
+    },
+    {
+        "type": "hair",
+        "id": 1,
+        "name": "hair01",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair01_back",
+                "src": "./punk/traits/img/male/hair/hair01_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair01_back",
+                "src": "./punk/traits/img/male/hair/hair01_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair01_face",
+                "src": "./punk/traits/img/male/hair/hair01_face.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hair01_face",
+                "src": "./punk/traits/img/male/hair/hair01_face.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "hair",
+        "id": 2,
+        "name": "hair02",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair02_back",
+                "src": "./punk/traits/img/male/hair/hair02_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair02_back",
+                "src": "./punk/traits/img/male/hair/hair02_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair02_face",
+                "src": "./punk/traits/img/male/hair/hair02_face.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hair02_face",
+                "src": "./punk/traits/img/male/hair/hair02_face.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "hair",
+        "id": 3,
+        "name": "hair03",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair03_back",
+                "src": "./punk/traits/img/male/hair/hair03_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair03_back",
+                "src": "./punk/traits/img/male/hair/hair03_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair03_face",
+                "src": "./punk/traits/img/male/hair/hair03_face.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hair03_face",
+                "src": "./punk/traits/img/male/hair/hair03_face.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "hair",
+        "id": 4,
+        "name": "hair04",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair04_back",
+                "src": "./punk/traits/img/male/hair/hair04_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair04_back",
+                "src": "./punk/traits/img/male/hair/hair04_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair04_face",
+                "src": "./punk/traits/img/male/hair/hair04_face.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hair04_face",
+                "src": "./punk/traits/img/male/hair/hair04_face.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "hair",
+        "id": 5,
+        "name": "hair05",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair05_back",
+                "src": "./punk/traits/img/male/hair/hair05_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair05_back",
+                "src": "./punk/traits/img/male/hair/hair05_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair05_front",
+                "src": "./punk/traits/img/male/hair/hair05_front.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hair05_front",
+                "src": "./punk/traits/img/male/hair/hair05_front.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "hair",
+        "id": 6,
+        "name": "hair06",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair06_back",
+                "src": "./punk/traits/img/male/hair/hair06_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair06_back",
+                "src": "./punk/traits/img/male/hair/hair06_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair06_front",
+                "src": "./punk/traits/img/male/hair/hair06_front.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hair06_front",
+                "src": "./punk/traits/img/male/hair/hair06_front.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "hair",
+        "id": 7,
+        "name": "hair07",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair07_back",
+                "src": "./punk/traits/img/male/hair/hair07_front.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair07_back",
+                "src": "./punk/traits/img/male/hair/hair07_front.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair07_front",
+                "src": "./punk/traits/img/male/hair/hair07_front.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hair07_front",
+                "src": "./punk/traits/img/male/hair/hair07_front.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "hair",
+        "id": 8,
+        "name": "hair10",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair10_back",
+                "src": "./punk/traits/img/male/hair/hair10_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair10_back",
+                "src": "./punk/traits/img/male/hair/hair10_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair10_front",
+                "src": "./punk/traits/img/male/hair/hair10_front.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hair10_front",
+                "src": "./punk/traits/img/male/hair/hair10_front.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "hair",
+        "id": 9,
+        "name": "hair11",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair11_back",
+                "src": "./punk/traits/img/male/hair/hair11_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair11_front",
+                "src": "./punk/traits/img/male/hair/hair11_front.png",
+                "thikness": 1,
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "hair",
+        "id": 10,
+        "name": "hair12",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair12_back",
+                "src": "./punk/traits/img/male/hair/hair12_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair12_back",
+                "src": "./punk/traits/img/male/hair/hair12_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair12_front",
+                "src": "./punk/traits/img/male/hair/hair12_front.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hair12_front",
+                "src": "./punk/traits/img/male/hair/hair12_front.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "hair",
+        "id": 11,
+        "name": "hair13",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair13_back",
+                "src": "./punk/traits/img/male/hair/hair13_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair13_back",
+                "src": "./punk/traits/img/male/hair/hair13_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair13_front",
+                "src": "./punk/traits/img/male/hair/hair13_front.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hair13_front",
+                "src": "./punk/traits/img/male/hair/hair13_front.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "hair",
+        "id": 12,
+        "name": "hair14",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair14_back",
+                "src": "./punk/traits/img/male/hair/hair14_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair14_back",
+                "src": "./punk/traits/img/male/hair/hair14_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair14_front",
+                "src": "./punk/traits/img/male/hair/hair14_front.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hair14_front",
+                "src": "./punk/traits/img/male/hair/hair14_front.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "hair",
+        "id": 13,
+        "name": "hair_pigtails",
+        "rarity": 6,
+        "elems": [
+            {
+                "name": "hair_pigtails_back",
+                "src": "./punk/traits/img/male/hair/hair_pigtails_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hair_pigtails_back",
+                "src": "./punk/traits/img/male/hair/hair_pigtails_back.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hair_pigtails_front",
+                "src": "./punk/traits/img/male/hair/hair_pigtails_front.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hair_pigtails_front",
+                "src": "./punk/traits/img/male/hair/hair_pigtails_front.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    }
+]

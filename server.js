@@ -4,6 +4,10 @@ const cors = require('cors');
 const fs = require('fs')
 const app = express();
 
+
+const Uploader = require('./src/node/uploader');
+const uploader = new Uploader();
+
 var bodyParser = require('body-parser');
 app.use(bodyParser.json({limit: '150mb'}));
 app.use(bodyParser.urlencoded({limit: '150mb', extended: true}));
@@ -22,10 +26,14 @@ const previewStorage = multer.diskStorage({
 
 const uploadPreview = multer({storage: previewStorage}).single('file');
 
+
+
 app.post('/uploadJPG',function(req, res) {
   console.log("Uploading JPG...")
 
   uploadPreview(req, res, function (err) {
+
+
       if (err instanceof multer.MulterError) {
           return res.status(500).json(err)
       } else if (err) {
@@ -34,35 +42,14 @@ app.post('/uploadJPG',function(req, res) {
       }
       console.log("P3nkD JPG saved.")
       return res.status(200).send(req.file)
+
+
+
     })
 });
 
 //GLTF FILE
-const fileStorage = multer.diskStorage({ 
-  destination: function (req, file, cb) {
-    cb(null, './generatedP3nkd/files')
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' +file.originalname )
-  }
-});
-
-const uploadFile = multer({storage: fileStorage}).single('file');
-
-app.post('/uploadGLB', function (req, res) {
-  console.log("Uploading GLB...")
-
-  uploadFile(req, res, function (err) {
-    if (err instanceof multer.MulterError) {
-        return res.status(500).json(err)
-    } else if (err) {
-        console.log(err)
-        return res.status(500).json(err)
-    }
-    console.log("P3nkD GLB saved.")
-    return res.status(200).send(req.file)
-  })
-})
+app.post('/uploadGLB', (req, res) =>{uploader.startUpload(req, res);})
 
 
 //GIF
@@ -102,7 +89,10 @@ app.post('/updateJson', function (req, res) {
   fs.readFile('./generatedP3nkd/punks.json', function (err, data) {
     console.log("reading")
     if (err)
-      console.log(err)
+    console.log(err)
+    console.log("data")
+    console.log(data)
+    console.log("data")
 
       var json = JSON.parse(data)
       console.log(json)
@@ -119,33 +109,20 @@ app.post('/updateJson', function (req, res) {
 })
 
 
-app.post('/uploadJson', async (req, res) => {
-  console.log(req.body)
-  console.log(req.files)
-
-  try {
-      if(!req.body) {
-          res.send({
-              status: false,
-              message: 'No file uploaded'
-          });
-      } else {
-          let data = JSON.stringify(req.body);
-          fs.writeFileSync('./generatedP3nkd/punksssssssssssssssss.json', data);
-          return res.status(200).send("Json uploaded")
-      }
-  } catch (err) {
-      res.status(500).send(err);
-  }
-});
 
 
+function uploadAsync(req,res){
+  return new Promise(function(resolve,reject){
+       upload(req,res,function(err){
+          if(err !== undefined) return reject(err);
+          resolve();
+       });
+  });
+}
 
-var list = ["test", "rrr"];
 
-app.get('/getListGeneratedPunk', (req, res) => {
-  res.send(list)
-});
+ 
+
 
 app.listen(8000, function() {
     console.log('P3nkD Exporter is running...  (localhost:8000)');

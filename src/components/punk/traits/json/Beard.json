@@ -1,159 +1,156 @@
-{
-    "jsonName": "Beard",
-    "elems": [
-        {
-            "type": "beard",
-            "id": 0,
-            "name": "butcher",
-            "rarity": 9,
-            "elems": [
-                {
-                    "name": "beard01_main",
-                    "src": "./punk/traits/img/male/beard/beard01.png",
-                    "thikness": 1,
-                    "z": 1
-                }
-            ]
-        },
-        {
-            "type": "beard",
-            "id": 1,
-            "name": "regular",
-            "rarity": 0,
-            "elems": [
-                {
-                    "name": "beard02_main",
-                    "src": "./punk/traits/img/male/beard/beard02.png",
-                    "thikness": 1,
-                    "z": 1
-                }
-            ]
-        },
-        {
-            "type": "colar",
-            "id": 2,
-            "name": "colar",
-            "rarity": 9,
-            "elems": [
-                {
-                    "name": "beard03_main",
-                    "src": "./punk/traits/img/male/beard/beard03.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "beard",
-            "id": 3,
-            "name": "goat",
-            "rarity": 9,
-            "elems": [
-                {
-                    "name": "beard04_main",
-                    "src": "./punk/traits/img/male/beard/beard04.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "goat",
-            "id": 4,
-            "name": "goat01",
-            "rarity": 9,
-            "elems": [
-                {
-                    "name": "beard05_main",
-                    "src": "./punk/traits/img/male/beard/beard05.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "beard",
-            "id": 5,
-            "name": "beard06",
-            "rarity": 9,
-            "elems": [
-                {
-                    "name": "beard06_main",
-                    "src": "./punk/traits/img/male/beard/beard06.png",
-                    "thikness": 1,
-                    "z": 1
-                }
-            ]
-        },
-        {
-            "type": "sideburns",
-            "id": 6,
-            "name": "sideburns01",
-            "rarity": 9,
-            "elems": [
-                {
-                    "name": "beard07_main",
-                    "src": "./punk/traits/img/male/beard/beard07.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "beard",
-            "id": 7,
-            "name": "beard08",
-            "rarity": 9,
-            "elems": [
-                {
-                    "name": "beard08_main",
-                    "src": "./punk/traits/img/male/beard/beard08.png",
-                    "thikness": 1,
-                    "z": 1
-                }
-            ]
-        },
-        {
-            "type": "colar",
-            "id": 8,
-            "name": "colar02",
-            "rarity": 9,
-            "elems": [
-                {
-                    "name": "beard09_main",
-                    "src": "./punk/traits/img/male/beard/beard09.png",
-                    "thikness": 0.5,
-                    "z": 0.75
-                }
-            ]
-        },
-        {
-            "type": "mustache",
-            "id": 9,
-            "name": "mustache01",
-            "rarity": 9,
-            "elems": [
-                {
-                    "name": "mustache01_main",
-                    "src": "./punk/traits/img/male/beard/mustache01.png",
-                    "thikness": 0.5,
-                    "z": 0.5
-                }
-            ]
-        },
-        {
-            "type": "mustache",
-            "id": 10,
-            "name": "mustache02",
-            "rarity": 9,
-            "elems": [
-                {
-                    "name": "mustache02_main",
-                    "src": "./punk/traits/img/male/beard/mustache02.png",
-                    "thikness": 0.5,
-                    "z": 0.5
-                }
-            ]
-        }
-    ]
-}
+[
+    {
+        "type": "beard",
+        "id": 0,
+        "name": "butcher",
+        "rarity": 9,
+        "elems": [
+            {
+                "name": "beard01_main",
+                "src": "./punk/traits/img/male/beard/beard01.png",
+                "thikness": 1,
+                "z": 1
+            }
+        ]
+    },
+    {
+        "type": "beard",
+        "id": 1,
+        "name": "regular",
+        "rarity": 0,
+        "elems": [
+            {
+                "name": "beard02_main",
+                "src": "./punk/traits/img/male/beard/beard02.png",
+                "thikness": 1,
+                "z": 1
+            }
+        ]
+    },
+    {
+        "type": "colar",
+        "id": 2,
+        "name": "colar",
+        "rarity": 9,
+        "elems": [
+            {
+                "name": "beard03_main",
+                "src": "./punk/traits/img/male/beard/beard03.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "beard",
+        "id": 3,
+        "name": "goat",
+        "rarity": 9,
+        "elems": [
+            {
+                "name": "beard04_main",
+                "src": "./punk/traits/img/male/beard/beard04.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "goat",
+        "id": 4,
+        "name": "goat01",
+        "rarity": 9,
+        "elems": [
+            {
+                "name": "beard05_main",
+                "src": "./punk/traits/img/male/beard/beard05.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "beard",
+        "id": 5,
+        "name": "beard06",
+        "rarity": 9,
+        "elems": [
+            {
+                "name": "beard06_main",
+                "src": "./punk/traits/img/male/beard/beard06.png",
+                "thikness": 1,
+                "z": 1
+            }
+        ]
+    },
+    {
+        "type": "sideburns",
+        "id": 6,
+        "name": "sideburns01",
+        "rarity": 9,
+        "elems": [
+            {
+                "name": "beard07_main",
+                "src": "./punk/traits/img/male/beard/beard07.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "beard",
+        "id": 7,
+        "name": "beard08",
+        "rarity": 9,
+        "elems": [
+            {
+                "name": "beard08_main",
+                "src": "./punk/traits/img/male/beard/beard08.png",
+                "thikness": 1,
+                "z": 1
+            }
+        ]
+    },
+    {
+        "type": "colar",
+        "id": 8,
+        "name": "colar02",
+        "rarity": 9,
+        "elems": [
+            {
+                "name": "beard09_main",
+                "src": "./punk/traits/img/male/beard/beard09.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
+    },
+    {
+        "type": "mustache",
+        "id": 9,
+        "name": "mustache01",
+        "rarity": 9,
+        "elems": [
+            {
+                "name": "mustache01_main",
+                "src": "./punk/traits/img/male/beard/mustache01.png",
+                "thikness": 0.5,
+                "z": 0.5
+            }
+        ]
+    },
+    {
+        "type": "mustache",
+        "id": 10,
+        "name": "mustache02",
+        "rarity": 9,
+        "elems": [
+            {
+                "name": "mustache02_main",
+                "src": "./punk/traits/img/male/beard/mustache02.png",
+                "thikness": 0.5,
+                "z": 0.5
+            }
+        ]
+    }
+]

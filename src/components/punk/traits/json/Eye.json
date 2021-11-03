@@ -1,61 +1,62 @@
-{
-    "jsonName": "Eye",
-    "elems": [
-        {
-            "type": "eyes",
-            "id": 0,
-            "name": "eyes_looking_left",
-            "rarity": 0,
-            "elems": [
-                {
-                    "name": "eyes_looking_left_main",
-                    "src": "./punk/traits/img/male/eye/eyes_looking_left.png",
-                    "thikness": 1,
-                    "z": 0
-                }
-            ]
-        },
-        {
-            "type": "eyes",
-            "id": 1,
-            "name": "eyes_looking_right",
-            "rarity": 40,
-            "elems": [
-                {
-                    "name": "eyes_looking_right_main",
-                    "src": "./punk/traits/img/male/eye/eyes_looking_right.png",
-                    "thikness": 1,
-                    "z": 0
-                }
-            ]
-        },
-        {
-            "type": "eyes",
-            "id": 2,
-            "name": "eyes_looking_cross",
-            "rarity": 10,
-            "elems": [
-                {
-                    "name": "eyes_looking_cross_main",
-                    "src": "./punk/traits/img/male/eye/eyes_looking_cross.png",
-                    "thikness": 1,
-                    "z": 0
-                }
-            ]
-        },
-        {
-            "type": "eyes",
-            "id": 3,
-            "name": "eyes_looking_crossout",
-            "rarity": 10,
-            "elems": [
-                {
-                    "name": "eyes_looking_crossout",
-                    "src": "./punk/traits/img/male/eye/eyes_looking_crossout.png",
-                    "thikness": 1,
-                    "z": 0
-                }
-            ]
-        }
-    ]
-}
+[
+    {
+        "type": "eyes",
+        "id": 0,
+        "name": "eyes_looking_left",
+        "rarity": 0,
+        "elems": 
+        [
+            {
+                "name": "eyes_looking_left_main", 
+                "src": "./punk/traits/img/male/eye/eyes_looking_left.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 1,
+        "name": "eyes_looking_right",
+        "rarity": 40,
+        "elems": 
+        [
+            {
+                "name": "eyes_looking_right_main", 
+                "src": "./punk/traits/img/male/eye/eyes_looking_right.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 2,
+        "name": "eyes_looking_cross",
+        "rarity": 10,
+        "elems": 
+        [
+            {
+                "name": "eyes_looking_cross_main", 
+                "src": "./punk/traits/img/male/eye/eyes_looking_cross.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "eyes",
+        "id": 3,
+        "name": "eyes_looking_crossout",
+        "rarity": 10,
+        "elems": 
+        [
+            {
+                "name": "eyes_looking_crossout", 
+                "src": "./punk/traits/img/male/eye/eyes_looking_crossout.png", 
+                "thikness": 1, 
+                "z": 0
+            }
+        ]
+    }
+]
