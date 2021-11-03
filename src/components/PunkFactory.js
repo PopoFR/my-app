@@ -96,7 +96,7 @@ function generatePunk(traits) {
             var srcPath = handleHairHat(trait, e, hairPack);
 
             //copier e.src et renvoyé un modifié .
-            let element = new Element(e.name, trait.color, srcPath, customZandThikness.z, customZandThikness.thikness, e.rotation, e.opacity, e.isMerged, customZandThikness.customX);
+            let element = new Element(e.name, trait.color, srcPath, customZandThikness.z, customZandThikness.thikness, e.rotation, e.opacity, e.isMerged, customZandThikness.customX, e.isDrool);
             
 
             var voxels = addPixelBlockToScene(pixels, colors, element)
@@ -195,16 +195,16 @@ function getBase(bodyColor) {
 
 
 //les ratio de rarity par type d'items
-const hairRatio = 1;
-const beardRatio = 1;
+const hairRatio = 2;
+const beardRatio = 3;
 const hatRatio = 5;
-const glassesRatio = 1;
-const jewelRatio = 1;
+const glassesRatio = 5;
+const jewelRatio = 2;
 const eyesRatio = 1;
 const noseRatio = 1;
-const smokingRatio = 1;
-const encirclesAndDroolRatio = 1;
-const maskRatio = 100;
+const smokingRatio = 3;
+const encirclesAndDroolRatio = 3;
+const maskRatio = 3;
 
 
 function getRandomTraits() {
@@ -245,6 +245,7 @@ function getRandomTraits() {
     if (!isMasked && checkIsPicked(encirclesAndDroolRatio)) {
         allTraits.push(new Trait(encircleAndDrool[0], bodyColor.hexs.encircles));
         allTraits.push(new Trait(encircleAndDrool[1]));
+        allTraits.push(new Trait(encircleAndDrool[2]));
     }
 
     allTraits.push(new Trait(base[5]));    //BOUCHE
@@ -302,7 +303,7 @@ class Trait {
 }
 
 class Element {
-    constructor(name, color, src, z, thikness, rotation, opacity, isMerged, customX) {
+    constructor(name, color, src, z, thikness, rotation, opacity, isMerged, customX, isDrool) {
         this.name = name;
         this.color = color;
         this.src = src;
@@ -312,6 +313,7 @@ class Element {
         this.opacity = opacity;
         this.isMerged = isMerged;
         this.customX = customX;
+        this.isDrool = isDrool;
     }
 }
 

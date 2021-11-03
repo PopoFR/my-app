@@ -7,7 +7,7 @@ export function addPixelBlockToScene(pixels, colors, element) {
   group.name = element.name;
 
   let img = getBuffer(require('' + element.src));
-  const geometry = new THREE.BoxGeometry(1, 1, element.thikness);
+  var geometry = new THREE.BoxGeometry(1, 1, element.thikness);
 
   //parcours des pixels de l'image (gauche a droite, haut en bas)
   for (let x = 0; x < img.width; x++) {
@@ -47,14 +47,21 @@ export function addPixelBlockToScene(pixels, colors, element) {
             material = new THREE.MeshBasicMaterial({ color: color, reflectivity: 90});
             material.transparent = true;
             material.opacity = element.opacity;
+            console.log("isMerged")
           }
+
+          if (element.isDrool) {
+            geometry = new THREE.BoxGeometry(0.5, 1, 0.1);
+            z = 0.55;
+          }
+
 
           let cube = new THREE.Mesh(geometry, material);
           if (!element.isMerged) {
             cube.castShadow = true;
             cube.receiveShadow = true;
           }
-
+     
           pixels.push({ newX, newY, z })
           cube.position.set(newX, newY, z);
           group.add(cube);
@@ -63,6 +70,7 @@ export function addPixelBlockToScene(pixels, colors, element) {
     }
   }
 
+  //a decaller au dessus car tableau pixel faux
   if (element.customX !== 0 && element.customX !== undefined){
     group.translateX(element.customX);
   }
