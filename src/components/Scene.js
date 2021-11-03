@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { AmbientLight } from 'three';
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -21,6 +21,10 @@ const Scene = () => {
     const [punk, setPunk] = useState(new THREE.Group());
     const [bodyColor, setBodyColor] = useState('#ffffff');
     const [isLoading, setIsLoading] = useState(false);
+    const myRefname= useRef(null);
+
+    const [punks, setPunks] = useState([]);
+    const [ind, setInd] = useState(0);
 
 
     useEffect(() => {
@@ -38,7 +42,9 @@ const Scene = () => {
         createControls();
         createRenderer();
         animate();
+        setPunks(getXPunk(5))
     }
+
 
     function createScene() {
         container = document.querySelector("#scene-container");
@@ -52,12 +58,6 @@ const Scene = () => {
         camera = new THREE.PerspectiveCamera(30, 1, 1, 5000);
         setCameraPosition();
         scene.add(camera);
-    }
-
-    function setCameraPosition(){
-        camera.position.x = -25;
-        camera.position.y = 15;
-        camera.position.z = 50;
     }
 
     function createLights() {
@@ -84,6 +84,14 @@ const Scene = () => {
         dirLight.shadow.bias = - 0.00001;
     }
 
+
+    function setCameraPosition(){
+        camera.position.x = -25;
+        camera.position.y = 15;
+        camera.position.z = 50;
+    }
+
+
     function createPunk() {
         var myPunk = getPunk("punk 120");
         scene.add(myPunk);
@@ -92,8 +100,7 @@ const Scene = () => {
 
     function createControls() {
         controls = new OrbitControls(camera, container);
-        controls.target.set(0, 12, 0)
-        controls.update();
+        controls.target.set(0, 0, 0)
     }
 
     function createRenderer() {
@@ -110,19 +117,43 @@ const Scene = () => {
 
     }
 
+    var currentPunk;
+
+
+    var i = 0;
     async function exportPunk() {
+        punk.clear();
+
         setIsLoading(true);
         controls.reset();
-        controls.target.set(0, 12, 0);
+        controls.target.set(0, 0, 0);
         setCameraPosition();
         controls.update();
-        Export.doExport(scene, renderer, punk.name, animatedRender)
-            .then(() => {
-                setIsLoading(false);
-            });
+        
+        for (let index = 0; index < 3; index++) {
+            await tooglePunk();
+            i++;
+        }
+     
+        setIsLoading(false);
+    }
+
+
+
+    async function tooglePunk() {
+        scene.add(punks[i]);
+
+        await Export.doExport(scene, renderer, punk.name, animatedRender)
+        punks[i].clear();
+
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     function animatedRender() {
+        requestAnimationFrame(animate);
         punk.rotation.y += Math.PI / 60;
         render();
     }
@@ -133,17 +164,10 @@ const Scene = () => {
 
     function animate() {
         requestAnimationFrame(animate);
-        punk.rotation.y += Math.PI / 60;
+        controls.update();
         render();
     }
 
-    function tooglePunk(e) {
-        e.preventDefault()
-        punk.clear();
-        var newPunk = getRandomPunk();
-        setPunk(newPunk);
-        scene.add(newPunk);
-    }
 
     function refresh() {
         getXPunk() 
@@ -158,10 +182,10 @@ const Scene = () => {
             <Link to="/Neon"> Neon </Link>
             <div id="scene-container"></div>
             <div>
-                {!isLoading &&
+                {! isLoading &&
                     <button type="button" onClick={exportPunk}>EXPORT</button>
                 }
-                <button type="button" onClick={tooglePunk}>TOOGLE</button>
+                <button ref={myRefname} type="button" onClick={tooglePunk}>TOOGLE</button>
                 <button type="button" onClick={refresh}>refresh</button>
             </div>
             <div style={{ display: "flex", flex: 1, flexDirection: "column", alignItems: "center" }}>

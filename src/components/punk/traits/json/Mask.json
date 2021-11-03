@@ -1,6 +1,6 @@
 [
     {
-        "type": "covid_mask",
+        "type": "mask",
         "id": 0,
         "name": "covid_mask",
         "rarity": 0,
@@ -20,7 +20,7 @@
         ]
     },
     {
-        "type": "surgery_mask",
+        "type": "mask",
         "id": 1,
         "name": "surgery_mask",
         "rarity": 50,

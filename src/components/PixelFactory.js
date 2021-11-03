@@ -21,8 +21,8 @@ export function addPixelBlockToScene(pixels, colors, element) {
       if (a !== undefined && a !== 0) {
 
         //pour centrage
-        let newX = x - 12;
-        let newY = -y + 24;
+        let newX = x - 11;
+        let newY = -y + 13;
         let z = element.z;
 
         //si le pixel n'existe pas on le crée (evite les chevauchements de texture)
@@ -38,7 +38,7 @@ export function addPixelBlockToScene(pixels, colors, element) {
 
           var material = new THREE.MeshStandardMaterial({ 
             color: color, 
-            metalness: 0.2, 
+            metalness: 0, 
             roughness: 1
           });
 
@@ -50,8 +50,11 @@ export function addPixelBlockToScene(pixels, colors, element) {
           }
 
           let cube = new THREE.Mesh(geometry, material);
-					cube.castShadow = true;
-					cube.receiveShadow = true;
+          if (!element.isMerged) {
+            cube.castShadow = true;
+            cube.receiveShadow = true;
+          }
+
           pixels.push({ newX, newY, z })
           cube.position.set(newX, newY, z);
           group.add(cube);
@@ -61,7 +64,7 @@ export function addPixelBlockToScene(pixels, colors, element) {
   }
 
   if (element.customX !== 0 && element.customX !== undefined){
-    group.translateX(1);
+    group.translateX(element.customX);
   }
 
   // group.translateX(element.customX);

@@ -10,7 +10,7 @@
                 "name": "cigarette",
                 "src": "./punk/traits/img/male/accessories/cigarette.png",
                 "thikness": 1,
-                "z": 0,
+                "z": -6,
                 "rotation": {
                     "x": "0",
                     "y": "4.95",
@@ -30,7 +30,7 @@
                 "name": "blunt",
                 "src": "./punk/traits/img/male/accessories/blunt.png",
                 "thikness": 1.5,
-                "z": 0,
+                "z": -6,
                 "rotation": {
                     "x": "0",
                     "y": "4.95",
@@ -50,7 +50,7 @@
                 "name": "pipe",
                 "src": "./punk/traits/img/male/accessories/pipeA.png",
                 "thikness": 1.5,
-                "z": 0,
+                "z": -6,
                 "rotation": {
                     "x": "0",
                     "y": "4.95",
@@ -61,7 +61,7 @@
                 "name": "pipe",
                 "src": "./punk/traits/img/male/accessories/pipeB.png",
                 "thikness": 3,
-                "z": 0,
+                "z": -6,
                 "rotation": {
                     "x": "0",
                     "y": "4.95",
@@ -72,7 +72,7 @@
                 "name": "pipe",
                 "src": "./punk/traits/img/male/accessories/pipeC.png",
                 "thikness": 1,
-                "z": 0,
+                "z": -6,
                 "rotation": {
                     "x": "0",
                     "y": "4.95",

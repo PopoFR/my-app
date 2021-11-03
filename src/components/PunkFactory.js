@@ -27,7 +27,6 @@ export function getPunk() {
 }
 
 export function getRandomPunk() {
-    console.log("getRandomPunk")
     var name = "random punk";
     var randomTraits = getRandomTraits();
     var punk = generatePunk(randomTraits);
@@ -66,8 +65,9 @@ function generatePunk(traits) {
     var hairPack;
 
     var isBeared = false;
-    var bearTickness;
-    var bearZ;
+    var isMasked = false;
+    var customThikness;
+    var customZ;
 
     traits.forEach(trait => {
         var traitGroup = new THREE.Group();
@@ -78,18 +78,27 @@ function generatePunk(traits) {
 
         if (trait.type === "beard") {
             isBeared = true;
-            bearTickness = trait.elems[0].thikness;
-            bearZ = trait.elems[0].z;
+            customThikness = trait.elems[0].thikness;
+            customZ = trait.elems[0].z;
         }
+
+        if (trait.type === "mask") {
+            isMasked = true;
+            customThikness = trait.elems[0].thikness;
+            customZ = trait.elems[0].z;
+        }
+
 
         var customX = 0;
         //on modelise chaque element de chaque traitz
         trait.elems.forEach(e => {
-            var customZandThikness = handleCustomElement(trait, e.z, e.thikness, isBeared, bearTickness, bearZ, customX);
+            var customZandThikness = handleCustomElement(trait, e.z, e.thikness, isBeared, customThikness, customZ, customX);
             var srcPath = handleHairHat(trait, e, hairPack);
 
             //copier e.src et renvoyé un modifié .
             let element = new Element(e.name, trait.color, srcPath, customZandThikness.z, customZandThikness.thikness, e.rotation, e.opacity, e.isMerged, customZandThikness.customX);
+            
+
             var voxels = addPixelBlockToScene(pixels, colors, element)
 
             traitGroup.add(voxels);
@@ -111,6 +120,7 @@ function generatePunk(traits) {
 
     //Gestion de l'epaisseur, de la profondeur, de la position x et de la rotation, des elements customisé (cigarette, etc...)
     function handleCustomElement(trait, z, thikness, isBeared, customThikness, customZ, x) {
+
         if (isBeared && (trait.type === "mouth")) {
             thikness = customThikness;
             z = customZ;
@@ -120,9 +130,13 @@ function generatePunk(traits) {
             z = customZ;
         }
 
-        if (isBeared && (trait.name === "pipe" || trait.name === "cigarette")) {
-            x = 0.7;
-            z = customZ + 0.30;
+        if ((isBeared || isMasked) && (trait.type === "pipe" || trait.type === "cigarette" || trait.type === "blunt" )) {
+            x = -3;
+            z = -4.5 + customThikness;
+        }
+
+        if ((!isBeared && !isMasked) && (trait.type === "pipe" || trait.type === "cigarette" || trait.type === "blunt" )) {
+            x = -5;
         }
 
         return { z: z, thikness: thikness, customX: x };
@@ -182,7 +196,7 @@ function getBase(bodyColor) {
 
 //les ratio de rarity par type d'items
 const hairRatio = 1;
-const beardRatio = 100;
+const beardRatio = 1;
 const hatRatio = 5;
 const glassesRatio = 1;
 const jewelRatio = 1;
@@ -190,12 +204,10 @@ const eyesRatio = 1;
 const noseRatio = 1;
 const smokingRatio = 1;
 const encirclesAndDroolRatio = 1;
-const maskRatio = 1;
+const maskRatio = 100;
 
 
 function getRandomTraits() {
-
-   
 
     //On recupere les couleurs peau/cheveux
     const hairColor = pickRandom(colors.hairs);
@@ -214,6 +226,7 @@ function getRandomTraits() {
     //ajout des autres traits
 
     var isBeared = false;
+    var isMasked = false;
     var glassName;
 
     //BARBE
@@ -221,8 +234,17 @@ function getRandomTraits() {
         allTraits.push(new Trait(pickRandom(beards), hairColor.hexs.beard));
         isBeared = true;
     }
-    else{
-        allTraits = getRandomTrait(masks, maskRatio, allTraits);    //YEUX
+
+    //MASK
+    if (!isBeared && checkIsPicked(maskRatio)) {
+        allTraits.push(new Trait(pickRandom(masks)));
+        isMasked = true;
+    }
+
+    //CERNE ET BAVE
+    if (!isMasked && checkIsPicked(encirclesAndDroolRatio)) {
+        allTraits.push(new Trait(encircleAndDrool[0], bodyColor.hexs.encircles));
+        allTraits.push(new Trait(encircleAndDrool[1]));
     }
 
     allTraits.push(new Trait(base[5]));    //BOUCHE
@@ -246,12 +268,7 @@ function getRandomTraits() {
     allTraits.push(new Trait(base[4], hairColor.hexs.eyebrow));//  SOURCIL DROIT
 
 
-    
-    //CERNE ET BAVE
-    if (checkIsPicked(encirclesAndDroolRatio)) {
-        allTraits.push(new Trait(encircleAndDrool[0], bodyColor.hexs.encircles));
-        allTraits.push(new Trait(encircleAndDrool[1]));
-    }
+
 
     //AJOUT DES LUNETTES  (je comprend pas pourquoi cette partie doit etre mise apres la poche sous les yeux... logiquement ca devrait etre l'inverse)
     if (randomGlasses !== undefined)

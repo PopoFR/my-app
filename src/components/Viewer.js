@@ -26,9 +26,11 @@ var onOffCubes = []
 const Viewer = () => {
 
 
-    const punkPath = './1635704434543-punk_120.glb';
+    const punkPath = './import.glb';
     const [isLoading, setIsLoading] = useState(false);
     const [punk, setPunk] = useState(new THREE.Group());
+    const [punks, setPunks] = useState([]);
+    const [currentGeneratedPunkId, setCurrentGeneratedPunkId] = useState(0);
 
     const [clicked, setClicked] = useState(false)
     const [hovered, setHovered] = useState(false)
@@ -36,11 +38,18 @@ const Viewer = () => {
     useEffect(() => {
         createScene();
         createCamera();
-        createLights();
         createControls();
         createRenderer();
-        loadMesh();
+          //loadMesh();
+       loadPunk();
+        animate();
     }, []);
+
+    function loadPunk(){
+        createLightsForExport();
+        setPunks(getXPunk(5));
+    }
+
 
     function createScene() {
         loader = new GLTFLoader();
@@ -65,36 +74,14 @@ const Viewer = () => {
 
     const d = 30;
 
-    function createLights() {
-        light2 = new THREE.DirectionalLight(0xffffff, 1);
-        light2.position.set(0.1, 3, -50);
-        light2.castShadow = true;
-        light2.shadow.mapSize.width = 3000;
-        light2.shadow.mapSize.height = 3000;
-        light2.shadow.camera.left = - d;
-        light2.shadow.camera.right = d;
-        light2.shadow.camera.top = d;
-        light2.shadow.camera.bottom = - d;
-        light2.shadow.camera.far = 3500;
-        light2.shadow.bias = - 0.00001;
 
-        light1 = new THREE.DirectionalLight(0xffffff, 0.1);
-        light1.position.set(-25, 30, 50);
-        light1.castShadow = true;
-        light1.shadow.mapSize.width = 3000;
-        light1.shadow.mapSize.height = 3000;
-        light1.shadow.camera.left = - d;
-        light1.shadow.camera.right = d;
-        light1.shadow.camera.top = d;
-        light1.shadow.camera.bottom = - d;
-        light1.shadow.camera.far = 3500;
-        light1.shadow.bias = - 0.00001;
+    function createLightsForImport() {
 
-        light0 = new THREE.DirectionalLight(0xffffff, 0.1);
+        light0 = new THREE.DirectionalLight(0xffffff, 0.4);
         light0.position.set(10, 30, 50);
         light0.castShadow = true;
-        light0.shadow.mapSize.width = 3000;
-        light0.shadow.mapSize.height = 3000;
+        light0.shadow.mapSize.width = 10000;
+        light0.shadow.mapSize.height = 10000;
         light0.shadow.camera.left = - d;
         light0.shadow.camera.right = d;
         light0.shadow.camera.top = d;
@@ -102,10 +89,79 @@ const Viewer = () => {
         light0.shadow.camera.far = 3500;
         light0.shadow.bias = - 0.00001;
 
-        camera.add(light1);
+        light1 = new THREE.DirectionalLight(0xffffff, 0.4)
+        light1.position.set(-25, 30, 50);
+        light1.castShadow = true;
+        light1.shadow.mapSize.width = 10000;
+        light1.shadow.mapSize.height = 10000;
+        light1.shadow.camera.left = - d;
+        light1.shadow.camera.right = d;
+        light1.shadow.camera.top = d;
+        light1.shadow.camera.bottom = - d;
+        light1.shadow.camera.far = 3500;
+        light1.shadow.bias = - 0.00001;
+
+        light2 = new THREE.DirectionalLight(0xffffff, 0.4);
+        light2.position.set(0.1, 3, 0);
+        light2.castShadow = true;
+        light2.shadow.mapSize.width = 10000;
+        light2.shadow.mapSize.height = 10000;
+        light2.shadow.camera.left = - d;
+        light2.shadow.camera.right = d;
+        light2.shadow.camera.top = d;
+        light2.shadow.camera.bottom = - d;
+        light2.shadow.camera.far = 3500;
+        light2.shadow.bias = - 0.00001;
 
         camera.add(light0);
-        scene.add(light2);
+        camera.add(light1);
+        camera.add(light2);
+        scene.add(camera)
+    }
+
+
+    function createLightsForExport() {
+
+
+        light0 = new THREE.DirectionalLight(0xffffff, 0.4);
+        light0.position.set(10, 30, 50);
+        light0.castShadow = true;
+        light0.shadow.mapSize.width = 10000;
+        light0.shadow.mapSize.height = 10000;
+        light0.shadow.camera.left = - d;
+        light0.shadow.camera.right = d;
+        light0.shadow.camera.top = d;
+        light0.shadow.camera.bottom = - d;
+        light0.shadow.camera.far = 3500;
+        light0.shadow.bias = - 0.00001;
+
+        light1 = new THREE.DirectionalLight(0xffffff, 0.4);
+        light1.position.set(-25, 30, 50);
+        light1.castShadow = true;
+        light1.shadow.mapSize.width = 10000;
+        light1.shadow.mapSize.height = 10000;
+        light1.shadow.camera.left = - d;
+        light1.shadow.camera.right = d;
+        light1.shadow.camera.top = d;
+        light1.shadow.camera.bottom = - d;
+        light1.shadow.camera.far = 3500;
+        light1.shadow.bias = - 0.00001;
+
+        light2 = new THREE.DirectionalLight(0xffffff, 0.4);
+        light2.position.set(0.1, 3, 0);
+        light2.castShadow = true;
+        light2.shadow.mapSize.width = 10000;
+        light2.shadow.mapSize.height = 10000;
+        light2.shadow.camera.left = - d;
+        light2.shadow.camera.right = d;
+        light2.shadow.camera.top = d;
+        light2.shadow.camera.bottom = - d;
+        light2.shadow.camera.far = 3500;
+        light2.shadow.bias = - 0.00001;
+
+        camera.add(light0);
+        camera.add(light1);
+        camera.add(light2);
         scene.add(camera)
     }
 
@@ -176,6 +232,9 @@ const Viewer = () => {
     }
 
     function loadMesh() {
+
+        createLightsForImport();
+        
         loader.load(
             // resource URL
             punkPath,
@@ -191,16 +250,40 @@ const Viewer = () => {
                 // });
 
                 gltf.scene.traverse(function (obj) {
-                    if (obj.isMesh) {
-                        obj.castShadow = true
-                        obj.receiveShadow = true
-                        obj.material.metalness = 0.2
-                        obj.material.roughness = 1
+                    if (obj.type === "DirectionalLight"){
+                        obj.clear();
+                        obj.remove();
                     }
+                    if (obj.type === "PerspectiveCamera"){
+                        obj.clear();
+                        obj.remove();
+                    }
+                    if (obj.isMesh) {
+
+                        var color = obj.material.color;
+
+                        if (obj.material.opacity !== 1) {
+                            obj.material = new THREE.MeshBasicMaterial({ color: color, reflectivity: 90});
+                            obj.material.transparent = true;
+                            obj.material.opacity = 0.5;
+                        }
+                        else{
+
+                            var material = new THREE.MeshStandardMaterial({ 
+                                color: color, 
+                                metalness: 0, 
+                                roughness: 1
+                              });
+
+                            obj.castShadow = true
+                            obj.receiveShadow = true
+                            obj.material = material;
+                        }
+                    }
+                    
                 })
                 scene.add(gltf.scene);
-                gltf.scene.children[1].position.y -= 10;
-                gltf.scene.children[1].position.x += 1;
+
                 setPunk(gltf.scene.children[1]);
                 animate();
             },
@@ -233,12 +316,17 @@ const Viewer = () => {
 
     function tooglePunk(e) {
         e.preventDefault()
-        punk.clear();
-        var newPunk = getRandomPunk();
-        newPunk.position.y -= 10;
-        newPunk.position.x += 1;
-        setPunk(newPunk);
-        scene.add(newPunk);
+        // var newPunk = punks[currentGeneratedPunkId];
+        try {       
+            scene.remove(punk)
+            var newPunk = getRandomPunk();
+            var currentId = currentGeneratedPunkId + 1;
+            setCurrentGeneratedPunkId(currentId)
+            setPunk(newPunk);
+            scene.add(newPunk);
+        } catch (error) {
+            // tooglePunk(e);
+        }
     }
 
     function generateXPunk(e) {
@@ -258,9 +346,6 @@ const Viewer = () => {
         scene.add(newPunk);
     }
 
-    function getListGeneratedPunk() {
-        Export.getListGeneratedPunk();
-    }
 
     async function exportPunk() {
         setIsLoading(true);
@@ -289,11 +374,9 @@ const Viewer = () => {
                     </div>
 
                     <div>
-                        <button type="button" onClick={generateXPunk}>GENERATE LIST</button>
                     </div>
 
                     <div>
-                        <button type="button" onClick={getListGeneratedPunk}>GET</button>
                     </div>
 
                 </div>
