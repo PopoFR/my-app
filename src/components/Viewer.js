@@ -48,6 +48,8 @@ const Viewer = () => {
     function loadPunk(){
         createLightsForExport();
         setPunks(getXPunk(5));
+        fixedPunk();
+
     }
 
 
@@ -336,12 +338,9 @@ const Viewer = () => {
         getXPunk(1000);
     }
 
-    function fixedPunk(e) {
-        e.preventDefault()
+    function fixedPunk() {
         punk.clear();
         var newPunk = getPunk();
-        newPunk.position.y -= 10;
-        newPunk.position.x += 1;
         setPunk(newPunk);
         scene.add(newPunk);
     }

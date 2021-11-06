@@ -932,5 +932,113 @@
                 "z": 0.75
             }
         ]
+    },
+    {
+        "type": "hat",
+        "id": 24,
+        "name": "hat_xmas",
+        "hairPack": 2,
+        "rarity": 0,
+        "elems": [
+            {
+                "name": "hat_xmas",
+                "src": "./punk/traits/img/male/hat/hat_xmas_border.png",
+                "thikness": 0.5,
+                "z": -2.25
+            },
+            {
+                "name": "hat_xmas",
+                "src": "./punk/traits/img/male/hat/hat_xmas_border.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hat_xmas",
+                "src": "./punk/traits/img/male/hat/hat_xmas.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hat_xmas",
+                "src": "./punk/traits/img/male/hat/hat_xmas_border.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hat_xmas",
+                "src": "./punk/traits/img/male/hat/hat_xmas_center.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hat_xmas",
+                "src": "./punk/traits/img/male/hat/hat_xmas_center.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hat_xmas",
+                "src": "./punk/traits/img/male/hat/hat_xmas_border.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hat_xmas",
+                "src": "./punk/traits/img/male/hat/hat_xmas.png",
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "hat_xmas",
+                "src": "./punk/traits/img/male/hat/hat_xmas_border.png",
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "hat_xmas",
+                "src": "./punk/traits/img/male/hat/hat_xmas_border.png",
+                "thikness": 0.5,
+                "z": 1.25
+            }
+        ]
+    },
+    {
+        "type": "hat",
+        "id": 25,
+        "name": "hat_cap_scumbag",
+        "hairPack": 2,
+        "rarity": 2,
+        "elems": [
+            {
+                "name": "hat_scumbag",
+                "src": "./punk/traits/img/male/hat/hat_scumbag_visor.png",
+                "thikness": 3,
+                "z": -3.5
+            },
+            {
+                "name": "hat_scumbag",
+                "src": "./punk/traits/img/male/hat/hat_scumbag_back.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hat_scumbag",
+                "src": "./punk/traits/img/male/hat/hat_scumbag.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hat_scumbag",
+                "src": "./punk/traits/img/male/hat/hat_scumbag.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hat_scumbag",
+                "src": "./punk/traits/img/male/hat/hat_scumbag.png",
+                "thikness": 0.5,
+                "z": 0.75
+            }
+        ]
     }
 ]

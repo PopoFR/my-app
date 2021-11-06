@@ -47,12 +47,11 @@ export function addPixelBlockToScene(pixels, colors, element) {
             material = new THREE.MeshBasicMaterial({ color: color, reflectivity: 90});
             material.transparent = true;
             material.opacity = element.opacity;
-            console.log("isMerged")
           }
 
           if (element.isDrool) {
-            geometry = new THREE.BoxGeometry(0.5, 1, 0.1);
-            z = 0.55;
+            geometry = new THREE.BoxGeometry(0.5, 1, 0.005);
+            z = 0.50;
           }
 
 

@@ -127,7 +127,9 @@ function generatePunk(traits) {
         }
 
         if (trait.type === "accessory" && trait.isCustomZ === true) {
-            z = customZ;
+             
+            z = (customZ === undefined) ? z : z + customThikness;
+            console.log(z)
         }
 
         if ((isBeared || isMasked) && (trait.type === "pipe" || trait.type === "cigarette" || trait.type === "blunt" )) {
@@ -146,7 +148,7 @@ function generatePunk(traits) {
 }
 
 function getFixedTraits() {
-    const bodyColor = colors['body'][5];
+    const bodyColor = colors['body'][2];
     const hairColor = colors['hairs'][2];
     const metalColor = colors['metal'][0].hex;
 
@@ -156,16 +158,20 @@ function getFixedTraits() {
         new Trait(base[1], bodyColor.hexs.reflect),
         new Trait(base[2], bodyColor.hexs.eye),
         new Trait(beards[0]),
+        new Trait(base[3], hairColor.hexs.eyebrow),
         new Trait(base[4]),
-        new Trait(eyes[0]),
-        new Trait(encircleAndDrool[0]),        
-        new Trait(glasses[9]),
+        new Trait(eyes[2]),
+        new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
+        // new Trait(glasses[9]),
         new Trait(base[5]),
+
+        new Trait(encircleAndDrool[1]),
+        new Trait(encircleAndDrool[2]),
 
         new Trait(noses[0], bodyColor.hexs.nose),
         new Trait(jewels[1], metalColor),
         new Trait(jewels[0], metalColor),
-        new Trait(hats[23]),
+        new Trait(hats[25]),
         new Trait(hairs[0], hairColor.hexs.hair),
     ]
     return traits;
@@ -203,7 +209,7 @@ const jewelRatio = 2;
 const eyesRatio = 1;
 const noseRatio = 1;
 const smokingRatio = 3;
-const encirclesAndDroolRatio = 3;
+const encirclesAndDroolRatio = 1;
 const maskRatio = 3;
 
 
@@ -269,12 +275,9 @@ function getRandomTraits() {
     allTraits.push(new Trait(base[4], hairColor.hexs.eyebrow));//  SOURCIL DROIT
 
 
-
-
     //AJOUT DES LUNETTES  (je comprend pas pourquoi cette partie doit etre mise apres la poche sous les yeux... logiquement ca devrait etre l'inverse)
     if (randomGlasses !== undefined)
         allTraits.push(randomGlasses);
-
 
     allTraits = getRandomTrait(smokes, smokingRatio, allTraits);  //CIGARETTE
 
