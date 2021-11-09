@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import * as UPNG from 'upng-js';
-import TWEEN from '@tweenjs/tween.js';
 
 export function addPixelBlockToScene(pixels, colors, element) {
   let group = new THREE.Group();
@@ -36,10 +35,14 @@ export function addPixelBlockToScene(pixels, colors, element) {
             colors.push({ r, g, b });
           }
 
+          if(element.name == "smoke"){
+            console.log("smoke")
+          }
+
           var material = new THREE.MeshStandardMaterial({ 
             color: color, 
             metalness: 0, 
-            roughness: 1
+            roughness: 1,
           });
 
           //pour lunette 
@@ -47,6 +50,11 @@ export function addPixelBlockToScene(pixels, colors, element) {
             material = new THREE.MeshBasicMaterial({ color: color, reflectivity: 90});
             material.transparent = true;
             material.opacity = element.opacity;
+            
+          }
+          
+          if(element.name == "puff"){
+            geometry = new THREE.BoxGeometry(0.99, 0.99, 0.99);
           }
 
           if (element.isDrool) {
@@ -60,6 +68,7 @@ export function addPixelBlockToScene(pixels, colors, element) {
             cube.castShadow = true;
             cube.receiveShadow = true;
           }
+          
      
           pixels.push({ newX, newY, z })
           cube.position.set(newX, newY, z);
@@ -72,15 +81,6 @@ export function addPixelBlockToScene(pixels, colors, element) {
   //a decaller au dessus car tableau pixel faux
   if (element.customX !== 0 && element.customX !== undefined){
     group.translateX(element.customX);
-  }
-
-  // group.translateX(element.customX);
-
-  //pour cigarette etc...  
-  if (element.rotation !== undefined) {
-    group.rotation.x += element.rotation.x;
-    group.rotation.y += element.rotation.y;
-    group.rotation.z += element.rotation.z;
   }
 
   return group;
@@ -126,28 +126,20 @@ const base64ToArrayBuffer = function (base64) {
   return bytes.buffer;
 }
 
-export const animateHat = (scene) => {
-  let object = scene.getObjectByName("hat_helice2");
-  // let material = object.children[0].children[0].clone().material;
-  // let wide = scene.getObjectByName("hat_helice3").clone().material;
 
-  // setInterval(()=>{
-
-  // }, 
-  // 5000);
-
-  // let tweenSmoke = new TWEEN.Tween( material ).to( { opacity: 0 }, 3000 ).start();
   // let tweenWidframe =  new TWEEN.Tween(wide).to( { opacity: 0 }, 3000 ).start();
 
 
-  let tween = new TWEEN.Tween(object.rotation)
-    .to({ y: "-" + Math.PI / 2 }, 1000)
-    .delay(1000)
-    .onComplete(function () {
-      if (Math.abs(object.rotation.y) >= 2 * Math.PI) {
-        object.rotation.y = object.rotation.y % (2 * Math.PI);
-      }
-    })
-    .start();
-  tween.repeat(Infinity);
-}
+//   let tween = new TWEEN.Tween(object.rotation)
+//     .to({ y: "-" + Math.PI / 2 }, 1000)
+//     .delay(1000)
+//     .onComplete(function () {
+//       if (Math.abs(object.rotation.y) >= 2 * Math.PI) {
+//         object.rotation.y = object.rotation.y % (2 * Math.PI);
+//       }
+//     })
+//     .start();
+
+//   tween.repeat(Infinity);
+// }
+

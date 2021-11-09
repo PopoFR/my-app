@@ -80,11 +80,12 @@
         {
             "name": "Ape",
             "rarity": 0,
+            "isApe": true,
             "hexs": {
-                "eye": "#c9b2b2",
+                "eye": "#cdbca9",
                 "nose": "#ead9d9",
-                "reflect": "#ffffff",
-                "encircles": "#d2c2c2"
+                "reflect": "#a09384",
+                "encircles": "#756654"
             }
         },
         {

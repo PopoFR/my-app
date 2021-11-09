@@ -10,7 +10,29 @@
                 "name": "cigarette",
                 "src": "./punk/traits/img/male/accessories/cigarette.png",
                 "thikness": 1,
-                "z": -6,
+                "z": 0,
+                "rotation": {
+                    "x": "0",
+                    "y": "4.95",
+                    "z": "0"
+                }
+            },
+            {
+                "name": "cigarette2",
+                "src": "./punk/traits/img/male/accessories/cigarette2.png",
+                "thikness": 1,
+                "z": 0,
+                "rotation": {
+                    "x": "0",
+                    "y": "4.95",
+                    "z": "0"
+                }
+            },
+            {
+                "name": "puff",
+                "src": "./punk/traits/img/male/accessories/puff.png",
+                "thikness": 1,
+                "z": 0,
                 "rotation": {
                     "x": "0",
                     "y": "4.95",
@@ -20,7 +42,7 @@
         ]
     },
     {
-        "type": "cigarette",
+        "type": "blunt",
         "id": 1,
         "name": "blunt",
         "rarity": 33,
@@ -30,7 +52,7 @@
                 "name": "blunt",
                 "src": "./punk/traits/img/male/accessories/blunt.png",
                 "thikness": 1.5,
-                "z": -6,
+                "z": 0,
                 "rotation": {
                     "x": "0",
                     "y": "4.95",
@@ -50,7 +72,7 @@
                 "name": "pipe",
                 "src": "./punk/traits/img/male/accessories/pipeA.png",
                 "thikness": 1.5,
-                "z": -6,
+                "z": 0,
                 "rotation": {
                     "x": "0",
                     "y": "4.95",
@@ -61,7 +83,7 @@
                 "name": "pipe",
                 "src": "./punk/traits/img/male/accessories/pipeB.png",
                 "thikness": 3,
-                "z": -6,
+                "z": 0,
                 "rotation": {
                     "x": "0",
                     "y": "4.95",
@@ -72,7 +94,7 @@
                 "name": "pipe",
                 "src": "./punk/traits/img/male/accessories/pipeC.png",
                 "thikness": 1,
-                "z": -6,
+                "z": 0,
                 "rotation": {
                     "x": "0",
                     "y": "4.95",

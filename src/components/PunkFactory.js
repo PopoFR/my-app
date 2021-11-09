@@ -1,4 +1,4 @@
-import { isIfStatement } from "@babel/types";
+import { ifStatement, isIfStatement } from "@babel/types";
 import * as THREE from "three";
 import { addPixelBlockToScene } from './PixelFactory';
 import { getRandomElem } from './Utils'
@@ -19,6 +19,7 @@ const masks = require('./punk/traits/json/Mask.json');
 const encircleAndDrool = require('./punk/traits/json/EncircleAndDrool.json');
 
 export function getPunk() {
+    console.log("getPunk()getPunk()getPunk()getPunk()getPunk()getPunk()getPunk()")
     var name = "random punk";
     var traits = getFixedTraits();
     var punk = generatePunk(traits);
@@ -57,6 +58,8 @@ export function getXPunk(ammount) {
 }
 
 function generatePunk(traits) {
+
+    console.log("generatePunk")
     var punk = new THREE.Group();
 
     var pixels = [{}];
@@ -68,10 +71,15 @@ function generatePunk(traits) {
     var isMasked = false;
     var customThikness;
     var customZ;
+    var isApe = false;
 
     traits.forEach(trait => {
         var traitGroup = new THREE.Group();
         traitGroup.name = trait.name;
+
+        if (trait.isApe)
+            isApe = true;
+  
 
         if (trait.type === "hat")
             hairPack = trait.hairPack;
@@ -98,8 +106,33 @@ function generatePunk(traits) {
             //copier e.src et renvoyé un modifié .
             let element = new Element(e.name, trait.color, srcPath, customZandThikness.z, customZandThikness.thikness, e.rotation, e.opacity, e.isMerged, customZandThikness.customX, e.isDrool);
             
+            if (trait.name === "blunt"){
+                var voxels = createBlunt();
+                if (isBeared){
+                    voxels.position.z += customZ;
+                }
+            }
+            else
+                var voxels = addPixelBlockToScene(pixels, colors, element)
 
-            var voxels = addPixelBlockToScene(pixels, colors, element)
+
+            if (e.isDrool)
+                voxels.position.x += 1;
+
+
+            if (trait.name === "pipe" || trait.name === "cigarette"){
+                voxels.rotateY(-Math.PI/2 );
+                voxels.rotateY(0.17);
+
+                if (isBeared){
+                    voxels.position.z += -0.1;
+                    voxels.position.x += 1;
+                }
+                else{
+                    voxels.position.x += 1;
+                    voxels.position.z = -1.1;
+                }
+            }
 
             traitGroup.add(voxels);
         });
@@ -120,26 +153,29 @@ function generatePunk(traits) {
 
     //Gestion de l'epaisseur, de la profondeur, de la position x et de la rotation, des elements customisé (cigarette, etc...)
     function handleCustomElement(trait, z, thikness, isBeared, customThikness, customZ, x) {
+        console.log(trait.name)
+
 
         if (isBeared && (trait.type === "mouth")) {
+            console.log("isBeared && (trait.type === mouth)")
             thikness = customThikness;
             z = customZ;
         }
 
-        if (trait.type === "accessory" && trait.isCustomZ === true) {
-             
-            z = (customZ === undefined) ? z : z + customThikness;
-            console.log(z)
+        if (trait.type === "accessory") {
         }
 
-        if ((isBeared || isMasked) && (trait.type === "pipe" || trait.type === "cigarette" || trait.type === "blunt" )) {
-            x = -3;
-            z = -4.5 + customThikness;
-        }
 
-        if ((!isBeared && !isMasked) && (trait.type === "pipe" || trait.type === "cigarette" || trait.type === "blunt" )) {
-            x = -5;
-        }
+
+        // if ((isBeared || isMasked) && trait.type === "pipe") {
+        //     x += 0.5;
+        //     z += -customThikness/2;
+        //     console.log("FUCK")
+        // }
+
+        // if ((!isBeared && !isMasked) && trait.type === "pipe") {
+        //     z = -1;
+        // }
 
         return { z: z, thikness: thikness, customX: x };
     }
@@ -147,8 +183,53 @@ function generatePunk(traits) {
     return punk;
 }
 
+function createBlunt(){
+    const color = new THREE.Color(0xFFFFFF);
+    const color2 = new THREE.Color(0xff6000);
+
+    var jointMaterial = new THREE.MeshStandardMaterial({ 
+        color: color, 
+        metalness: 0, 
+        roughness: 1,
+        flatShading: true
+      });
+      var jointMaterial2 = new THREE.MeshStandardMaterial({ 
+        color: color2, 
+        metalness: 0, 
+        roughness: 1,
+        flatShading: true
+      });
+
+    var jointGeometry = new THREE.CylinderGeometry( 0.6, 1, 4, 4, 1 );
+    var jointGeometry2 = new THREE.CylinderGeometry( 1, 1.05, 0.75, 4, 1 );
+    
+    var jointMesh =  new THREE.Mesh(jointGeometry, jointMaterial);
+    var jointMesh2 =  new THREE.Mesh(jointGeometry2, jointMaterial2);
+
+    var group = new THREE.Group();
+    group.add(jointMesh);
+    group.add(jointMesh2);
+
+    group.rotateX(- Math.PI/2 );
+    group.rotateY(Math.PI/4);
+    group.updateMatrix()
+    group.rotateX(-0.17);
+    group.rotateZ(0.14);
+
+    group.position.y += -5;
+    group.position.x += 1.5;
+    group.position.z += 2.2;
+    
+    jointMesh2.position.y += -2.33;
+    jointMesh.castShadow = true;
+    jointMesh2.castShadow = true;
+
+    return group;
+}
+
+
 function getFixedTraits() {
-    const bodyColor = colors['body'][2];
+    const bodyColor = colors['body'][0];
     const hairColor = colors['hairs'][2];
     const metalColor = colors['metal'][0].hex;
 
@@ -157,23 +238,31 @@ function getFixedTraits() {
         new Trait(base[0], bodyColor.hexs.body),
         new Trait(base[1], bodyColor.hexs.reflect),
         new Trait(base[2], bodyColor.hexs.eye),
-        new Trait(beards[0]),
+        //new Trait(beards[1]),
         new Trait(base[3], hairColor.hexs.eyebrow),
-        new Trait(base[4]),
+        new Trait(base[4], hairColor.hexs.eyebrow),
         new Trait(eyes[2]),
         new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
-        // new Trait(glasses[9]),
+        //new Trait(glasses[9]),
         new Trait(base[5]),
 
         new Trait(encircleAndDrool[1]),
         new Trait(encircleAndDrool[2]),
 
-        new Trait(noses[0], bodyColor.hexs.nose),
+       
         new Trait(jewels[1], metalColor),
         new Trait(jewels[0], metalColor),
-        new Trait(hats[25]),
-        new Trait(hairs[0], hairColor.hexs.hair),
+        new Trait(hats[15]),
+        new Trait(hairs[3], hairColor.hexs.hair),
+
+        new Trait(smokes[2]),
+
+
     ]
+
+    if (bodyColor.name !== "Ape")
+        traits.push(new Trait(noses[0], bodyColor.hexs.nose))
+
     return traits;
 }
 
@@ -208,7 +297,7 @@ const glassesRatio = 5;
 const jewelRatio = 2;
 const eyesRatio = 1;
 const noseRatio = 1;
-const smokingRatio = 3;
+const smokingRatio = 1;
 const encirclesAndDroolRatio = 1;
 const maskRatio = 3;
 

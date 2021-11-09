@@ -5,8 +5,9 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as Export from "../components/Export";
 import { getRandomPunk, getPunk, getXPunk } from '../components/PunkFactory';
-import { Scene } from "three";
-
+import TWEEN from '@tweenjs/tween.js';
+import { SceneUtils } from '../../node_modules/three/examples/jsm/utils/SceneUtils';
+import { TransformControls } from 'three/examples/jsm/controls/TransformControls'
 let
     container,
     scene,
@@ -26,7 +27,7 @@ var onOffCubes = []
 const Viewer = () => {
 
 
-    const punkPath = './import.glb';
+    const punkPath = './91.glb';
     const [isLoading, setIsLoading] = useState(false);
     const [punk, setPunk] = useState(new THREE.Group());
     const [punks, setPunks] = useState([]);
@@ -34,23 +35,54 @@ const Viewer = () => {
 
     const [clicked, setClicked] = useState(false)
     const [hovered, setHovered] = useState(false)
+    const [tween, setTween] = useState()
 
     useEffect(() => {
         createScene();
         createCamera();
         createControls();
         createRenderer();
-          //loadMesh();
-       loadPunk();
-        animate();
+        //loadMesh();
+         loadPunk();
+       simpleRender();
     }, []);
 
     function loadPunk(){
         createLightsForExport();
-        setPunks(getXPunk(5));
+        // setPunks(getXPunk(5));
         fixedPunk();
-
     }
+    
+
+    function createTween(scene) {
+    let puff = scene.getObjectByName("puff");
+    puff.children[0].castShadow = false;
+    puff.children[0].receiveShadow = false;
+    let material = puff.children[0].material;
+    material.transparent = true;
+  
+    var tweenSmoke = new TWEEN.Tween( material ).to( { opacity: 0 }, 3000 );
+    tweenSmoke.repeat(Infinity);
+    tweenSmoke.start();
+  
+
+    let burn = scene.getObjectByName("cigarette2");
+    const color = new THREE.Color( 0xffac00 );
+    const color1 = burn.children[0].material.color;
+    var tweenColor = new TWEEN.Tween(color1).to(color, 1500 );
+    tweenColor.yoyo(true);
+    tweenColor.repeat(Infinity);
+    tweenColor.start();
+
+    var tween = new TWEEN.Tween(puff.position).to(puff.position.clone().setY(3), 3000).onComplete(()=>{
+      setInterval( ()=>{
+        puff.position.setY(0);
+      }, 1000);
+    });
+    tween.easing(TWEEN.Easing.Quartic.Out)
+    tween.repeat(Infinity);
+    tween.start();
+  }
 
 
     function createScene() {
@@ -124,42 +156,44 @@ const Viewer = () => {
 
     function createLightsForExport() {
 
+        var shadowRes = 5096*2;
+        var shadowBias = 0.00001;
 
         light0 = new THREE.DirectionalLight(0xffffff, 0.4);
         light0.position.set(10, 30, 50);
         light0.castShadow = true;
-        light0.shadow.mapSize.width = 10000;
-        light0.shadow.mapSize.height = 10000;
+        light0.shadow.mapSize.width = shadowRes;
+        light0.shadow.mapSize.height = shadowRes;
         light0.shadow.camera.left = - d;
         light0.shadow.camera.right = d;
         light0.shadow.camera.top = d;
         light0.shadow.camera.bottom = - d;
         light0.shadow.camera.far = 3500;
-        light0.shadow.bias = - 0.00001;
+        light0.shadow.bias = - shadowBias;
 
         light1 = new THREE.DirectionalLight(0xffffff, 0.4);
         light1.position.set(-25, 30, 50);
         light1.castShadow = true;
-        light1.shadow.mapSize.width = 10000;
-        light1.shadow.mapSize.height = 10000;
+        light1.shadow.mapSize.width = shadowRes;
+        light1.shadow.mapSize.height = shadowRes;
         light1.shadow.camera.left = - d;
         light1.shadow.camera.right = d;
         light1.shadow.camera.top = d;
         light1.shadow.camera.bottom = - d;
         light1.shadow.camera.far = 3500;
-        light1.shadow.bias = - 0.00001;
+        light1.shadow.bias = - shadowBias;
 
         light2 = new THREE.DirectionalLight(0xffffff, 0.4);
         light2.position.set(0.1, 3, 0);
         light2.castShadow = true;
-        light2.shadow.mapSize.width = 10000;
-        light2.shadow.mapSize.height = 10000;
+        light2.shadow.mapSize.width = shadowRes;
+        light2.shadow.mapSize.height = shadowRes;
         light2.shadow.camera.left = - d;
         light2.shadow.camera.right = d;
         light2.shadow.camera.top = d;
         light2.shadow.camera.bottom = - d;
         light2.shadow.camera.far = 3500;
-        light2.shadow.bias = - 0.00001;
+        light2.shadow.bias = - shadowBias;
 
         camera.add(light0);
         camera.add(light1);
@@ -194,7 +228,6 @@ const Viewer = () => {
         renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
         renderer.domElement.id = 'p3nkd-canvas';
         renderer.shadowMap.enabled = true;
-        renderer.castShadow = true;
         renderer.outputEncoding = THREE.LinearEncoding;
         renderer.setPixelRatio(devicePixelRatio);
         renderer.setSize(150, 150);
@@ -250,27 +283,22 @@ const Viewer = () => {
                 //     element.castShadow = true;
 
                 // });
-
                 gltf.scene.traverse(function (obj) {
-                    if (obj.type === "DirectionalLight"){
+                    if (obj.type === "DirectionalLight" || obj.type === "PerspectiveCamera"){
                         obj.clear();
                         obj.remove();
                     }
-                    if (obj.type === "PerspectiveCamera"){
-                        obj.clear();
-                        obj.remove();
-                    }
-                    if (obj.isMesh) {
 
+                    if (obj.isMesh) {
                         var color = obj.material.color;
 
-                        if (obj.material.opacity !== 1) {
+                        //pour verre lunette (pas opaque)
+                         if (obj.material.opacity !== 1) {
                             obj.material = new THREE.MeshBasicMaterial({ color: color, reflectivity: 90});
                             obj.material.transparent = true;
                             obj.material.opacity = 0.5;
                         }
                         else{
-
                             var material = new THREE.MeshStandardMaterial({ 
                                 color: color, 
                                 metalness: 0, 
@@ -280,11 +308,16 @@ const Viewer = () => {
                             obj.castShadow = true
                             obj.receiveShadow = true
                             obj.material = material;
+
+                            if (obj.parent.parent.name === "blunt"){
+                                obj.material.flatShading = true;
+                            }
                         }
                     }
                     
                 })
                 scene.add(gltf.scene);
+                // createTween(scene);   // A DECOMMENTER !!!!!
 
                 setPunk(gltf.scene.children[1]);
                 animate();
@@ -303,12 +336,22 @@ const Viewer = () => {
 
 
     function animate() {
+        console.log("animate")
         requestAnimationFrame(animate);
-        controls.autoRotate = false;
+        TWEEN.update();
         controls.autoRotateSpeed = 30;
         controls.update();
         render();
+        
     }
+
+    function simpleRender() {
+        requestAnimationFrame(simpleRender);
+        TWEEN.update();
+        controls.update();
+        render();
+    }
+
 
     function animatedRender() {
         controls.autoRotate = true;
@@ -339,6 +382,7 @@ const Viewer = () => {
     }
 
     function fixedPunk() {
+        console.log("FIXEDPUNKFIXEDPUNKFIXEDPUNKFIXEDPUNKFIXEDPUNKFIXEDPUNKFIXEDPUNK")
         punk.clear();
         var newPunk = getPunk();
         setPunk(newPunk);
