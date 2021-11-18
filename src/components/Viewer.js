@@ -156,7 +156,7 @@ const Viewer = () => {
 
     function createLightsForExport() {
 
-        var shadowRes = 5096*2;
+        var shadowRes = 5096;
         var shadowBias = 0.00001;
 
         light0 = new THREE.DirectionalLight(0xffffff, 0.4);
@@ -336,7 +336,6 @@ const Viewer = () => {
 
 
     function animate() {
-        console.log("animate")
         requestAnimationFrame(animate);
         TWEEN.update();
         controls.autoRotateSpeed = 30;
@@ -382,7 +381,6 @@ const Viewer = () => {
     }
 
     function fixedPunk() {
-        console.log("FIXEDPUNKFIXEDPUNKFIXEDPUNKFIXEDPUNKFIXEDPUNKFIXEDPUNKFIXEDPUNK")
         punk.clear();
         var newPunk = getPunk();
         setPunk(newPunk);

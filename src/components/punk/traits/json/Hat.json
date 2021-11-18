@@ -54,6 +54,12 @@
             {
                 "name": "hat_cop_back",
                 "src": "./punk/traits/img/male/hat/hat_cop_back.png",
+                "thikness": 0.2,
+                "z": -2
+            },
+            {
+                "name": "hat_cop_back",
+                "src": "./punk/traits/img/male/hat/hat_cop_back.png",
                 "thikness": 0.5,
                 "z": -1.75
             },
@@ -96,6 +102,12 @@
         "hairPack": 1,
         "rarity": 4,
         "elems": [
+            {
+                "name": "hat_biker_back",
+                "src": "./punk/traits/img/male/hat/hat_biker_back.png",
+                "thikness": 0.2,
+                "z": -2
+            },
             {
                 "name": "hat_biker_back",
                 "src": "./punk/traits/img/male/hat/hat_biker_back.png",
@@ -159,7 +171,6 @@
                 "thikness": 0.5,
                 "z": 1.25
             }
-
         ]
     },
     {
@@ -169,6 +180,12 @@
         "hairPack": 2,
         "rarity": 4,
         "elems": [
+            {
+                "name": "hat_cap",
+                "src": "./punk/traits/img/male/hat/hat_cap.png",
+                "thikness": 0.2,
+                "z": -2
+            },
             {
                 "name": "hat_cap",
                 "src": "./punk/traits/img/male/hat/hat_cap.png",
@@ -192,6 +209,12 @@
                 "src": "./punk/traits/img/male/hat/hat_cap.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "hat_cap",
+                "src": "./punk/traits/img/male/hat/hat_cap.png",
+                "thikness": 0.2,
+                "z": 1
             }
         ]
     },
@@ -247,6 +270,12 @@
         "hairPack": 2,
         "rarity": 4,
         "elems": [
+            {
+                "name": "hat_copter1",
+                "src": "./punk/traits/img/male/hat/hat_copter2.png",
+                "thikness": 0.2,
+                "z": -2
+            },
             {
                 "name": "hat_copter_visor",
                 "src": "./punk/traits/img/male/hat/hat_copter1.png",
@@ -340,6 +369,12 @@
             {
                 "name": "hat_peaked_cap_back",
                 "src": "./punk/traits/img/male/hat/hat_peaked_cap_back.png",
+                "thikness": 0.2,
+                "z": -2
+            },
+            {
+                "name": "hat_peaked_cap_back",
+                "src": "./punk/traits/img/male/hat/hat_peaked_cap_back.png",
                 "thikness": 0.5,
                 "z": -1.75
             },
@@ -391,6 +426,12 @@
             {
                 "name": "hat_mcDo_back",
                 "src": "./punk/traits/img/male/hat/hat_mcDo_back.png",
+                "thikness": 0.2,
+                "z": -2
+            },
+            {
+                "name": "hat_mcDo_back",
+                "src": "./punk/traits/img/male/hat/hat_mcDo_back.png",
                 "thikness": 0.5,
                 "z": -1.75
             },
@@ -424,6 +465,12 @@
             {
                 "name": "hat_bandana_crips_back1",
                 "src": "./punk/traits/img/male/hat/hat_bandana_crips_back.png",
+                "thikness": 0.2,
+                "z": -2
+            },
+            {
+                "name": "hat_bandana_crips_back1",
+                "src": "./punk/traits/img/male/hat/hat_bandana_crips_back.png",
                 "thikness": 0.5,
                 "z": -1.75
             },
@@ -444,6 +491,12 @@
                 "src": "./punk/traits/img/male/hat/hat_bandana_crips_face.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "hat_bandana_crips_face2",
+                "src": "./punk/traits/img/male/hat/hat_bandana_crips_face.png",
+                "thikness": 0.2,
+                "z": 1
             }
         ]
     },
@@ -454,6 +507,12 @@
         "hairPack": 2,
         "rarity": 4,
         "elems": [
+            {
+                "name": "hat_bandana_bloodz_back1",
+                "src": "./punk/traits/img/male/hat/hat_bandana_bloodz_back.png",
+                "thikness": 0.2,
+                "z": -2
+            },
             {
                 "name": "hat_bandana_bloodz_back1",
                 "src": "./punk/traits/img/male/hat/hat_bandana_bloodz_back.png",
@@ -477,6 +536,12 @@
                 "src": "./punk/traits/img/male/hat/hat_bandana_bloodz_face.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "hat_bandana_bloodz_face2",
+                "src": "./punk/traits/img/male/hat/hat_bandana_bloodz_face.png",
+                "thikness": 0.2,
+                "z": 1
             }
         ]
     },
@@ -490,18 +555,24 @@
             {
                 "name": "hat_mickey_back",
                 "src": "./punk/traits/img/male/hat/hat_mickey.png",
+                "thikness": 0.2,
+                "z": -2
+            },
+            {
+                "name": "hat_mickey_back",
+                "src": "./punk/traits/img/male/hat/hat_mickey.png",
                 "thikness": 0.5,
                 "z": -1.75
             },
             {
                 "name": "hat_mickey_back",
-                "src": "./punk/traits/img/male/hat/hat_mickey.png",
+                "src": "./punk/traits/img/male/hat/hat_mickey2.png",
                 "thikness": 1,
                 "z": -1
             },
             {
                 "name": "hat_mickey_face",
-                "src": "./punk/traits/img/male/hat/hat_mickey.png",
+                "src": "./punk/traits/img/male/hat/hat_mickey2.png",
                 "thikness": 1,
                 "z": 0
             },
@@ -510,6 +581,12 @@
                 "src": "./punk/traits/img/male/hat/hat_mickey.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "hat_mickey_face",
+                "src": "./punk/traits/img/male/hat/hat_mickey.png",
+                "thikness": 0.2,
+                "z": 1
             }
         ]
     },
@@ -529,6 +606,12 @@
             {
                 "name": "hat_pokemon_back",
                 "src": "./punk/traits/img/male/hat/hat_pokemon_back.png",
+                "thikness": 0.2,
+                "z": -2
+            },
+            {
+                "name": "hat_pokemon_back",
+                "src": "./punk/traits/img/male/hat/hat_pokemon_back.png",
                 "thikness": 0.5,
                 "z": -1.75
             },
@@ -549,6 +632,12 @@
                 "src": "./punk/traits/img/male/hat/hat_pokemon_face.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "hat_pokemon_face",
+                "src": "./punk/traits/img/male/hat/hat_pokemon_face.png",
+                "thikness": 0.2,
+                "z": 1
             }
         ]
     },
@@ -574,6 +663,12 @@
             {
                 "name": "hat_mcdo_topless_cap_back",
                 "src": "./punk/traits/img/male/hat/hat_mcdo_topless_cap_back.png",
+                "thikness": 0.2,
+                "z": -2
+            },
+            {
+                "name": "hat_mcdo_topless_cap_back",
+                "src": "./punk/traits/img/male/hat/hat_mcdo_topless_cap_back.png",
                 "thikness": 1,
                 "z": -1
             },
@@ -588,6 +683,12 @@
                 "src": "./punk/traits/img/male/hat/hat_mcdo_topless_cap_front.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "hat_mcdo_topless_cap_front",
+                "src": "./punk/traits/img/male/hat/hat_mcdo_topless_cap_front.png",
+                "thikness": 0.2,
+                "z": 1
             }
         ]
     },
@@ -598,6 +699,12 @@
         "hairPack": 3,
         "rarity": 4,
         "elems": [
+            {
+                "name": "nike_band_back",
+                "src": "./punk/traits/img/male/hat/nike_band_back.png",
+                "thikness": 0.2,
+                "z": -2
+            },
             {
                 "name": "nike_band_back",
                 "src": "./punk/traits/img/male/hat/nike_band_back.png",
@@ -615,6 +722,12 @@
                 "src": "./punk/traits/img/male/hat/nike_band_mid.png",
                 "thikness": 1,
                 "z": 0
+            },
+            {
+                "name": "nike_band4",
+                "src": "./punk/traits/img/male/hat/nike_band_front.png",
+                "thikness": 0.2,
+                "z": 1
             },
             {
                 "name": "nike_band4",
@@ -638,6 +751,12 @@
                 "z": -1.75
             },
             {
+                "name": "sport_band1",
+                "src": "./punk/traits/img/male/hat/sport_band_fr.png",
+                "thikness": 0.2,
+                "z": -2
+            },
+            {
                 "name": "sport_band2",
                 "src": "./punk/traits/img/male/hat/sport_band_fr.png",
                 "thikness": 1,
@@ -654,6 +773,12 @@
                 "src": "./punk/traits/img/male/hat/sport_band_fr.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "sport_band4",
+                "src": "./punk/traits/img/male/hat/sport_band_fr.png",
+                "thikness": 0.2,
+                "z": 1
             }
         ]
     },
@@ -667,6 +792,12 @@
             {
                 "name": "sport_band_de",
                 "src": "./punk/traits/img/male/hat/sport_band_de.png",
+                "thikness": 0.2,
+                "z": -2
+            },
+            {
+                "name": "sport_band_de",
+                "src": "./punk/traits/img/male/hat/sport_band_de.png",
                 "thikness": 0.5,
                 "z": -1.75
             },
@@ -687,6 +818,12 @@
                 "src": "./punk/traits/img/male/hat/sport_band_de.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "sport_band_de",
+                "src": "./punk/traits/img/male/hat/sport_band_de.png",
+                "thikness": 0.2,
+                "z": 1
             }
         ]
     },
@@ -700,6 +837,12 @@
             {
                 "name": "sport_band_it",
                 "src": "./punk/traits/img/male/hat/sport_band_it.png",
+                "thikness": 0.2,
+                "z": -2
+            },
+            {
+                "name": "sport_band_it",
+                "src": "./punk/traits/img/male/hat/sport_band_it.png",
                 "thikness": 0.5,
                 "z": -1.75
             },
@@ -720,6 +863,12 @@
                 "src": "./punk/traits/img/male/hat/sport_band_it.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "sport_band_it",
+                "src": "./punk/traits/img/male/hat/sport_band_it.png",
+                "thikness": 0.2,
+                "z": 1
             }
         ]
     },
@@ -731,6 +880,11 @@
         "rarity": 4,
         "elems": [
             {
+                "name": "sport_band1",
+                "src": "./punk/traits/img/male/hat/sport_band_rasta.png",
+                "thikness": 0.2,
+                "z": -2
+            },            {
                 "name": "sport_band1",
                 "src": "./punk/traits/img/male/hat/sport_band_rasta.png",
                 "thikness": 0.5,
@@ -753,6 +907,12 @@
                 "src": "./punk/traits/img/male/hat/sport_band_rasta.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "sport_band4",
+                "src": "./punk/traits/img/male/hat/sport_band_rasta.png",
+                "thikness": 0.2,
+                "z": 1
             }
         ]
     },
@@ -799,6 +959,11 @@
             {
                 "name": "hat_bandana_surgery_back1",
                 "src": "./punk/traits/img/male/hat/hat_bandana_surgery_back.png",
+                "thikness": 0.2,
+                "z": -2
+            },            {
+                "name": "hat_bandana_surgery_back1",
+                "src": "./punk/traits/img/male/hat/hat_bandana_surgery_back.png",
                 "thikness": 0.5,
                 "z": -1.75
             },
@@ -819,6 +984,12 @@
                 "src": "./punk/traits/img/male/hat/hat_bandana_surgery_face.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "hat_bandana_surgery_face2",
+                "src": "./punk/traits/img/male/hat/hat_bandana_surgery_face.png",
+                "thikness": 0.2,
+                "z": 1
             }
         ]
     },
@@ -870,27 +1041,53 @@
                 "src": "./punk/traits/img/male/hat/hat_sorcer_front_jewel.png",
                 "thikness": 0.5,
                 "z": 1.50
+            }
+        ]
+    },
+    {
+        "type": "hat",
+        "id": 23,
+        "name": "hoodies",
+        "hairPack": 4,
+        "rarity": 1,
+        "elems": [
+
+
+            {
+                "name": "hoodies_back",
+                "src": "./punk/traits/img/male/accessories/hoodies_back.png",
+                "thikness": 0.2,
+                "z": -2
             },
             {
-                "type": "accessory",
-                "id": 23,
-                "name": "hoodies",
-                "hairPack": 4,
-                "rarity": 1,
-                "elems": [
-                    {
-                        "name": "hoodies_face",
-                        "src": "./punk/traits/img/male/accessories/hoodies_face.png",
-                        "thikness": 3,
-                        "z": 0
-                    },
-                    {
-                        "name": "hoodies_back",
-                        "src": "./punk/traits/img/male/accessories/hoodies_back.png",
-                        "thikness": 1,
-                        "z": -2
-                    }
-                ]
+                "name": "hoodies_back",
+                "src": "./punk/traits/img/male/accessories/hoodies_back2.png",
+                "thikness": 0.5,
+                "z": -1.75
+            },
+            {
+                "name": "hoodies_back",
+                "src": "./punk/traits/img/male/accessories/hoodies_face.png",
+                "thikness": 1,
+                "z": -1
+            },
+            {
+                "name": "hoodies_back",
+                "src": "./punk/traits/img/male/accessories/hoodies_face.png",
+                "thikness": 1,
+                "z": 0
+            },
+            {
+                "name": "hoodies_face",
+                "src": "./punk/traits/img/male/accessories/hoodies_face.png",
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "hoodies_face",
+                "src": "./punk/traits/img/male/accessories/hoodies_face.png",
+                "thikness": 0.5,
+                "z": 1.25
             }
         ]
     },
@@ -937,24 +1134,18 @@
         "type": "hat",
         "id": 24,
         "name": "hat_xmas",
-        "hairPack": 2,
+        "hairPack": 1,
         "rarity": 0,
         "elems": [
             {
                 "name": "hat_xmas",
                 "src": "./punk/traits/img/male/hat/hat_xmas_border.png",
-                "thikness": 0.5,
-                "z": -2.25
+                "thikness": 0.2,
+                "z": -2
             },
             {
                 "name": "hat_xmas",
                 "src": "./punk/traits/img/male/hat/hat_xmas_border.png",
-                "thikness": 0.5,
-                "z": -1.75
-            },
-            {
-                "name": "hat_xmas",
-                "src": "./punk/traits/img/male/hat/hat_xmas.png",
                 "thikness": 0.5,
                 "z": -1.75
             },
@@ -963,6 +1154,12 @@
                 "src": "./punk/traits/img/male/hat/hat_xmas_border.png",
                 "thikness": 1,
                 "z": 0
+            },
+            {
+                "name": "hat_xmas",
+                "src": "./punk/traits/img/male/hat/hat_xmas_center.png",
+                "thikness": 0.5,
+                "z": -1.75
             },
             {
                 "name": "hat_xmas",
@@ -984,21 +1181,21 @@
             },
             {
                 "name": "hat_xmas",
-                "src": "./punk/traits/img/male/hat/hat_xmas.png",
-                "thikness": 0.5,
-                "z": 0.75
-            },
-            {
-                "name": "hat_xmas",
                 "src": "./punk/traits/img/male/hat/hat_xmas_border.png",
                 "thikness": 0.5,
                 "z": 0.75
             },
             {
                 "name": "hat_xmas",
-                "src": "./punk/traits/img/male/hat/hat_xmas_border.png",
+                "src": "./punk/traits/img/male/hat/hat_xmas_center.png",
                 "thikness": 0.5,
-                "z": 1.25
+                "z": 0.75
+            },
+            {
+                "name": "hat_xmas",
+                "src": "./punk/traits/img/male/hat/hat_xmas_border.png",
+                "thikness": 0.2,
+                "z": 1
             }
         ]
     },

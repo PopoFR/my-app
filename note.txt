@@ -2,3 +2,12 @@
 
 
 
+TODO :
+
+REgler le probleme avec les lunettes
+il faut doubler l'epaisseur de la monture car les cheveux son en 0.5 la monture en 0.1, donc zfight... 
+>>> monture = 2 x 0.5
+
+
+les cheveux avec les chapeau type "hat_peaked_cap" et hair03 (verifier tous)
+verifier aussi les cheveux cops etc..

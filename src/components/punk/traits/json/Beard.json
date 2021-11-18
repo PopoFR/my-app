@@ -8,8 +8,14 @@
             {
                 "name": "beard01_main",
                 "src": "./punk/traits/img/male/beard/beard01.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "beard01_main",
+                "src": "./punk/traits/img/male/beard/beard01.png",
+                "thikness": 0.5,
+                "z": 1.25
             }
         ]
     },
@@ -22,8 +28,14 @@
             {
                 "name": "beard02_main",
                 "src": "./punk/traits/img/male/beard/beard02.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "beard02_main",
+                "src": "./punk/traits/img/male/beard/beard02.png",
+                "thikness": 0.5,
+                "z": 1.25
             }
         ]
     },
@@ -47,6 +59,12 @@
         "name": "goat",
         "rarity": 9,
         "elems": [
+            {
+                "name": "beard04_main",
+                "src": "./punk/traits/img/male/beard/beard04.png",
+                "thikness": 0,
+                "z": 0
+            },
             {
                 "name": "beard04_main",
                 "src": "./punk/traits/img/male/beard/beard04.png",
@@ -78,8 +96,14 @@
             {
                 "name": "beard06_main",
                 "src": "./punk/traits/img/male/beard/beard06.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "beard06_main",
+                "src": "./punk/traits/img/male/beard/beard06.png",
+                "thikness": 0.5,
+                "z": 1.25
             }
         ]
     },
@@ -106,8 +130,14 @@
             {
                 "name": "beard08_main",
                 "src": "./punk/traits/img/male/beard/beard08.png",
-                "thikness": 1,
-                "z": 1
+                "thikness": 0.5,
+                "z": 0.75
+            },
+            {
+                "name": "beard08_main",
+                "src": "./punk/traits/img/male/beard/beard08.png",
+                "thikness": 0.5,
+                "z": 1.25
             }
         ]
     },

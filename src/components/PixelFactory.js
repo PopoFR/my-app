@@ -36,7 +36,6 @@ export function addPixelBlockToScene(pixels, colors, element) {
           }
 
           if(element.name == "smoke"){
-            console.log("smoke")
           }
 
           var material = new THREE.MeshStandardMaterial({ 
@@ -57,10 +56,16 @@ export function addPixelBlockToScene(pixels, colors, element) {
             geometry = new THREE.BoxGeometry(0.99, 0.99, 0.99);
           }
 
-          if (element.isDrool) {
-            geometry = new THREE.BoxGeometry(0.5, 1, 0.005);
-            z = 0.50;
+          if (element.isNoseDrool) {
+            geometry = new THREE.BoxGeometry(0.5, 0.85, 0.005);
           }
+
+          if (element.isDrool) {
+            geometry = new THREE.BoxGeometry(0.75, 1, 0.005);
+          }
+
+
+          
 
 
           let cube = new THREE.Mesh(geometry, material);
