@@ -59,12 +59,17 @@
                 "thikness": 0.5, 
                 "z": 0.75
             },
- 
+            {
+                "name": "glasses_sun_mini_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_beach_mini_mount.png", 
+                "thikness": 0.5, 
+                "z": 1.25
+            },
             {
                 "name": "glasses_sun_mini_glass", 
                 "src": "./punk/traits/img/male/glasses/glasses_beach_mini_glass.png", 
                 "thikness": 0, 
-                "z": 1,
+                "z": 1.5,
                 "opacity": 0.7, 
                 "isMerged": true
             }
@@ -82,12 +87,18 @@
                 "src": "./punk/traits/img/male/glasses/glasses_designer_mount.png", 
                 "thikness": 0.5, 
                 "z": 0.75
-            }, 
+            },            
+            {
+                "name": "glasses_designer_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_designer_mount.png", 
+                "thikness": 0.5, 
+                "z": 1.25
+            },
             {
                 "name": "glasses_designer_glass", 
                 "src": "./punk/traits/img/male/glasses/glasses_designer_glass.png", 
                 "thikness": 0, 
-                "z": 1,
+                "z": 1.5,
                 "opacity": 0.7, 
                 "isMerged": true
             }
@@ -107,10 +118,16 @@
                 "z": 0.75
             },
             {
+                "name": "glasses_office_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_office_mount.png", 
+                "thikness": 0.5, 
+                "z": 1.25
+            },
+            {
                 "name": "glasses_office_glass", 
                 "src": "./punk/traits/img/male/glasses/glasses_office_glass.png", 
                 "thikness": 0, 
-                "z": 1,
+                "z": 1.5,
                 "opacity": 0.7, 
                 "isMerged": true
             }
@@ -128,6 +145,12 @@
                 "src": "./punk/traits/img/male/glasses/glasses_thuglife.png", 
                 "thikness": 0.5, 
                 "z": 0.75
+            },
+            {
+                "name": "glasses_thuglife_main", 
+                "src": "./punk/traits/img/male/glasses/glasses_thuglife.png", 
+                "thikness": 0.5, 
+                "z": 1.25
             }
         ]
     },
@@ -145,10 +168,16 @@
                 "z": 0.75
             },
             {
+                "name": "glasses_black_mini_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_black_mini_mount.png", 
+                "thikness": 0.5, 
+                "z": 1.25
+            },
+            {
                 "name": "glasses_black_mini_glass", 
                 "src": "./punk/traits/img/male/glasses/glasses_black_mini_glass.png", 
-                "thikness": 0.5, 
-                "z": 0.75
+                "thikness": 1, 
+                "z": 1
             }
         ]
     },
@@ -166,10 +195,16 @@
                 "z": 0.75
             },
             {
+                "name": "glasses_daftpunk_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_daftpunk_mount.png", 
+                "thikness": 0.5, 
+                "z": 1.25
+            },
+            {
                 "name": "glasses_daftpunk_glass", 
                 "src": "./punk/traits/img/male/glasses/glasses_daftpunk_glass.png", 
                 "thikness": 0, 
-                "z": 1,
+                "z": 1.5,
                 "opacity": 0.8, 
                 "isMerged": true
             }
@@ -189,10 +224,16 @@
                 "z": 0.75
             },
             {
+                "name": "glasses_beach", 
+                "src": "./punk/traits/img/male/glasses/glasses_beach_mount.png", 
+                "thikness": 0.5, 
+                "z": 1.25
+            },
+            {
                 "name": "glasses_beach_glass", 
                 "src": "./punk/traits/img/male/glasses/glasses_beach_glass.png", 
                 "thikness": 0, 
-                "z": 1,
+                "z": 1.5,
                 "opacity": 0.7, 
                 "isMerged": true
             }
@@ -276,10 +317,16 @@
                 "z": 0.75
             },
             {
+                "name": "glasses_3d_mount", 
+                "src": "./punk/traits/img/male/glasses/glasses_3d_mount.png", 
+                "thikness": 0.5, 
+                "z": 1.25
+            },
+            {
                 "name": "glasses_3d_glass", 
                 "src": "./punk/traits/img/male/glasses/glasses_3d_glass.png", 
                 "thikness": 0, 
-                "z":  1,
+                "z": 1.5,
                 "opacity": 0.7, 
                 "isMerged": true
             }

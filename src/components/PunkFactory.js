@@ -229,81 +229,67 @@ function getFixedTraits() {
         new Trait(base[3], hairColor.hexs.eyebrow),
         new Trait(base[4], hairColor.hexs.eyebrow),
         new Trait(eyes[3]),
-        new Trait(hats[25]),
+        new Trait(hats[17]),
         new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
-        new Trait(hairs[9], hairColor.hexs.hair),
-        new Trait(glasses[7]),
-        new Trait(base[5]),
-        new Trait(encircleAndDrool[1]),
-        new Trait(encircleAndDrool[2]),
-        new Trait(smokes[1]),
-    ]
-
-    let mikey2 = [
-        // new Trait(accessories[0]), 
-        new Trait(base[0], bodyColor.hexs.body),
-        new Trait(base[1], bodyColor.hexs.reflect),
-        new Trait(base[2], bodyColor.hexs.eye),
-        new Trait(beards[3], hairColor.hexs.beard),
-        new Trait(base[3], hairColor.hexs.eyebrow),
-        new Trait(base[4], hairColor.hexs.eyebrow),
-        new Trait(eyes[3]),
-        new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
-        //new Trait(glasses[9]),
-        new Trait(base[5]),
-        new Trait(encircleAndDrool[1]),
-        new Trait(encircleAndDrool[2]),
-        new Trait(hats[20]),
         new Trait(hairs[4], hairColor.hexs.hair),
-        new Trait(smokes[1]),
-    ]
+        new Trait(glasses[6]),
 
-    let scumbag = [
-        // new Trait(accessories[0]), 
-        new Trait(base[0], bodyColor.hexs.body),
-        new Trait(base[1], bodyColor.hexs.reflect),
-        new Trait(base[2], bodyColor.hexs.eye),
-        new Trait(jewels[1], metalColor),
-        new Trait(jewels[0], metalColor),
-        new Trait(beards[8], hairColor.hexs.beard),
-        new Trait(base[3], hairColor.hexs.eyebrow),
-        new Trait(base[4], hairColor.hexs.eyebrow),
-        new Trait(eyes[2]),
-        new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
-        //new Trait(glasses[9]),
         new Trait(base[5]),
         new Trait(encircleAndDrool[1]),
         new Trait(encircleAndDrool[2]),
-        new Trait(hats[25]),
-        new Trait(hairs[0], hairColor.hexs.hair),
         new Trait(smokes[1]),
     ]
 
-    let traitsRocker = [
-        // new Trait(accessories[0]), 
-        new Trait(base[0], bodyColor.hexs.body),
-        new Trait(base[1], bodyColor.hexs.reflect),
-        new Trait(base[2], bodyColor.hexs.eye),
-        new Trait(jewels[1], metalColor),
-        new Trait(jewels[0], metalColor),
-        new Trait(beards[3], hairColor.hexs.beard),
-        new Trait(base[3], hairColor.hexs.eyebrow),
-        new Trait(base[4], hairColor.hexs.eyebrow),
-        new Trait(eyes[0]),
-        // new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
-        //new Trait(glasses[9]),
-        new Trait(base[5]),
+    // let mikey2 = [
+    //     new Trait(base[0], bodyColor.hexs.body),
+    //     new Trait(base[1], bodyColor.hexs.reflect),
+    //     new Trait(base[2], bodyColor.hexs.eye),
+    //     new Trait(beards[3], hairColor.hexs.beard),
+    //     new Trait(base[3], hairColor.hexs.eyebrow),
+    //     new Trait(base[4], hairColor.hexs.eyebrow),
+    //     new Trait(eyes[3]),
+    //     new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
+    //     new Trait(base[5]),
+    //     new Trait(encircleAndDrool[1]),
+    //     new Trait(encircleAndDrool[2]),
+    //     new Trait(hats[20]),
+    //     new Trait(hairs[4], hairColor.hexs.hair),
+    //     new Trait(smokes[1]),
+    // ]
 
-        // new Trait(encircleAndDrool[1]),
-        // new Trait(encircleAndDrool[2]),
-       
-  
-        new Trait(hats[15]),
-        new Trait(hairs[3], hairColor.hexs.hair),
+    // let scumbag = [
+    //     new Trait(base[0], bodyColor.hexs.body),
+    //     new Trait(base[1], bodyColor.hexs.reflect),
+    //     new Trait(base[2], bodyColor.hexs.eye),
+    //     new Trait(jewels[1], metalColor),
+    //     new Trait(jewels[0], metalColor),
+    //     new Trait(beards[8], hairColor.hexs.beard),
+    //     new Trait(base[3], hairColor.hexs.eyebrow),
+    //     new Trait(base[4], hairColor.hexs.eyebrow),
+    //     new Trait(eyes[2]),
+    //     new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
+    //     new Trait(base[5]),
+    //     new Trait(encircleAndDrool[1]),
+    //     new Trait(encircleAndDrool[2]),
+    //     new Trait(hats[25]),
+    //     new Trait(hairs[0], hairColor.hexs.hair),
+    //     new Trait(smokes[1]),
+    // ]
 
-        // new Trait(smokes[2]),
-
-    ]
+    // let traitsRocker = [
+    //     new Trait(base[0], bodyColor.hexs.body),
+    //     new Trait(base[1], bodyColor.hexs.reflect),
+    //     new Trait(base[2], bodyColor.hexs.eye),
+    //     new Trait(jewels[1], metalColor),
+    //     new Trait(jewels[0], metalColor),
+    //     new Trait(beards[3], hairColor.hexs.beard),
+    //     new Trait(base[3], hairColor.hexs.eyebrow),
+    //     new Trait(base[4], hairColor.hexs.eyebrow),
+    //     new Trait(eyes[0]),
+    //     new Trait(base[5]),
+    //     new Trait(hats[15]),
+    //     new Trait(hairs[3], hairColor.hexs.hair),
+    // ]
 
     if (bodyColor.name !== "Ape")
         mikey.push(new Trait(noses[0], bodyColor.hexs.nose))
@@ -327,7 +313,7 @@ function getBase(bodyColor) {
 //les ratio de rarity par type d'items
 const hairRatio = 1;
 const beardRatio = 1;
-const hatRatio = 3;
+const hatRatio = 1;
 const glassesRatio = 3;
 const jewelRatio = 3;
 const eyesRatio = 1;
@@ -360,6 +346,9 @@ function getRandomTraits() {
     var isMasked = false;
     var glassName;
 
+    allTraits = getRandomTrait(jewels, jewelRatio, allTraits, metalColor);    //BIJOUX
+
+    
     //BARBE
     if (checkIsPicked(beardRatio)) {
         allTraits.push(new Trait(pickRandom(beards), hairColor.hexs.beard));
@@ -392,19 +381,21 @@ function getRandomTraits() {
         glassName = randomGlasses.name;
     }
 
+
+
     allTraits = getRandomTrait(hats, hatRatio, allTraits);    //CHAPEAU
     allTraits = getRandomTrait(hairs, hairRatio, allTraits, hairColor.hexs.hair);    //CHEVEUX
-    allTraits = getRandomTrait(jewels, jewelRatio, allTraits, metalColor);    //BIJOUX
 
     //Si bandeau pirate il n'y a pas de sourcil gauche
     if (glassName !== "glasses_pirate" && glassName !== "glasses_thuglife" )
         allTraits.push(new Trait(base[3], hairColor.hexs.eyebrow)); //  SOURCIL GAUCHE
-    allTraits.push(new Trait(base[4], hairColor.hexs.eyebrow));//  SOURCIL DROIT
+    if (glassName !== "glasses_thuglife" )
+        allTraits.push(new Trait(base[4], hairColor.hexs.eyebrow));//  SOURCIL DROIT
 
-
-    //AJOUT DES LUNETTES  (je comprend pas pourquoi cette partie doit etre mise apres la poche sous les yeux... logiquement ca devrait etre l'inverse)
-    if (randomGlasses !== undefined)
+        if (randomGlasses !== undefined)
         allTraits.push(randomGlasses);
+    //AJOUT DES LUNETTES  (je comprend pas pourquoi cette partie doit etre mise apres la poche sous les yeux... logiquement ca devrait etre l'inverse)
+
 
     allTraits = getRandomTrait(smokes, smokingRatio, allTraits);  //CIGARETTE
 

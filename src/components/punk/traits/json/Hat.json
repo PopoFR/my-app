@@ -1088,6 +1088,12 @@
                 "src": "./punk/traits/img/male/accessories/hoodies_face.png",
                 "thikness": 0.5,
                 "z": 1.25
+            },
+            {
+                "name": "hoodies_face",
+                "src": "./punk/traits/img/male/accessories/hoodies_face.png",
+                "thikness": 0.5,
+                "z": 1.75
             }
         ]
     },
@@ -1127,6 +1133,12 @@
                 "src": "./punk/traits/img/male/hat/hat_cap_reverted.png",
                 "thikness": 0.5,
                 "z": 0.75
+            },
+            {
+                "name": "hat_mcDo_face",
+                "src": "./punk/traits/img/male/hat/hat_cap_reverted.png",
+                "thikness": 0.2,
+                "z": 1
             }
         ]
     },
