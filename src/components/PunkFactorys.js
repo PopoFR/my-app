@@ -36,26 +36,11 @@ export function getRandomPunk() {
 }
 
 
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min +1)) + min;
-  }
-  
-function getRandomLastname(){
-    const lastnames = require('./punk/traits/json/Lastname.json');
-    const listCount = lastnames.lastname.length;
-    var index = getRandomIntInclusive(1, listCount);
-    return lastnames.lastname[index];
-}
-
 // AJOUTER LE NOM DU PUNK
 export function getXPunk(ammount) {
-
     var randomTraits = [];
-
     //on genere les traits de x (ammount) punk
-    for (let index = 0; index < ammount; index++) {
+    for (let index = 0; index < 5; index++) {
         randomTraits.push(getRandomTraits());
     }
     //on supprime les doublons
@@ -65,19 +50,17 @@ export function getXPunk(ammount) {
 
     var punks = [];
 
-    //pour chaques traits, on genere le punk3d
-    distinctTraitsList.forEach((element, i) => {
-        punks.push(generatePunk(element, i));
+    distinctTraitsList.forEach(element => {
+        punks.push(generatePunk(element));
     });
 
-    console.log(punks)
     return punks;
 }
 
-function generatePunk(traits, i) {
-    var lastname = getRandomLastname();
+function generatePunk(traits) {
+
     var punk = new THREE.Group();
-    punk.name = `${lastname}_#${i}`;
+
     var pixels = [{}];
     var colors = [{}];
 
@@ -134,8 +117,9 @@ function generatePunk(traits, i) {
 
             if (e.isNoseDrool){
                 voxels.position.x += 1;
-                voxels.position.y += 0.075;
+                voxels.position.y += 0.15;
             }
+
 
             if (trait.name === "pipe" || trait.name === "cigarette"){
                 voxels.rotateY(-Math.PI/2 );
@@ -174,12 +158,24 @@ function generatePunk(traits, i) {
 
         if (isBeared && (trait.type === "mouth")) {
             thikness = (customThikness === undefined)? 0 : customThikness;
-            z = (customZ === undefined)? z : customZ;
+            z = (customThikness === undefined)? z : customZ;
         }
 
         if (trait.name === "drool") {
-            z = (customThikness === undefined)? z : (customThikness/2) + customZ;
+            z = (customThikness === undefined)? z : z + customThikness;
         }
+
+
+
+        // if ((isBeared || isMasked) && trait.type === "pipe") {
+        //     x += 0.5;
+        //     z += -customThikness/2;
+        //     console.log("FUCK")é&
+        // }
+
+        // if ((!isBeared && !isMasked) && trait.type === "pipe") {
+        //     z = -1;
+        // }
 
         return { z: z, thikness: thikness, customX: x };
     }
@@ -237,82 +233,40 @@ function getFixedTraits() {
     const hairColor = colors['hairs'][2];
     const metalColor = colors['metal'][0].hex;
 
-    let mikey = [
+    let traits = [
         // new Trait(accessories[0]), 
         new Trait(base[0], bodyColor.hexs.body),
         new Trait(base[1], bodyColor.hexs.reflect),
         new Trait(base[2], bodyColor.hexs.eye),
-        new Trait(beards[3], hairColor.hexs.beard),
+        new Trait(jewels[1], metalColor),
+        new Trait(jewels[0], metalColor),
+        new Trait(beards[3]),
         new Trait(base[3], hairColor.hexs.eyebrow),
         new Trait(base[4], hairColor.hexs.eyebrow),
-        new Trait(eyes[3]),
-        new Trait(hats[17]),
+        new Trait(eyes[2]),
         new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
-        new Trait(hairs[4], hairColor.hexs.hair),
-        new Trait(glasses[6]),
-
+        //new Trait(glasses[9]),
         new Trait(base[5]),
+
         new Trait(encircleAndDrool[1]),
         new Trait(encircleAndDrool[2]),
-        new Trait(smokes[1]),
+       
+  
+        new Trait(hats[15]),
+        new Trait(hairs[3], hairColor.hexs.hair),
+
+        // new Trait(smokes[2]),
+
     ]
 
-    // let mikey2 = [
-    //     new Trait(base[0], bodyColor.hexs.body),
-    //     new Trait(base[1], bodyColor.hexs.reflect),
-    //     new Trait(base[2], bodyColor.hexs.eye),
-    //     new Trait(beards[3], hairColor.hexs.beard),
-    //     new Trait(base[3], hairColor.hexs.eyebrow),
-    //     new Trait(base[4], hairColor.hexs.eyebrow),
-    //     new Trait(eyes[3]),
-    //     new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
-    //     new Trait(base[5]),
-    //     new Trait(encircleAndDrool[1]),
-    //     new Trait(encircleAndDrool[2]),
-    //     new Trait(hats[20]),
-    //     new Trait(hairs[4], hairColor.hexs.hair),
-    //     new Trait(smokes[1]),
-    // ]
-
-    // let scumbag = [
-    //     new Trait(base[0], bodyColor.hexs.body),
-    //     new Trait(base[1], bodyColor.hexs.reflect),
-    //     new Trait(base[2], bodyColor.hexs.eye),
-    //     new Trait(jewels[1], metalColor),
-    //     new Trait(jewels[0], metalColor),
-    //     new Trait(beards[8], hairColor.hexs.beard),
-    //     new Trait(base[3], hairColor.hexs.eyebrow),
-    //     new Trait(base[4], hairColor.hexs.eyebrow),
-    //     new Trait(eyes[2]),
-    //     new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
-    //     new Trait(base[5]),
-    //     new Trait(encircleAndDrool[1]),
-    //     new Trait(encircleAndDrool[2]),
-    //     new Trait(hats[25]),
-    //     new Trait(hairs[0], hairColor.hexs.hair),
-    //     new Trait(smokes[1]),
-    // ]
-
-    // let traitsRocker = [
-    //     new Trait(base[0], bodyColor.hexs.body),
-    //     new Trait(base[1], bodyColor.hexs.reflect),
-    //     new Trait(base[2], bodyColor.hexs.eye),
-    //     new Trait(jewels[1], metalColor),
-    //     new Trait(jewels[0], metalColor),
-    //     new Trait(beards[3], hairColor.hexs.beard),
-    //     new Trait(base[3], hairColor.hexs.eyebrow),
-    //     new Trait(base[4], hairColor.hexs.eyebrow),
-    //     new Trait(eyes[0]),
-    //     new Trait(base[5]),
-    //     new Trait(hats[15]),
-    //     new Trait(hairs[3], hairColor.hexs.hair),
-    // ]
-
     if (bodyColor.name !== "Ape")
-        mikey.push(new Trait(noses[0], bodyColor.hexs.nose))
+        traits.push(new Trait(noses[0], bodyColor.hexs.nose))
 
-    return mikey;
+    return traits;
 }
+
+
+
 
 //body, reflet, blanc des yeux, bouche
 function getBase(bodyColor) {
@@ -325,24 +279,24 @@ function getBase(bodyColor) {
 
 
 //les ratio de rarity par type d'items
-const hairRatio = 1;
+const hairRatio = 2;
 const beardRatio = 3;
-const hatRatio = 2;
-const glassesRatio = 3;
-const jewelRatio = 4;
+const hatRatio = 5;
+const glassesRatio = 5;
+const jewelRatio = 2;
 const eyesRatio = 1;
 const noseRatio = 1;
-const smokingRatio = 5;
-const encirclesAndDroolRatio = 3;
-const maskRatio = 8;
+const smokingRatio = 1;
+const encirclesAndDroolRatio = 1;
+const maskRatio = 1;
 
 
 function getRandomTraits() {
 
     //On recupere les couleurs peau/cheveux
     const hairColor = pickRandom(colors.hairs);
-    // const bodyColor = colors['body'][0];
-    const bodyColor = pickRandom(colors.body);
+    const bodyColor = colors['body'][0];
+    // const bodyColor = pickRandom(colors.body);
     const metalColor = pickRandom(colors.metal).hex;
 
     //on recupere la base (corps, bouche sourcil, reflet, oeil) (commun a tout les punk)
@@ -360,14 +314,12 @@ function getRandomTraits() {
     var isMasked = false;
     var glassName;
 
-    allTraits = getRandomTrait(jewels, jewelRatio, allTraits, metalColor);    //BIJOUX
-
-    
     //BARBE
     if (checkIsPicked(beardRatio)) {
         allTraits.push(new Trait(pickRandom(beards), hairColor.hexs.beard));
         isBeared = true;
     }
+    allTraits = getRandomTrait(hairs, hairRatio, allTraits, hairColor.hexs.hair);    //CHEVEUX
 
     //MASK
     if (!isBeared && checkIsPicked(maskRatio)) {
@@ -395,21 +347,18 @@ function getRandomTraits() {
         glassName = randomGlasses.name;
     }
 
-
-
     allTraits = getRandomTrait(hats, hatRatio, allTraits);    //CHAPEAU
-    allTraits = getRandomTrait(hairs, hairRatio, allTraits, hairColor.hexs.hair);    //CHEVEUX
+    allTraits = getRandomTrait(jewels, jewelRatio, allTraits, metalColor);    //BIJOUX
 
     //Si bandeau pirate il n'y a pas de sourcil gauche
-    if (glassName !== "glasses_pirate" && glassName !== "glasses_thuglife" )
+    if (glassName !== "glasses_pirate")
         allTraits.push(new Trait(base[3], hairColor.hexs.eyebrow)); //  SOURCIL GAUCHE
-    if (glassName !== "glasses_thuglife" )
-        allTraits.push(new Trait(base[4], hairColor.hexs.eyebrow));//  SOURCIL DROIT
+    allTraits.push(new Trait(base[4], hairColor.hexs.eyebrow));//  SOURCIL DROIT
 
-        if (randomGlasses !== undefined)
-        allTraits.push(randomGlasses);
+
     //AJOUT DES LUNETTES  (je comprend pas pourquoi cette partie doit etre mise apres la poche sous les yeux... logiquement ca devrait etre l'inverse)
-
+    if (randomGlasses !== undefined)
+        allTraits.push(randomGlasses);
 
     allTraits = getRandomTrait(smokes, smokingRatio, allTraits);  //CIGARETTE
 

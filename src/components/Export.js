@@ -6,9 +6,9 @@ import {NeuQuant} from '../script/NeuQuant'
 
 export async function doExport(scene, renderer, name, animatedRender){
     return Promise.all([
-        exportGLB(scene, name), 
-        exportJPG(renderer, name),
-        exportGif(animatedRender, name) 
+        exportGLB(scene, name)
+        ,exportJPG(renderer, name)
+        // ,exportGif(animatedRender, name) 
     ])
 }
 

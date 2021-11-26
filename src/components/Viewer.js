@@ -49,7 +49,7 @@ const Viewer = () => {
 
     function loadPunk(){
         createLightsForExport();
-        // setPunks(getXPunk(5));
+        setPunks(getXPunk(5));
         fixedPunk();
     }
     
