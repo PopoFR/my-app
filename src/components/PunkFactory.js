@@ -29,7 +29,6 @@ export function getPunk() {
 export function getRandomPunk() {
     var name = "random punk";
     var randomTraits = getRandomTraits();
-    console.log(randomTraits)
     var punk = generatePunk(randomTraits);
     punk.name = name;
     return punk;
@@ -69,7 +68,6 @@ export function getXPunk(ammount) {
     distinctTraitsList.forEach((element, i) => {
         punks.push(generatePunk(element, i));
     });
-
     console.log(punks)
     return punks;
 }
@@ -77,7 +75,9 @@ export function getXPunk(ammount) {
 function generatePunk(traits, i) {
     var lastname = getRandomLastname();
     var punk = new THREE.Group();
-    punk.name = `${lastname}_#${i}`;
+    // punk.name = `${lastname}_#${i}`;
+    punk.name = `Junk3d_${i+1}`;
+
     var pixels = [{}];
     var colors = [{}];
 
@@ -96,7 +96,6 @@ function generatePunk(traits, i) {
         if (trait.isApe)
             isApe = true;
   
-
         if (trait.type === "hat")
             hairPack = trait.hairPack;
 
@@ -111,7 +110,6 @@ function generatePunk(traits, i) {
             customThikness = trait.elems[0].thikness;
             customZ = trait.elems[0].z;
         }
-
 
         var customX = 0;
         //on modelise chaque element de chaque traitz

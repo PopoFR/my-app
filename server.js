@@ -4,10 +4,6 @@ const cors = require('cors');
 const fs = require('fs')
 const app = express();
 
-
-const Uploader = require('./src/node/uploader');
-const uploader = new Uploader();
-
 var bodyParser = require('body-parser');
 app.use(bodyParser.json({limit: '150mb'}));
 app.use(bodyParser.urlencoded({limit: '150mb', extended: true}));
@@ -15,18 +11,16 @@ app.use(bodyParser.urlencoded({limit: '150mb', extended: true}));
 app.use(cors())
 
 //JPG FILE
-const previewStorage = multer.diskStorage({
+const jpgStorage = multer.diskStorage({
     destination: function (req, file, cb) {
     cb(null, './generatedP3nkd/img')
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' +file.originalname )
+    cb(null, file.originalname )
   }
 })
 
-const uploadPreview = multer({storage: previewStorage}).single('file');
-
-
+const uploadPreview = multer({storage: jpgStorage}).single('file');
 
 app.post('/uploadJPG',function(req, res) {
   console.log("Uploading JPG...")
@@ -48,8 +42,34 @@ app.post('/uploadJPG',function(req, res) {
     })
 });
 
-//GLTF FILE
-app.post('/uploadGLB', (req, res) =>{uploader.startUpload(req, res);})
+
+//GLB FILE
+const glbStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+  cb(null, './generatedP3nkd/glb')
+},
+filename: function (req, file, cb) {
+  cb(null, file.originalname )
+}
+})
+
+const uploadGlb = multer({storage: glbStorage}).single('file');
+
+app.post('/uploadGLB',function(req, res) {
+  console.log("Uploading GLB...")
+
+  uploadGlb(req, res, function (err) {
+
+      if (err instanceof multer.MulterError) {
+          return res.status(500).json(err)
+      } else if (err) {
+          console.log(err)
+          return res.status(500).json(err)
+      }
+      console.log("P3nkD GLB saved.")
+      return res.status(200).send(req.file)
+    })
+});
 
 
 //GIF
@@ -58,7 +78,7 @@ const gifStorage = multer.diskStorage({
     cb(null, './generatedP3nkd/gifs')
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' +file.originalname )
+    cb(null, file.originalname )
   }
 });
 

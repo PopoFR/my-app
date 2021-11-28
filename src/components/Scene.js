@@ -142,8 +142,10 @@ const Scene = () => {
 
     async function tooglePunk() {
         scene.add(punks[i]);
+
         await Export.doExport(scene, renderer, punk.name, animatedRender)
         punks[i].clear();
+
     }
 
     function sleep(ms) {

@@ -27,7 +27,7 @@ var onOffCubes = []
 const Viewer = () => {
 
 
-    const punkPath = './91.glb';
+    const punkPath = './Junk3d_1.glb';
     const [isLoading, setIsLoading] = useState(false);
     const [punk, setPunk] = useState(new THREE.Group());
     const [punks, setPunks] = useState([]);
@@ -49,7 +49,7 @@ const Viewer = () => {
 
     function loadPunk(){
         createLightsForExport();
-        setPunks(getXPunk(5));
+        setPunks(getXPunk(nbPunks));
         fixedPunk();
     }
     
@@ -351,52 +351,45 @@ const Viewer = () => {
         render();
     }
 
-
     function animatedRender() {
         controls.autoRotate = true;
         controls.update();
         render();
     }
 
-    function tooglePunk(e) {
-        e.preventDefault()
-        // var newPunk = punks[currentGeneratedPunkId];
-        try {       
-            scene.remove(punk)
-            var newPunk = getRandomPunk();
-            var currentId = currentGeneratedPunkId + 1;
-            setCurrentGeneratedPunkId(currentId)
-            setPunk(newPunk);
-            scene.add(newPunk);
-        } catch (error) {
-            // tooglePunk(e);
+    const nbPunks = 10;
+    var i = 0;
+
+    async function exportPunk() {
+        punk.clear();
+
+        setIsLoading(true);
+        controls.reset();
+        controls.target.set(0, 0, 0);
+        setCameraPosition();
+        controls.update();
+
+        for (i; i < nbPunks; i++) {
+            await tooglePunk(null, 0);
         }
+     
+        setIsLoading(false);
     }
 
-    function generateXPunk(e) {
-        e.preventDefault()
-        punk.clear();
-        // var newPunk = getRandomPunk();
-        getXPunk(1000);
+
+    async function tooglePunk(e, rr) {
+        scene.add(punks[i]);
+        render();
+        await Export.doExport(scene, renderer, punks[i].name, animatedRender)
+        punks[i].clear();
     }
+
 
     function fixedPunk() {
         punk.clear();
         var newPunk = getPunk();
         setPunk(newPunk);
         scene.add(newPunk);
-    }
-
-
-    async function exportPunk() {
-        setIsLoading(true);
-        controls.reset();
-        setCameraPosition();
-        controls.update();
-        Export.doExport(scene, renderer, punk.name, animatedRender)
-            .then(() => {
-                setIsLoading(false);
-            });
     }
 
     return (

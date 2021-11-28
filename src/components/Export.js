@@ -22,13 +22,13 @@ async function updateJson(scene) {
 
 export async function uploadJson(json) {
     console.log("uploadJson")
-    console.log(json)
     const url = 'http://localhost:8000/uploadJson';
     const filename = "NEW.json";
     await axios.post(url, json, {})
 }
 
 async function exportGLB(scene, name) {
+    console.log(name)
     const filename = `${name}.glb`
     const url = 'http://localhost:8000/uploadGLB';
     const exporter = new GLTFExporter();
@@ -43,7 +43,7 @@ async function exportGLB(scene, name) {
 }
 
 async function exportJPG(renderer, name){
-
+    console.log(name)
     const filename = `${name}.jpg`
     const url = "http://localhost:8000/uploadJPG";
     const strMime = "image/jpeg";
@@ -67,7 +67,6 @@ async function exportGif(animatedRender, name){
 
 
 async function generateGIF(element, animatedRender, duration = 1, fps = 30) {
-
     const frames = duration * fps;
 
     const canvas = document.createElement('canvas');
@@ -188,8 +187,6 @@ async function generateGIF(element, animatedRender, duration = 1, fps = 30) {
 
 }
 
-
-/// CA VIENT DE LA !!!!
 async function upload(url, file, filename){
     console.log(`exporting ${filename}`);
     const data = new FormData();
