@@ -370,18 +370,20 @@ const Viewer = () => {
         controls.update();
 
         for (i; i < nbPunks; i++) {
-            await tooglePunk(null, 0);
+            scene.add(punks[i]);
+            render();
+            await Export.doExport(scene, renderer, punks[i].name, animatedRender)
+            punks[i].clear();
         }
      
         setIsLoading(false);
     }
 
 
-    async function tooglePunk(e, rr) {
-        scene.add(punks[i]);
+    async function tooglePunk(e) {
+        punk.clear();
+        scene.add(punks[0]);
         render();
-        await Export.doExport(scene, renderer, punks[i].name, animatedRender)
-        punks[i].clear();
     }
 
 

@@ -51,6 +51,9 @@ function getRandomLastname(){
 // AJOUTER LE NOM DU PUNK
 export function getXPunk(ammount) {
 
+    // var lastname = getRandomLastname();
+    // punk.name = `${lastname}_#${i}`;
+
     var randomTraits = [];
 
     //on genere les traits de x (ammount) punk
@@ -66,17 +69,18 @@ export function getXPunk(ammount) {
 
     //pour chaques traits, on genere le punk3d
     distinctTraitsList.forEach((element, i) => {
-        punks.push(generatePunk(element, i));
+        var punk = generatePunk(element);
+        punk.name = `Junk3d_${i+1}`;
+        punks.push(punk);
     });
-    console.log(punks)
+
     return punks;
 }
 
-function generatePunk(traits, i) {
-    var lastname = getRandomLastname();
+function generatePunk(traits) {
+
     var punk = new THREE.Group();
-    // punk.name = `${lastname}_#${i}`;
-    punk.name = `Junk3d_${i+1}`;
+
 
     var pixels = [{}];
     var colors = [{}];

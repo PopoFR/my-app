@@ -1,4 +1,3 @@
-
 import axios from 'axios'
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter"
 import { GifWriter } from 'omggif'
@@ -18,7 +17,6 @@ async function updateJson(scene) {
     const filename = "test.json";
     await upload(url, new Blob([]), filename);
 }
-
 
 export async function uploadJson(json) {
     console.log("uploadJson")
@@ -49,7 +47,6 @@ async function exportJPG(renderer, name){
     const strMime = "image/jpeg";
     const base64Image = renderer.domElement.toDataURL(strMime);
     const file = dataURLtoFile(base64Image, filename);
-
     await upload(url, file, filename)
 }
 
@@ -64,7 +61,6 @@ async function exportGif(animatedRender, name){
 
     await upload(url, blob, filename)
 }
-
 
 async function generateGIF(element, animatedRender, duration = 1, fps = 30) {
     const frames = duration * fps;
@@ -188,10 +184,9 @@ async function generateGIF(element, animatedRender, duration = 1, fps = 30) {
 }
 
 async function upload(url, file, filename){
-    console.log(`exporting ${filename}`);
+    console.log(`uploading ${filename}`);
     const data = new FormData();
     data.append('file', file, filename);
-
     axios.post(url, data, {})
 }
 
