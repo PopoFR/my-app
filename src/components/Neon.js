@@ -6,7 +6,6 @@ import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
 import * as Export from "../components/Export";
 import { TraitsGenerator } from "./punk/traits/TraitsGenerator.js"
 import { getRandomPunk, getPunk } from './PunkFactory';
-import {Menu, ColorMenu} from '../Menu';
 import {Link} from "react-router-dom";
 import {Viewer} from "./Viewer";
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
@@ -101,16 +100,6 @@ const Neon = () => {
         textGeo = new THREE.PlaneGeometry(300,300);
         THREE.ImageUtils.crossOrigin = ''; //Need this to pull in crossdomain images from AWS
         textTexture = THREE.ImageUtils.loadTexture('https://s3-us-west-2.amazonaws.com/s.cdpn.io/95637/quickText.png');
-
-
-        const tt = require('./punk/Neon 80s_Regular.json');
-
-        console.log("helveticaRegular")
-
-        console.log(helveticaRegular)
-        console.log("helveticaRegular")
-
-
 
         var loader = new THREE.FontLoader(); 
         var myFont = loader.parse(helveticaRegular); 

@@ -6,9 +6,7 @@ import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
 import * as Export from "../components/Export";
 import { TraitsGenerator } from "./punk/traits/TraitsGenerator.js"
 import { getRandomPunk, getPunk, getXPunk} from './PunkFactory';
-import {Menu, ColorMenu} from '../Menu';
 import {Link} from "react-router-dom";
-import {Viewer} from "./Viewer";
 
 let
     container,
@@ -19,13 +17,9 @@ let
 
 const Scene = () => {
     const [punk, setPunk] = useState(new THREE.Group());
-    const [bodyColor, setBodyColor] = useState('#ffffff');
     const [isLoading, setIsLoading] = useState(false);
     const myRefname= useRef(null);
-
     const [punks, setPunks] = useState([]);
-    const [ind, setInd] = useState(0);
-
 
     useEffect(() => {
         init();
@@ -196,7 +190,6 @@ const Scene = () => {
                     })
                 }
             </div>
-            <ColorMenu bodyColor = {bodyColor}/>
         </div>
 
     )
