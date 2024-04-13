@@ -1,0 +1,112 @@
+[
+    {
+        "name": "beard01",
+        "id": "0",
+        "elems": 
+        [{
+            "name": "beard01", 
+            "src": "./traits/img/male/beard/beard01.png", 
+            "thikness": 0.75, 
+            "z": 1.75
+        }]
+    },
+    {
+        "name": "beard02",
+        "id": "1",
+        "elems": 
+        [{
+            "name": "beard02", 
+            "src": "./traits/img/male/beard/beard02.png", 
+            "thikness": 0.75, 
+            "z": 1.75
+        }]
+    },
+    {
+        "name": "beard03",
+        "id": "2",
+        "elems": 
+        [{
+            "name": "beard03", 
+            "src": "./traits/img/male/beard/beard03.png", 
+            "thikness": 0.75, 
+            "z": 1.75
+        }]
+    },
+    {
+        "name": "beard04",
+        "id": "3",
+        "elems": 
+        [{
+            "name": "beard04", 
+            "src": "./traits/img/male/beard/beard04.png", 
+            "thikness": 0.75, 
+            "z": 1.75
+        }]
+    },
+    {
+        "name": "beard05",
+        "id": "4",
+        "elems": 
+        [{
+            "name": "beard05", 
+            "src": "./traits/img/male/beard/beard05.png", 
+            "thikness": 0.75, 
+            "z": 1.75
+        }]
+    },
+    {
+        "name": "beard06",
+        "id": "5",
+        "elems": 
+        [{
+            "name": "beard06", 
+            "src": "./traits/img/male/beard/beard06.png", 
+            "thikness": 0.75, 
+            "z": 1.75
+        }]
+    },
+    {
+        "name": "beard07",
+        "id": "6",
+        "elems": 
+        [{
+            "name": "beard07", 
+            "src": "./traits/img/male/beard/beard07.png", 
+            "thikness": 0.75, 
+            "z": 1.75
+        }]
+    },
+    {
+        "name": "beard08",
+        "id": "7",
+        "elems": 
+        [{
+            "name": "beard08", 
+            "src": "./traits/img/male/beard/beard08.png", 
+            "thikness": 0.75, 
+            "z": 1.75
+        }]
+    },
+    {
+        "name": "mustache01",
+        "id": "8",
+        "elems": 
+        [{
+            "name": "mustache01", 
+            "src": "./traits/img/male/beard/mustache01.png", 
+            "thikness": 0.75, 
+            "z": 1.75
+        }]
+    },
+    {
+        "name": "mustache02",
+        "id": "9",
+        "elems": 
+        [{
+            "name": "mustache02", 
+            "src": "./traits/img/male/beard/mustache02.png", 
+            "thikness": 0.75, 
+            "z": 1.75
+        }]
+    }
+]

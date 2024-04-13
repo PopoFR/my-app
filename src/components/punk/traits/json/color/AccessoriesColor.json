@@ -1,0 +1,19 @@
+[
+    {
+        "id": "0",
+        "name": "casque_audio_structure",
+        "hex" : "#846f6a"
+    },
+    {
+        "id": "1",
+        "name": "casque_audio_ecouteur",
+        "hex" : "#808080"
+    },
+    {
+        "id": "2",
+        "name": "hearing",
+        "hex" : "#ffd700"
+    }
+    
+    
+]

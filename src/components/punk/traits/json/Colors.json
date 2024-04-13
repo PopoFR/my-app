@@ -1,0 +1,137 @@
+{
+    "metal":
+    [
+        {
+            "name": "gold",
+            "hex" : "#846f6a"
+            },
+        {   
+            "name": "silver",
+            "hex" : "#808080"
+        }
+    ],
+    "hair":
+    [
+        {
+            "name": "Dark",
+            "hair" : "#100C07",
+            "beard" : "#100C07",
+            "eyebrow" : "#100C07"
+        },
+        {
+            "name": "Blond",
+            "hair" : "#faf0be",
+            "beard" : "#faf0be",
+            "eyebrow" : "#faf0be"
+        },
+        {
+            "name": "Brown",
+            "hair" : "#2c1608",
+            "beard" : "#2c1608",
+            "eyebrow" : "#2c1608"
+        },
+        {
+            "name": "Ginger",
+            "hair" : "#b06500",
+            "beard" : "#b06500",
+            "eyebrow" : "#b06500"
+        },
+        {
+            "name": "Grey",
+            "hair" : "#e9e4dc",
+            "beard" : "#e9e4dc",
+            "eyebrow" : "#e9e4dc"
+        }
+    ],
+    "hairs":
+    [
+        {
+            "name": "Black",
+            "hex": "#100C07"
+        },
+        {
+            "name": "Blond",
+            "hex": "#faf0be"
+        },
+        {
+            "name": "Brown",
+            "hex": "#2c1608"
+        },
+        {
+            "name": "Ginger",
+            "hex": "#b06500"
+        },
+        {
+            "name": "Grey",
+            "hex": "#e9e4dc"
+        }
+    ],
+    
+    "body":
+    [
+        {
+            "name": "Black",
+            "hexs": {
+                "body": "#713f1d",
+                "eyebrow": "#562600",
+                "eye": "#723709",
+                "reflect": "#8b532c"
+            }
+        },
+        {
+            "name": "Tanned",
+            "hexs": {
+                "body": "#ae8b61",
+                "eyebrow": "#86581e",
+                "eye": "#a77c47",
+                "reflect": "#b69f82"
+            }
+        },
+        {
+            "name": "White",
+            "hexs": {
+                "body": "#dbb180",
+                "eyebrow": "#a66e2c",
+                "eye": "#d29d60",
+                "reflect": "#e7cba9"
+            }
+        },
+        {
+            "name": "Alien",
+            "hexs": {
+                "body": "#c8fbfb",
+                "eyebrow": "",
+                "eye": "",
+                "reflect": ""
+            }
+        },
+        {
+            "name": "Ape",
+            "hexs": {
+                "body": "#352410",
+                "eyebrow": "#6a563f",
+                "eye": "#a98c6b",
+                "reflect": ""
+            }
+        },
+        {
+            "name": "Orc",
+            "hexs": {
+                "body": "#7da269",
+                "eyebrow": "#5e7253",
+                "eye": "#5e7253",
+                "reflect": "#9bbc88"
+            }
+        },
+        {
+            "name": "Vampire",
+            "hexs": {
+                "body": "#ead9d9",
+                "eyebrow": "#a58d8d",
+                "eye": "#c9b2b2",
+                "reflect": "#ffffff"
+            }
+        }
+    ]
+}
+

@@ -1,0 +1,13 @@
+
+[
+    {
+        "name": "nose01",
+        "elems": 
+        [{
+            "name": "nose01", 
+            "src": "./traits/img/male/nose/nose01.png", 
+            "thikness": 0.5, 
+            "z": 1.5
+        }]
+    }
+]

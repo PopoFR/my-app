@@ -1,0 +1,15 @@
+[
+    {
+        "name": "eyes01",
+        "id": "0",
+        "elems": 
+        [
+            {
+                "name": "eyes01", 
+                "src": "./traits/img/male/eye/eye01.png", 
+                "thikness": 1, 
+                "z": 1
+            }
+        ]
+    }
+]

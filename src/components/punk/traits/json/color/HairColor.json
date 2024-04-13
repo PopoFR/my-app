@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Black",
+        "hex": "#100C07"
+    },
+    {
+        "name": "Blond",
+        "hex": "#faf0be"
+    },
+    {
+        "name": "Brown",
+        "hex": "#2c1608"
+    },
+    {
+        "name": "Ginger",
+        "hex": "#b06500"
+    },
+    {
+        "name": "Grey",
+        "hex": "#e9e4dc"
+    }
+]
