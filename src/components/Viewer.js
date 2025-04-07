@@ -8,6 +8,8 @@ import { getRandomPunk, getPunk, getXPunk } from '../components/PunkFactory';
 import TWEEN from '@tweenjs/tween.js';
 import { SceneUtils } from '../../node_modules/three/examples/jsm/utils/SceneUtils';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls'
+
+
 let
     container,
     scene,
@@ -20,9 +22,12 @@ let
     light2,
     INTERSECTED,
     pointer,
-    raycaster
-    ;
+    raycaster;
+
 var onOffCubes = []
+
+const nbPunks = 3;
+
 
 const Viewer = () => {
 
@@ -42,8 +47,8 @@ const Viewer = () => {
         createCamera();
         createControls();
         createRenderer();
-        //loadMesh();
-         loadPunk();
+        loadMesh();
+         //loadPunk();
        simpleRender();
     }, []);
 
@@ -357,7 +362,6 @@ const Viewer = () => {
         render();
     }
 
-    const nbPunks = 10;
     var i = 0;
 
     async function exportPunk() {

@@ -1,6 +1,6 @@
 
-
-export function TraitsGenerator(){
+//PAS IMPLEMENTE
+export function traitsGenerator(){
 
     const rarity = [{rarity: "commun"}, {rarity: "rare"}];
 
@@ -17,4 +17,4 @@ export function TraitsGenerator(){
     
 }
 
-export default TraitsGenerator;
+export default traitsGenerator;

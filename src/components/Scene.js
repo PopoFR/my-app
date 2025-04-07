@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
-import { AmbientLight } from 'three';
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
 import * as Export from "../components/Export";
-import { TraitsGenerator } from "./punk/traits/TraitsGenerator.js"
+import { traitsGenerator } from "./punk/traits/TraitsGenerator.js"
 import { getRandomPunk, getPunk, getXPunk} from './PunkFactory';
 import {Link} from "react-router-dom";
 
@@ -28,7 +26,7 @@ const Scene = () => {
     }, []);
 
     function init() {
-        TraitsGenerator();
+        traitsGenerator();
         createScene();
         createCamera();
         createLights();
@@ -36,7 +34,7 @@ const Scene = () => {
         createControls();
         createRenderer();
         animate();
-        setPunks(getXPunk(5))
+        setPunks(getXPunk(1))
     }
 
 
@@ -170,7 +168,6 @@ const Scene = () => {
 
     return (
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-
 
             <Link to="/Viewer"> Viewer </Link>
             <Link to="/Neon"> Neon </Link>

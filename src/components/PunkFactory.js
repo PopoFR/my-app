@@ -1,4 +1,3 @@
-import { ifStatement, isIfStatement } from "@babel/types";
 import * as THREE from "three";
 import { addPixelBlockToScene } from './PixelFactory';
 import { getRandomElem } from './Utils'
@@ -236,7 +235,7 @@ function createBlunt(){
 
 function getFixedTraits() {
     const bodyColor = colors['body'][2];
-    const hairColor = colors['hairs'][2];
+    const hairColor = colors['hairs'][0];
     const metalColor = colors['metal'][0].hex;
 
     let mikey = [
@@ -244,71 +243,20 @@ function getFixedTraits() {
         new Trait(base[0], bodyColor.hexs.body),
         new Trait(base[1], bodyColor.hexs.reflect),
         new Trait(base[2], bodyColor.hexs.eye),
-        new Trait(beards[3], hairColor.hexs.beard),
-        new Trait(base[3], hairColor.hexs.eyebrow),
+        new Trait(beards[5], hairColor.hexs.beard),
+        // new Trait(base[3], hairColor.hexs.eyebrow),
         new Trait(base[4], hairColor.hexs.eyebrow),
         new Trait(eyes[3]),
-        new Trait(hats[17]),
+        // new Trait(hats[17]),
         new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
         new Trait(hairs[4], hairColor.hexs.hair),
-        new Trait(glasses[6]),
+        new Trait(glasses[9]),
 
         new Trait(base[5]),
-        new Trait(encircleAndDrool[1]),
-        new Trait(encircleAndDrool[2]),
-        new Trait(smokes[1]),
+        // new Trait(encircleAndDrool[1]),
+        // new Trait(encircleAndDrool[2]),
+        // new Trait(smokes[1]),
     ]
-
-    // let mikey2 = [
-    //     new Trait(base[0], bodyColor.hexs.body),
-    //     new Trait(base[1], bodyColor.hexs.reflect),
-    //     new Trait(base[2], bodyColor.hexs.eye),
-    //     new Trait(beards[3], hairColor.hexs.beard),
-    //     new Trait(base[3], hairColor.hexs.eyebrow),
-    //     new Trait(base[4], hairColor.hexs.eyebrow),
-    //     new Trait(eyes[3]),
-    //     new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
-    //     new Trait(base[5]),
-    //     new Trait(encircleAndDrool[1]),
-    //     new Trait(encircleAndDrool[2]),
-    //     new Trait(hats[20]),
-    //     new Trait(hairs[4], hairColor.hexs.hair),
-    //     new Trait(smokes[1]),
-    // ]
-
-    // let scumbag = [
-    //     new Trait(base[0], bodyColor.hexs.body),
-    //     new Trait(base[1], bodyColor.hexs.reflect),
-    //     new Trait(base[2], bodyColor.hexs.eye),
-    //     new Trait(jewels[1], metalColor),
-    //     new Trait(jewels[0], metalColor),
-    //     new Trait(beards[8], hairColor.hexs.beard),
-    //     new Trait(base[3], hairColor.hexs.eyebrow),
-    //     new Trait(base[4], hairColor.hexs.eyebrow),
-    //     new Trait(eyes[2]),
-    //     new Trait(encircleAndDrool[0], bodyColor.hexs.encircles),
-    //     new Trait(base[5]),
-    //     new Trait(encircleAndDrool[1]),
-    //     new Trait(encircleAndDrool[2]),
-    //     new Trait(hats[25]),
-    //     new Trait(hairs[0], hairColor.hexs.hair),
-    //     new Trait(smokes[1]),
-    // ]
-
-    // let traitsRocker = [
-    //     new Trait(base[0], bodyColor.hexs.body),
-    //     new Trait(base[1], bodyColor.hexs.reflect),
-    //     new Trait(base[2], bodyColor.hexs.eye),
-    //     new Trait(jewels[1], metalColor),
-    //     new Trait(jewels[0], metalColor),
-    //     new Trait(beards[3], hairColor.hexs.beard),
-    //     new Trait(base[3], hairColor.hexs.eyebrow),
-    //     new Trait(base[4], hairColor.hexs.eyebrow),
-    //     new Trait(eyes[0]),
-    //     new Trait(base[5]),
-    //     new Trait(hats[15]),
-    //     new Trait(hairs[3], hairColor.hexs.hair),
-    // ]
 
     if (bodyColor.name !== "Ape")
         mikey.push(new Trait(noses[0], bodyColor.hexs.nose))

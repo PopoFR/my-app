@@ -65,15 +65,11 @@ export function addPixelBlockToScene(pixels, colors, element) {
           }
 
 
-          
-
-
           let cube = new THREE.Mesh(geometry, material);
           if (!element.isMerged) {
             cube.castShadow = true;
             cube.receiveShadow = true;
           }
-          
      
           pixels.push({ newX, newY, z })
           cube.position.set(newX, newY, z);
@@ -102,21 +98,6 @@ function pixelExist(pixels, x, y, z) {
   return pixels.some(pixel => pixel.x == x && pixel.y == y && pixel.z == z);
 }
 
-function addWideFrame(object) {
-  let geo = new THREE.EdgesGeometry(object.geometry);
-  let mat = new THREE.LineBasicMaterial({
-    color: 0x000000,
-    linewidth: 4,
-    transparent: true,
-    opacity: 0,
-    name: "smoka"
-  });
-
-  let wireframe = new THREE.LineSegments(geo, mat);
-  wireframe.renderOrder = 1; // make sure wireframes are rendered 2nd
-  object.add(wireframe);
-}
-
 function getBase64(str) {
   return str.default.split(',')[1];
 }
@@ -130,21 +111,3 @@ const base64ToArrayBuffer = function (base64) {
 
   return bytes.buffer;
 }
-
-
-  // let tweenWidframe =  new TWEEN.Tween(wide).to( { opacity: 0 }, 3000 ).start();
-
-
-//   let tween = new TWEEN.Tween(object.rotation)
-//     .to({ y: "-" + Math.PI / 2 }, 1000)
-//     .delay(1000)
-//     .onComplete(function () {
-//       if (Math.abs(object.rotation.y) >= 2 * Math.PI) {
-//         object.rotation.y = object.rotation.y % (2 * Math.PI);
-//       }
-//     })
-//     .start();
-
-//   tween.repeat(Infinity);
-// }
-
