@@ -1,0 +1,45 @@
+[
+    {
+        "type": "accessory",
+        "id": 0,
+        "name": "encircles",
+        "elems": [
+            {
+                "name": "accessories_encircles",
+                "src": "./punk/traits/img/male/accessories/accessories_encircles.png",
+                "thikness": 1,
+                "z": 0
+            }
+        ]
+    },
+    {
+        "type": "drool",
+        "id": 1,
+        "name": "drool",
+        "isCustomZ": true,
+        "elems": [
+            {
+                "name": "accessories_drool",
+                "isDrool": true,
+                "src": "./punk/traits/img/male/accessories/accessories_drool.png",
+                "thikness": 0.005,
+                "z":0.5
+            }
+        ]
+    },
+    {
+        "type": "drool",
+        "id": 2,
+        "name": "nose_drool",
+        "isCustomZ": true,
+        "elems": [
+            {
+                "name": "accessories_drool",
+                "isNoseDrool": true,
+                "src": "./punk/traits/img/male/accessories/nose_drool.png",
+                "thikness": 1,
+                "z": 0.5
+            }
+        ]
+    }
+]

@@ -757,7 +757,7 @@ function GifReaderLZWOutputIndexStream(code_stream, p, output, output_length) {
     var chase_code = code < next_code ? code : prev_code;
 
     // Chase what we will output, either {CODE} or {CODE-1}.
-    var chase_length = 0;
+    var chase_length = 0; 
     var chase = chase_code;
     while (chase > clear_code) {
       chase = code_table[chase] >> 8;

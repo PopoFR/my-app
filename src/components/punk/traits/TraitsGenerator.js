@@ -1,29 +1,20 @@
-const mouths = require('../traits/json/Mouth.json');
 
-
-export function TraitsGenerator(){
+//PAS IMPLEMENTE
+export function traitsGenerator(){
 
     const rarity = [{rarity: "commun"}, {rarity: "rare"}];
 
-    console.log("TraitsGenerator")
     // expected output: 0, 1 or 2
     // console.log(getRandomInt(3));
-    
-    mouths.forEach(element => {
-        element.test = "T";
-    });
 
-    console.log(calculNbToMint(20, 5))
-    
     function calculNbToMint(rarity, nbItemDifferent){
         const nbPunk = 10000;
         return (nbPunk/100*rarity)/nbItemDifferent;
     }
-
 
     // https://stackoverflow.com/questions/62413615/making-a-rarity-chance-in-javascript
 
     
 }
 
-export default TraitsGenerator;
+export default traitsGenerator;

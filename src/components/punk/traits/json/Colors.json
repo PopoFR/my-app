@@ -1,137 +1,159 @@
 {
-    "metal":
-    [
+    "metal": [
         {
             "name": "gold",
-            "hex" : "#846f6a"
-            },
-        {   
+            "rarity": 0,
+            "hex": "#ffd700"
+        },
+        {
             "name": "silver",
-            "hex" : "#808080"
+            "rarity": 50,
+            "hex": "#808080"
         }
     ],
-    "hair":
-    [
+    "hairs": [
         {
             "name": "Dark",
-            "hair" : "#100C07",
-            "beard" : "#100C07",
-            "eyebrow" : "#100C07"
+            "rarity": 0,
+            "hexs": {
+                "hair": "#291e13",
+                "beard": "#291e13",
+                "eyebrow": "#14100c"
+            }
         },
         {
             "name": "Blond",
-            "hair" : "#faf0be",
-            "beard" : "#faf0be",
-            "eyebrow" : "#faf0be"
+            "rarity": 22,
+            "hexs": {
+                "hair": "#f0d33f",
+                "beard": "#fffb5c",
+                "eyebrow": "#e2c846"
+            }
         },
         {
             "name": "Brown",
-            "hair" : "#2c1608",
-            "beard" : "#2c1608",
-            "eyebrow" : "#2c1608"
+            "rarity": 22,
+            "hexs": {
+                "hair": "#7a3d0b",
+                "beard": "#512710",
+                "eyebrow": "#531e00"
+            }
         },
         {
             "name": "Ginger",
-            "hair" : "#b06500",
-            "beard" : "#b06500",
-            "eyebrow" : "#b06500"
+            "rarity": 14,
+            "hexs": {
+                "hair": "#d96b00",
+                "beard": "#d96b00",
+                "eyebrow": "#b95b00"
+            }
         },
         {
             "name": "Grey",
-            "hair" : "#e9e4dc",
-            "beard" : "#e9e4dc",
-            "eyebrow" : "#e9e4dc"
+            "rarity": 14,
+            "hexs": {
+                "hair": "#d6d6d6",
+                "beard": "#e8e8e8",
+                "eyebrow": "#c9c9c9"
+            }
+        },
+        {
+            "name": "Pink",
+            "rarity": 3,
+            "hexs": {
+                "hair": "#ff8ebe",
+                "beard": "#e273a3",
+                "eyebrow": "#e273a3"
+            }
+        },
+        {
+            "name": "Green",
+            "rarity": 3,
+            "hexs": {
+                "hair": "#28b143",
+                "beard": "#28b143",
+                "eyebrow": "#25a23d"
+            }
         }
     ],
-    "hairs":
-    [
+    "body": [
+        {
+            "name": "Ape",
+            "rarity": 0,
+            "isApe": true,
+            "hexs": {
+                "eye": "#cdbca9",
+                "nose": "#ead9d9",
+                "reflect": "#a09384",
+                "encircles": "#756654"
+            }
+        },
         {
             "name": "Black",
-            "hex": "#100C07"
-        },
-        {
-            "name": "Blond",
-            "hex": "#faf0be"
-        },
-        {
-            "name": "Brown",
-            "hex": "#2c1608"
-        },
-        {
-            "name": "Ginger",
-            "hex": "#b06500"
-        },
-        {
-            "name": "Grey",
-            "hex": "#e9e4dc"
-        }
-    ],
-    
-    "body":
-    [
-        {
-            "name": "Black",
+            "rarity": 30,
             "hexs": {
                 "body": "#713f1d",
-                "eyebrow": "#562600",
                 "eye": "#723709",
-                "reflect": "#8b532c"
+                "nose": "#713f1d",
+                "reflect": "#8b532c",
+                "encircles": "#5d3920"
+
             }
         },
         {
             "name": "Tanned",
+            "rarity": 30,
             "hexs": {
                 "body": "#ae8b61",
-                "eyebrow": "#86581e",
                 "eye": "#a77c47",
-                "reflect": "#b69f82"
+                "nose": "#ae8b61",
+                "reflect": "#b69f82",
+                "encircles": "#967a59"
             }
         },
         {
             "name": "White",
+            "rarity": 30,
             "hexs": {
                 "body": "#dbb180",
-                "eyebrow": "#a66e2c",
                 "eye": "#d29d60",
-                "reflect": "#e7cba9"
+                "nose": "#a66e2c",
+                "reflect": "#e7cba9",
+                "encircles": "#c5a37c"
             }
         },
         {
             "name": "Alien",
+            "rarity": 3,
             "hexs": {
                 "body": "#c8fbfb",
-                "eyebrow": "",
-                "eye": "",
-                "reflect": ""
-            }
-        },
-        {
-            "name": "Ape",
-            "hexs": {
-                "body": "#352410",
-                "eyebrow": "#6a563f",
-                "eye": "#a98c6b",
-                "reflect": ""
+                "eye": "#9be0e0",
+                "nose": "#c8fbfb",
+                "reflect": "#ffffff",
+                "encircles": "#aac1c1"
             }
         },
         {
             "name": "Orc",
+            "rarity": 3,
             "hexs": {
                 "body": "#7da269",
-                "eyebrow": "#5e7253",
-                "eye": "#5e7253",
-                "reflect": "#9bbc88"
+                "eye": "#ff0000",
+                "reflect": "#9bbc88",
+                "nose": "#7da269",
+                "encircles": "#718b62"
             }
         },
         {
             "name": "Vampire",
+            "rarity": 3,
             "hexs": {
                 "body": "#ead9d9",
-                "eyebrow": "#a58d8d",
                 "eye": "#c9b2b2",
-                "reflect": "#ffffff"
+                "nose": "#ead9d9",
+                "reflect": "#ffffff",
+                "encircles": "#d2c2c2"
             }
         }
     ]
 }
-

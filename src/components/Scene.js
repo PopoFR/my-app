@@ -1,161 +1,194 @@
-import React, { useEffect, useState} from "react";
-import * as Pixel from './PixelFactory.js';
-
+import React, { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
-import TWEEN from '@tweenjs/tween.js'
-
-
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
+import * as Export from "../components/Export";
+import { traitsGenerator } from "./punk/traits/TraitsGenerator.js"
+import { getRandomPunk, getPunk, getXPunk} from './PunkFactory';
+import {Link} from "react-router-dom";
 
-import * as PunkFactory from "./punk/PunkFactory.js";
-import * as Export from "../components/Export"; 
-import Menu from './Menu'
-import {TraitsGenerator} from "./punk/traits/TraitsGenerator.js"
-
-
-
-import { GifWriter } from 'omggif'
-
-let 
-container,
-scene, 
-camera, 
-lights,
-controls, 
-renderer,
-group;
+let
+    container,
+    scene,
+    camera,
+    controls,
+    renderer;
 
 const Scene = () => {
+    const [punk, setPunk] = useState(new THREE.Group());
+    const [isLoading, setIsLoading] = useState(false);
+    const myRefname= useRef(null);
+    const [punks, setPunks] = useState([]);
 
-    // const [loading, setLoading] = useState(false);
-    const [hair, setHair] = useState(0);
-    const [actualTraits, setActualTraits] = useState([]);
-
-
-    useEffect(()=>{
-        console.log("Scene: useEffect");
+    useEffect(() => {
         init();
         return () => {
         }
-    },[]);
+    }, []);
 
-    function init(){
-        TraitsGenerator();
+    function init() {
+        traitsGenerator();
         createScene();
         createCamera();
         createLights();
         createPunk();
         createControls();
-        createPanel();
         createRenderer();
-        // Pixel.animateScene(scene)
-        exportPunk();
+        animate();
+        setPunks(getXPunk(1))
     }
 
-    function createScene(){
+
+    function createScene() {
         container = document.querySelector("#scene-container");
-        scene = new THREE.Scene();
+        scene = new THREE.Scene();  
         scene.name = "P3nkD";
+        scene.background = new THREE.Color().setHSL( 0.6, 0, 1 );
+        scene.fog = new THREE.Fog( scene.background, 1, 5000 );
     }
 
-    function createCamera(){
-        camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-        camera.position.x = 12;
-        camera.position.y = -12;
+    function createCamera() {
+        camera = new THREE.PerspectiveCamera(30, 1, 1, 5000);
+        setCameraPosition();
+        scene.add(camera);
+    }
+
+    function createLights() {
+        const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x00000, 0.4);
+        hemiLight.color.setHSL( 0.6, 1, 0.6 );
+        hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
+        hemiLight.position.set( 0, 30, 0 );
+        scene.add( hemiLight );
+
+        const dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
+        dirLight.position.set(0.1, 3, 5 );
+        scene.add( dirLight );
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 10000;
+        dirLight.shadow.mapSize.height = 10000;
+
+        const d = 30;
+        dirLight.shadow.camera.left = - d;
+        dirLight.shadow.camera.right = d;
+        dirLight.shadow.camera.top = d;
+        dirLight.shadow.camera.bottom = - d;
+
+        dirLight.shadow.camera.far = 3500;
+        dirLight.shadow.bias = - 0.00001;
+    }
+
+
+    function setCameraPosition(){
+        camera.position.x = -25;
+        camera.position.y = 15;
         camera.position.z = 50;
     }
 
-    function createLights(){
+
+    function createPunk() {
+        var myPunk = getPunk("punk 120");
+        scene.add(myPunk);
+        setPunk(myPunk);
     }
 
-    function createPunk(){
-        PunkFactory.generatePunk(scene, setActualTraits);
-    }
-
-    function createControls(){
+    function createControls() {
         controls = new OrbitControls(camera, container);
-        controls.target.set( 0, -12, 0 )
-        controls.update();
+        controls.target.set(0, 0, 0)
     }
 
-    function createPanel(){
-        const gui = new GUI({ width: 310 })
-        const cubeFolder = gui.addFolder('Customize')
-        var obj =  scene.getObjectByName("glass01");
-    }
-    
-    function createRenderer(){
-        renderer = new THREE.WebGLRenderer({preserveDrawingBuffer: true});
+    function createRenderer() {
+        renderer = new THREE.WebGLRenderer({antialias: true, preserveDrawingBuffer: true });
         renderer.domElement.id = 'p3nkd-canvas';
-        renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( window.innerWidth, window.innerHeight );
-        renderer.setClearColor( 0xffffff, 50);
-
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(150, 150);
         container.appendChild(renderer.domElement);
-    }
-    
-    async function exportPunk(){
-        const name = 'P3nkD_xxxx';
-        Export.doExport(scene, renderer, name, render)
-            .then(() => console.log("end"));
+        renderer.shadowMap.enabled = true;
+        renderer.castShadow = true;
+
+        renderer.outputEncoding = THREE.LinearEncoding;
+        // renderer.outputEncoding = THREE.sRGBEncoding;
+
     }
 
-    function update(){
+    var currentPunk;
+
+
+    var i = 0;
+    async function exportPunk() {
+        punk.clear();
+
+        setIsLoading(true);
+        controls.reset();
+        controls.target.set(0, 0, 0);
+        setCameraPosition();
+        controls.update();
+        
+        for (let index = 0; index < 3; index++) {
+            await tooglePunk();
+            i++;
+        }
+     
+        setIsLoading(false);
     }
 
-    function render(){
-        scene.rotation.y += Math.PI / 60;
+
+
+    async function tooglePunk() {
+        scene.add(punks[i]);
+
+        await Export.doExport(scene, renderer, punk.name, animatedRender)
+        punks[i].clear();
+
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function animatedRender() {
+        requestAnimationFrame(animate);
+        punk.rotation.y += Math.PI / 60;
+        render();
+    }
+
+    function render() {
         renderer.render(scene, camera);
     }
 
-    // function setOpacity(obj, opacity) {
-    //     obj.traverse(child => {
-    //       if (child instanceof THREE.Mesh) {
-    //         child.material.opacity = opacity;
-    //       }
-    //     });
-    // }
-
-    function toogleHair(e, type){
-        setHair(e)
-    }
-
-    function tooglePunk(){
-        scene.clear();
-        createPunk();
-        animate();      
-    }
-
-    function animate(gif = false) {
-
+    function animate() {
         requestAnimationFrame(animate);
+        controls.update();
         render();
-        scene.rotation.y += Math.PI / 180;
-
     }
+
+
+    function refresh() {
+        getXPunk() 
+       }
+
 
     return (
-        <>
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
+
+            <Link to="/Viewer"> Viewer </Link>
+            <Link to="/Neon"> Neon </Link>
+            <div id="scene-container"></div>
             <div>
-                <button type="button" onClick={tooglePunk}>Regen punk</button>
+                {! isLoading &&
+                    <button type="button" onClick={exportPunk}>EXPORT</button>
+                }
+                <button ref={myRefname} type="button" onClick={tooglePunk}>TOOGLE</button>
+                <button type="button" onClick={refresh}>refresh</button>
             </div>
-            {/* <div>
-                My Traits: 
-                {actualTraits.forEach((item)=>{
-                    <span>{item.id}</span>
-                })}
+            <div style={{ display: "flex", flex: 1, flexDirection: "column", alignItems: "center" }}>
+
+                {
+                    punk.children.map(trait => {
+                        return <div id={trait.id}>{trait.name}</div>
+                    })
+                }
             </div>
-            <div>
-                <Menu toogleHair = {toogleHair}/>
-                my hair : {hair}
-            </div>
-            <div>
-                {loading ? <div className="loader"/> : <button type="button" onClick={exportPunk}>export</button>}
-                {loading ? <p>loading</p> : <p>pas loading</p>}
-            </div> */}
-        </>
-       
+        </div>
+
     )
 }
 

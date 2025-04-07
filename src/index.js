@@ -2,13 +2,35 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Scene from './components/Scene';
+import Viewer from './components/Viewer';
+import Neon from './components/Neon';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 import reportWebVitals from './reportWebVitals';
 
+
 ReactDOM.render(
   <React.StrictMode>
-    <Scene />
-    <div id="scene-container"></div>
+    <Router>
+        <Switch>
+          <Route exact path="/">
+            <Scene />
+          </Route>
+          <Route path="/viewer">
+            <Viewer />
+          </Route>
+          <Route path="/neon">
+            <Neon />
+          </Route>
+        </Switch>
+    </Router>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
