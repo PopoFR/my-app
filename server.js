@@ -13,7 +13,7 @@ app.use(cors())
 //JPG FILE
 const jpgStorage = multer.diskStorage({
     destination: function (req, file, cb) {
-    cb(null, './generatedP3nkd/img')
+    cb(null, './generated/jpg')
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname )
@@ -34,7 +34,7 @@ app.post('/uploadJPG',function(req, res) {
           console.log(err)
           return res.status(500).json(err)
       }
-      console.log("P3nkD JPG saved.")
+      console.log("JPG saved.")
       return res.status(200).send(req.file)
 
 
@@ -46,7 +46,7 @@ app.post('/uploadJPG',function(req, res) {
 //GLB FILE
 const glbStorage = multer.diskStorage({
   destination: function (req, file, cb) {
-  cb(null, './generatedP3nkd/glb')
+  cb(null, './generated/glb')
 },
 filename: function (req, file, cb) {
   cb(null, file.originalname )
@@ -66,7 +66,7 @@ app.post('/uploadGLB',function(req, res) {
           console.log(err)
           return res.status(500).json(err)
       }
-      console.log("P3nkD GLB saved.")
+      console.log("GLB saved.")
       return res.status(200).send(req.file)
     })
 });
@@ -75,7 +75,7 @@ app.post('/uploadGLB',function(req, res) {
 //GIF
 const gifStorage = multer.diskStorage({ 
   destination: function (req, file, cb) {
-    cb(null, './generatedP3nkd/gifs')
+    cb(null, './generated/gif')
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname )
@@ -94,7 +94,6 @@ app.post('/uploadGIF', function (req, res) {
         console.log(err)
         return res.status(500).json(err)
     }
-    console.log("P3nkD GIF saved.")
     return res.status(200).send(req.file)
   })
 })
@@ -106,19 +105,16 @@ app.post('/updateJson', function (req, res) {
 
   var currentSearchResult = '55555555'
 
-  fs.readFile('./generatedP3nkd/punks.json', function (err, data) {
+  fs.readFile('./generated/punks.json', function (err, data) {
     console.log("reading")
     if (err)
     console.log(err)
     console.log("data")
-    console.log(data)
-    console.log("data")
 
       var json = JSON.parse(data)
-      console.log(json)
       json.push('search result: ' + currentSearchResult)
 
-      fs.writeFile('./generatedP3nkd/punks.json', JSON.stringify(json), 
+      fs.writeFile('./generated/punks.json', JSON.stringify(json), 
         function(errA) {
           if(errA) {
                console.log(errA);

@@ -17,7 +17,7 @@ const Scene = () => {
     const [punk, setPunk] = useState(new THREE.Group());
     const [isLoading, setIsLoading] = useState(false);
     const myRefname= useRef(null);
-    const [punks, setPunks] = useState([]);
+    //const [punks, setPunks] = useState([]);
 
     useEffect(() => {
         init();
@@ -26,15 +26,15 @@ const Scene = () => {
     }, []);
 
     function init() {
-        traitsGenerator();
+        traitsGenerator();//oas implémentée
         createScene();
-        createCamera();
-        createLights();
+        setCamera();
+        setLights();
         createPunk();
-        createControls();
+        setControls();
         createRenderer();
         animate();
-        setPunks(getXPunk(1))
+        //setPunks(getXPunk(1))
     }
 
 
@@ -46,13 +46,13 @@ const Scene = () => {
         scene.fog = new THREE.Fog( scene.background, 1, 5000 );
     }
 
-    function createCamera() {
+    function setCamera() {
         camera = new THREE.PerspectiveCamera(30, 1, 1, 5000);
         setCameraPosition();
         scene.add(camera);
     }
 
-    function createLights() {
+    function setLights() {
         const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x00000, 0.4);
         hemiLight.color.setHSL( 0.6, 1, 0.6 );
         hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
@@ -90,7 +90,7 @@ const Scene = () => {
         setPunk(myPunk);
     }
 
-    function createControls() {
+    function setControls() {
         controls = new OrbitControls(camera, container);
         controls.target.set(0, 0, 0)
     }
@@ -110,12 +110,13 @@ const Scene = () => {
     }
 
     var currentPunk;
-
-
     var i = 0;
+    
     async function exportPunk() {
-        punk.clear();
+        console.log("exportPunk");
+        await Export.doExport(scene, renderer, punk.name, animatedRender)
 
+        /*
         setIsLoading(true);
         controls.reset();
         controls.target.set(0, 0, 0);
@@ -128,15 +129,19 @@ const Scene = () => {
         }
      
         setIsLoading(false);
+        */
     }
 
 
 
     async function tooglePunk() {
-        scene.add(punks[i]);
+        console.log("tooglePunk");
+        var randomPunk = getRandomPunk();
+        scene.remove(punk);
+        scene.add(randomPunk);
+        setPunk(randomPunk) ;
 
-        await Export.doExport(scene, renderer, punk.name, animatedRender)
-        punks[i].clear();
+        //punks[i].clear();
 
     }
 
@@ -160,7 +165,6 @@ const Scene = () => {
         render();
     }
 
-
     function refresh() {
         getXPunk() 
        }
@@ -170,7 +174,6 @@ const Scene = () => {
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
 
             <Link to="/Viewer"> Viewer </Link>
-            <Link to="/Neon"> Neon </Link>
             <div id="scene-container"></div>
             <div>
                 {! isLoading &&

@@ -247,27 +247,6 @@ const Viewer = () => {
     }
 
     function render() {
-
-        // raycaster.setFromCamera( pointer, camera );
-        // var obj = scene.getObjectByName( "punk_120" );
-        // const intersects = raycaster.intersectObjects( onOffCubes, true );
-        // if ( intersects.length > 0 ) {
-        //     if ( INTERSECTED != intersects[ 0 ].object ) {
-
-        //         if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
-        //         INTERSECTED = intersects[ 0 ].object;
-        //         INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-        //         INTERSECTED.material.emissive.setHex( 0xff0000 );
-        //         document.body.style.cursor = 'grab'
-        //         console.log("survol")
-        //     }
-        // } else {
-        //     if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
-        //     document.body.style.cursor = 'default'
-
-        //     INTERSECTED = null;
-        // }
-
         renderer.render(scene, camera);
     }
 

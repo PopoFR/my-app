@@ -3,63 +3,53 @@ import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter"
 import { GifWriter } from 'omggif'
 import {NeuQuant} from '../script/NeuQuant'
 
-export async function doExport(scene, renderer, name, animatedRender){
+export async function doExport(scene, renderer, filename, animatedRender){
     return Promise.all([
-        exportGLB(scene, name)
-        ,exportJPG(renderer, name)
-        // ,exportGif(animatedRender, name) 
-    ])
+        exportGLB(scene, filename)
+       ,exportJPG(renderer, filename)
+       //exportGif(animatedRender, filename) 
+    ]).then(console.log("EXPORT DONE !"));
 }
 
-async function updateJson(scene) {
-    console.log("updateJson")
-    const url = 'http://localhost:8000/updateJson';
-    const filename = "test.json";
-    await upload(url, new Blob([]), filename);
+async function upload(url, file, filename){
+    const data = new FormData();
+    data.append('file', file, filename);
+    axios.post(url, data, {})
 }
 
-export async function uploadJson(json) {
-    console.log("uploadJson")
-    const url = 'http://localhost:8000/uploadJson';
-    const filename = "NEW.json";
-    await axios.post(url, json, {})
-}
 
-async function exportGLB(scene, name) {
-    console.log(name)
-    const filename = `${name}.glb`
+async function exportGLB(scene, filename) {
+    const filenameWithExtension = `${filename}.glb`
     const url = 'http://localhost:8000/uploadGLB';
     const exporter = new GLTFExporter();
 
     exporter.parse(
         scene,
          async function (arrayBuffer) {
-             await upload(url, new Blob([arrayBuffer]), filename);
+             await upload(url, new Blob([arrayBuffer]), filenameWithExtension);
         },
         { binary: true }
     );
 }
 
-async function exportJPG(renderer, name){
-    console.log(name)
-    const filename = `${name}.jpg`
+async function exportJPG(renderer, filename){
+    const filenameWithExtension = `${filename}.jpg`
     const url = "http://localhost:8000/uploadJPG";
     const strMime = "image/jpeg";
     const base64Image = renderer.domElement.toDataURL(strMime);
-    const file = dataURLtoFile(base64Image, filename);
-    await upload(url, file, filename)
+    const file = dataURLtoFile(base64Image, filenameWithExtension);
+    await upload(url, file, filenameWithExtension)
 }
 
-async function exportGif(animatedRender, name){
-    console.log("exportGif")
+async function exportGif(animatedRender, filename){
 
-    const filename = `${name}.gif`
+    const filenameWithExtension = `${filename}.gif`
     const url = "http://localhost:8000/uploadGIF";
     const canvas1 = document.getElementById( 'p3nkd-canvas' );
     const buffer = await generateGIF( canvas1, animatedRender, 4, 30 );
     const blob = new Blob( [ buffer ], { type: 'image/gif' } );
 
-    await upload(url, blob, filename)
+    await upload(url, blob, filenameWithExtension)
 }
 
 async function generateGIF(element, animatedRender, duration = 1, fps = 30) {
@@ -130,30 +120,17 @@ async function generateGIF(element, animatedRender, duration = 1, fps = 30) {
         const data = context.getImageData(0, 0, canvas.width, canvas.height).data;
 
         var nqInPixels = rgba2rgb(data, matte, transparent);
-        // console.log("nqInPixels")
-        // console.log(nqInPixels)
-        // console.log("nqInPixels")
 
         var len = nqInPixels.length;
         var nPix = len / 3;
         var map = [];
         var nq = new NeuQuant(nqInPixels, len, 10);
-        // console.log("nq")
-        // console.log(nq)
-        // console.log("nq")
+
 
         // initialize quantizer
         var paletteRGB = nq.process(); // create reduced 
-        
-        // console.log("paletteRGB")
-        // console.log(paletteRGB)
-        // console.log("paletteRGB")
 
         var palette = rgb2num(paletteRGB);
-
-        // console.log("palette")
-        // console.log(palette)
-        // console.log("palette")
 
         // Force palette to be power of 2
 
@@ -180,18 +157,23 @@ async function generateGIF(element, animatedRender, duration = 1, fps = 30) {
             resolve(buffer.subarray(0, writer.end()));
         }
     });
-
 }
 
-async function upload(url, file, filename){
-    console.log(`uploading ${filename}`);
-    const data = new FormData();
-    data.append('file', file, filename);
-    axios.post(url, data, {})
+async function updateJson(scene) {
+    console.log("updateJson")
+    const url = 'http://localhost:8000/updateJson';
+    const filenameWithExtension = "test.json";
+    await upload(url, new Blob([]), filenameWithExtension);
+}
+
+export async function uploadJson(json) {
+    console.log("uploadJson")
+    const url = 'http://localhost:8000/uploadJson';
+    const filename = "NEW.json";
+    await axios.post(url, json, {})
 }
 
 function dataURLtoFile(dataurl, filename) {
- 
     var arr = dataurl.split(','),
         mime = arr[0].match(/:(.*?);/)[1],
         bstr = atob(arr[1]), 
