@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as Export from "../components/Export";
@@ -26,7 +26,7 @@ const Scene = () => {
     }, []);
 
     function init() {
-        traitsGenerator();//oas implémentée
+        //traitsGenerator();//pas implémentée
         createScene();
         setCamera();
         setLights();
@@ -99,7 +99,7 @@ const Scene = () => {
         renderer = new THREE.WebGLRenderer({antialias: true, preserveDrawingBuffer: true });
         renderer.domElement.id = 'p3nkd-canvas';
         renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(150, 150);
+        renderer.setSize(400, 400);
         container.appendChild(renderer.domElement);
         renderer.shadowMap.enabled = true;
         renderer.castShadow = true;
@@ -132,17 +132,11 @@ const Scene = () => {
         */
     }
 
-
-
     async function tooglePunk() {
-        console.log("tooglePunk");
         var randomPunk = getRandomPunk();
         scene.remove(punk);
         scene.add(randomPunk);
         setPunk(randomPunk) ;
-
-        //punks[i].clear();
-
     }
 
     function sleep(ms) {

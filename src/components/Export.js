@@ -120,8 +120,11 @@ async function generateGIF(element, animatedRender, duration = 1, fps = 30) {
         const data = context.getImageData(0, 0, canvas.width, canvas.height).data;
 
         var nqInPixels = rgba2rgb(data, matte, transparent);
+        console.log("nqInPixels = "+nqInPixels);
 
         var len = nqInPixels.length;
+        console.log("len = "+len);
+
         var nPix = len / 3;
         var map = [];
         var nq = new NeuQuant(nqInPixels, len, 10);

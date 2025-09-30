@@ -13,7 +13,7 @@ app.use(cors())
 //JPG FILE
 const jpgStorage = multer.diskStorage({
     destination: function (req, file, cb) {
-    cb(null, './generated/jpg')
+    cb(null, './exported/jpg')
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname )
@@ -46,7 +46,7 @@ app.post('/uploadJPG',function(req, res) {
 //GLB FILE
 const glbStorage = multer.diskStorage({
   destination: function (req, file, cb) {
-  cb(null, './generated/glb')
+  cb(null, './exported/glb')
 },
 filename: function (req, file, cb) {
   cb(null, file.originalname )
@@ -75,7 +75,7 @@ app.post('/uploadGLB',function(req, res) {
 //GIF
 const gifStorage = multer.diskStorage({ 
   destination: function (req, file, cb) {
-    cb(null, './generated/gif')
+    cb(null, './exported/gif')
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname )
@@ -105,7 +105,7 @@ app.post('/updateJson', function (req, res) {
 
   var currentSearchResult = '55555555'
 
-  fs.readFile('./generated/punks.json', function (err, data) {
+  fs.readFile('./exported/punks.json', function (err, data) {
     console.log("reading")
     if (err)
     console.log(err)
@@ -114,7 +114,7 @@ app.post('/updateJson', function (req, res) {
       var json = JSON.parse(data)
       json.push('search result: ' + currentSearchResult)
 
-      fs.writeFile('./generated/punks.json', JSON.stringify(json), 
+      fs.writeFile('./exported/punks.json', JSON.stringify(json), 
         function(errA) {
           if(errA) {
                console.log(errA);

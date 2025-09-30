@@ -18,63 +18,19 @@ const masks = require('./punk/traits/json/Mask.json');
 const encircleAndDrool = require('./punk/traits/json/EncircleAndDrool.json');
 
 export function getPunk() {
-    var name = "random punk";
     var traits = getFixedTraits();
     var punk = generatePunk(traits);
-    punk.name = name;
+    punk.name = "fixed punk";
     return punk;
 }
 
 export function getRandomPunk() {
-    var name = "random punk";
     var randomTraits = getRandomTraits();
     var punk = generatePunk(randomTraits);
-    punk.name = name;
+    punk.name = "random punk";
     return punk;
 }
 
-
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min +1)) + min;
-  }
-  
-function getRandomLastname(){
-    const lastnames = require('./punk/traits/json/Lastname.json');
-    const listCount = lastnames.lastname.length;
-    var index = getRandomIntInclusive(1, listCount);
-    return lastnames.lastname[index];
-}
-
-// AJOUTER LE NOM DU PUNK
-export function getXPunk(ammount) {
-
-    // var lastname = getRandomLastname();
-    // punk.name = `${lastname}_#${i}`;
-
-    var randomTraits = [];
-
-    //on genere les traits de x (ammount) punk
-    for (let index = 0; index < ammount; index++) {
-        randomTraits.push(getRandomTraits());
-    }
-    //on supprime les doublons
-    let json = new Set(randomTraits.map(JSON.stringify));
-    //json to array
-    let distinctTraitsList = Array.from(json).map(JSON.parse);
-
-    var punks = [];
-
-    //pour chaques traits, on genere le punk3d
-    distinctTraitsList.forEach((element, i) => {
-        var punk = generatePunk(element);
-        punk.name = `Junk3d_${i+1}`;
-        punks.push(punk);
-    });
-
-    return punks;
-}
 
 function generatePunk(traits) {
 
@@ -273,6 +229,7 @@ function getBase(bodyColor) {
     ];
 }
 
+//TO DO A TRANSFERER EN RARIRITY DANS LES JSON ?
 
 //les ratio de rarity par type d'items
 const hairRatio = 1;
@@ -310,7 +267,8 @@ function getRandomTraits() {
     var isMasked = false;
     var glassName;
 
-    allTraits = getRandomTrait(jewels, jewelRatio, allTraits, metalColor);    //BIJOUX
+    //BIJOUX
+    allTraits = getRandomTrait(jewels, jewelRatio, allTraits, metalColor);    
 
     
     //BARBE
@@ -334,8 +292,11 @@ function getRandomTraits() {
         }
     }
 
-    allTraits.push(new Trait(base[5]));    //BOUCHE
-    allTraits = getRandomTrait(eyes, eyesRatio, allTraits);    //YEUX
+    //BOUCHE
+    allTraits.push(new Trait(base[5]));    
+
+    //YEUX
+    allTraits = getRandomTrait(eyes, eyesRatio, allTraits);    
 
 
     var randomGlasses;
@@ -366,6 +327,7 @@ function getRandomTraits() {
     return allTraits;
 };
 
+//TODO l'idée serai de faire un premier palier: bronze, argent, etc... puis un second palier avec 3 niveau de rarité (3 étoiles)
 //Affiche/N'affiche pas, aléatoirement selon tableau rarité des items; un item; puis selectionne aleatoirement un item, selon la rarité au sein du type d'item (item.rarity)
 function getRandomTrait(traits, max, finalTraits, color) {
     if (checkIsPicked(max)) {
@@ -442,3 +404,54 @@ function pickRandom(items) {
 }
 
 
+
+
+
+
+
+//TODO PLUS TARD.
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min +1)) + min;
+  }
+  
+function getRandomLastname(){
+    const lastnames = require('./punk/traits/json/Lastname.json');
+    const listCount = lastnames.lastname.length;
+    var index = getRandomIntInclusive(1, listCount);
+    return lastnames.lastname[index];
+}
+
+// AJOUTER LE NOM DU PUNK
+export function getXPunk(ammount) {
+
+    // var lastname = getRandomLastname();
+    // punk.name = `${lastname}_#${i}`;
+
+    var randomTraits = [];
+
+
+    //todo boucle while avec verification si il est déjà dans la liste.
+    //> on continue a ajouter jusqu'a ce qu'on atteigne le  ammount)
+    //on genere les traits de x (ammount) punk
+    for (let index = 0; index < ammount; index++) {
+        randomTraits.push(getRandomTraits());
+    }
+    //on supprime les doublons
+    let json = new Set(randomTraits.map(JSON.stringify));
+    //json to array
+    let distinctTraitsList = Array.from(json).map(JSON.parse);
+
+    var punks = [];
+
+    //pour chaques traits, on genere le punk3d
+    distinctTraitsList.forEach((element, i) => {
+        var punk = generatePunk(element);
+        punk.name = `Junk3d_${i+1}`;
+        punks.push(punk);
+    });
+
+    return punks;
+}
